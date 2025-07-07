@@ -1,0 +1,37 @@
+name: 自动生成GitHub Trending页面
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 每天UTC+0 2点运行（北京时间10点）
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v3
+
+      - name: 设置Python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 安装依赖
+        run: |
+          pip install requests beautifulsoup4 openai
+
+      - name: 运行脚本生成HTML
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python github_trending_cards.py
+          mv github_trending_cards.html index.html
+
+      - name: 部署到GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          force_orphan: true
