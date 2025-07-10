@@ -28,6 +28,10 @@
 ## AI 总结功能
 如需生成 AI 总结，请在 `github_trending_cards.py` 中填写你的 OpenRouter API Key。
 
+## 效果预览
+
+### 主页面展示
+![主页面展示](img.png)
 ---
 
 欢迎 Star、Fork 和提 Issue！ 
