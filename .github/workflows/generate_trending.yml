@@ -1,0 +1,65 @@
+name: 🚀 自动生成GitHub趋势榜单
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 每天UTC时间2点（北京时间10点）
+  workflow_dispatch:  # 支持手动触发
+  push:
+    branches: [ main, master ]  # 推送时也触发
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: 📥 检出代码
+        uses: actions/checkout@v4
+
+      - name: 🐍 设置Python环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 openai
+
+      - name: 🎯 生成趋势榜单页面
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python github_trending_cards.py
+          # 确保生成了HTML文件
+          if [ ! -f "github_trending_cards.html" ]; then
+            echo "❌ HTML文件生成失败"
+            exit 1
+          fi
+          echo "✅ HTML文件生成成功"
+
+      - name: 📄 准备发布文件
+        run: |
+          # 创建发布目录
+          mkdir -p publish
+          # 复制必要文件
+          cp github_trending_cards.html publish/index.html
+          cp github_trending_cards.css publish/
+          # 如果有展示图片也复制
+          if [ -f "展示1.png" ]; then
+            cp "展示1.png" publish/
+          fi
+          echo "📁 发布文件准备完成"
+
+      - name: 🚀 部署到GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./publish
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: '🎨 更新GitHub趋势榜单 - ${{ github.event.head_commit.message }}'
