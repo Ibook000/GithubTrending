@@ -1,4 +1,3 @@
-
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -19,12 +18,24 @@ def fetch_github_trending(since='daily'):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
     
     try:
-        print(f'正在获取 {since} 榜单数据...')
+        print(f'🌐 正在访问: {url}')
         response = requests.get(url, headers=headers, timeout=30)
+        print(f'📡 响应状态码: {response.status_code}')
         response.raise_for_status()
+        
         soup = BeautifulSoup(response.text, 'html.parser')
-    except requests.exceptions.RequestException as e:
-        print(f'获取 {since} 榜单失败: {e}')
+        print(f'📄 页面解析成功，内容长度: {len(response.text)} 字符')
+    except requests.exceptions.Timeout:
+        print(f'⏰ 获取 {since} 榜单超时（30秒）')
+        return []
+    except requests.exceptions.ConnectionError:
+        print(f'🔌 网络连接错误，无法访问GitHub')
+        return []
+    except requests.exceptions.HTTPError as e:
+        print(f'🚫 HTTP错误: {e}')
+        return []
+    except Exception as e:
+        print(f'❌ 获取 {since} 榜单失败: {e}')
         return []
     repo_list = []
     for repo in soup.find_all('article', class_='Box-row')[:10]:
@@ -268,13 +279,30 @@ def generate_html(all_repos):
     print('已生成 github_trending_cards.html，使用浏览器打开即可查看。')
 
 if __name__ == '__main__':
+    print('🚀 开始生成GitHub趋势榜单...')
+    
+    # 从环境变量获取API密钥
     api_key = os.getenv('OPENROUTER_API_KEY')
+    if api_key:
+        print(f'✅ 检测到API密钥: {api_key[:10]}...')
+    else:
+        print('⚠️ 未检测到OPENROUTER_API_KEY，将不生成AI总结。')
+    
     all_repos = {}
     for since in ['daily', 'weekly', 'monthly']:
+        print(f'\n📊 开始获取 {since} 榜单...')
         repos = fetch_github_trending(since)
-        if api_key:
+        print(f'📝 获取到 {len(repos)} 个项目')
+        
+        if api_key and repos:
+            print('🤖 开始生成AI总结...')
             repos = ai_summarize_projects(repos, api_key)
-        else:
-            print('未检测到OPENROUTER_API_KEY，将不生成AI总结。')
+            print('✅ AI总结生成完成')
+        elif not repos:
+            print('⚠️ 未获取到项目数据，跳过AI总结')
+        
         all_repos[since] = repos
+    
+    print('\n🎨 开始生成HTML页面...')
     generate_html(all_repos)
+    print('🎉 GitHub趋势榜单生成完成！')
