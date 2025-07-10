@@ -64,26 +64,65 @@ def fetch_github_trending(since='daily'):
 # 调用OpenRouter大模型生成总结
 def ai_summarize_projects(repos, api_key):
     if OpenAI is None:
-        print('未安装openai库，无法生成AI总结。')
+        print('❌ 未安装openai库，无法生成AI总结。')
         return repos
-    client = OpenAI(
-        base_url="https://openrouter.ai/api/v1",
-        api_key=api_key,
-    )
-    for repo in repos:
+    
+    print(f'🔗 正在连接OpenRouter API...')
+    try:
+        client = OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=api_key,
+            timeout=30.0  # 设置30秒超时
+        )
+        print(f'✅ OpenRouter客户端创建成功')
+    except Exception as e:
+        print(f'❌ 创建OpenRouter客户端失败: {e}')
+        return repos
+    
+    success_count = 0
+    for i, repo in enumerate(repos, 1):
+        print(f'🤖 正在处理第 {i}/{len(repos)} 个项目: {repo["title"]}')
         prompt = f"请用一句中文总结这个GitHub项目的核心用途和亮点不要有其他符号：\n项目名称：{repo['title']}\n简介：{repo['description']}"
+        
         try:
             completion = client.chat.completions.create(
                 model="deepseek/deepseek-r1-0528:free",
                 messages=[
                     {"role": "user", "content": prompt}
-                ]
+                ],
+                timeout=30
             )
             summary = completion.choices[0].message.content.strip()
             repo['summary'] = summary
+            success_count += 1
+            print(f'✅ AI总结成功: {summary[:50]}...')
+            
         except Exception as e:
             repo['summary'] = 'AI总结生成失败'
-            print(f"AI总结失败: {repo['title']} - {e}")
+            error_type = type(e).__name__
+            print(f"❌ AI总结失败: {repo['title']} - {error_type}: {str(e)}")
+            
+            # 如果是连接错误，尝试等待后重试一次
+            if 'Connection' in str(e) or 'timeout' in str(e).lower():
+                print(f'⏳ 等待5秒后重试...')
+                import time
+                time.sleep(5)
+                try:
+                    completion = client.chat.completions.create(
+                        model="deepseek/deepseek-r1-0528:free",
+                        messages=[
+                            {"role": "user", "content": prompt}
+                        ],
+                        timeout=30
+                    )
+                    summary = completion.choices[0].message.content.strip()
+                    repo['summary'] = summary
+                    success_count += 1
+                    print(f'✅ 重试成功: {summary[:50]}...')
+                except Exception as retry_e:
+                    print(f'❌ 重试也失败: {retry_e}')
+    
+    print(f'📊 AI总结统计: 成功 {success_count}/{len(repos)} 个项目')
     return repos
 # 生成HTML卡片页面
 
@@ -298,6 +337,17 @@ if __name__ == '__main__':
             print('🤖 开始生成AI总结...')
             repos = ai_summarize_projects(repos, api_key)
             print('✅ AI总结生成完成')
+            
+            # 检查是否有成功的AI总结，如果都失败了则使用备用方案
+            successful_summaries = sum(1 for repo in repos if repo.get('summary') and repo['summary'] != 'AI总结生成失败')
+            if successful_summaries == 0:
+                print('⚠️ 所有AI总结都失败，使用备用总结方案...')
+                for repo in repos:
+                    # 生成简单的备用总结
+                    lang = repo.get('language', '未知')
+                    desc = repo.get('description', '无描述')[:50]
+                    repo['summary'] = f"一个使用{lang}开发的项目：{desc}..."
+                print(f'✅ 已为 {len(repos)} 个项目生成备用总结')
         elif not repos:
             print('⚠️ 未获取到项目数据，跳过AI总结')
         
