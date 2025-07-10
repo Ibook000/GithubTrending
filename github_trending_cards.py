@@ -17,8 +17,15 @@ def fetch_github_trending(since='daily'):
     url = f'https://github.com/trending?since={since}'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-    response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    try:
+        print(f'正在获取 {since} 榜单数据...')
+        response = requests.get(url, headers=headers, timeout=30)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+    except requests.exceptions.RequestException as e:
+        print(f'获取 {since} 榜单失败: {e}')
+        return []
     repo_list = []
     for repo in soup.find_all('article', class_='Box-row')[:10]:
         title = repo.h2.a.get_text(strip=True).replace('\n', '').replace(' ', '')
@@ -79,14 +86,43 @@ def generate_html(all_repos):
     <title>GitHub 趋势榜单（{today}）</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="github_trending_cards.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>GitHub 趋势榜单（{today}）</h1>
-    <div style="text-align:center;margin-bottom:32px;">
-        <button class="btn" onclick="showTab('daily')">日榜</button>
-        <button class="btn" onclick="showTab('weekly')">周榜</button>
-        <button class="btn" onclick="showTab('monthly')">月榜</button>
+<body data-theme="light">
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
     </div>
+    
+    <!-- 页面标题 -->
+    <div class="header-container">
+        <h1>
+            <i class="fab fa-github"></i>
+            GitHub 趋势榜单
+            <span class="date-badge">{today}</span>
+        </h1>
+        <p class="subtitle">发现最热门的开源项目</p>
+    </div>
+    
+    <!-- 标签页导航 -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="showTab('daily')" data-tab="daily">
+            <i class="fas fa-calendar-day"></i>
+            <span>日榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('weekly')" data-tab="weekly">
+            <i class="fas fa-calendar-week"></i>
+            <span>周榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('monthly')" data-tab="monthly">
+            <i class="fas fa-calendar-alt"></i>
+            <span>月榜</span>
+        </button>
+    </div>
+    
     <div id="daily" class="container tab-content">
 '''
     for repo in all_repos['daily']:
@@ -145,12 +181,85 @@ def generate_html(all_repos):
     html += '''
     </div>
     <script>
+    // 主题切换功能
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // 添加切换动画
+        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+    }
+    
+    // 页面加载时恢复主题设置
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+    
+    // 标签页切换功能
     function showTab(tab) {
+        // 隐藏所有标签页内容
         document.getElementById('daily').style.display = 'none';
         document.getElementById('weekly').style.display = 'none';
         document.getElementById('monthly').style.display = 'none';
+        
+        // 显示选中的标签页
         document.getElementById(tab).style.display = '';
+        
+        // 更新标签页按钮状态
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+        
+        // 添加切换动画
+        const container = document.getElementById(tab);
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            container.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+        }, 50);
+        
+        setTimeout(() => {
+            container.style.transition = '';
+        }, 450);
     }
+    
+    // 卡片动画效果
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    });
     </script>
 </body>
 </html>'''
@@ -159,7 +268,7 @@ def generate_html(all_repos):
     print('已生成 github_trending_cards.html，使用浏览器打开即可查看。')
 
 if __name__ == '__main__':
-    api_key = '这是我的keysk-or-v1-2f6818462600771270e5b9e6c0ebe6b0f9e6c7bafc8ee6d1260bca078254339a'
+    api_key = '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'
     all_repos = {}
     for since in ['daily', 'weekly', 'monthly']:
         repos = fetch_github_trending(since)
