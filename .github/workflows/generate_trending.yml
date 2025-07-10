@@ -98,6 +98,9 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
+          # 拉取最新更改避免冲突
+          git pull origin main --rebase
+          
           # 添加历史文件
           git add history/
           
@@ -108,8 +111,18 @@ jobs:
             # 提交历史文件
             DATE=$(date +%Y-%m-%d)
             git commit -m "📅 保存 $DATE 的GitHub趋势榜单历史记录"
-            git push
-            echo "✅ 历史文件已提交到仓库"
+            
+            # 重试推送机制
+            for i in {1..3}; do
+              if git push origin main; then
+                echo "✅ 历史文件已提交到仓库"
+                break
+              else
+                echo "⚠️ 推送失败，尝试第 $i 次重试..."
+                git pull origin main --rebase
+                sleep 5
+              fi
+            done
           fi
 
       - name: 🚀 部署到GitHub Pages

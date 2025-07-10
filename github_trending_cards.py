@@ -268,7 +268,7 @@ def generate_html(all_repos):
     print('已生成 github_trending_cards.html，使用浏览器打开即可查看。')
 
 if __name__ == '__main__':
-    api_key = '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'
+    api_key = os.getenv('OPENROUTER_API_KEY')
     all_repos = {}
     for since in ['daily', 'weekly', 'monthly']:
         repos = fetch_github_trending(since)
