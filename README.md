@@ -1,2 +1,1 @@
-GithubTrending
-一个自动抓取并美观展示 GitHub Trending 热门仓库榜单的开源项目
+<需要读取本地文件内容>
