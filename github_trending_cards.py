@@ -72,62 +72,104 @@ def ai_summarize_projects(repos, api_key):
     print(f'🔑 API密钥前缀: {api_key[:15]}...')
     print(f'🔑 API密钥是否以sk-or-v1开头: {api_key.startswith("sk-or-v1")}')
 
+    # 检测是否在GitHub Actions环境中
+    is_github_actions = os.environ.get('GITHUB_ACTIONS') == 'true'
+    if is_github_actions:
+        print('🏃 检测到GitHub Actions环境，使用增强的网络配置')
+
     try:
+        # 为GitHub Actions环境配置更长的超时时间和重试机制
+        timeout_duration = 120 if is_github_actions else 60
         client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
             api_key=api_key,
-            timeout=60
+            timeout=timeout_duration
         )
-        print(f'✅ OpenRouter客户端创建成功')
+        print(f'✅ OpenRouter客户端创建成功 (超时: {timeout_duration}秒)')
     except Exception as e:
         print(f'❌ 创建OpenRouter客户端失败: {e}')
         return repos
 
     success_count = 0
+    max_retries = 3 if is_github_actions else 2
+    
     for i, repo in enumerate(repos, 1):
         print(f'🤖 正在处理第 {i}/{len(repos)} 个项目: {repo["title"]}')
         prompt = f"请用一句中文总结这个GitHub项目的核心用途和亮点不要有其他符号：\n项目名称：{repo['title']}\n简介：{repo['description']}"
 
-        try:
-            completion = client.chat.completions.create(
-                model="deepseek/deepseek-r1-0528:free",
-                messages=[
-                    {"role": "user", "content": prompt}
-                ],
-                timeout=60
-            )
-            summary = completion.choices[0].message.content.strip()
-            repo['summary'] = summary
-            success_count += 1
-            print(f'✅ AI总结成功: {summary[:50]}...')
+        retry_count = 0
+        while retry_count < max_retries:
+            try:
+                # 为GitHub Actions环境使用更保守的超时设置
+                request_timeout = 90 if is_github_actions else 60
+                completion = client.chat.completions.create(
+                    model="deepseek/deepseek-r1-0528:free",
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ],
+                    timeout=request_timeout
+                )
+                summary = completion.choices[0].message.content.strip()
+                repo['summary'] = summary
+                success_count += 1
+                print(f'✅ AI总结成功: {summary[:50]}...')
+                break  # 成功则跳出重试循环
 
-        except Exception as e:
-            repo['summary'] = 'AI总结生成失败'
-            error_type = type(e).__name__
-            print(f"❌ AI总结失败: {repo['title']} - {error_type}: {str(e)}")
+            except Exception as e:
+                retry_count += 1
+                error_type = type(e).__name__
+                print(f"❌ AI总结失败 (尝试 {retry_count}/{max_retries}): {repo['title']} - {error_type}: {str(e)}")
 
-            # 如果是连接错误，尝试等待后重试一次
-            if 'Connection' in str(e) or 'timeout' in str(e).lower():
-                print(f'⏳ 等待5秒后重试...')
-                import time
-                time.sleep(5)
-                try:
-                    completion = client.chat.completions.create(
-                        model="deepseek/deepseek-r1-0528:free",
-                        messages=[
-                            {"role": "user", "content": prompt}
-                        ],
-                        timeout=30
-                    )
-                    summary = completion.choices[0].message.content.strip()
-                    repo['summary'] = summary
-                    success_count += 1
-                    print(f'✅ 重试成功: {summary[:50]}...')
-                except Exception as retry_e:
-                    print(f'❌ 重试也失败: {retry_e}')
+                if retry_count < max_retries:
+                    # 根据环境调整等待时间
+                    wait_time = 10 if is_github_actions else 5
+                    print(f'⏳ 等待{wait_time}秒后重试...')
+                    import time
+                    time.sleep(wait_time)
+                else:
+                    # 所有重试都失败，使用备用总结
+                    repo['summary'] = f"一个{repo.get('language', '未知语言')}项目：{repo['description'][:30]}..."
+                    print(f'🔄 使用备用总结: {repo["summary"]}')
 
     print(f'📊 AI总结统计: 成功 {success_count}/{len(repos)} 个项目')
+    
+    # 如果在GitHub Actions中且成功率很低，给出建议
+    if is_github_actions and success_count < len(repos) * 0.3:
+        print('⚠️ GitHub Actions环境中AI总结成功率较低，建议检查网络连接或API配置')
+        print('🔄 为失败的项目生成智能备用总结...')
+        
+        # 为没有成功总结的项目生成更智能的备用总结
+        for repo in repos:
+            if repo.get('summary') == 'AI总结生成失败' or not repo.get('summary'):
+                repo['summary'] = generate_fallback_summary(repo)
+    
     return repos
+
+def generate_fallback_summary(repo):
+    """生成智能的备用总结"""
+    title = repo.get('title', '').lower()
+    description = repo.get('description', '').lower()
+    language = repo.get('language', '未知')
+    
+    # 基于项目名称和描述的关键词匹配
+    if any(keyword in title or keyword in description for keyword in ['api', 'rest', 'graphql']):
+        return f"一个基于{language}的API开发框架或工具"
+    elif any(keyword in title or keyword in description for keyword in ['web', 'frontend', 'react', 'vue', 'angular']):
+        return f"一个{language}前端Web开发项目"
+    elif any(keyword in title or keyword in description for keyword in ['backend', 'server', 'database']):
+        return f"一个{language}后端服务或数据库相关项目"
+    elif any(keyword in title or keyword in description for keyword in ['cli', 'command', 'tool']):
+        return f"一个{language}命令行工具或实用程序"
+    elif any(keyword in title or keyword in description for keyword in ['ai', 'ml', 'machine learning', 'neural']):
+        return f"一个{language}人工智能或机器学习项目"
+    elif any(keyword in title or keyword in description for keyword in ['game', 'engine']):
+        return f"一个{language}游戏开发相关项目"
+    elif any(keyword in title or keyword in description for keyword in ['mobile', 'android', 'ios']):
+        return f"一个{language}移动应用开发项目"
+    else:
+        # 通用总结
+        desc_preview = repo.get('description', '')[:40]
+        return f"一个使用{language}开发的开源项目：{desc_preview}..."
 # 生成HTML卡片页面
 
 
