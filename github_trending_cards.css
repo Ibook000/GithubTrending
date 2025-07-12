@@ -1,1 +1,588 @@
-<需读取e:/pycode/GithubTrending/github_trending_cards.css的实际内容>
+/* CSS 变量定义 - 支持主题切换 */
+:root {
+    /* 浅色主题 */
+    --bg-primary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --bg-secondary: rgba(255, 255, 255, 0.95);
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-summary: linear-gradient(90deg, #f0fdfa 0%, #e0e7ff 100%);
+    --bg-button: linear-gradient(90deg, #6366f1 0%, #38bdf8 100%);
+    --bg-button-hover: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+
+    --text-primary: #222;
+    --text-secondary: #444;
+    --text-meta: #6b7280;
+    --text-author: #374151;
+    --text-link: #2563eb;
+    --text-link-hover: #1e40af;
+    --text-button: #fff;
+
+    --border-card: #e3e8f0;
+    --border-card-hover: #a3bffa;
+    --border-summary: #6366f1;
+
+    --shadow-card: 0 6px 32px 0 rgba(60,60,120,0.10), 0 1.5px 6px 0 rgba(60,60,120,0.08);
+    --shadow-card-hover: 0 12px 40px 0 rgba(60,60,120,0.16), 0 2px 8px 0 rgba(60,60,120,0.10);
+    --shadow-button: 0 2px 8px 0 rgba(99,102,241,0.10);
+    --shadow-button-hover: 0 4px 16px 0 rgba(56,189,248,0.13);
+}
+
+/* 深色主题 */
+[data-theme="dark"] {
+    --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --bg-secondary: rgba(30, 41, 59, 0.95);
+    --bg-card: rgba(30, 41, 59, 0.95);
+    --bg-summary: linear-gradient(90deg, rgba(6, 78, 59, 0.3) 0%, rgba(67, 56, 202, 0.3) 100%);
+    --bg-button: linear-gradient(90deg, #7c3aed 0%, #06b6d4 100%);
+    --bg-button-hover: linear-gradient(90deg, #06b6d4 0%, #7c3aed 100%);
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-meta: #94a3b8;
+    --text-author: #e2e8f0;
+    --text-link: #60a5fa;
+    --text-link-hover: #3b82f6;
+    --text-button: #fff;
+
+    --border-card: #334155;
+    --border-card-hover: #7c3aed;
+    --border-summary: #7c3aed;
+
+    --shadow-card: 0 6px 32px 0 rgba(0,0,0,0.3), 0 1.5px 6px 0 rgba(0,0,0,0.2);
+    --shadow-card-hover: 0 12px 40px 0 rgba(0,0,0,0.4), 0 2px 8px 0 rgba(0,0,0,0.3);
+    --shadow-button: 0 2px 8px 0 rgba(124,58,237,0.3);
+    --shadow-button-hover: 0 4px 16px 0 rgba(6,182,212,0.4);
+}
+
+/* 基础样式 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-primary);
+    font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+/* 主题切换按钮 */
+.theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+    position: absolute;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle .sun-icon {
+    color: #f59e0b;
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.theme-toggle .moon-icon {
+    color: #6366f1;
+    opacity: 0;
+    transform: rotate(180deg);
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+    opacity: 0;
+    transform: rotate(180deg);
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* 页面标题区域 */
+.header-container {
+    text-align: center;
+    margin: 60px auto 40px;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+h1 .fab {
+    font-size: 0.9em;
+    color: var(--text-link);
+}
+
+.date-badge {
+    background: var(--bg-button);
+    color: var(--text-button);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.5em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-button);
+}
+
+.subtitle {
+    color: var(--text-meta);
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 400;
+}
+/* 标签页导航 */
+.tab-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    max-width: 500px;
+}
+
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    color: var(--text-meta);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    flex: 1;
+    justify-content: center;
+    min-width: 120px;
+}
+
+.tab-btn:hover {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+.tab-btn.active {
+    background: var(--bg-button);
+    color: var(--text-button);
+    border-color: var(--border-summary);
+    box-shadow: var(--shadow-button);
+}
+
+.tab-btn i {
+    font-size: 1.1em;
+}
+
+/* 容器布局 */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 0 20px 60px;
+}
+/* 卡片样式 */
+.card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+    border: 1px solid var(--border-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--bg-button);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--border-card-hover);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+/* 仓库标题 */
+.repo-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.3;
+}
+
+.repo-title a {
+    color: var(--text-link);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.repo-title a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--text-link);
+    transition: width 0.3s ease;
+}
+
+.repo-title a:hover {
+    color: var(--text-link-hover);
+}
+
+.repo-title a:hover::after {
+    width: 100%;
+}
+
+/* 语言标签 */
+.badge-lang {
+    display: inline-block;
+    background: var(--bg-summary);
+    color: var(--border-summary);
+    font-size: 0.8em;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 4px 12px;
+    margin-left: 8px;
+    border: 1px solid var(--border-summary);
+}
+
+/* 描述文本 */
+.desc {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    min-height: 44px;
+    font-size: 0.95em;
+    line-height: 1.6;
+    font-weight: 400;
+}
+/* 元数据信息 */
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.9em;
+    color: var(--text-meta);
+    margin-bottom: 12px;
+    padding: 8px 0;
+}
+
+.meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    padding: 4px 8px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.meta span:hover {
+    background: var(--bg-summary);
+    transform: translateY(-1px);
+}
+
+.meta .icon {
+    font-size: 1.1em;
+    opacity: 0.8;
+}
+
+/* 作者信息 */
+.author {
+    font-size: 0.9em;
+    color: var(--text-author);
+    margin-bottom: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border-left: 3px solid var(--border-summary);
+}
+/* AI 总结区域 */
+.ai-summary {
+    background: var(--bg-summary);
+    border-left: 4px solid var(--border-summary);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 0.9em;
+    color: var(--text-author);
+    box-shadow: var(--shadow-button);
+    position: relative;
+    animation: fadeInSummary 0.6s ease;
+    border: 1px solid var(--border-card);
+}
+
+.ai-summary::before {
+    content: '🤖';
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    background: var(--bg-card);
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 0.8em;
+    border: 1px solid var(--border-card);
+}
+
+.ai-summary b {
+    color: var(--text-link);
+    font-weight: 700;
+}
+
+@keyframes fadeInSummary {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* 按钮样式 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--bg-button);
+    color: var(--text-button);
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-top: 16px;
+    border: none;
+    box-shadow: var(--shadow-button);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover {
+    background: var(--bg-button-hover);
+    box-shadow: var(--shadow-button-hover);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:active {
+    transform: translateY(-1px) scale(1.02);
+}
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .theme-toggle-container {
+        top: 15px;
+        right: 15px;
+    }
+
+    .theme-toggle {
+        width: 45px;
+        height: 45px;
+    }
+
+    .header-container {
+        margin: 80px auto 30px;
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        gap: 10px;
+    }
+
+    .date-badge {
+        font-size: 0.6em;
+        padding: 6px 12px;
+    }
+
+    .tab-navigation {
+        flex-direction: column;
+        gap: 8px;
+        max-width: 300px;
+        margin-bottom: 30px;
+    }
+
+    .tab-btn {
+        min-width: auto;
+        padding: 10px 16px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 15px 40px;
+    }
+
+    .card {
+        padding: 20px 16px;
+        min-height: 280px;
+    }
+
+    .repo-title {
+        font-size: 1.1em;
+    }
+
+    .meta {
+        gap: 12px;
+    }
+
+    .meta span {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        margin: 70px auto 25px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .tab-navigation {
+        padding: 0 10px;
+    }
+
+    .container {
+        padding: 0 10px 30px;
+    }
+
+    .card {
+        padding: 16px 12px;
+        min-height: 260px;
+    }
+
+    .ai-summary {
+        padding: 12px;
+        margin: 12px 0;
+    }
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-card);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-card-hover);
+}
+
+/* 选中文本样式 */
+::selection {
+    background: var(--border-summary);
+    color: var(--text-button);
+}
+
+/* 焦点样式 */
+.theme-toggle:focus,
+.tab-btn:focus,
+.btn:focus {
+    outline: 2px solid var(--border-summary);
+    outline-offset: 2px;
+}
+
+/* 加载动画 */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
