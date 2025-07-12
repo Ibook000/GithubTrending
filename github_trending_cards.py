@@ -72,7 +72,7 @@ def ai_summarize_projects(repos, api_key):
         client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
             api_key=api_key,
-            timeout=30.0  # 设置30秒超时
+            timeout=60  # 设置30秒超时
         )
         print(f'✅ OpenRouter客户端创建成功')
     except Exception as e:
@@ -90,7 +90,7 @@ def ai_summarize_projects(repos, api_key):
                 messages=[
                     {"role": "user", "content": prompt}
                 ],
-                timeout=30
+                timeout=60
             )
             summary = completion.choices[0].message.content.strip()
             repo['summary'] = summary
