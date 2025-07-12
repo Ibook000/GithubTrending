@@ -321,7 +321,7 @@ if __name__ == '__main__':
     print('🚀 开始生成GitHub趋势榜单...')
     
     # 从环境变量获取API密钥
-    api_key = os.getenv('OPENROUTER_API_KEY')
+    api_key = os.environ.get('OPENROUTER_API_KEY')
     if api_key:
         print(f'✅ 检测到API密钥: {api_key[:10]}...')
     else:
