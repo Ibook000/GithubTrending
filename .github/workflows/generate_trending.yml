@@ -30,17 +30,43 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 🎯 生成趋势榜单页面
+      - name: 🔍 网络连接诊断
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
+          echo "🔍 开始网络连接诊断..."
+          python test_network.py
+        continue-on-error: true
+
+      - name: 🎯 生成趋势榜单页面
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # 设置GitHub Actions标识
+          GITHUB_ACTIONS: true
+          # 配置网络相关环境变量
+          PYTHONUNBUFFERED: 1
+          REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
+        run: |
+          echo "🌐 配置网络环境..."
+          # 显示网络配置信息
+          echo "DNS配置:"
+          cat /etc/resolv.conf
+          echo "测试网络连接:"
+          curl -I https://openrouter.ai --connect-timeout 10 || echo "⚠️ OpenRouter连接测试失败"
+          
+          echo "🚀 开始生成趋势榜单..."
           python github_trending_cards.py
+          
           # 确保生成了HTML文件
           if [ ! -f "github_trending_cards.html" ]; then
             echo "❌ HTML文件生成失败"
             exit 1
           fi
           echo "✅ HTML文件生成成功"
+          
+          # 显示生成的文件信息
+          echo "📄 生成的文件:"
+          ls -la github_trending_cards.*
 
       - name: 📅 保存历史页面
         run: |
