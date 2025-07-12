@@ -1,162 +1,29 @@
-name: 🚀 自动生成GitHub趋势榜单
+name: Generate Trending
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # 每天UTC时间2点（北京时间10点）
-  workflow_dispatch:  # 支持手动触发
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # 需要写权限来提交历史文件
-      pages: write
-      id-token: write
-
     steps:
-      - name: 📥 检出代码
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          fetch-depth: 0  # 获取完整历史记录
-
-      - name: 🐍 设置Python环境
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-
-      - name: 📦 安装依赖
+          python-version: '3.10'
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: 🎯 生成趋势榜单页面
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      - name: Generate trending
+        run: python github_trending_cards.py
+      - name: Commit and push
         run: |
-          python github_trending_cards.py
-          # 确保生成了HTML文件
-          if [ ! -f "github_trending_cards.html" ]; then
-            echo "❌ HTML文件生成失败"
-            exit 1
-          fi
-          echo "✅ HTML文件生成成功"
-
-      - name: 📅 保存历史页面
-        run: |
-          # 获取当前日期
-          DATE=$(date +%Y-%m-%d)
-          echo "📅 当前日期: $DATE"
-
-          # 创建历史目录
-          mkdir -p "history/$DATE"
-
-          # 复制文件到历史目录
-          cp github_trending_cards.html "history/$DATE/index.html"
-          cp github_trending_cards.css "history/$DATE/github_trending_cards.css"
-
-          # 如果有展示图片也复制
-          if [ -f "展示1.png" ]; then
-            cp "展示1.png" "history/$DATE/"
-          fi
-          if [ -f "img.png" ]; then
-            cp "img.png" "history/$DATE/"
-          fi
-
-          # 创建数据备份（提取页面中的数据信息）
-          echo "{\"date\": \"$DATE\", \"generated_at\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\", \"source\": \"GitHub Trending\"}" > "history/$DATE/metadata.json"
-
-          echo "📁 历史页面已保存到 history/$DATE/"
-
-      - name: 📊 生成历史统计页面
-        run: |
-          # 使用Python脚本生成智能的历史统计页面
-          python generate_history_stats.py
-          echo "📊 历史统计页面已生成"
-
-      - name: 📄 准备发布文件
-        run: |
-          # 创建发布目录
-          mkdir -p publish
-
-          # 复制最新版本到根目录
-          cp github_trending_cards.html publish/index.html
-          cp github_trending_cards.css publish/
-
-          # 复制整个历史目录
-          cp -r history publish/
-
-          # 如果有展示图片也复制
-          if [ -f "展示1.png" ]; then
-            cp "展示1.png" publish/
-          fi
-          if [ -f "img.png" ]; then
-            cp "img.png" publish/
-          fi
-
-          echo "📁 发布文件准备完成"
-          echo "📊 文件结构:"
-          find publish -type f | head -20
-
-      - name: 💾 提交历史文件到仓库
-        run: |
-          # 配置Git
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
-          # 检查工作目录状态
-          echo "📋 检查Git状态..."
-          git status --porcelain
-
-          # 暂存所有更改（包括可能的生成文件）
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
           git add .
-
-          # 如果有未提交的更改，先提交它们
-          if ! git diff --staged --quiet; then
-            echo "📝 发现未提交的更改，先提交..."
-            git commit -m "🔧 自动提交生成的文件和更改"
-          fi
-
-          # 安全地拉取最新更改
-          echo "🔄 拉取远程更改..."
-          git fetch origin main
-
-          # 检查是否需要合并
-          LOCAL=$(git rev-parse HEAD)
-          REMOTE=$(git rev-parse origin/main)
-
-          if [ "$LOCAL" != "$REMOTE" ]; then
-            echo "🔀 需要合并远程更改..."
-            git rebase origin/main
-          else
-            echo "✅ 本地已是最新版本"
-          fi
-
-          # 检查历史文件是否有新增
-          if [ -d "history" ]; then
-            git add history/
-
-            if ! git diff --staged --quiet; then
-              # 提交历史文件
-              DATE=$(date +%Y-%m-%d)
-              git commit -m "📅 保存 $DATE 的GitHub趋势榜单历史记录"
-
-              # 推送更改
-              echo "🚀 推送历史文件..."
-              git push origin main
-              echo "✅ 历史文件已提交到仓库"
-            else
-              echo "📝 没有新的历史文件需要提交"
-            fi
-          else
-            echo "📁 历史目录不存在，跳过提交"
-          fi
-
-      - name: 🚀 部署到GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./publish
-          publish_branch: gh-pages
-          force_orphan: true
-          commit_message: '🎨 更新GitHub趋势榜单 - $(date +%Y-%m-%d)'
+          git commit -m "Auto update: $(date)"
+          git push
