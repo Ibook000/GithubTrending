@@ -323,7 +323,7 @@ if __name__ == '__main__':
     # 从环境变量获取API密钥
     api_key = os.environ.get('OPENROUTER_API_KEY')
     if api_key:
-        print(f'✅ 检测到API密钥: {api_key[:10]}...')
+        print(f'✅ 检测到API密钥: {api_key[:20]}...')
     else:
         print('⚠️ 未检测到OPENROUTER_API_KEY，将不生成AI总结。')
     
