@@ -374,8 +374,7 @@ if __name__ == '__main__':
         print('⚠️ 未检测到OPENROUTER_API_KEY，将不生成AI总结。')
 
     all_repos = {}
-    # 只处理日榜来测试API连接
-    for since in ['daily']:
+    for since in ['daily', 'weekly', 'monthly']:
         print(f'\n📊 开始获取 {since} 榜单...')
         repos = fetch_github_trending(since)
         print(f'📝 获取到 {len(repos)} 个项目')
