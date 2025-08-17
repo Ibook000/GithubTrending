@@ -127,49 +127,6 @@ jobs:
           echo "📊 文件结构:"
           find publish -type f | head -20
 
-      - name: 💾 提交历史文件到gh-pages分支
-        run: |
-          # 配置Git
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
-          # 获取当前日期
-          DATE=$(date +%Y-%m-%d)
-          
-          # 保存当前工作目录的文件
-          echo "💾 保存工作目录文件..."
-          mkdir -p /tmp/workspace_files
-          cp -r * /tmp/workspace_files/ || true
-          
-          # 切换到gh-pages分支（如果不存在则创建）
-          echo "🔄 切换到gh-pages分支..."
-          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
-            git checkout gh-pages
-            git pull origin gh-pages
-          else
-            echo "🌱 创建新的gh-pages分支..."
-            git checkout --orphan gh-pages
-            git rm -rf . || true
-          fi
-
-          # 复制保存的文件到当前目录
-          echo "📁 复制文件到gh-pages分支..."
-          if [ -d "/tmp/workspace_files/publish" ]; then
-            cp -r /tmp/workspace_files/publish/* .
-            
-            # 提交更改
-            git add .
-            if ! git diff --staged --quiet; then
-              git commit -m "📅 保存 $DATE 的GitHub趋势榜单历史记录"
-              git push origin gh-pages --force-with-lease
-              echo "✅ 历史文件已保存到gh-pages分支"
-            else
-              echo "📝 没有新的更改需要提交"
-            fi
-          else
-            echo "⚠️ 发布目录不存在"
-          fi
-
       - name: 🚀 部署到GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
