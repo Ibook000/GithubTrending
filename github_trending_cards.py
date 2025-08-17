@@ -81,7 +81,7 @@ def ai_summarize_projects(repos, api_key):
         # 为GitHub Actions环境配置更长的超时时间和重试机制
         timeout_duration = 120 if is_github_actions else 60
         client = OpenAI(
-            base_url="https://openrouter.ai/api/v1",
+            base_url="https://api.siliconflow.cn/v1",
             api_key=api_key,
             timeout=timeout_duration
         )
@@ -103,7 +103,7 @@ def ai_summarize_projects(repos, api_key):
                 # 为GitHub Actions环境使用更保守的超时设置
                 request_timeout = 90 if is_github_actions else 60
                 completion = client.chat.completions.create(
-                    model="deepseek/deepseek-r1-0528:free",
+                    model="deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
                     messages=[
                         {"role": "user", "content": prompt}
                     ],
@@ -378,7 +378,7 @@ if __name__ == '__main__':
     print('🚀 开始生成GitHub趋势榜单...')
 
     # 从环境变量获取API密钥
-    api_key = os.environ.get('OPENROUTER_API_KEY')
+    api_key = "sk-yqxjmukyxctdsjbkcdtadwjkbtlcxktrfutyxlnestdehygh"
     if api_key:
         print(f'✅ 检测到API密钥: {api_key[:10]}...')
     else:
