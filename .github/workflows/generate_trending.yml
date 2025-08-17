@@ -68,121 +68,173 @@ jobs:
           echo "📄 生成的文件:"
           ls -la github_trending_cards.*
 
-      - name: 📅 保存历史页面
+      - name: 📅 检出gh-pages分支
         run: |
-          # 获取当前日期
-          DATE=$(date +%Y-%m-%d)
-          echo "📅 当前日期: $DATE"
-
-          # 创建历史目录
-          mkdir -p "history/$DATE"
-
-          # 复制文件到历史目录
-          cp github_trending_cards.html "history/$DATE/index.html"
-          cp github_trending_cards.css "history/$DATE/github_trending_cards.css"
-
-          # 如果有展示图片也复制
-          if [ -f "展示1.png" ]; then
-            cp "展示1.png" "history/$DATE/"
-          fi
-          if [ -f "img.png" ]; then
-            cp "img.png" "history/$DATE/"
-          fi
-
-          # 创建数据备份（提取页面中的数据信息）
-          echo "{\"date\": \"$DATE\", \"generated_at\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\", \"source\": \"GitHub Trending\"}" > "history/$DATE/metadata.json"
-
-          echo "📁 历史页面已保存到 history/$DATE/"
+          # 创建临时工作目录
+          mkdir -p temp_gh_pages
+          cd temp_gh_pages
+          
+          # 初始化Git仓库
+          git init
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # 拉取gh-pages分支
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git fetch origin gh-pages || echo "⚠️ gh-pages分支不存在，将创建新分支"
+          git checkout -b gh-pages origin/gh-pages 2>/dev/null || git checkout -b gh-pages
+          
+          echo "✅ gh-pages分支已检出"
 
       - name: 📊 生成历史统计页面
         run: |
-          # 使用Python脚本生成智能的历史统计页面
+          # 在原始目录生成统计页面
           python generate_history_stats.py
-          echo "📊 历史统计页面已生成"
+          
+          # 验证统计页面生成
+          if [ -f "history/index.html" ]; then
+            echo "✅ 历史统计页面已生成"
+          else
+            echo "❌ 历史统计页面生成失败"
+            exit 1
+          fi
 
-      - name: 📄 准备发布文件
+      - name: 📅 保存历史页面到gh-pages
         run: |
-          # 创建发布目录
-          mkdir -p publish
+          # 获取当前日期
+          DATE=$(date +%Y-%m-%d)
+          echo "📅 保存历史页面到gh-pages: $DATE"
+          
+          # 复制文件到gh-pages目录
+          cd temp_gh_pages
+          
+          # 创建历史目录结构
+          mkdir -p "history/$DATE"
+          
+          # 复制当前生成的文件
+          cp ../github_trending_cards.html "history/$DATE/index.html"
+          cp ../github_trending_cards.css "history/$DATE/github_trending_cards.css"
+          
+          # 复制展示图片
+          if [ -f "../img.png" ]; then
+            cp "../img.png" "history/$DATE/"
+          fi
+          
+          # 复制历史统计页面
+          if [ -f "../history/index.html" ]; then
+            cp "../history/index.html" "history/index.html"
+          fi
+          
+          # 创建详细的元数据
+          cat > "history/$DATE/metadata.json" << EOF
+          {
+            "date": "$DATE",
+            "generated_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "timestamp": $(date +%s),
+            "source": "GitHub Trending",
+            "workflow_run": "${{ github.run_number }}",
+            "git_commit": "${{ github.sha }}",
+            "repository": "${{ github.repository }}"
+          }
+          EOF
+          
+          # 验证历史目录完整性
+          echo "🔍 验证gh-pages历史目录:"
+          ls -la "history/$DATE/"
+          
+          # 统计历史天数
+          TOTAL_DAYS=$(find history -maxdepth 1 -type d -name "20*" | wc -l)
+          echo "📊 总历史天数: $TOTAL_DAYS"
 
+      - name: 📄 准备gh-pages发布文件
+        run: |
+          cd temp_gh_pages
+          
+          echo "📁 准备gh-pages发布文件..."
+          
           # 复制最新版本到根目录
-          cp github_trending_cards.html publish/index.html
-          cp github_trending_cards.css publish/
-
-          # 复制整个历史目录
-          cp -r history publish/
-
-          # 如果有展示图片也复制
-          if [ -f "展示1.png" ]; then
-            cp "展示1.png" publish/
+          cp ../github_trending_cards.html index.html
+          cp ../github_trending_cards.css styles.css
+          
+          # 复制展示图片
+          if [ -f "../img.png" ]; then
+            cp "../img.png" .
           fi
-          if [ -f "img.png" ]; then
-            cp "img.png" publish/
-          fi
+          
+          # 创建README
+          cat > README.md << EOF
+          # GitHub趋势榜单 - GitHub Pages
+          
+          自动生成的GitHub趋势榜单，每日更新。
+          
+          ## 📅 今日信息
+          - **生成时间**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          - **工作流编号**: ${{ github.run_number }}
+          - **提交哈希**: ${{ github.sha }}
+          
+          ## 🔗 快速访问
+          - [🏠 最新榜单](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)
+          - [📊 历史统计](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/history/)
+          - [📁 项目仓库](https://github.com/${{ github.repository }})
+          
+          ## 📈 历史记录
+          所有历史数据都保存在 \`history/\` 目录中，按日期分类存储。
+          
+          ## 📊 数据统计
+          - **总记录天数**: $(find history -maxdepth 1 -type d -name "20*" | wc -l)
+          - **最后更新**: $(date +%Y-%m-%d)
+          
+          ---
+          *由GitHub Actions自动生成* 🤖
+          EOF
+          
+          # 创建CNAME文件（如果需要自定义域名）
+          # echo "your-domain.com" > CNAME
+          
+          # 创建.gitignore
+          echo "*.log" > .gitignore
+          echo ".DS_Store" >> .gitignore
+          
+          # 显示发布文件结构
+          echo "📂 gh-pages文件结构:"
+          find . -type f | head -20 | sed 's/^/  /'
+          
+          # 计算文件大小
+          TOTAL_SIZE=$(du -sh . | cut -f1)
+          echo "📊 gh-pages总大小: $TOTAL_SIZE"
 
-          echo "📁 发布文件准备完成"
-          echo "📊 文件结构:"
-          find publish -type f | head -20
-
-      - name: 💾 提交历史文件到仓库
+      - name: 🚀 提交并推送gh-pages
         run: |
-          # 配置Git
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
-          # 检查工作目录状态
-          echo "📋 检查Git状态..."
-          git status --porcelain
-
-          # 暂存所有更改（包括可能的生成文件）
+          cd temp_gh_pages
+          
+          echo "🚀 准备提交gh-pages..."
+          
+          # 添加所有文件
           git add .
-
-          # 如果有未提交的更改，先提交它们
+          
+          # 创建提交信息
+          DATE=$(date +%Y-%m-%d)
+          COMMIT_MSG="🎨 更新GitHub趋势榜单 - $DATE
+          
+          - 生成时间: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          - 工作流编号: ${{ github.run_number }}
+          - 提交哈希: ${{ github.sha }}
+          - 历史天数: $(find history -maxdepth 1 -type d -name "20*" | wc -l)"
+          
+          # 检查是否有更改
           if ! git diff --staged --quiet; then
-            echo "📝 发现未提交的更改，先提交..."
-            git commit -m "🔧 自动提交生成的文件和更改"
-          fi
-
-          # 安全地拉取最新更改
-          echo "🔄 拉取远程更改..."
-          git fetch origin main
-
-          # 检查是否需要合并
-          LOCAL=$(git rev-parse HEAD)
-          REMOTE=$(git rev-parse origin/main)
-
-          if [ "$LOCAL" != "$REMOTE" ]; then
-            echo "🔀 需要合并远程更改..."
-            git rebase origin/main
+            echo "📝 检测到文件更改，正在提交..."
+            git commit -m "$COMMIT_MSG"
+            
+            # 推送gh-pages分支
+            echo "🚀 推送gh-pages分支..."
+            git push -f origin gh-pages
+            echo "✅ gh-pages分支已更新"
           else
-            echo "✅ 本地已是最新版本"
+            echo "✅ 无文件更改，跳过提交"
           fi
 
-          # 检查历史文件是否有新增
-          if [ -d "history" ]; then
-            git add history/
-
-            if ! git diff --staged --quiet; then
-              # 提交历史文件
-              DATE=$(date +%Y-%m-%d)
-              git commit -m "📅 保存 $DATE 的GitHub趋势榜单历史记录"
-
-              # 推送更改
-              echo "🚀 推送历史文件..."
-              git push origin main
-              echo "✅ 历史文件已提交到仓库"
-            else
-              echo "📝 没有新的历史文件需要提交"
-            fi
-          else
-            echo "📁 历史目录不存在，跳过提交"
-          fi
-
-      - name: 🚀 部署到GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./publish
-          publish_branch: gh-pages
-          force_orphan: true
-          commit_message: '🎨 更新GitHub趋势榜单 - $(date +%Y-%m-%d)'
+      - name: 🧹 清理临时文件
+        run: |
+          rm -rf temp_gh_pages
+          echo "🧹 临时文件已清理"
