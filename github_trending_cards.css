@@ -166,8 +166,75 @@ h1 .fab {
 .subtitle {
     color: var(--text-meta);
     font-size: 1.1rem;
-    margin: 0;
+    margin: 0 0 20px 0;
     font-weight: 400;
+}
+
+/* 历史记录入口 */
+.history-entrance {
+    margin: 20px 0;
+    position: relative;
+}
+
+.history-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.history-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.history-btn i {
+    font-size: 1.1em;
+}
+
+.history-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    box-shadow: var(--shadow-card);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.history-entrance:hover .history-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .history-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .history-tooltip {
+        font-size: 0.8rem;
+        white-space: normal;
+        max-width: 200px;
+    }
 }
 /* 标签页导航 */
 .tab-navigation {

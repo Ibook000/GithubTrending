@@ -201,6 +201,17 @@ def generate_html(all_repos):
             <span class="date-badge">{today}</span>
         </h1>
         <p class="subtitle">发现最热门的开源项目</p>
+        
+        <!-- 历史记录入口 -->
+        <div class="history-entrance">
+            <a href="history/" class="history-btn">
+                <i class="fas fa-history"></i>
+                <span>查看历史记录</span>
+            </a>
+            <div class="history-tooltip">
+                📅 每日历史榜单已保存，点击查看完整记录
+            </div>
+        </div>
     </div>
 
     <!-- 标签页导航 -->
