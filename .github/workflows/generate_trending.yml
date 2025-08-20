@@ -133,5 +133,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./publish
           publish_branch: gh-pages
-          force_orphan: true
           commit_message: '🎨 更新GitHub趋势榜单 - $(date +%Y-%m-%d)'
