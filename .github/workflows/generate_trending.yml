@@ -19,6 +19,33 @@ jobs:
         with:
           fetch-depth: 0  # 获取完整历史记录
 
+      - name: 🔄 恢复历史记录
+        run: |
+          # 从gh-pages分支获取现有的历史记录
+          echo "📥 正在从gh-pages分支恢复历史记录..."
+          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+            # 创建临时目录来存储历史记录
+            mkdir -p temp_history
+            
+            # 克隆gh-pages分支到临时目录
+            git clone --branch gh-pages --single-branch https://github.com/Ibook000/GithubTrending.git temp_history
+            
+            # 复制历史记录到当前工作区
+            if [ -d "temp_history/history" ]; then
+              echo "📁 找到现有历史记录，正在恢复..."
+              cp -r temp_history/history/* history/
+              echo "✅ 历史记录恢复完成"
+            else
+              echo "⚠️ gh-pages分支中未找到历史记录目录"
+            fi
+            
+            # 清理临时目录
+            rm -rf temp_history
+          else
+            echo "⚠️ gh-pages分支不存在，将创建新的历史记录"
+          fi
+        continue-on-error: true
+
       - name: 🐍 设置Python环境
         uses: actions/setup-python@v5
         with:
