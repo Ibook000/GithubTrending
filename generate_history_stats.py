@@ -266,8 +266,8 @@ def generate_history_stats():
     with open('history/index.html', 'w', encoding='utf-8') as f:
         f.write(html_content)
     
-    print(f"✅ 历史统计页面已生成")
-    print(f"📊 统计信息:")
+    print(f"历史统计页面已生成")
+    print(f"统计信息:")
     print(f"   - 总记录天数: {total_days}")
     print(f"   - 最新日期: {latest_date}")
     print(f"   - 数据完整性: {data_integrity}")
