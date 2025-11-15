@@ -172,8 +172,9 @@ jobs:
         run: |
           # 复制所有需要发布的文件
           cp index.html gh-pages/
-          cp github_trending_cards.html gh-pages/
+          cp github_trending_cards.html gh-pages/index.html
           cp github_trending_cards.css gh-pages/
+          cp README_GHPAGES.md gh-pages/README.md
           cp img.png gh-pages/ 2>/dev/null || echo "img.png 文件不存在，跳过复制"
           
           # 复制历史目录

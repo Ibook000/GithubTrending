@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import os
+import concurrent.futures
 
 # openai库导入
 try:
@@ -93,9 +94,10 @@ def ai_summarize_projects(repos, api_key):
     success_count = 0
     max_retries = 3 if is_github_actions else 2
     
-    for i, repo in enumerate(repos, 1):
-        print(f'🤖 正在处理第 {i}/{len(repos)} 个项目: {repo["title"]}')
-        prompt = f"请用一句中文总结这个GitHub项目的核心用途和亮点不要有其他符号：\n项目名称：{repo['title']}\n简介：{repo['description']}"
+    def process_repo(repo):
+        nonlocal success_count
+        print(f'🤖 正在处理项目: {repo["title"]}')
+        prompt = f"请用一句中文总结这个GitHub项目的核心用途和亮点不要有其他符号：\n项目名称：{repo["title"]}\n简介：{repo["description"]}"
 
         retry_count = 0
         while retry_count < max_retries:
@@ -112,9 +114,8 @@ def ai_summarize_projects(repos, api_key):
                 summary = completion.choices[0].message.content.strip()
                 repo['summary'] = summary
                 success_count += 1
-                print(f'✅ AI总结成功: {summary[:50]}...')
-                break  # 成功则跳出重试循环
-
+                print(f'✅ AI总结成功: {repo["title"]} - {summary[:50]}...')
+                return repo
             except Exception as e:
                 retry_count += 1
                 error_type = type(e).__name__
@@ -129,7 +130,12 @@ def ai_summarize_projects(repos, api_key):
                 else:
                     # 所有重试都失败，使用备用总结
                     repo['summary'] = f"一个{repo.get('language', '未知语言')}项目：{repo['description'][:30]}..."
-                    print(f'🔄 使用备用总结: {repo["summary"]}')
+                    print(f'🔄 使用备用总结: {repo["title"]} - {repo["summary"]}')
+                    return repo
+    
+    # 使用并行处理
+    with concurrent.futures.ThreadPoolExecutor(max_workers=min(5, len(repos))) as executor:
+        repos = list(executor.map(process_repo, repos))
 
     print(f'📊 AI总结统计: 成功 {success_count}/{len(repos)} 个项目')
     
@@ -384,7 +390,8 @@ if __name__ == '__main__':
     else:
         print('⚠️ 未检测到OPENROUTER_API_KEY，将不生成AI总结。')
 
-    all_repos = {}
+    all_repos = {'daily': [], 'weekly': [], 'monthly': []}
+    # 依次获取三个榜单的数据，避免重复请求
     for since in ['daily', 'weekly', 'monthly']:
         print(f'\n📊 开始获取 {since} 榜单...')
         repos = fetch_github_trending(since)
@@ -409,9 +416,6 @@ if __name__ == '__main__':
             print('⚠️ 未获取到项目数据，跳过AI总结')
 
         all_repos[since] = repos
-        # 为其他榜单添加空数据以避免HTML生成错误
-        all_repos['weekly'] = repos  # 暂时使用相同数据
-        all_repos['monthly'] = repos  # 暂时使用相同数据
 
     print('\n🎨 开始生成HTML页面...')
     generate_html(all_repos)
