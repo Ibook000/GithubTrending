@@ -97,7 +97,7 @@ def ai_summarize_projects(repos, api_key):
     def process_repo(repo):
         nonlocal success_count
         print(f'🤖 正在处理项目: {repo["title"]}')
-        prompt = f"请用一句中文总结这个GitHub项目的核心用途和亮点不要有其他符号：\n项目名称：{repo["title"]}\n简介：{repo["description"]}"
+        prompt = f'请用一句中文总结这个GitHub项目的核心用途和亮点不要有其他符号：\n项目名称：{repo["title"]}\n简介：{repo["description"]}'
 
         retry_count = 0
         while retry_count < max_retries:
