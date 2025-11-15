@@ -159,7 +159,37 @@ jobs:
           METADATA="{
             \"date\": \"$DATE\",
             \"generated_at\": \"$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")\",
-            \"source\": \"GitHub Trending Scraper\"
-          }"
+            \"source\": \"GitHub Trending Scraper\"}"
           echo $METADATA > "history/$DATE/metadata.json"
           echo "已创建元数据文件"
+
+      - name: 创建发布文件夹
+        run: |
+          # 创建用于发布到gh-pages的文件夹
+          mkdir -p gh-pages
+
+      - name: 复制文件到发布文件夹
+        run: |
+          # 复制所有需要发布的文件
+          cp index.html gh-pages/
+          cp github_trending_cards.html gh-pages/
+          cp github_trending_cards.css gh-pages/
+          cp img.png gh-pages/ 2>/dev/null || echo "img.png 文件不存在，跳过复制"
+          
+          # 复制历史目录
+          cp -r history/ gh-pages/
+
+      - name: 生成历史统计页面
+        run: |
+          python generate_history_stats.py
+          cp history/index.html gh-pages/history/
+
+      - name: 部署到 GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
