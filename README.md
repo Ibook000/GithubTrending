@@ -30,7 +30,7 @@
 - 🌐 通过 GitHub Pages 可直接在线访问历史榜单
 
 ### 访问历史记录
-1. 打开项目的 GitHub Pages 页面（如：https://yourusername.github.io/GithubTrending/）
+1. 打开项目的 GitHub Pages 页面（如：[https://ibook000.github.io/GithubTrending]）
 2. 点击页面上的「历史记录」链接
 3. 选择任意日期查看当日热门项目
 
