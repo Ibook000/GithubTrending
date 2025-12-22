@@ -419,4 +419,35 @@ if __name__ == '__main__':
 
     print('\n🎨 开始生成HTML页面...')
     generate_html(all_repos)
+    
+    # 创建元数据文件，记录生成时间
+    create_metadata_file()
+    
     print('🎉 GitHub趋势榜单生成完成！')
+
+def create_metadata_file():
+    """创建元数据文件，记录生成时间和相关信息"""
+    import json
+    from datetime import datetime, timezone, timedelta
+    
+    try:
+        # 获取当前北京时间
+        beijing_tz = timezone(timedelta(hours=8))
+        current_time = datetime.now(beijing_tz)
+        
+        # 创建元数据
+        metadata = {
+            "date": current_time.strftime('%Y-%m-%d'),
+            "generated_at": current_time.isoformat(),
+            "source": "GitHub Trending Scraper",
+            "version": "1.0"
+        }
+        
+        # 写入metadata.json文件
+        with open('metadata.json', 'w', encoding='utf-8') as f:
+            json.dump(metadata, f, ensure_ascii=False, indent=2)
+            
+        print(f"✅ 元数据文件已创建: {current_time.strftime('%Y-%m-%d %H:%M:%S')} (北京时间)")
+        
+    except Exception as e:
+        print(f"⚠️ 创建元数据文件失败: {e}")

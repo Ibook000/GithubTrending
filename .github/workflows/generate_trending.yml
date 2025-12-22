@@ -155,13 +155,20 @@ jobs:
             echo "已复制 img.png"
           fi
 
-          # 创建元数据文件
-          METADATA="{
-            \"date\": \"$DATE\",
-            \"generated_at\": \"$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")\",
-            \"source\": \"GitHub Trending Scraper\"}"
-          echo $METADATA > "history/$DATE/metadata.json"
-          echo "已创建元数据文件"
+          # 复制元数据文件（如果存在）
+          if [ -f "metadata.json" ]; then
+            cp metadata.json "history/$DATE/"
+            echo "已复制元数据文件"
+          else
+            echo "警告: metadata.json 不存在，将创建新的元数据文件"
+            # 创建元数据文件
+            METADATA="{
+              \"date\": \"$DATE\",
+              \"generated_at\": \"$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")\",
+              \"source\": \"GitHub Trending Scraper\"}"
+            echo $METADATA > "history/$DATE/metadata.json"
+            echo "已创建新的元数据文件"
+          fi
 
       - name: 创建发布文件夹
         run: |

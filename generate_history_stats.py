@@ -14,6 +14,11 @@ import glob
 def generate_history_stats():
     """生成历史统计页面"""
     
+    # 导入必要的模块
+    import os
+    import json
+    from datetime import datetime, timedelta
+    
     # 扫描历史目录
     history_dirs = []
     if os.path.exists('history'):
@@ -50,13 +55,45 @@ def generate_history_stats():
         # 读取元数据
         metadata_path = os.path.join('history', date_dir, 'metadata.json')
         generated_time = "未知"
+        
+        # 尝试多种方式获取生成时间
         if os.path.exists(metadata_path):
             try:
                 with open(metadata_path, 'r', encoding='utf-8') as f:
                     metadata = json.load(f)
                     generated_time = metadata.get('generated_at', '未知')
-            except:
-                pass
+                    
+                    # 如果获取到的是ISO格式时间，转换为更友好的显示格式
+                    if generated_time != "未知" and 'T' in generated_time:
+                        try:
+                            from datetime import datetime, timezone, timedelta
+                            # 解析ISO格式时间并转换为北京时间
+                            dt = datetime.fromisoformat(generated_time.replace('Z', '+00:00'))
+                            # 转换为北京时间（UTC+8）
+                            beijing_tz = timezone(timedelta(hours=8))
+                            beijing_time = dt.astimezone(beijing_tz)
+                            generated_time = beijing_time.strftime('%Y-%m-%d %H:%M:%S')
+                        except:
+                            # 如果转换失败，至少去掉T和Z，使其更易读
+                            generated_time = generated_time.replace('T', ' ').replace('Z', '')
+            except Exception as e:
+                print(f"读取 {metadata_path} 失败: {e}")
+                # 即使读取失败，也尝试从文件名推断时间
+                generated_time = f"{date_dir} 生成"
+        else:
+            # 如果metadata.json不存在，尝试从其他文件推断生成时间
+            index_file = os.path.join('history', date_dir, 'index.html')
+            if os.path.exists(index_file):
+                try:
+                    # 获取文件修改时间作为生成时间的参考
+                    file_mtime = os.path.getmtime(index_file)
+                    from datetime import datetime
+                    mtime_dt = datetime.fromtimestamp(file_mtime)
+                    generated_time = mtime_dt.strftime('%Y-%m-%d %H:%M:%S')
+                except:
+                    generated_time = f"{date_dir} 生成"
+            else:
+                generated_time = f"{date_dir} 生成"
         
         # 格式化日期显示
         try:
