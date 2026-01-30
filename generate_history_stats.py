@@ -39,15 +39,32 @@ def generate_history_stats():
     total_days = len(history_dirs)
     latest_date = history_dirs[0] if history_dirs else "无数据"
     
-    # 计算数据完整性（检查文件是否完整）
-    complete_records = 0
-    for date_dir in history_dirs:
-        required_files = ['index.html', 'github_trending_cards.css', 'metadata.json']
-        dir_path = os.path.join('history', date_dir)
-        if all(os.path.exists(os.path.join(dir_path, f)) for f in required_files):
-            complete_records += 1
-    
-    data_integrity = f"{(complete_records / total_days * 100):.1f}%" if total_days > 0 else "100%"
+    # 计算数据完整性（现有数据 / 从第一个数据日期到当前日期应有的数据量）
+    if history_dirs:
+        # 获取最早的数据日期
+        earliest_date_str = history_dirs[-1]  # 排序后最后一个是最早的
+        earliest_date = datetime.strptime(earliest_date_str, '%Y-%m-%d')
+        
+        # 获取当前日期
+        current_date = datetime.now()
+        
+        # 计算从最早日期到今天应该有多少天的数据（包含首尾）
+        expected_days = (current_date - earliest_date).days + 1
+        
+        # 计算完整记录数
+        complete_records = 0
+        for date_dir in history_dirs:
+            required_files = ['index.html', 'github_trending_cards.css', 'metadata.json']
+            dir_path = os.path.join('history', date_dir)
+            if all(os.path.exists(os.path.join(dir_path, f)) for f in required_files):
+                complete_records += 1
+        
+        # 数据完整比例 = 现有完整数据 / 应该有的数据量
+        data_integrity = f"{(complete_records / expected_days * 100):.1f}%"
+        integrity_detail = f"{complete_records}/{expected_days}天"
+    else:
+        data_integrity = "100%"
+        integrity_detail = "0/0天"
     
     # 生成历史记录HTML
     history_items_html = ""
@@ -284,7 +301,7 @@ def generate_history_stats():
             <div class="stat-card">
                 <h3><i class="fas fa-chart-line"></i> 数据完整性</h3>
                 <div class="stat-number">{data_integrity}</div>
-                <div class="stat-label">完整记录比例</div>
+                <div class="stat-label">{integrity_detail}</div>
             </div>
         </div>
         
@@ -307,7 +324,7 @@ def generate_history_stats():
     print(f"统计信息:")
     print(f"   - 总记录天数: {total_days}")
     print(f"   - 最新日期: {latest_date}")
-    print(f"   - 数据完整性: {data_integrity}")
+    print(f"   - 数据完整性: {data_integrity} ({integrity_detail})")
 
 if __name__ == '__main__':
     generate_history_stats()
