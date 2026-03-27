@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
+from html import escape
 import os
 import concurrent.futures
 
@@ -181,17 +182,144 @@ def generate_fallback_summary(repo):
 
 def generate_html(all_repos):
     today = datetime.now().strftime('%Y-%m-%d')
+    active_period = 'daily'
+    period_titles = {
+        'daily': '日榜',
+        'weekly': '周榜',
+        'monthly': '月榜'
+    }
+    period_descriptions = {
+        'daily': '追踪今天刚刚升温的项目，适合快速发现新热点。',
+        'weekly': '观察一周内持续发酵的仓库，更容易看出真正被社区验证的方向。',
+        'monthly': '筛选月度长坡厚雪型项目，适合判断长期关注价值。'
+    }
+    period_accents = {
+        'daily': 'TODAY SIGNAL',
+        'weekly': 'WEEKLY MOMENTUM',
+        'monthly': 'MONTHLY ARC'
+    }
+
+    total_repos = sum(len(repos) for repos in all_repos.values())
+    featured_repo = all_repos.get('daily', [{}])[0] if all_repos.get('daily') else {}
+
+    def safe_text(value, default=''):
+        if value is None:
+            value = default
+        text = str(value).strip()
+        if not text:
+            text = default
+        return escape(text, quote=True)
+
+    def summary_text(repo):
+        summary = str(repo.get('summary', '') or '').strip()
+        if not summary:
+            return '暂未生成 AI 总结，先通过原始描述和数据判断是否值得深入。'
+        return summary
+
+    def build_meta_pills(repo):
+        return f'''
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>{safe_text(repo.get("stars"), "0")}</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>{safe_text(repo.get("forks"), "0")}</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>{safe_text(repo.get("language"), "未知")}</span>
+        '''
+
+    def build_repo_entry(repo, rank, period_key):
+        title = safe_text(repo.get('title'), '未知仓库')
+        url = safe_text(repo.get('url'), '#')
+        description = safe_text(repo.get('description'), '暂无项目描述')
+        summary = safe_text(summary_text(repo))
+        author = safe_text(repo.get('author'), '未知作者')
+
+        return f'''
+                <article class="repo-entry reveal-item" style="--entry-delay:{rank * 60}ms;">
+                    <div class="repo-rank">{rank:02d}</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">{safe_text(period_titles[period_key])}</span>
+                            <h3 class="repo-title"><a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a></h3>
+                        </div>
+                        <p class="repo-desc">{description}</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>{summary}</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+{build_meta_pills(repo)}
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 {author}</span>
+                        </div>
+                        <a class="btn" href="{url}" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        '''
+
+    def build_repo_section(period_key, repos):
+        hidden_attr = '' if period_key == active_period else ' hidden'
+        active_class = ' active' if period_key == active_period else ''
+        if repos:
+            entries_html = ''.join(
+                build_repo_entry(repo, rank, period_key)
+                for rank, repo in enumerate(repos, start=1)
+            )
+        else:
+            entries_html = '''
+                <div class="empty-state reveal-item">
+                    <p>这一档榜单暂时没有抓取到数据，请稍后再试。</p>
+                </div>
+            '''
+
+        return f'''
+            <section id="{period_key}" class="tab-content{active_class}" role="tabpanel" aria-labelledby="tab-{period_key}"{hidden_attr}>
+                <div class="section-head reveal-item">
+                    <div class="section-copy">
+                        <span class="eyebrow">{safe_text(period_accents[period_key])}</span>
+                        <h2>{safe_text(period_titles[period_key])}</h2>
+                        <p>{safe_text(period_descriptions[period_key])}</p>
+                    </div>
+                    <div class="section-meta">
+                        <span class="section-count">{len(repos):02d}</span>
+                        <span class="section-note">Top {len(repos)} repositories</span>
+                    </div>
+                </div>
+                <div class="repo-list">
+{entries_html}
+                </div>
+            </section>
+        '''
+
+    featured_title = safe_text(featured_repo.get('title'), '今日榜单即将更新')
+    featured_url = safe_text(featured_repo.get('url'), '#')
+    featured_description = safe_text(
+        featured_repo.get('description'),
+        'GitHub Trending 的最新热门项目会展示在这里。'
+    )
+    featured_summary = safe_text(summary_text(featured_repo))
+    featured_author = safe_text(featured_repo.get('author'), 'GitHub')
+    featured_stars = safe_text(featured_repo.get('stars'), '0')
+    featured_language = safe_text(featured_repo.get('language'), '未知')
+
+    repo_sections = ''.join(
+        build_repo_section(period_key, all_repos.get(period_key, []))
+        for period_key in ['daily', 'weekly', 'monthly']
+    )
+
     html = f'''<!DOCTYPE html>
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <title>GitHub 趋势榜单（{today}）</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="github_trending_cards.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body data-theme="light">
-    <!-- 主题切换按钮 -->
     <div class="theme-toggle-container">
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
             <i class="fas fa-sun sun-icon"></i>
@@ -199,180 +327,132 @@ def generate_html(all_repos):
         </button>
     </div>
 
-    <!-- 页面标题 -->
-    <div class="header-container">
-        <h1>
-            <i class="fab fa-github"></i>
-            GitHub 趋势榜单
-            <span class="date-badge">{today}</span>
-        </h1>
-        <p class="subtitle">发现最热门的开源项目</p>
-        
-        <!-- 历史记录入口 -->
-        <div class="history-entrance">
-            <a href="history/" class="history-btn">
-                <i class="fas fa-history"></i>
-                <span>查看历史记录</span>
-            </a>
-            <div class="history-tooltip">
-                📅 每日历史榜单已保存，点击查看完整记录
+    <main class="page-shell">
+        <section class="hero reveal-item">
+            <div class="hero-copy">
+                <div class="hero-topline">
+                    <span class="eyebrow">OPEN SOURCE RADAR</span>
+                    <span class="date-badge">{today}</span>
+                </div>
+                <h1>GitHub 趋势榜单</h1>
+                <p class="hero-lead">把 GitHub Trending 做成一张更好扫读的中文技术榜单，帮助你在几分钟内判断哪些项目值得点开。</p>
+                <div class="hero-actions">
+                    <a href="#repo-sections" class="primary-link">开始浏览</a>
+                    <a href="history/" class="history-btn">查看历史记录</a>
+                </div>
+                <div class="hero-strip">
+                    <div class="hero-stat">
+                        <strong>3</strong>
+                        <span>日 / 周 / 月榜</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>{total_repos:02d}</strong>
+                        <span>本次收录项目</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>AI</strong>
+                        <span>一句话辅助筛选</span>
+                    </div>
+                </div>
+                <p class="hero-caption">自动抓取 GitHub Trending Top 10，结合作者、语言、Star 与 AI 摘要快速建立第一判断。</p>
             </div>
-        </div>
-    </div>
 
-    <!-- 标签页导航 -->
-    <div class="tab-navigation">
-        <button class="tab-btn active" onclick="showTab('daily')" data-tab="daily">
-            <i class="fas fa-calendar-day"></i>
-            <span>日榜</span>
-        </button>
-        <button class="tab-btn" onclick="showTab('weekly')" data-tab="weekly">
-            <i class="fas fa-calendar-week"></i>
-            <span>周榜</span>
-        </button>
-        <button class="tab-btn" onclick="showTab('monthly')" data-tab="monthly">
-            <i class="fas fa-calendar-alt"></i>
-            <span>月榜</span>
-        </button>
-    </div>
+            <aside class="hero-spotlight reveal-item">
+                <span class="spotlight-label">DAILY HIGHLIGHT</span>
+                <h2><a href="{featured_url}" target="_blank" rel="noopener noreferrer">{featured_title}</a></h2>
+                <p class="spotlight-desc">{featured_description}</p>
+                <div class="spotlight-meta">
+                    <span><i class="fa-solid fa-star"></i>{featured_stars}</span>
+                    <span><i class="fa-solid fa-code"></i>{featured_language}</span>
+                    <span><i class="fa-regular fa-user"></i>{featured_author}</span>
+                </div>
+                <div class="spotlight-summary">
+                    <span>AI 一句话</span>
+                    <p>{featured_summary}</p>
+                </div>
+            </aside>
+        </section>
 
-    <div id="daily" class="container tab-content">
-'''
-    for repo in all_repos['daily']:
-        html += f'''
-        <div class="card">
-            <div class="repo-title"><a href="{repo['url']}" target="_blank">{repo['title']}</a></div>
-            <div class="desc">{repo['description']}</div>
-            <div class="meta">
-                <span>🌟 {repo['stars']}</span>
-                <span>🍴 {repo['forks']}</span>
-                <span>📝 {repo['language']}</span>
+        <section class="tabs-shell reveal-item" id="repo-sections">
+            <div class="section-intro">
+                <span class="eyebrow">TREND WINDOWS</span>
+                <h2>按时间尺度切换热度</h2>
+                <p>日榜看刚起势的项目，周榜看持续发酵的方向，月榜更适合判断长期关注价值。</p>
             </div>
-            <div class="author">作者：{repo['author']}</div>
-            <div class="ai-summary"><b>AI总结：</b>{repo.get('summary', '')}</div>
-            <a class="btn" href="{repo['url']}" target="_blank">查看仓库</a>
-        </div>
-'''
-    html += '''
-    </div>
-    <div id="weekly" class="container tab-content" style="display:none;">
-'''
-    for repo in all_repos['weekly']:
-        html += f'''
-        <div class="card">
-            <div class="repo-title"><a href="{repo['url']}" target="_blank">{repo['title']}</a></div>
-            <div class="desc">{repo['description']}</div>
-            <div class="meta">
-                <span>🌟 {repo['stars']}</span>
-                <span>🍴 {repo['forks']}</span>
-                <span>📝 {repo['language']}</span>
+            <div class="tab-navigation" role="tablist" aria-label="趋势榜单切换">
+                <button id="tab-daily" class="tab-btn active" onclick="showTab('daily')" data-tab="daily" role="tab" aria-selected="true" aria-controls="daily">
+                    <span class="tab-label">日榜</span>
+                    <span class="tab-sub">Today</span>
+                </button>
+                <button id="tab-weekly" class="tab-btn" onclick="showTab('weekly')" data-tab="weekly" role="tab" aria-selected="false" aria-controls="weekly">
+                    <span class="tab-label">周榜</span>
+                    <span class="tab-sub">Week</span>
+                </button>
+                <button id="tab-monthly" class="tab-btn" onclick="showTab('monthly')" data-tab="monthly" role="tab" aria-selected="false" aria-controls="monthly">
+                    <span class="tab-label">月榜</span>
+                    <span class="tab-sub">Month</span>
+                </button>
             </div>
-            <div class="author">作者：{repo['author']}</div>
-            <div class="ai-summary"><b>AI总结：</b>{repo.get('summary', '')}</div>
-            <a class="btn" href="{repo['url']}" target="_blank">查看仓库</a>
+        </section>
+
+        <div class="repo-sections">
+{repo_sections}
         </div>
-'''
-    html += '''
-    </div>
-    <div id="monthly" class="container tab-content" style="display:none;">
-'''
-    for repo in all_repos['monthly']:
-        html += f'''
-        <div class="card">
-            <div class="repo-title"><a href="{repo['url']}" target="_blank">{repo['title']}</a></div>
-            <div class="desc">{repo['description']}</div>
-            <div class="meta">
-                <span>🌟 {repo['stars']}</span>
-                <span>🍴 {repo['forks']}</span>
-                <span>📝 {repo['language']}</span>
-            </div>
-            <div class="author">作者：{repo['author']}</div>
-            <div class="ai-summary"><b>AI总结：</b>{repo.get('summary', '')}</div>
-            <a class="btn" href="{repo['url']}" target="_blank">查看仓库</a>
-        </div>
-'''
-    html += '''
-    </div>
+
+        <footer class="page-footer">
+            <p>数据来源 GitHub Trending · 支持日榜、周榜、月榜 · 历史页面保存在 gh-pages 分支</p>
+            <p>页面生成时间 {today}</p>
+        </footer>
+    </main>
+
     <script>
-    // 主题切换功能
-    function toggleTheme() {
-        const body = document.body;
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    function applyTheme(theme) {{
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }}
 
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+    function toggleTheme() {{
+        const currentTheme = document.body.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        applyTheme(nextTheme);
+    }}
 
-        // 添加切换动画
-        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-        setTimeout(() => {
-            body.style.transition = '';
-        }, 300);
-    }
+    function showTab(tab) {{
+        const sections = document.querySelectorAll('.tab-content');
+        const buttons = document.querySelectorAll('.tab-btn');
 
-    // 页面加载时恢复主题设置
-    document.addEventListener('DOMContentLoaded', function() {
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.setAttribute('data-theme', savedTheme);
-    });
+        sections.forEach(section => {{
+            const active = section.id === tab;
+            section.hidden = !active;
+            section.classList.toggle('active', active);
+        }});
 
-    // 标签页切换功能
-    function showTab(tab) {
-        // 隐藏所有标签页内容
-        document.getElementById('daily').style.display = 'none';
-        document.getElementById('weekly').style.display = 'none';
-        document.getElementById('monthly').style.display = 'none';
+        buttons.forEach(button => {{
+            const active = button.dataset.tab === tab;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-selected', active ? 'true' : 'false');
+        }});
+    }}
 
-        // 显示选中的标签页
-        document.getElementById(tab).style.display = '';
+    document.addEventListener('DOMContentLoaded', function() {{
+        applyTheme(localStorage.getItem('theme') || 'light');
+        showTab('{active_period}');
 
-        // 更新标签页按钮状态
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+        const observer = new IntersectionObserver((entries) => {{
+            entries.forEach(entry => {{
+                if (entry.isIntersecting) {{
+                    entry.target.classList.add('in-view');
+                }}
+            }});
+        }}, {{
+            threshold: 0.12,
+            rootMargin: '0px 0px -10% 0px'
+        }});
 
-        // 添加切换动画
-        const container = document.getElementById(tab);
-        container.style.opacity = '0';
-        container.style.transform = 'translateY(20px)';
-
-        setTimeout(() => {
-            container.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            container.style.opacity = '1';
-            container.style.transform = 'translateY(0)';
-        }, 50);
-
-        setTimeout(() => {
-            container.style.transition = '';
-        }, 450);
-    }
-
-    // 卡片动画效果
-    document.addEventListener('DOMContentLoaded', function() {
-        const cards = document.querySelectorAll('.card');
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        cards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-            observer.observe(card);
-        });
-    });
+        document.querySelectorAll('.reveal-item').forEach(item => {{
+            observer.observe(item);
+        }});
+    }});
     </script>
 </body>
 </html>'''
@@ -412,7 +492,7 @@ if __name__ == '__main__':
     print('🚀 开始生成GitHub趋势榜单...')
 
     # 从环境变量获取API密钥
-    api_key = "sk-yqxjmukyxctdsjbkcdtadwjkbtlcxktrfutyxlnestdehygh"
+    api_key = os.environ.get('OPENROUTER_API_KEY')
     if api_key:
         print(f'✅ 检测到API密钥: {api_key[:10]}...')
     else:
