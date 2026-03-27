@@ -35,7 +35,7 @@ jobs:
             mkdir -p temp_history
 
             # 克隆gh-pages分支到临时目录
-            git clone --branch gh-pages --single-branch https://github.com/Ibook000/GithubTrending.git temp_history
+            git clone --branch gh-pages --single-branch "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" temp_history
 
             # 复制历史记录到当前工作区
             if [ -d "temp_history/history" ]; then
@@ -114,7 +114,7 @@ jobs:
       - name: 保存历史页面
         run: |
           # 获取当前日期
-          DATE=$(date +%Y-%m-%d)
+          DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
           echo "当前日期: $DATE"
 
           # 确保 history 目录存在

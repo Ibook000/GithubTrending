@@ -69,10 +69,8 @@ def ai_summarize_projects(repos, api_key):
         print('❌ 未安装openai库，无法生成AI总结。')
         return repos
 
-    print(f'🔗 正在连接OpenRouter API...')
-    print(f'🔑 API密钥长度: {len(api_key)} 字符')
-    print(f'🔑 API密钥前缀: {api_key[:15]}...')
-    print(f'🔑 API密钥是否以sk-or-v1开头: {api_key.startswith("sk-or-v1")}')
+    print('🔌 正在连接 OpenRouter 兼容 API...')
+    print('🔑 已检测到 API 密钥，开始生成 AI 总结')
 
     # 检测是否在GitHub Actions环境中
     is_github_actions = os.environ.get('GITHUB_ACTIONS') == 'true'
