@@ -5,6 +5,17 @@ from html import escape
 import os
 import concurrent.futures
 
+DEFAULT_LLM_BASE_URL = "https://integrate.api.nvidia.com/v1"
+DEFAULT_LLM_MODEL = "minimaxai/minimax-m2.7"
+
+
+def get_llm_config():
+    return {
+        "api_key": os.environ.get("NVIDIA_API_KEY") or os.environ.get("OPENROUTER_API_KEY"),
+        "base_url": os.environ.get("LLM_BASE_URL", DEFAULT_LLM_BASE_URL),
+        "model": os.environ.get("LLM_MODEL", DEFAULT_LLM_MODEL),
+    }
+
 # openai库导入
 try:
     from openai import OpenAI
@@ -69,7 +80,10 @@ def ai_summarize_projects(repos, api_key):
         print('❌ 未安装openai库，无法生成AI总结。')
         return repos
 
+    llm_config = get_llm_config()
     print('🔌 正在连接 OpenRouter 兼容 API...')
+    print(f'🤖 LLM模型: {llm_config["model"]}')
+    print(f'🔌 LLM API: {llm_config["base_url"]}')
     print('🔑 已检测到 API 密钥，开始生成 AI 总结')
 
     # 检测是否在GitHub Actions环境中
@@ -81,7 +95,7 @@ def ai_summarize_projects(repos, api_key):
         # 为GitHub Actions环境配置更长的超时时间和重试机制
         timeout_duration = 120 if is_github_actions else 60
         client = OpenAI(
-            base_url="https://api.siliconflow.cn/v1",
+            base_url=llm_config["base_url"],
             api_key=api_key,
             timeout=timeout_duration
         )
@@ -104,7 +118,7 @@ def ai_summarize_projects(repos, api_key):
                 # 为GitHub Actions环境使用更保守的超时设置
                 request_timeout = 90 if is_github_actions else 60
                 completion = client.chat.completions.create(
-                    model="deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+                    model=llm_config["model"],
                     messages=[
                         {"role": "user", "content": prompt}
                     ],
@@ -490,11 +504,14 @@ if __name__ == '__main__':
     print('🚀 开始生成GitHub趋势榜单...')
 
     # 从环境变量获取API密钥
-    api_key = os.environ.get('OPENROUTER_API_KEY')
+    llm_config = get_llm_config()
+    api_key = llm_config["api_key"]
     if api_key:
         print(f'✅ 检测到API密钥: {api_key[:10]}...')
+        print(f'🤖 LLM模型: {llm_config["model"]}')
+        print(f'🔌 LLM API: {llm_config["base_url"]}')
     else:
-        print('⚠️ 未检测到OPENROUTER_API_KEY，将不生成AI总结。')
+        print('⚠️ 未检测到NVIDIA_API_KEY或OPENROUTER_API_KEY，将不生成AI总结。')
 
     all_repos = {'daily': [], 'weekly': [], 'monthly': []}
     # 依次获取三个榜单的数据，避免重复请求

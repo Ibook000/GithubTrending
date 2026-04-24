@@ -49,7 +49,7 @@ python generate_history_stats.py
 在 PowerShell 中设置环境变量：
 
 ```powershell
-$env:OPENROUTER_API_KEY="your-api-key"
+$env:NVIDIA_API_KEY="your-api-key"
 python github_trending_cards.py
 ```
 
@@ -59,7 +59,7 @@ python github_trending_cards.py
 1. 打开仓库 `Settings`
 2. 进入 `Secrets and variables` -> `Actions`
 3. 新建 Repository secret
-4. 名称填写 `OPENROUTER_API_KEY`
+4. 名称填写 `NVIDIA_API_KEY`
 5. 值填写你的 API Key
 
 项目会从环境变量读取密钥，不需要把 API Key 写进代码文件。
@@ -103,7 +103,7 @@ python github_trending_cards.py
 
 ## 说明
 - Trending 数据来自 GitHub Trending 页面抓取
-- AI 总结使用 OpenRouter 兼容方式调用
+- AI 总结默认使用 NVIDIA NIM OpenAI-compatible API，可通过 `LLM_BASE_URL` 和 `LLM_MODEL` 覆盖
 - 历史页会自动统计归档完整性并展示历史快照入口
 
 ---

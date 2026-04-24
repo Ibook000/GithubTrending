@@ -12,6 +12,17 @@ import time
 import requests
 from urllib.parse import urlparse
 
+DEFAULT_LLM_BASE_URL = "https://integrate.api.nvidia.com/v1"
+DEFAULT_LLM_MODEL = "minimaxai/minimax-m2.7"
+
+
+def get_llm_config():
+    return {
+        "api_key": os.environ.get("NVIDIA_API_KEY") or os.environ.get("OPENROUTER_API_KEY"),
+        "base_url": os.environ.get("LLM_BASE_URL", DEFAULT_LLM_BASE_URL),
+        "model": os.environ.get("LLM_MODEL", DEFAULT_LLM_MODEL),
+    }
+
 def test_basic_connectivity():
     """测试基本网络连接"""
     print("🌐 测试基本网络连接...")
@@ -19,7 +30,7 @@ def test_basic_connectivity():
     test_urls = [
         "https://www.google.com",
         "https://api.github.com",
-        "https://openrouter.ai",
+        "https://integrate.api.nvidia.com",
         "https://httpbin.org/ip"
     ]
     
@@ -34,9 +45,10 @@ def test_openrouter_api():
     """测试OpenRouter API连接"""
     print("\n🤖 测试OpenRouter API连接...")
     
-    api_key = os.environ.get('OPENROUTER_API_KEY')
+    llm_config = get_llm_config()
+    api_key = llm_config["api_key"]
     if not api_key:
-        print("❌ 未找到OPENROUTER_API_KEY环境变量")
+        print("❌ 未找到NVIDIA_API_KEY或OPENROUTER_API_KEY环境变量")
         return
     
     print(f"🔑 API密钥长度: {len(api_key)}")
@@ -51,13 +63,13 @@ def test_openrouter_api():
         
         # 简单的API测试请求
         test_data = {
-            "model": "deepseek/deepseek-r1-0528:free",
+            "model": llm_config["model"],
             "messages": [{"role": "user", "content": "Hello"}],
             "max_tokens": 10
         }
         
         response = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
+            f"{llm_config['base_url'].rstrip('/')}/chat/completions",
             headers=headers,
             json=test_data,
             timeout=30
@@ -79,8 +91,7 @@ def test_dns_resolution():
     import socket
     
     domains = [
-        "openrouter.ai",
-        "api.openrouter.ai",
+        "integrate.api.nvidia.com",
         "github.com",
         "google.com"
     ]

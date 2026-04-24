@@ -27,7 +27,7 @@
 # 安装依赖
 pip install -r requirements.txt
 
-# 生成趋势榜单（需要设置 OPENROUTER_API_KEY 环境变量）
+# 生成趋势榜单（需要设置 NVIDIA_API_KEY 或 OPENROUTER_API_KEY 环境变量）
 python github_trending_cards.py
 
 # 生成历史统计页面
@@ -41,7 +41,7 @@ python test_network.py
 
 ```bash
 # AI 总结功能需要设置 API Key
-export OPENROUTER_API_KEY="your-api-key-here"
+export NVIDIA_API_KEY="your-api-key-here"
 ```
 
 ---
@@ -89,7 +89,7 @@ export OPENROUTER_API_KEY="your-api-key-here"
 1. 新增榜单类型 → 修改 `fetch_github_trending()` 的 `since` 参数
 2. 修改页面布局 → 更新 `generate_html()` 函数中的 HTML 模板
 3. 调整样式 → 修改 `github_trending_cards.css`
-4. 更换 AI 模型 → 修改 `ai_summarize_projects()` 中的 `model` 参数
+4. 更换 AI 模型 → 设置 `LLM_MODEL` / `LLM_BASE_URL` 环境变量，或修改默认常量
 
 ---
 
