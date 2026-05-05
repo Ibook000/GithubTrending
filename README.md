@@ -90,6 +90,14 @@ python github_trending_cards.py
 ```
 
 ## 效果预览
+
+### 首页预览
+![首页预览](githubtrending_homepage.png)
+
+### 历史页预览
+![历史页预览](githubtrending_history.png)
+
+### 项目图标
 ![项目预览](img.png)
 
 ## 技术栈
