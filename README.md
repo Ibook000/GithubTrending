@@ -85,8 +85,7 @@ python github_trending_cards.py
 ├── github_trending_cards.html  # 生成后的首页 HTML
 ├── generate_history_stats.py   # 历史档案页生成器
 ├── history/                    # 历史快照目录
-├── .github/workflows/          # GitHub Actions 工作流
-└── img.png                     # 项目预览图
+└── .github/workflows/          # GitHub Actions 工作流
 ```
 
 ## 效果预览
