@@ -1,0 +1,3318 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub 趋势榜单 - 历史档案</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f3ecdf;
+            --bg-page-accent: rgba(203, 111, 52, 0.18);
+            --bg-page-cool: rgba(15, 118, 110, 0.14);
+            --surface: rgba(255, 248, 239, 0.76);
+            --surface-strong: rgba(255, 252, 247, 0.92);
+            --surface-muted: rgba(255, 255, 255, 0.56);
+            --hero-bg: linear-gradient(135deg, #111827 0%, #19212d 45%, #0f766e 140%);
+            --hero-panel: rgba(12, 18, 26, 0.64);
+            --text-primary: #122033;
+            --text-secondary: #45556d;
+            --text-muted: #6f7d90;
+            --text-inverse: #f8fafc;
+            --accent: #c56b2b;
+            --accent-soft: rgba(197, 107, 43, 0.14);
+            --accent-cool: #2c9c94;
+            --border: rgba(18, 32, 51, 0.12);
+            --border-strong: rgba(18, 32, 51, 0.22);
+            --shadow-soft: 0 24px 60px rgba(34, 37, 41, 0.14);
+            --shadow-hero: 0 42px 96px rgba(7, 10, 17, 0.26);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background:
+                radial-gradient(circle at top left, var(--bg-page-accent), transparent 34%),
+                radial-gradient(circle at 88% 12%, var(--bg-page-cool), transparent 28%),
+                linear-gradient(180deg, var(--bg-page) 0%, color-mix(in srgb, var(--bg-page) 88%, #ffffff 12%) 100%);
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 34vw;
+            height: 34vw;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(84px);
+            opacity: 0.4;
+        }
+
+        body::before {
+            top: -8vw;
+            right: -10vw;
+            background: var(--bg-page-accent);
+        }
+
+        body::after {
+            bottom: -12vw;
+            left: -12vw;
+            background: var(--bg-page-cool);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            position: relative;
+            z-index: 1;
+            width: min(1320px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 24px 0 56px;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+            gap: 32px;
+            min-height: min(860px, calc(100svh - 48px));
+            padding: clamp(78px, 11vw, 132px) clamp(24px, 4vw, 52px) 36px;
+            border-radius: 36px;
+            background: var(--hero-bg);
+            box-shadow: var(--shadow-hero);
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            pointer-events: none;
+        }
+
+        .hero::before {
+            width: 42vw;
+            height: 42vw;
+            top: -16vw;
+            right: -8vw;
+            background: radial-gradient(circle, rgba(255, 218, 185, 0.24) 0%, rgba(255, 218, 185, 0) 68%);
+        }
+
+        .hero::after {
+            width: 28vw;
+            height: 28vw;
+            bottom: -12vw;
+            left: 34%;
+            background: radial-gradient(circle, rgba(88, 199, 194, 0.18) 0%, rgba(88, 199, 194, 0) 74%);
+        }
+
+        .hero-copy,
+        .hero-panel {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 720px;
+        }
+
+        .eyebrow,
+        .metric-number,
+        .archive-count,
+        .history-rank,
+        .history-link,
+        .hero h1,
+        .archive-head h2 {
+            font-family: "Space Grotesk", "Noto Sans SC", sans-serif;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(248, 250, 252, 0.76);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 42px;
+            height: 1px;
+            background: rgba(248, 250, 252, 0.4);
+        }
+
+        .hero h1 {
+            margin: 18px 0 0;
+            color: var(--text-inverse);
+            font-size: clamp(3.2rem, 8vw, 6rem);
+            line-height: 0.97;
+            letter-spacing: -0.08em;
+        }
+
+        .hero-lead {
+            max-width: 38rem;
+            margin: 20px 0 0;
+            color: rgba(248, 250, 252, 0.82);
+            font-size: clamp(1.02rem, 1.7vw, 1.22rem);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .primary-link,
+        .secondary-link,
+        .history-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 20px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: transform 0.24s ease, background 0.24s ease, border-color 0.24s ease, color 0.24s ease;
+        }
+
+        .primary-link {
+            background: var(--accent);
+            color: #fff9f4;
+            font-weight: 700;
+            box-shadow: 0 18px 28px rgba(197, 107, 43, 0.22);
+        }
+
+        .secondary-link {
+            border: 1px solid rgba(248, 250, 252, 0.18);
+            background: rgba(248, 250, 252, 0.08);
+            color: rgba(248, 250, 252, 0.92);
+            backdrop-filter: blur(12px);
+        }
+
+        .primary-link:hover,
+        .secondary-link:hover,
+        .history-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .metric-card {
+            padding: 18px;
+            border-radius: 24px;
+            border: 1px solid rgba(248, 250, 252, 0.12);
+            background: rgba(248, 250, 252, 0.06);
+            backdrop-filter: blur(14px);
+        }
+
+        .metric-number {
+            display: block;
+            color: var(--text-inverse);
+            font-size: clamp(1.6rem, 2.2vw, 2.4rem);
+            letter-spacing: -0.06em;
+            line-height: 1;
+        }
+
+        .metric-label {
+            display: block;
+            margin-top: 8px;
+            color: rgba(248, 250, 252, 0.74);
+            font-size: 0.92rem;
+        }
+
+        .hero-note {
+            margin: 18px 0 0;
+            color: rgba(248, 250, 252, 0.62);
+            font-size: 0.92rem;
+        }
+
+        .hero-panel {
+            align-self: end;
+            padding: 28px;
+            border-radius: 28px;
+            border: 1px solid rgba(248, 250, 252, 0.12);
+            background: var(--hero-panel);
+            backdrop-filter: blur(18px);
+        }
+
+        .panel-label {
+            display: inline-block;
+            color: rgba(248, 250, 252, 0.64);
+            font-family: "Space Grotesk", "Noto Sans SC", sans-serif;
+            font-size: 0.76rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        .panel-title {
+            margin: 14px 0 0;
+            color: var(--text-inverse);
+            font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+            line-height: 1.08;
+        }
+
+        .panel-copy,
+        .panel-list {
+            margin: 16px 0 0;
+            color: rgba(248, 250, 252, 0.78);
+        }
+
+        .panel-list {
+            padding-left: 18px;
+        }
+
+        .archive-shell {
+            margin-top: 30px;
+            padding: 0 12px;
+        }
+
+        .archive-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid var(--border-strong);
+        }
+
+        .archive-head h2 {
+            margin: 10px 0 0;
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            line-height: 1;
+            letter-spacing: -0.06em;
+        }
+
+        .archive-head .eyebrow {
+            color: var(--text-muted);
+        }
+
+        .archive-head .eyebrow::before {
+            background: var(--border-strong);
+        }
+
+        .archive-head p {
+            margin: 12px 0 0;
+            color: var(--text-secondary);
+            max-width: 52rem;
+        }
+
+        .archive-side {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            color: var(--text-muted);
+        }
+
+        .archive-count {
+            color: var(--accent);
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            line-height: 1;
+            letter-spacing: -0.08em;
+        }
+
+        .archive-note {
+            font-size: 0.86rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .archive-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .history-item {
+            display: grid;
+            grid-template-columns: 88px minmax(0, 1fr) minmax(220px, 260px);
+            gap: 24px;
+            padding: 28px 8px;
+            border-bottom: 1px solid var(--border);
+            opacity: 0;
+            transform: translateY(28px);
+            transition:
+                opacity 0.6s ease,
+                transform 0.6s ease,
+                background 0.24s ease,
+                border-color 0.24s ease;
+            transition-delay: var(--delay, 0ms);
+        }
+
+        .history-item:hover {
+            background: color-mix(in srgb, var(--surface) 78%, transparent 22%);
+            border-color: var(--border-strong);
+        }
+
+        .history-rank {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            color: var(--accent);
+            font-size: clamp(2.1rem, 4vw, 3.4rem);
+            font-weight: 700;
+            letter-spacing: -0.08em;
+            line-height: 0.9;
+            opacity: 0.82;
+        }
+
+        .history-topline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .history-chip {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 0 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--surface-muted);
+            color: var(--text-secondary);
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .history-chip.is-complete {
+            color: var(--accent-cool);
+            border-color: rgba(44, 156, 148, 0.24);
+            background: rgba(44, 156, 148, 0.1);
+        }
+
+        .history-chip.is-warning {
+            color: var(--accent);
+            border-color: rgba(197, 107, 43, 0.24);
+            background: rgba(197, 107, 43, 0.1);
+        }
+
+        .history-chip.muted {
+            color: var(--text-muted);
+        }
+
+        .history-main h3 {
+            margin: 14px 0 0;
+            font-family: "Space Grotesk", "Noto Sans SC", sans-serif;
+            font-size: clamp(1.4rem, 2vw, 2rem);
+            line-height: 1.08;
+            letter-spacing: -0.04em;
+        }
+
+        .history-time,
+        .history-note,
+        .history-path {
+            color: var(--text-secondary);
+        }
+
+        .history-time {
+            margin: 14px 0 0;
+        }
+
+        .history-note {
+            margin: 10px 0 0;
+            max-width: 52rem;
+        }
+
+        .history-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .history-path {
+            display: inline-flex;
+            align-items: center;
+            min-height: 40px;
+            padding: 0 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--surface-muted);
+            font-size: 0.9rem;
+        }
+
+        .history-link {
+            border: 1px solid var(--border-strong);
+            background: transparent;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .history-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .empty-state {
+            padding: 52px 8px;
+            color: var(--text-secondary);
+        }
+
+        .hero,
+        .hero-panel,
+        .archive-head,
+        .empty-state {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .hero.in-view,
+        .hero-panel.in-view,
+        .archive-head.in-view,
+        .history-item.in-view,
+        .empty-state.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        @media (max-width: 1120px) {
+            .hero {
+                min-height: auto;
+                grid-template-columns: 1fr;
+            }
+
+            .hero-panel,
+            .archive-side {
+                align-self: auto;
+            }
+
+            .archive-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .archive-side {
+                align-items: flex-start;
+            }
+
+            .history-item {
+                grid-template-columns: 72px minmax(0, 1fr);
+            }
+
+            .history-actions {
+                grid-column: 2;
+            }
+        }
+
+        @media (max-width: 780px) {
+            .page-shell {
+                width: min(100% - 20px, 100%);
+                padding-top: 14px;
+            }
+
+            .hero {
+                padding: 72px 18px 28px;
+                border-radius: 28px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .archive-shell {
+                padding-inline: 4px;
+            }
+
+            .history-item {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 22px 4px;
+            }
+
+            .history-rank {
+                justify-content: flex-start;
+            }
+
+            .history-actions {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .hero h1 {
+                font-size: clamp(2.7rem, 15vw, 4rem);
+            }
+
+            .archive-head h2 {
+                font-size: clamp(1.8rem, 10vw, 2.6rem);
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .primary-link,
+            .secondary-link,
+            .history-link {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .hero,
+            .hero-panel,
+            .archive-head,
+            .history-item,
+            .empty-state {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-shell">
+        <section class="hero reveal-item">
+            <div class="hero-copy">
+                <span class="eyebrow">History Archive</span>
+                <h1>历史榜单档案</h1>
+                <p class="hero-lead">把每天生成的 GitHub Trending 页面收进一个可回看的时间仓库，方便你按日期复盘当时的开源热点。</p>
+                <div class="hero-actions">
+                    <a href="../" class="primary-link">返回最新榜单</a>
+                    <a href="#archive-list" class="secondary-link">浏览全部记录</a>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-number">146</span>
+                        <span class="metric-label">已归档天数</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">2026-05-20</span>
+                        <span class="metric-label">最新记录日期</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">77.2%</span>
+                        <span class="metric-label">数据完整率 146/189 天</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">27</span>
+                        <span class="metric-label">从最新记录起连续归档天数</span>
+                    </div>
+                </div>
+                <p class="hero-note">最早记录：2025-11-13 · 所有历史页均保存在 gh-pages 分支的 history 目录中。</p>
+            </div>
+
+            <aside class="hero-panel reveal-item">
+                <span class="panel-label">Archive Notes</span>
+                <h2 class="panel-title">按日期回看热度变化</h2>
+                <p class="panel-copy">历史页适合做三件事：回看某天的热门项目、观察一段时间的热词漂移、验证某个项目何时真正开始升温。</p>
+                <ul class="panel-list">
+                    <li>每条记录都可以直达当日完整页面</li>
+                    <li>页面会标记档案是否完整，方便排查缺失文件</li>
+                    <li>视觉风格已与首页统一，切换浏览更自然</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="archive-shell" id="archive-list">
+            <div class="archive-head reveal-item">
+                <div>
+                    <span class="eyebrow">Daily Snapshots</span>
+                    <h2>按时间顺序浏览</h2>
+                    <p>这里按日期倒序展示所有历史快照。你可以快速定位最新记录，也可以往前追溯某个技术方向刚开始爆发的时间点。</p>
+                </div>
+                <div class="archive-side">
+                    <span class="archive-count">146</span>
+                    <span class="archive-note">ARCHIVED DAYS</span>
+                </div>
+            </div>
+
+            <div class="archive-list">
+                
+            <article class="history-item reveal-item" style="--delay:55ms;">
+                <div class="history-rank">01</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">最新</span>
+                    </div>
+                    <h3>2026年05月20日 周三</h3>
+                    <p class="history-time">生成时间：2026-05-20 15:20:35</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-20/</span>
+                    <a href="2026-05-20/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:110ms;">
+                <div class="history-rank">02</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">前一天</span>
+                    </div>
+                    <h3>2026年05月19日 周二</h3>
+                    <p class="history-time">生成时间：2026-05-19 15:17:22</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-19/</span>
+                    <a href="2026-05-19/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:165ms;">
+                <div class="history-rank">03</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">2 天前</span>
+                    </div>
+                    <h3>2026年05月18日 周一</h3>
+                    <p class="history-time">生成时间：2026-05-18 15:11:34</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-18/</span>
+                    <a href="2026-05-18/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:220ms;">
+                <div class="history-rank">04</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">3 天前</span>
+                    </div>
+                    <h3>2026年05月17日 周日</h3>
+                    <p class="history-time">生成时间：2026-05-17 14:26:49</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-17/</span>
+                    <a href="2026-05-17/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:275ms;">
+                <div class="history-rank">05</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">4 天前</span>
+                    </div>
+                    <h3>2026年05月16日 周六</h3>
+                    <p class="history-time">生成时间：2026-05-16 13:23:48</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-16/</span>
+                    <a href="2026-05-16/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:330ms;">
+                <div class="history-rank">06</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">5 天前</span>
+                    </div>
+                    <h3>2026年05月15日 周五</h3>
+                    <p class="history-time">生成时间：2026-05-15 14:39:43</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-15/</span>
+                    <a href="2026-05-15/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:385ms;">
+                <div class="history-rank">07</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">6 天前</span>
+                    </div>
+                    <h3>2026年05月14日 周四</h3>
+                    <p class="history-time">生成时间：2026-05-14 14:27:53</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-14/</span>
+                    <a href="2026-05-14/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:440ms;">
+                <div class="history-rank">08</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">1 周前</span>
+                    </div>
+                    <h3>2026年05月13日 周三</h3>
+                    <p class="history-time">生成时间：2026-05-13 15:00:35</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-13/</span>
+                    <a href="2026-05-13/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:495ms;">
+                <div class="history-rank">09</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">1 周前</span>
+                    </div>
+                    <h3>2026年05月12日 周二</h3>
+                    <p class="history-time">生成时间：2026-05-12 14:25:40</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-12/</span>
+                    <a href="2026-05-12/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:550ms;">
+                <div class="history-rank">10</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">1 周前</span>
+                    </div>
+                    <h3>2026年05月11日 周一</h3>
+                    <p class="history-time">生成时间：2026-05-11 13:57:36</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-11/</span>
+                    <a href="2026-05-11/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:605ms;">
+                <div class="history-rank">11</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">1 周前</span>
+                    </div>
+                    <h3>2026年05月10日 周日</h3>
+                    <p class="history-time">生成时间：2026-05-10 14:14:59</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-10/</span>
+                    <a href="2026-05-10/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:660ms;">
+                <div class="history-rank">12</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">1 周前</span>
+                    </div>
+                    <h3>2026年05月09日 周六</h3>
+                    <p class="history-time">生成时间：2026-05-09 13:25:11</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-09/</span>
+                    <a href="2026-05-09/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:715ms;">
+                <div class="history-rank">13</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">1 周前</span>
+                    </div>
+                    <h3>2026年05月08日 周五</h3>
+                    <p class="history-time">生成时间：2026-05-08 13:18:54</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-08/</span>
+                    <a href="2026-05-08/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:770ms;">
+                <div class="history-rank">14</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">1 周前</span>
+                    </div>
+                    <h3>2026年05月07日 周四</h3>
+                    <p class="history-time">生成时间：2026-05-07 13:31:39</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-07/</span>
+                    <a href="2026-05-07/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:825ms;">
+                <div class="history-rank">15</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">2 周前</span>
+                    </div>
+                    <h3>2026年05月06日 周三</h3>
+                    <p class="history-time">生成时间：2026-05-06 13:39:17</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-06/</span>
+                    <a href="2026-05-06/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:880ms;">
+                <div class="history-rank">16</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">2 周前</span>
+                    </div>
+                    <h3>2026年05月05日 周二</h3>
+                    <p class="history-time">生成时间：2026-05-05 13:05:31</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-05/</span>
+                    <a href="2026-05-05/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:935ms;">
+                <div class="history-rank">17</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">2 周前</span>
+                    </div>
+                    <h3>2026年05月04日 周一</h3>
+                    <p class="history-time">生成时间：2026-05-04 13:50:17</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-04/</span>
+                    <a href="2026-05-04/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:990ms;">
+                <div class="history-rank">18</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">2 周前</span>
+                    </div>
+                    <h3>2026年05月03日 周日</h3>
+                    <p class="history-time">生成时间：2026-05-03 14:02:27</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-03/</span>
+                    <a href="2026-05-03/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1045ms;">
+                <div class="history-rank">19</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">2 周前</span>
+                    </div>
+                    <h3>2026年05月02日 周六</h3>
+                    <p class="history-time">生成时间：2026-05-02 13:23:17</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-02/</span>
+                    <a href="2026-05-02/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1100ms;">
+                <div class="history-rank">20</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">2 周前</span>
+                    </div>
+                    <h3>2026年05月01日 周五</h3>
+                    <p class="history-time">生成时间：2026-05-01 13:45:12</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-05-01/</span>
+                    <a href="2026-05-01/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1155ms;">
+                <div class="history-rank">21</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">2 周前</span>
+                    </div>
+                    <h3>2026年04月30日 周四</h3>
+                    <p class="history-time">生成时间：2026-04-30 13:33:48</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-30/</span>
+                    <a href="2026-04-30/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1210ms;">
+                <div class="history-rank">22</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">3 周前</span>
+                    </div>
+                    <h3>2026年04月29日 周三</h3>
+                    <p class="history-time">生成时间：2026-04-29 14:29:38</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-29/</span>
+                    <a href="2026-04-29/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1265ms;">
+                <div class="history-rank">23</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">3 周前</span>
+                    </div>
+                    <h3>2026年04月28日 周二</h3>
+                    <p class="history-time">生成时间：2026-04-28 14:30:49</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-28/</span>
+                    <a href="2026-04-28/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1320ms;">
+                <div class="history-rank">24</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">3 周前</span>
+                    </div>
+                    <h3>2026年04月27日 周一</h3>
+                    <p class="history-time">生成时间：2026-04-27 14:18:48</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-27/</span>
+                    <a href="2026-04-27/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1375ms;">
+                <div class="history-rank">25</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">3 周前</span>
+                    </div>
+                    <h3>2026年04月26日 周日</h3>
+                    <p class="history-time">生成时间：2026-04-26 13:45:48</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-26/</span>
+                    <a href="2026-04-26/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1430ms;">
+                <div class="history-rank">26</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">3 周前</span>
+                    </div>
+                    <h3>2026年04月25日 周六</h3>
+                    <p class="history-time">生成时间：2026-04-25 13:32:15</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-25/</span>
+                    <a href="2026-04-25/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1485ms;">
+                <div class="history-rank">27</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">3 周前</span>
+                    </div>
+                    <h3>2026年04月24日 周五</h3>
+                    <p class="history-time">生成时间：2026-04-24 21:48:36</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-24/</span>
+                    <a href="2026-04-24/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1540ms;">
+                <div class="history-rank">28</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">30 天前</span>
+                    </div>
+                    <h3>2026年04月20日 周一</h3>
+                    <p class="history-time">生成时间：2026-04-20 12:53:24</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-20/</span>
+                    <a href="2026-04-20/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1595ms;">
+                <div class="history-rank">29</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">31 天前</span>
+                    </div>
+                    <h3>2026年04月19日 周日</h3>
+                    <p class="history-time">生成时间：2026-04-19 12:46:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-19/</span>
+                    <a href="2026-04-19/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1650ms;">
+                <div class="history-rank">30</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">32 天前</span>
+                    </div>
+                    <h3>2026年04月18日 周六</h3>
+                    <p class="history-time">生成时间：2026-04-18 12:26:35</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-18/</span>
+                    <a href="2026-04-18/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1705ms;">
+                <div class="history-rank">31</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">33 天前</span>
+                    </div>
+                    <h3>2026年04月17日 周五</h3>
+                    <p class="history-time">生成时间：2026-04-17 12:44:05</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-17/</span>
+                    <a href="2026-04-17/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1760ms;">
+                <div class="history-rank">32</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">34 天前</span>
+                    </div>
+                    <h3>2026年04月16日 周四</h3>
+                    <p class="history-time">生成时间：2026-04-16 12:46:57</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-16/</span>
+                    <a href="2026-04-16/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1815ms;">
+                <div class="history-rank">33</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">35 天前</span>
+                    </div>
+                    <h3>2026年04月15日 周三</h3>
+                    <p class="history-time">生成时间：2026-04-15 12:40:50</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-15/</span>
+                    <a href="2026-04-15/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1870ms;">
+                <div class="history-rank">34</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">36 天前</span>
+                    </div>
+                    <h3>2026年04月14日 周二</h3>
+                    <p class="history-time">生成时间：2026-04-14 12:40:39</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-14/</span>
+                    <a href="2026-04-14/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1925ms;">
+                <div class="history-rank">35</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">37 天前</span>
+                    </div>
+                    <h3>2026年04月13日 周一</h3>
+                    <p class="history-time">生成时间：2026-04-13 12:53:34</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-13/</span>
+                    <a href="2026-04-13/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:1980ms;">
+                <div class="history-rank">36</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">38 天前</span>
+                    </div>
+                    <h3>2026年04月12日 周日</h3>
+                    <p class="history-time">生成时间：2026-04-12 12:41:46</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-12/</span>
+                    <a href="2026-04-12/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2035ms;">
+                <div class="history-rank">37</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">39 天前</span>
+                    </div>
+                    <h3>2026年04月11日 周六</h3>
+                    <p class="history-time">生成时间：2026-04-11 12:14:38</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-11/</span>
+                    <a href="2026-04-11/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2090ms;">
+                <div class="history-rank">38</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">40 天前</span>
+                    </div>
+                    <h3>2026年04月10日 周五</h3>
+                    <p class="history-time">生成时间：2026-04-10 12:41:18</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-10/</span>
+                    <a href="2026-04-10/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2145ms;">
+                <div class="history-rank">39</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">41 天前</span>
+                    </div>
+                    <h3>2026年04月09日 周四</h3>
+                    <p class="history-time">生成时间：2026-04-09 12:27:36</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-09/</span>
+                    <a href="2026-04-09/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2200ms;">
+                <div class="history-rank">40</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">42 天前</span>
+                    </div>
+                    <h3>2026年04月08日 周三</h3>
+                    <p class="history-time">生成时间：2026-04-08 12:31:00</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-08/</span>
+                    <a href="2026-04-08/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2255ms;">
+                <div class="history-rank">41</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">43 天前</span>
+                    </div>
+                    <h3>2026年04月07日 周二</h3>
+                    <p class="history-time">生成时间：2026-04-07 12:28:15</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-07/</span>
+                    <a href="2026-04-07/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2310ms;">
+                <div class="history-rank">42</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">44 天前</span>
+                    </div>
+                    <h3>2026年04月06日 周一</h3>
+                    <p class="history-time">生成时间：2026-04-06 12:38:53</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-06/</span>
+                    <a href="2026-04-06/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2365ms;">
+                <div class="history-rank">43</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">45 天前</span>
+                    </div>
+                    <h3>2026年04月05日 周日</h3>
+                    <p class="history-time">生成时间：2026-04-05 12:31:27</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-05/</span>
+                    <a href="2026-04-05/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2420ms;">
+                <div class="history-rank">44</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">46 天前</span>
+                    </div>
+                    <h3>2026年04月04日 周六</h3>
+                    <p class="history-time">生成时间：2026-04-04 12:10:28</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-04/</span>
+                    <a href="2026-04-04/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2475ms;">
+                <div class="history-rank">45</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">47 天前</span>
+                    </div>
+                    <h3>2026年04月03日 周五</h3>
+                    <p class="history-time">生成时间：2026-04-03 12:23:54</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-03/</span>
+                    <a href="2026-04-03/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2530ms;">
+                <div class="history-rank">46</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">48 天前</span>
+                    </div>
+                    <h3>2026年04月02日 周四</h3>
+                    <p class="history-time">生成时间：2026-04-02 12:23:33</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-02/</span>
+                    <a href="2026-04-02/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2585ms;">
+                <div class="history-rank">47</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">49 天前</span>
+                    </div>
+                    <h3>2026年04月01日 周三</h3>
+                    <p class="history-time">生成时间：2026-04-01 12:42:31</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-04-01/</span>
+                    <a href="2026-04-01/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2640ms;">
+                <div class="history-rank">48</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">50 天前</span>
+                    </div>
+                    <h3>2026年03月31日 周二</h3>
+                    <p class="history-time">生成时间：2026-03-31 12:30:56</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-31/</span>
+                    <a href="2026-03-31/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2695ms;">
+                <div class="history-rank">49</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">51 天前</span>
+                    </div>
+                    <h3>2026年03月30日 周一</h3>
+                    <p class="history-time">生成时间：2026-03-30 12:39:43</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-30/</span>
+                    <a href="2026-03-30/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2750ms;">
+                <div class="history-rank">50</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">52 天前</span>
+                    </div>
+                    <h3>2026年03月29日 周日</h3>
+                    <p class="history-time">生成时间：2026-03-29 12:31:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-29/</span>
+                    <a href="2026-03-29/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2805ms;">
+                <div class="history-rank">51</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">53 天前</span>
+                    </div>
+                    <h3>2026年03月28日 周六</h3>
+                    <p class="history-time">生成时间：2026-03-28 12:12:49</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-28/</span>
+                    <a href="2026-03-28/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2860ms;">
+                <div class="history-rank">52</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">54 天前</span>
+                    </div>
+                    <h3>2026年03月27日 周五</h3>
+                    <p class="history-time">生成时间：2026-03-27 12:28:23</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-27/</span>
+                    <a href="2026-03-27/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2915ms;">
+                <div class="history-rank">53</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">55 天前</span>
+                    </div>
+                    <h3>2026年03月26日 周四</h3>
+                    <p class="history-time">生成时间：2026-03-26 12:27:15</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-26/</span>
+                    <a href="2026-03-26/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:2970ms;">
+                <div class="history-rank">54</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">56 天前</span>
+                    </div>
+                    <h3>2026年03月25日 周三</h3>
+                    <p class="history-time">生成时间：2026-03-25 12:13:33</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-25/</span>
+                    <a href="2026-03-25/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3025ms;">
+                <div class="history-rank">55</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">57 天前</span>
+                    </div>
+                    <h3>2026年03月24日 周二</h3>
+                    <p class="history-time">生成时间：2026-03-24 12:11:41</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-24/</span>
+                    <a href="2026-03-24/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3080ms;">
+                <div class="history-rank">56</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">58 天前</span>
+                    </div>
+                    <h3>2026年03月23日 周一</h3>
+                    <p class="history-time">生成时间：2026-03-23 12:21:42</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-23/</span>
+                    <a href="2026-03-23/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3135ms;">
+                <div class="history-rank">57</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">59 天前</span>
+                    </div>
+                    <h3>2026年03月22日 周日</h3>
+                    <p class="history-time">生成时间：2026-03-22 12:13:17</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-22/</span>
+                    <a href="2026-03-22/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3190ms;">
+                <div class="history-rank">58</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">60 天前</span>
+                    </div>
+                    <h3>2026年03月21日 周六</h3>
+                    <p class="history-time">生成时间：2026-03-21 11:58:37</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-21/</span>
+                    <a href="2026-03-21/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3245ms;">
+                <div class="history-rank">59</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">61 天前</span>
+                    </div>
+                    <h3>2026年03月20日 周五</h3>
+                    <p class="history-time">生成时间：2026-03-20 12:07:36</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-20/</span>
+                    <a href="2026-03-20/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3300ms;">
+                <div class="history-rank">60</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">62 天前</span>
+                    </div>
+                    <h3>2026年03月19日 周四</h3>
+                    <p class="history-time">生成时间：2026-03-19 12:15:17</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-19/</span>
+                    <a href="2026-03-19/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3355ms;">
+                <div class="history-rank">61</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">63 天前</span>
+                    </div>
+                    <h3>2026年03月18日 周三</h3>
+                    <p class="history-time">生成时间：2026-03-18 12:16:14</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-18/</span>
+                    <a href="2026-03-18/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3410ms;">
+                <div class="history-rank">62</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">64 天前</span>
+                    </div>
+                    <h3>2026年03月17日 周二</h3>
+                    <p class="history-time">生成时间：2026-03-17 12:10:25</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-17/</span>
+                    <a href="2026-03-17/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3465ms;">
+                <div class="history-rank">63</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">65 天前</span>
+                    </div>
+                    <h3>2026年03月16日 周一</h3>
+                    <p class="history-time">生成时间：2026-03-16 12:35:35</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-16/</span>
+                    <a href="2026-03-16/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3520ms;">
+                <div class="history-rank">64</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">66 天前</span>
+                    </div>
+                    <h3>2026年03月15日 周日</h3>
+                    <p class="history-time">生成时间：2026-03-15 12:26:36</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-15/</span>
+                    <a href="2026-03-15/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3575ms;">
+                <div class="history-rank">65</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">67 天前</span>
+                    </div>
+                    <h3>2026年03月14日 周六</h3>
+                    <p class="history-time">生成时间：2026-03-14 12:04:27</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-14/</span>
+                    <a href="2026-03-14/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3630ms;">
+                <div class="history-rank">66</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">68 天前</span>
+                    </div>
+                    <h3>2026年03月13日 周五</h3>
+                    <p class="history-time">生成时间：2026-03-13 12:06:21</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-13/</span>
+                    <a href="2026-03-13/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3685ms;">
+                <div class="history-rank">67</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">69 天前</span>
+                    </div>
+                    <h3>2026年03月12日 周四</h3>
+                    <p class="history-time">生成时间：2026-03-12 12:07:33</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-12/</span>
+                    <a href="2026-03-12/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3740ms;">
+                <div class="history-rank">68</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">70 天前</span>
+                    </div>
+                    <h3>2026年03月11日 周三</h3>
+                    <p class="history-time">生成时间：2026-03-11 12:03:35</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-11/</span>
+                    <a href="2026-03-11/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3795ms;">
+                <div class="history-rank">69</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">71 天前</span>
+                    </div>
+                    <h3>2026年03月10日 周二</h3>
+                    <p class="history-time">生成时间：2026-03-10 12:02:37</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-10/</span>
+                    <a href="2026-03-10/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3850ms;">
+                <div class="history-rank">70</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">72 天前</span>
+                    </div>
+                    <h3>2026年03月09日 周一</h3>
+                    <p class="history-time">生成时间：2026-03-09 12:09:16</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-09/</span>
+                    <a href="2026-03-09/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3905ms;">
+                <div class="history-rank">71</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">73 天前</span>
+                    </div>
+                    <h3>2026年03月08日 周日</h3>
+                    <p class="history-time">生成时间：2026-03-08 12:04:28</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-08/</span>
+                    <a href="2026-03-08/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:3960ms;">
+                <div class="history-rank">72</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">74 天前</span>
+                    </div>
+                    <h3>2026年03月07日 周六</h3>
+                    <p class="history-time">生成时间：2026-03-07 11:53:53</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-07/</span>
+                    <a href="2026-03-07/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4015ms;">
+                <div class="history-rank">73</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">75 天前</span>
+                    </div>
+                    <h3>2026年03月06日 周五</h3>
+                    <p class="history-time">生成时间：2026-03-06 12:03:51</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-06/</span>
+                    <a href="2026-03-06/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4070ms;">
+                <div class="history-rank">74</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">76 天前</span>
+                    </div>
+                    <h3>2026年03月05日 周四</h3>
+                    <p class="history-time">生成时间：2026-03-05 12:05:27</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-05/</span>
+                    <a href="2026-03-05/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4125ms;">
+                <div class="history-rank">75</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">77 天前</span>
+                    </div>
+                    <h3>2026年03月04日 周三</h3>
+                    <p class="history-time">生成时间：2026-03-04 12:02:27</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-04/</span>
+                    <a href="2026-03-04/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4180ms;">
+                <div class="history-rank">76</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">78 天前</span>
+                    </div>
+                    <h3>2026年03月03日 周二</h3>
+                    <p class="history-time">生成时间：2026-03-03 12:07:46</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-03/</span>
+                    <a href="2026-03-03/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4235ms;">
+                <div class="history-rank">77</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">79 天前</span>
+                    </div>
+                    <h3>2026年03月02日 周一</h3>
+                    <p class="history-time">生成时间：2026-03-02 12:07:29</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-02/</span>
+                    <a href="2026-03-02/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4290ms;">
+                <div class="history-rank">78</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">80 天前</span>
+                    </div>
+                    <h3>2026年03月01日 周日</h3>
+                    <p class="history-time">生成时间：2026-03-01 12:15:21</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-03-01/</span>
+                    <a href="2026-03-01/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4345ms;">
+                <div class="history-rank">79</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">81 天前</span>
+                    </div>
+                    <h3>2026年02月28日 周六</h3>
+                    <p class="history-time">生成时间：2026-02-28 11:48:46</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-28/</span>
+                    <a href="2026-02-28/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4400ms;">
+                <div class="history-rank">80</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">82 天前</span>
+                    </div>
+                    <h3>2026年02月27日 周五</h3>
+                    <p class="history-time">生成时间：2026-02-27 12:06:36</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-27/</span>
+                    <a href="2026-02-27/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4455ms;">
+                <div class="history-rank">81</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">83 天前</span>
+                    </div>
+                    <h3>2026年02月26日 周四</h3>
+                    <p class="history-time">生成时间：2026-02-26 12:09:34</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-26/</span>
+                    <a href="2026-02-26/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4510ms;">
+                <div class="history-rank">82</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">84 天前</span>
+                    </div>
+                    <h3>2026年02月25日 周三</h3>
+                    <p class="history-time">生成时间：2026-02-25 12:13:17</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-25/</span>
+                    <a href="2026-02-25/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4565ms;">
+                <div class="history-rank">83</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">85 天前</span>
+                    </div>
+                    <h3>2026年02月24日 周二</h3>
+                    <p class="history-time">生成时间：2026-02-24 12:11:26</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-24/</span>
+                    <a href="2026-02-24/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4620ms;">
+                <div class="history-rank">84</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">86 天前</span>
+                    </div>
+                    <h3>2026年02月23日 周一</h3>
+                    <p class="history-time">生成时间：2026-02-23 12:15:36</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-23/</span>
+                    <a href="2026-02-23/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4675ms;">
+                <div class="history-rank">85</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">87 天前</span>
+                    </div>
+                    <h3>2026年02月22日 周日</h3>
+                    <p class="history-time">生成时间：2026-02-22 12:10:16</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-22/</span>
+                    <a href="2026-02-22/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4730ms;">
+                <div class="history-rank">86</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">88 天前</span>
+                    </div>
+                    <h3>2026年02月21日 周六</h3>
+                    <p class="history-time">生成时间：2026-02-21 11:59:47</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-21/</span>
+                    <a href="2026-02-21/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4785ms;">
+                <div class="history-rank">87</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">89 天前</span>
+                    </div>
+                    <h3>2026年02月20日 周五</h3>
+                    <p class="history-time">生成时间：2026-02-20 12:08:27</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-20/</span>
+                    <a href="2026-02-20/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4840ms;">
+                <div class="history-rank">88</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">90 天前</span>
+                    </div>
+                    <h3>2026年02月19日 周四</h3>
+                    <p class="history-time">生成时间：2026-02-19 12:12:49</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-19/</span>
+                    <a href="2026-02-19/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4895ms;">
+                <div class="history-rank">89</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">91 天前</span>
+                    </div>
+                    <h3>2026年02月18日 周三</h3>
+                    <p class="history-time">生成时间：2026-02-18 12:14:27</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-18/</span>
+                    <a href="2026-02-18/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:4950ms;">
+                <div class="history-rank">90</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">92 天前</span>
+                    </div>
+                    <h3>2026年02月17日 周二</h3>
+                    <p class="history-time">生成时间：2026-02-17 12:12:10</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-17/</span>
+                    <a href="2026-02-17/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5005ms;">
+                <div class="history-rank">91</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">93 天前</span>
+                    </div>
+                    <h3>2026年02月16日 周一</h3>
+                    <p class="history-time">生成时间：2026-02-16 12:16:13</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-16/</span>
+                    <a href="2026-02-16/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5060ms;">
+                <div class="history-rank">92</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">94 天前</span>
+                    </div>
+                    <h3>2026年02月15日 周日</h3>
+                    <p class="history-time">生成时间：2026-02-15 12:15:26</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-15/</span>
+                    <a href="2026-02-15/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5115ms;">
+                <div class="history-rank">93</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">95 天前</span>
+                    </div>
+                    <h3>2026年02月14日 周六</h3>
+                    <p class="history-time">生成时间：2026-02-14 12:03:20</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-14/</span>
+                    <a href="2026-02-14/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5170ms;">
+                <div class="history-rank">94</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">96 天前</span>
+                    </div>
+                    <h3>2026年02月13日 周五</h3>
+                    <p class="history-time">生成时间：2026-02-13 12:13:35</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-13/</span>
+                    <a href="2026-02-13/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5225ms;">
+                <div class="history-rank">95</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">97 天前</span>
+                    </div>
+                    <h3>2026年02月12日 周四</h3>
+                    <p class="history-time">生成时间：2026-02-12 12:16:37</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-12/</span>
+                    <a href="2026-02-12/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5280ms;">
+                <div class="history-rank">96</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">98 天前</span>
+                    </div>
+                    <h3>2026年02月11日 周三</h3>
+                    <p class="history-time">生成时间：2026-02-11 12:24:25</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-11/</span>
+                    <a href="2026-02-11/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5335ms;">
+                <div class="history-rank">97</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">99 天前</span>
+                    </div>
+                    <h3>2026年02月10日 周二</h3>
+                    <p class="history-time">生成时间：2026-02-10 12:26:53</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-10/</span>
+                    <a href="2026-02-10/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5390ms;">
+                <div class="history-rank">98</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">100 天前</span>
+                    </div>
+                    <h3>2026年02月09日 周一</h3>
+                    <p class="history-time">生成时间：2026-02-09 12:19:18</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-09/</span>
+                    <a href="2026-02-09/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5445ms;">
+                <div class="history-rank">99</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">101 天前</span>
+                    </div>
+                    <h3>2026年02月08日 周日</h3>
+                    <p class="history-time">生成时间：2026-02-08 12:27:54</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-08/</span>
+                    <a href="2026-02-08/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5500ms;">
+                <div class="history-rank">100</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">102 天前</span>
+                    </div>
+                    <h3>2026年02月07日 周六</h3>
+                    <p class="history-time">生成时间：2026-02-07 12:02:43</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-07/</span>
+                    <a href="2026-02-07/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5555ms;">
+                <div class="history-rank">101</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">103 天前</span>
+                    </div>
+                    <h3>2026年02月06日 周五</h3>
+                    <p class="history-time">生成时间：2026-02-06 12:08:17</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-06/</span>
+                    <a href="2026-02-06/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5610ms;">
+                <div class="history-rank">102</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">104 天前</span>
+                    </div>
+                    <h3>2026年02月05日 周四</h3>
+                    <p class="history-time">生成时间：2026-02-05 12:07:27</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-05/</span>
+                    <a href="2026-02-05/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5665ms;">
+                <div class="history-rank">103</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">105 天前</span>
+                    </div>
+                    <h3>2026年02月04日 周三</h3>
+                    <p class="history-time">生成时间：2026-02-04 12:06:25</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-04/</span>
+                    <a href="2026-02-04/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5720ms;">
+                <div class="history-rank">104</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">106 天前</span>
+                    </div>
+                    <h3>2026年02月03日 周二</h3>
+                    <p class="history-time">生成时间：2026-02-03 12:08:23</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-03/</span>
+                    <a href="2026-02-03/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5775ms;">
+                <div class="history-rank">105</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">107 天前</span>
+                    </div>
+                    <h3>2026年02月02日 周一</h3>
+                    <p class="history-time">生成时间：2026-02-02 12:16:22</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-02/</span>
+                    <a href="2026-02-02/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5830ms;">
+                <div class="history-rank">106</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">108 天前</span>
+                    </div>
+                    <h3>2026年02月01日 周日</h3>
+                    <p class="history-time">生成时间：2026-02-01 12:23:52</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-02-01/</span>
+                    <a href="2026-02-01/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5885ms;">
+                <div class="history-rank">107</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">109 天前</span>
+                    </div>
+                    <h3>2026年01月31日 周六</h3>
+                    <p class="history-time">生成时间：2026-01-31 11:59:34</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-01-31/</span>
+                    <a href="2026-01-31/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5940ms;">
+                <div class="history-rank">108</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">110 天前</span>
+                    </div>
+                    <h3>2026年01月30日 周五</h3>
+                    <p class="history-time">生成时间：2026-01-31 01:41:46</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2026-01-30/</span>
+                    <a href="2026-01-30/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:5995ms;">
+                <div class="history-rank">109</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">150 天前</span>
+                    </div>
+                    <h3>2025年12月21日 周日</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-21/</span>
+                    <a href="2025-12-21/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6050ms;">
+                <div class="history-rank">110</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">151 天前</span>
+                    </div>
+                    <h3>2025年12月20日 周六</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-20/</span>
+                    <a href="2025-12-20/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6105ms;">
+                <div class="history-rank">111</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">152 天前</span>
+                    </div>
+                    <h3>2025年12月19日 周五</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-19/</span>
+                    <a href="2025-12-19/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6160ms;">
+                <div class="history-rank">112</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">153 天前</span>
+                    </div>
+                    <h3>2025年12月18日 周四</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-18/</span>
+                    <a href="2025-12-18/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6215ms;">
+                <div class="history-rank">113</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">154 天前</span>
+                    </div>
+                    <h3>2025年12月17日 周三</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-17/</span>
+                    <a href="2025-12-17/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6270ms;">
+                <div class="history-rank">114</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">155 天前</span>
+                    </div>
+                    <h3>2025年12月16日 周二</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-16/</span>
+                    <a href="2025-12-16/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6325ms;">
+                <div class="history-rank">115</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">156 天前</span>
+                    </div>
+                    <h3>2025年12月15日 周一</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-15/</span>
+                    <a href="2025-12-15/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6380ms;">
+                <div class="history-rank">116</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">157 天前</span>
+                    </div>
+                    <h3>2025年12月14日 周日</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-14/</span>
+                    <a href="2025-12-14/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6435ms;">
+                <div class="history-rank">117</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">158 天前</span>
+                    </div>
+                    <h3>2025年12月13日 周六</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-13/</span>
+                    <a href="2025-12-13/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6490ms;">
+                <div class="history-rank">118</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">159 天前</span>
+                    </div>
+                    <h3>2025年12月12日 周五</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-12/</span>
+                    <a href="2025-12-12/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6545ms;">
+                <div class="history-rank">119</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">160 天前</span>
+                    </div>
+                    <h3>2025年12月11日 周四</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-11/</span>
+                    <a href="2025-12-11/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6600ms;">
+                <div class="history-rank">120</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">161 天前</span>
+                    </div>
+                    <h3>2025年12月10日 周三</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-10/</span>
+                    <a href="2025-12-10/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6655ms;">
+                <div class="history-rank">121</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">162 天前</span>
+                    </div>
+                    <h3>2025年12月09日 周二</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-09/</span>
+                    <a href="2025-12-09/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6710ms;">
+                <div class="history-rank">122</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">163 天前</span>
+                    </div>
+                    <h3>2025年12月08日 周一</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-08/</span>
+                    <a href="2025-12-08/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6765ms;">
+                <div class="history-rank">123</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">164 天前</span>
+                    </div>
+                    <h3>2025年12月07日 周日</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-07/</span>
+                    <a href="2025-12-07/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6820ms;">
+                <div class="history-rank">124</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">165 天前</span>
+                    </div>
+                    <h3>2025年12月06日 周六</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-06/</span>
+                    <a href="2025-12-06/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6875ms;">
+                <div class="history-rank">125</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">166 天前</span>
+                    </div>
+                    <h3>2025年12月05日 周五</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-05/</span>
+                    <a href="2025-12-05/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6930ms;">
+                <div class="history-rank">126</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">167 天前</span>
+                    </div>
+                    <h3>2025年12月04日 周四</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-04/</span>
+                    <a href="2025-12-04/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:6985ms;">
+                <div class="history-rank">127</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">168 天前</span>
+                    </div>
+                    <h3>2025年12月03日 周三</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-03/</span>
+                    <a href="2025-12-03/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7040ms;">
+                <div class="history-rank">128</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">169 天前</span>
+                    </div>
+                    <h3>2025年12月02日 周二</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-02/</span>
+                    <a href="2025-12-02/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7095ms;">
+                <div class="history-rank">129</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">170 天前</span>
+                    </div>
+                    <h3>2025年12月01日 周一</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-12-01/</span>
+                    <a href="2025-12-01/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7150ms;">
+                <div class="history-rank">130</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">171 天前</span>
+                    </div>
+                    <h3>2025年11月30日 周日</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-30/</span>
+                    <a href="2025-11-30/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7205ms;">
+                <div class="history-rank">131</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">172 天前</span>
+                    </div>
+                    <h3>2025年11月29日 周六</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-29/</span>
+                    <a href="2025-11-29/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7260ms;">
+                <div class="history-rank">132</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">173 天前</span>
+                    </div>
+                    <h3>2025年11月28日 周五</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-28/</span>
+                    <a href="2025-11-28/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7315ms;">
+                <div class="history-rank">133</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">174 天前</span>
+                    </div>
+                    <h3>2025年11月27日 周四</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-27/</span>
+                    <a href="2025-11-27/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7370ms;">
+                <div class="history-rank">134</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">175 天前</span>
+                    </div>
+                    <h3>2025年11月26日 周三</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:45</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-26/</span>
+                    <a href="2025-11-26/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7425ms;">
+                <div class="history-rank">135</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">176 天前</span>
+                    </div>
+                    <h3>2025年11月25日 周二</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-25/</span>
+                    <a href="2025-11-25/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7480ms;">
+                <div class="history-rank">136</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">177 天前</span>
+                    </div>
+                    <h3>2025年11月24日 周一</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-24/</span>
+                    <a href="2025-11-24/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7535ms;">
+                <div class="history-rank">137</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">178 天前</span>
+                    </div>
+                    <h3>2025年11月23日 周日</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-23/</span>
+                    <a href="2025-11-23/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7590ms;">
+                <div class="history-rank">138</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">179 天前</span>
+                    </div>
+                    <h3>2025年11月22日 周六</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-22/</span>
+                    <a href="2025-11-22/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7645ms;">
+                <div class="history-rank">139</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">180 天前</span>
+                    </div>
+                    <h3>2025年11月21日 周五</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-21/</span>
+                    <a href="2025-11-21/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7700ms;">
+                <div class="history-rank">140</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">181 天前</span>
+                    </div>
+                    <h3>2025年11月20日 周四</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-20/</span>
+                    <a href="2025-11-20/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7755ms;">
+                <div class="history-rank">141</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">182 天前</span>
+                    </div>
+                    <h3>2025年11月19日 周三</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-19/</span>
+                    <a href="2025-11-19/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7810ms;">
+                <div class="history-rank">142</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">183 天前</span>
+                    </div>
+                    <h3>2025年11月18日 周二</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-18/</span>
+                    <a href="2025-11-18/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7865ms;">
+                <div class="history-rank">143</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">184 天前</span>
+                    </div>
+                    <h3>2025年11月17日 周一</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-17/</span>
+                    <a href="2025-11-17/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7920ms;">
+                <div class="history-rank">144</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">185 天前</span>
+                    </div>
+                    <h3>2025年11月16日 周日</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-16/</span>
+                    <a href="2025-11-16/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:7975ms;">
+                <div class="history-rank">145</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">186 天前</span>
+                    </div>
+                    <h3>2025年11月15日 周六</h3>
+                    <p class="history-time">生成时间：2026-05-20 13:57:44</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-15/</span>
+                    <a href="2025-11-15/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+
+            <article class="history-item reveal-item" style="--delay:8030ms;">
+                <div class="history-rank">146</div>
+                <div class="history-main">
+                    <div class="history-topline">
+                        <span class="history-chip is-complete">完整</span>
+                        <span class="history-chip muted">188 天前</span>
+                    </div>
+                    <h3>2025年11月13日 周四</h3>
+                    <p class="history-time">生成时间：2025-11-13 11:18:17</p>
+                    <p class="history-note">归档包含当日榜单页面、样式文件和元数据，方便回溯某天的热门项目。</p>
+                </div>
+                <div class="history-actions">
+                    <span class="history-path">history/2025-11-13/</span>
+                    <a href="2025-11-13/" class="history-link" target="_blank" rel="noopener noreferrer">查看页面</a>
+                </div>
+            </article>
+            
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -10% 0px'
+            });
+
+            document.querySelectorAll('.reveal-item').forEach((item) => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
