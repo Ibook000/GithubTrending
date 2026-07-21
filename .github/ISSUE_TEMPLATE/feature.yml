@@ -1,0 +1,17 @@
+name: 功能建议
+description: 提议新的发现、数据或订阅能力
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    attributes:
+      label: 使用场景
+      description: 谁会使用它，要解决什么问题？
+    validations: {required: true}
+  - type: textarea
+    attributes:
+      label: 建议方案
+    validations: {required: true}
+  - type: textarea
+    attributes:
+      label: 可选替代方案

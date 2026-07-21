@@ -1,4 +1,10 @@
 node_modules/
+.venv/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+site/
+metadata.json
 .env
 .claude/
 history/
