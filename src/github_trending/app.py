@@ -30,8 +30,8 @@ except ImportError:  # pragma: no cover - AI 功能是可选的
 SCHEMA_VERSION = "1.0"
 SITE_NAME = "GitHub 趋势雷达"
 SITE_URL = os.environ.get("SITE_URL", "https://ibook000.github.io/GithubTrending").rstrip("/")
-DEFAULT_LLM_BASE_URL = "https://integrate.api.nvidia.com/v1"
-DEFAULT_LLM_MODEL = "minimaxai/minimax-m2.7"
+DEFAULT_LLM_BASE_URL = "http://154.217.247.37:8317/v1"
+DEFAULT_LLM_MODEL = "deepseek-v4-flash"
 GITHUB_TRENDING_URL = "https://github.com/trending"
 REQUEST_TIMEOUT = (10, 30)
 PERIODS = ("daily", "weekly", "monthly")
@@ -47,10 +47,12 @@ def project_root() -> Path:
 
 
 def get_llm_config() -> dict[str, str | None]:
+    base_url = os.environ.get("LLM_BASE_URL", DEFAULT_LLM_BASE_URL)
     return {
-        "api_key": os.environ.get("NVIDIA_API_KEY")
+        "api_key": os.environ.get("LLM_API_KEY")
+        or os.environ.get("NVIDIA_API_KEY")
         or os.environ.get("OPENROUTER_API_KEY"),
-        "base_url": os.environ.get("LLM_BASE_URL", DEFAULT_LLM_BASE_URL),
+        "base_url": base_url,
         "model": os.environ.get("LLM_MODEL", DEFAULT_LLM_MODEL),
     }
 
@@ -423,6 +425,9 @@ def run(output_dir: Path | str = "site") -> dict[str, Any]:
 
     config = get_llm_config()
     api_key = config["api_key"]
+    # 许多自托管 OpenAI 兼容服务不要求鉴权；OpenAI SDK 仍需要非空字符串。
+    if not api_key and str(config["base_url"]).startswith("http://"):
+        api_key = "not-needed"
     if api_key:
         print("✅ 已检测到 API 密钥（密钥内容已隐藏）")
     else:
