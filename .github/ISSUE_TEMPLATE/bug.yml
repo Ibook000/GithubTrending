@@ -1,0 +1,22 @@
+name: Bug 报告
+description: 报告抓取、页面或部署问题
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    attributes:
+      label: 问题描述
+      description: 实际发生了什么？预期结果是什么？
+    validations: {required: true}
+  - type: textarea
+    attributes:
+      label: 复现步骤
+    validations: {required: true}
+  - type: input
+    attributes:
+      label: 环境
+      placeholder: 浏览器、系统或 Python 版本
+  - type: textarea
+    attributes:
+      label: 补充信息
+      description: 请勿粘贴 API Key 或其他敏感信息

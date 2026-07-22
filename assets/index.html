@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub 趋势雷达 · 中文开源热榜</title>
+  <meta name="description" content="每天更新的 GitHub Trending 中文技术榜单，支持搜索、语言筛选、收藏、排名变化和开放数据。">
+  <meta name="theme-color" content="#f7f7f5">
+  <link rel="canonical" href="{{SITE_URL}}/">
+  <link rel="alternate" type="application/rss+xml" title="GitHub 趋势雷达 RSS" href="feed.xml">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="GitHub 趋势雷达">
+  <meta property="og:description" content="更快发现值得关注的 GitHub 热门项目。">
+  <meta property="og:url" content="{{SITE_URL}}/">
+  <meta property="og:image" content="{{SITE_URL}}/social-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GitHub 趋势雷达">
+  <meta name="twitter:description" content="每天更新的 GitHub Trending 中文技术榜单。">
+  <meta name="twitter:image" content="{{SITE_URL}}/social-card.svg">
+  <script type="application/ld+json">{{JSON_LD}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#rankings">跳到榜单</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="GitHub 趋势雷达首页">
+      <span class="brand-mark" aria-hidden="true">⌁</span>
+      <span>GitHub 趋势雷达</span>
+    </a>
+    <nav class="header-nav" aria-label="站点导航">
+      <a href="#rankings">榜单</a>
+      <a href="history/">历史</a>
+      <a href="data/latest.json">数据</a>
+      <a href="feed.xml">RSS</a>
+      <a href="https://github.com/Ibook000/GithubTrending" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <button class="icon-button" id="theme-toggle" type="button" aria-label="切换深浅主题" title="切换主题">
+      <span aria-hidden="true">◐</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="overline">OPEN SOURCE SIGNAL · {{GENERATED_DATE}}</p>
+        <h1 id="hero-title">每天十分钟，<br>看懂开源世界正在发生什么。</h1>
+        <p class="hero-description">聚合 GitHub 日榜、周榜与月榜，用中文摘要、跨榜标记和排名变化，帮你更快发现值得关注的项目。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#rankings">浏览今日榜单</a>
+          <button class="button button-secondary" id="share-page" type="button">分享这期榜单</button>
+        </div>
+      </div>
+      <aside class="signal-card" aria-label="今日信号">
+        <p class="signal-label">今日信号</p>
+        <a id="featured-link" class="signal-title" href="#rankings">正在加载…</a>
+        <p id="featured-summary" class="signal-summary">正在整理今天最值得关注的开源项目。</p>
+        <div id="featured-meta" class="signal-meta"></div>
+      </aside>
+    </section>
+
+    <section class="stats" aria-label="本期统计">
+      <div><strong id="stat-total">0</strong><span>收录条目</span></div>
+      <div><strong id="stat-unique">0</strong><span>独立项目</span></div>
+      <div><strong id="stat-cross">0</strong><span>跨榜项目</span></div>
+      <div><strong id="stat-languages">0</strong><span>编程语言</span></div>
+    </section>
+
+    <section id="rankings" class="rankings" aria-labelledby="rankings-title">
+      <div class="section-heading">
+        <div>
+          <p class="overline">TRENDING REPOSITORIES</p>
+          <h2 id="rankings-title">热门仓库</h2>
+        </div>
+        <p id="result-count" class="result-count" aria-live="polite"></p>
+      </div>
+
+      <div class="toolbar" aria-label="榜单筛选工具">
+        <div class="tabs" role="tablist" aria-label="榜单周期">
+          <button class="tab is-active" role="tab" aria-selected="true" data-period="daily" type="button">日榜</button>
+          <button class="tab" role="tab" aria-selected="false" data-period="weekly" type="button">周榜</button>
+          <button class="tab" role="tab" aria-selected="false" data-period="monthly" type="button">月榜</button>
+          <button class="tab" role="tab" aria-selected="false" data-period="favorites" type="button">收藏</button>
+        </div>
+        <label class="search-field">
+          <span class="sr-only">搜索仓库</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" placeholder="搜索名称、作者、描述…" autocomplete="off">
+        </label>
+        <label class="select-field">
+          <span class="sr-only">按编程语言筛选</span>
+          <select id="language-filter">
+            <option value="all">全部语言</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="repo-list" class="repo-list" role="tabpanel" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <strong>没有找到匹配的项目</strong>
+        <p>试试清空搜索、切换语言，或先收藏几个仓库。</p>
+        <button class="button button-secondary" id="reset-filters" type="button">清空筛选</button>
+      </div>
+    </section>
+
+    <section class="open-data" aria-labelledby="data-title">
+      <div>
+        <p class="overline">BUILD WITH THE DATA</p>
+        <h2 id="data-title">榜单不只用来看，也可以直接使用。</h2>
+        <p>提供稳定 JSON、每日快照与 RSS，无需密钥、无需注册，可用于机器人、日报、研究或自己的开源项目。</p>
+      </div>
+      <div class="data-links">
+        <a href="data/latest.json"><span>JSON</span><strong>最新结构化数据 ↗</strong></a>
+        <a href="feed.xml"><span>RSS 2.0</span><strong>订阅每日榜单 ↗</strong></a>
+        <a href="history/"><span>ARCHIVE</span><strong>浏览历史快照 ↗</strong></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>数据来自 GitHub Trending · 每日北京时间 10:00 自动更新</p>
+    <p><a href="https://github.com/Ibook000/GithubTrending">Apache-2.0 开源</a> · 不收集访问数据</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">请启用 JavaScript 浏览榜单；开放数据仍可通过 <a href="data/latest.json">JSON</a> 获取。</div></noscript>
+  <script id="initial-data" type="application/json">{{INITIAL_DATA}}</script>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -49,12 +49,11 @@ export NVIDIA_API_KEY="your-api-key-here"
 ## 项目结构
 
 ```
-├── github_trending_cards.py    # 主程序 - 爬取数据、生成AI总结、创建HTML
-├── github_trending_cards.css   # CSS样式 - 卡片布局、主题切换、响应式设计
-├── github_trending_cards.html  # 生成的HTML页面示例
-├── generate_history_stats.py   # 历史统计页面生成器
-├── upload_html.py              # 将HTML上传到GitHub仓库
-├── test_network.py             # 网络连接测试工具
+├── github_trending_cards.py    # 向后兼容的命令行入口
+├── src/github_trending/        # 抓取、摘要、JSON/RSS和站点生成逻辑
+├── assets/                     # HTML、CSS、JavaScript和品牌资源
+├── scripts/                    # 历史页与网络诊断脚本
+├── tests/                      # 自动化测试
 ├── requirements.txt            # Python依赖
 ├── .github/workflows/          # GitHub Actions配置
 │   └── generate_trending.yml   # 自动部署工作流
@@ -74,12 +73,12 @@ export NVIDIA_API_KEY="your-api-key-here"
 
 ### 关键文件说明
 
-#### `github_trending_cards.py`
+#### `src/github_trending/app.py`
 - `fetch_github_trending(since)`: 爬取 GitHub Trending 数据
 - `ai_summarize_projects(repos, api_key)`: 调用 OpenRouter API 生成中文总结
 - `generate_fallback_summary(repo)`: 备用总结生成（当 API 失败时）
-- `generate_html(all_repos)`: 生成 HTML 页面
-- `create_metadata_file()`: 创建元数据文件
+- `build_payload(all_repos, previous)`: 生成版本化开放数据并计算排名变化
+- `generate_site(payload, output_dir)`: 生成 HTML、JSON、RSS 和 SEO 文件
 
 #### `.github/workflows/generate_trending.yml`
 - 每天 UTC 2点（北京时间 10点）自动运行

@@ -1,209 +1,117 @@
-name: 自动生成GitHub趋势榜单
+name: 自动生成 GitHub 趋势雷达
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # 每天UTC时间2点（北京时间10点）
-  workflow_dispatch:  # 支持手动触发
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: github-trending-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # 需要写权限来提交历史文件
-      pages: write
-      id-token: write
+    timeout-minutes: 25
+    env:
+      PYTHONUNBUFFERED: "1"
+      SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
 
     steps:
-      - name: 检出代码
+      - name: 检出源码
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # 获取完整历史记录
 
-      - name: 恢复历史记录
-        run: |
-          # 从gh-pages分支获取现有的历史记录
-          echo "正在从gh-pages分支恢复历史记录..."
-
-          # 确保本地 history 目录存在
-          mkdir -p history
-
-          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
-            # gh-pages 分支存在，尝试恢复历史记录
-            echo "gh-pages 分支存在，正在恢复历史记录..."
-
-            # 创建临时目录来存储历史记录
-            mkdir -p temp_history
-
-            # 克隆gh-pages分支到临时目录
-            git clone --branch gh-pages --single-branch "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" temp_history
-
-            # 复制历史记录到当前工作区
-            if [ -d "temp_history/history" ]; then
-              echo "找到现有历史记录，正在恢复..."
-              cp -r temp_history/history/* history/
-              record_count=$(ls -1 history/ | wc -l)
-              echo "历史记录恢复完成，共恢复 $record_count 条记录"
-            else
-              echo "gh-pages分支中未找到历史记录目录，将创建新的历史记录"
-            fi
-
-            # 清理临时目录
-            rm -rf temp_history
-          else
-            echo "gh-pages分支不存在，将创建新的历史记录"
-          fi
-
-          # 确认 history 目录已准备就绪
-          if [ -d "history" ]; then
-            record_count=$(ls -1 history/ 2>/dev/null | wc -l)
-            echo "history 目录已准备就绪，包含 $record_count 个条目"
-          else
-            echo "错误: history 目录创建失败"
-            exit 1
-          fi
-        continue-on-error: false
-
-      - name: 设置Python环境
+      - name: 设置 Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
 
       - name: 安装依赖
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
 
-      - name: 网络连接诊断
+      - name: 运行质量检查
+        run: |
+          ruff check .
+          pytest
+
+      - name: 恢复上一版开放数据与历史记录
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p site/data history
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            temp_dir=$(mktemp -d)
+            git clone --depth=1 --branch gh-pages --single-branch \
+              "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$temp_dir/pages"
+            if [ -f "$temp_dir/pages/data/latest.json" ]; then
+              cp "$temp_dir/pages/data/latest.json" site/data/latest.json
+            fi
+            if [ -d "$temp_dir/pages/history" ]; then
+              cp -R "$temp_dir/pages/history/." history/
+            fi
+          fi
+
+      - name: 生成榜单、JSON 与 RSS
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          LLM_BASE_URL: https://integrate.api.nvidia.com/v1
-          LLM_MODEL: minimaxai/minimax-m2.7
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'https://integrate.api.nvidia.com/v1' }}
+          LLM_MODEL: ${{ vars.LLM_MODEL || 'minimaxai/minimax-m2.7' }}
+          OUTPUT_DIR: site
+        run: python github_trending_cards.py
+
+      - name: 创建每日历史快照
         run: |
-          echo "开始网络连接诊断..."
-          python test_network.py
-        continue-on-error: true
+          snapshot_date=$(python -c "import json; print(json.load(open('site/data/latest.json'))['date'])")
+          snapshot_dir="history/$snapshot_date"
+          mkdir -p "$snapshot_dir"
+          cp site/index.html "$snapshot_dir/index.html"
+          cp site/styles.css "$snapshot_dir/styles.css"
+          cp site/app.js "$snapshot_dir/app.js"
+          cp site/favicon.svg "$snapshot_dir/favicon.svg"
+          cp site/data/latest.json "$snapshot_dir/data.json"
+          mkdir -p "$snapshot_dir/data"
+          cp site/data/latest.json "$snapshot_dir/data/latest.json"
+          cp site/feed.xml "$snapshot_dir/feed.xml"
+          cp site/metadata.json "$snapshot_dir/metadata.json"
+          python scripts/generate_history_stats.py
+          mkdir -p site/history
+          cp -R history/. site/history/
 
-      - name: 生成趋势榜单页面
-        env:
-          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          LLM_BASE_URL: https://integrate.api.nvidia.com/v1
-          LLM_MODEL: minimaxai/minimax-m2.7
-          # 设置GitHub Actions标识
-          GITHUB_ACTIONS: true
-          # 配置网络相关环境变量
-          PYTHONUNBUFFERED: 1
-          REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
+      - name: 校验发布文件
         run: |
-          echo "配置网络环境..."
-          # 显示网络配置信息
-          echo "DNS配置:"
-          cat /etc/resolv.conf
-          echo "测试网络连接:"
-          curl -I https://integrate.api.nvidia.com --connect-timeout 10 || echo "LLM API连接测试失败"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
 
-          echo "开始生成趋势榜单..."
-          python github_trending_cards.py
+          root = Path("site")
+          required = ["index.html", "styles.css", "app.js", "feed.xml", "data/latest.json", "history/index.html"]
+          missing = [name for name in required if not (root / name).is_file() or (root / name).stat().st_size == 0]
+          if missing:
+              raise SystemExit(f"发布文件缺失或为空: {missing}")
+          data = json.loads((root / "data/latest.json").read_text(encoding="utf-8"))
+          if not data["periods"]["daily"]:
+              raise SystemExit("日榜为空，拒绝部署")
+          ET.parse(root / "feed.xml")
+          print(f"校验通过：日榜 {len(data['periods']['daily'])} 条")
+          PY
 
-          # 确保生成了HTML文件
-          if [ ! -f "github_trending_cards.html" ]; then
-            echo "HTML文件生成失败"
-            exit 1
-          fi
-          echo "HTML文件生成成功"
-
-          # 显示生成的文件信息
-          ls -la github_trending_cards.*
-
-      - name: 保存历史页面
-        run: |
-          # 获取当前日期
-          DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
-          echo "当前日期: $DATE"
-
-          # 确保 history 目录存在
-          if [ ! -d "history" ]; then
-            echo "history 目录不存在，创建新目录"
-            mkdir -p history
-          else
-            echo "history 目录已存在，包含 $(ls -1 history/ | wc -l) 条记录"
-          fi
-
-          # 创建日期子目录
-          mkdir -p "history/$DATE"
-          echo "创建历史记录目录: history/$DATE/"
-
-          # 检查要复制的文件是否存在
-          if [ -f "github_trending_cards.html" ]; then
-            cp github_trending_cards.html "history/$DATE/index.html"
-            echo "已复制 HTML 文件"
-          else
-            echo "错误: github_trending_cards.html 不存在"
-            exit 1
-          fi
-
-          if [ -f "github_trending_cards.css" ]; then
-            cp github_trending_cards.css "history/$DATE/github_trending_cards.css"
-            echo "已复制 CSS 文件"
-          else
-            echo "警告: github_trending_cards.css 不存在"
-          fi
-
-          # 检查并复制图片文件
-          if [ -f "展示1.png" ]; then
-            cp "展示1.png" "history/$DATE/"
-            echo "已复制 展示1.png"
-          fi
-          if [ -f "img.png" ]; then
-            cp "img.png" "history/$DATE/"
-            echo "已复制 img.png"
-          fi
-
-          # 复制元数据文件（如果存在）
-          if [ -f "metadata.json" ]; then
-            cp metadata.json "history/$DATE/"
-            echo "已复制元数据文件"
-          else
-            echo "警告: metadata.json 不存在，将创建新的元数据文件"
-            # 创建元数据文件
-            METADATA="{
-              \"date\": \"$DATE\",
-              \"generated_at\": \"$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")\",
-              \"source\": \"GitHub Trending Scraper\"}"
-            echo $METADATA > "history/$DATE/metadata.json"
-            echo "已创建新的元数据文件"
-          fi
-
-      - name: 创建发布文件夹
-        run: |
-          # 创建用于发布到gh-pages的文件夹
-          mkdir -p gh-pages
-
-      - name: 复制文件到发布文件夹
-        run: |
-          # 复制所有需要发布的文件
-          cp index.html gh-pages/
-          cp github_trending_cards.html gh-pages/index.html
-          cp github_trending_cards.css gh-pages/
-          cp README_GHPAGES.md gh-pages/README.md
-          cp img.png gh-pages/ 2>/dev/null || echo "img.png 文件不存在，跳过复制"
-          
-          # 复制历史目录
-          cp -r history/ gh-pages/
-
-      - name: 生成历史统计页面
-        run: |
-          python generate_history_stats.py
-          cp history/index.html gh-pages/history/
-
-      - name: 部署到 GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 部署到 gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./gh-pages
+          publish_dir: ./site
           publish_branch: gh-pages
           force_orphan: true
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com

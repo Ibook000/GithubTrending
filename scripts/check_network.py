@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 """
 网络连接测试脚本
@@ -8,9 +7,8 @@
 
 import os
 import sys
-import time
+
 import requests
-from urllib.parse import urlparse
 
 DEFAULT_LLM_BASE_URL = "https://integrate.api.nvidia.com/v1"
 DEFAULT_LLM_MODEL = "minimaxai/minimax-m2.7"
@@ -23,7 +21,7 @@ def get_llm_config():
         "model": os.environ.get("LLM_MODEL", DEFAULT_LLM_MODEL),
     }
 
-def test_basic_connectivity():
+def check_basic_connectivity():
     """测试基本网络连接"""
     print("🌐 测试基本网络连接...")
     
@@ -41,7 +39,7 @@ def test_basic_connectivity():
         except Exception as e:
             print(f"❌ {url}: {e}")
 
-def test_openrouter_api():
+def check_llm_api():
     """测试OpenRouter API连接"""
     print("\n🤖 测试OpenRouter API连接...")
     
@@ -51,8 +49,7 @@ def test_openrouter_api():
         print("❌ 未找到NVIDIA_API_KEY或OPENROUTER_API_KEY环境变量")
         return
     
-    print(f"🔑 API密钥长度: {len(api_key)}")
-    print(f"🔑 API密钥前缀: {api_key[:15]}...")
+    print("🔑 已检测到 API 密钥（密钥内容已隐藏）")
     
     try:
         # 测试API连接
@@ -84,7 +81,7 @@ def test_openrouter_api():
     except Exception as e:
         print(f"❌ OpenRouter API连接失败: {e}")
 
-def test_dns_resolution():
+def check_dns_resolution():
     """测试DNS解析"""
     print("\n🔍 测试DNS解析...")
     
@@ -132,9 +129,9 @@ def main():
     print("=" * 50)
     
     show_environment_info()
-    test_dns_resolution()
-    test_basic_connectivity()
-    test_openrouter_api()
+    check_dns_resolution()
+    check_basic_connectivity()
+    check_llm_api()
     
     print("\n" + "=" * 50)
     print("✅ 网络诊断完成")
