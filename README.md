@@ -50,14 +50,15 @@ python -m http.server 8000 -d site
 ### 可选 AI 摘要
 
 ```bash
-export NVIDIA_API_KEY="your-api-key"
-# 可选覆盖兼容 OpenAI API 的地址和模型
-export LLM_BASE_URL="https://integrate.api.nvidia.com/v1"
-export LLM_MODEL="minimaxai/minimax-m2.7"
+export LLM_API_KEY="your-api-key" # 自托管接口不需要鉴权时可省略
+export LLM_BASE_URL="http://154.217.247.37:8317/v1"
+export LLM_MODEL="deepseek-v4-flash"
 python github_trending_cards.py
 ```
 
-密钥只在生成过程中使用，不会写入 HTML、JSON、RSS 或日志。
+也可以继续使用 `NVIDIA_API_KEY` 或 `OPENROUTER_API_KEY`。密钥只在生成过程中使用，不会写入 HTML、JSON、RSS 或日志。
+
+> 默认接口是明文 HTTP。请不要通过它发送敏感数据；生产环境建议改成 HTTPS，并通过 `LLM_BASE_URL`、`LLM_MODEL` 和 `LLM_API_KEY` 覆盖默认配置。
 
 ## 开放数据
 
