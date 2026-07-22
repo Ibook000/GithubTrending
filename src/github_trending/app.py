@@ -175,11 +175,13 @@ def ai_summarize_projects(
     client = OpenAI(
         base_url=config["base_url"],
         api_key=api_key,
-        timeout=120 if is_actions else 60,
+        timeout=30 if is_actions else 60,
     )
     success_count = 0
     lock = threading.Lock()
-    max_retries = 3 if is_actions else 2
+    # 自动部署必须有明确的时间上限。失败时本地摘要足以保证页面正常发布，
+    # 因此 Actions 环境不做长时间重试。
+    max_retries = 1 if is_actions else 2
 
     def summarize(repo: dict[str, str]) -> dict[str, str]:
         nonlocal success_count
@@ -193,7 +195,7 @@ def ai_summarize_projects(
                 completion = client.chat.completions.create(
                     model=config["model"],
                     messages=[{"role": "user", "content": prompt}],
-                    timeout=90 if is_actions else 60,
+                    timeout=20 if is_actions else 60,
                 )
                 content = completion.choices[0].message.content
                 repo["summary"] = (content or "").strip() or generate_fallback_summary(repo)
@@ -210,7 +212,10 @@ def ai_summarize_projects(
         repo["summary"] = generate_fallback_summary(repo)
         return repo
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=min(5, len(repos))) as pool:
+    worker_limit = 10 if is_actions else 5
+    with concurrent.futures.ThreadPoolExecutor(
+        max_workers=min(worker_limit, len(repos))
+    ) as pool:
         result = list(pool.map(summarize, repos))
     print(f"🤖 AI 摘要成功 {success_count}/{len(repos)}")
     return result
