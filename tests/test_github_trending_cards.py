@@ -10,6 +10,8 @@ from github_trending.app import (
     fetch_github_trending,
     generate_rss,
     generate_site,
+    generate_trend_card,
+    parse_news_feed,
     parse_trending_html,
     validate_payload,
 )
@@ -26,6 +28,14 @@ SAMPLE_HTML = """
   <h2><a href="/example/no-description">example / no-description</a></h2>
 </article>
 <article class="Box-row"><h2>broken entry</h2></article>
+"""
+
+SAMPLE_RSS = """
+<rss version="2.0"><channel>
+  <item><title>Open source AI release</title><link>https://example.com/ai</link>
+  <description><![CDATA[<p>A useful <strong>AI</strong> release.</p>]]></description>
+  <pubDate>Wed, 22 Jul 2026 02:00:00 GMT</pubDate></item>
+</channel></rss>
 """
 
 
@@ -60,6 +70,20 @@ def test_parse_trending_html_respects_limit():
 def test_fetch_rejects_unknown_period():
     with pytest.raises(ValueError, match="不支持的榜单周期"):
         fetch_github_trending("yearly")
+
+
+def test_parse_news_feed_supports_rss_and_strips_html():
+    news = parse_news_feed(SAMPLE_RSS, source="Example", category="AI")
+    assert news == [
+        {
+            "title": "Open source AI release",
+            "url": "https://example.com/ai",
+            "source": "Example",
+            "category": "AI",
+            "published": "Wed, 22 Jul 2026 02:00:00 GMT",
+            "summary": "A useful AI release.",
+        }
+    ]
 
 
 def test_build_payload_adds_movement_cross_periods_and_deduplicates():
@@ -106,6 +130,7 @@ def test_generate_site_writes_public_interfaces_and_escapes_embedded_data(tmp_pa
     assert (tmp_path / "data/latest.json").exists()
     assert (tmp_path / f"data/{payload['date']}.json").exists()
     assert (tmp_path / "feed.xml").exists()
+    assert (tmp_path / "today-card.svg").exists()
     assert (tmp_path / "robots.txt").exists()
     assert (tmp_path / "sitemap.xml").exists()
     html = (tmp_path / "index.html").read_text(encoding="utf-8")
@@ -113,6 +138,18 @@ def test_generate_site_writes_public_interfaces_and_escapes_embedded_data(tmp_pa
     assert "\\u003cscript>alert" in html
     data = json.loads((tmp_path / "data/latest.json").read_text(encoding="utf-8"))
     assert data["schema_version"] == "1.0"
+
+
+def test_generate_trend_card_contains_daily_repos_and_news():
+    payload = build_payload(
+        {"daily": [repo()], "weekly": [], "monthly": []},
+        news=parse_news_feed(SAMPLE_RSS, source="Example", category="AI"),
+    )
+    card = generate_trend_card(payload)
+    root = ET.fromstring(card)
+    assert root.tag.endswith("svg")
+    assert "octocat/Hello-World" in card
+    assert "Open source AI release" in card
 
 
 def test_generated_html_exposes_accessible_controls(tmp_path):
@@ -123,4 +160,7 @@ def test_generated_html_exposes_accessible_controls(tmp_path):
     assert 'id="search-input"' in html
     assert 'id="language-filter"' in html
     assert 'id="theme-toggle"' in html
+    assert 'id="trend-card"' in html
+    assert 'id="news-list"' in html
+    assert 'id="share-card"' in html
     assert "prefers-reduced-motion" in (tmp_path / "styles.css").read_text(encoding="utf-8")
