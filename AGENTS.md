@@ -9,7 +9,7 @@
 - 📝 展示项目名称、简介、语言、Star、Fork、作者等关键信息
 - 🤖 支持 OpenAI 兼容接口生成项目中文摘要和资讯中文化
 - 📰 聚合 AI、开源与开发者生态公开 RSS 资讯
-- 💡 自动生成可下载、可分享的今日开源趋势 SVG 卡片
+- 💡 自动生成竖版、方形、横版三种可下载、可分享的今日趋势 SVG/PNG 卡片
 - 📅 **历史记录自动保存到 gh-pages 分支**，可查看每日历史榜单
 - 🌏 全中文界面，开箱即用
 
@@ -29,7 +29,10 @@
 pip install -r requirements.txt
 
 # 生成趋势榜单；不配置密钥时使用本地备用摘要
-python github_trending_cards.py
+python github_trending_cards.py --mode full
+
+# 仅刷新 AI/开源资讯和趋势卡片，不改变 GitHub 排名快照
+python github_trending_cards.py --mode news
 
 # 生成历史统计页面
 python scripts/generate_history_stats.py
@@ -59,10 +62,10 @@ export LLM_MODEL="your-model"
 ├── tests/                      # 自动化测试
 ├── requirements.txt            # Python依赖
 ├── .github/workflows/          # GitHub Actions配置
-│   └── generate_trending.yml   # 自动部署工作流
+│   └── generate_trending.yml   # 完整榜单与每 6 小时资讯刷新工作流
 ├── history/                    # 本地历史记录目录
 │   └── YYYY-MM-DD/             # 按日期归档的历史数据
-└── img.png                     # 项目展示图片
+└── docs/assets/                # README 的桌面、移动端和卡片截图
 ```
 
 ---
@@ -79,15 +82,16 @@ export LLM_MODEL="your-model"
 #### `src/github_trending/app.py`
 - `fetch_github_trending(since)`: 爬取 GitHub Trending 数据
 - `ai_summarize_projects(repos, api_key)`: 调用 OpenRouter API 生成中文总结
-- `fetch_news()`: 聚合公开 AI、开源与开发者生态 RSS
+- `fetch_news_bundle()`: 聚合权威 AI、开源与开发者生态 RSS/Atom，并做 72 小时过滤与失败回退
 - `ai_localize_news(news, api_key)`: 将资讯标题与摘要转换成简洁中文
-- `generate_trend_card(payload)`: 生成当天 SVG 趋势卡片
+- `generate_trend_card(payload, variant)`: 生成竖版、方形或横版 SVG 趋势卡片
+- `generate_card_assets(payload, output_dir)`: 输出 SVG、PNG、二维码和 `cards/manifest.json`
 - `generate_fallback_summary(repo)`: 备用总结生成（当 API 失败时）
 - `build_payload(all_repos, previous)`: 生成版本化开放数据并计算排名变化
 - `generate_site(payload, output_dir)`: 生成 HTML、JSON、RSS 和 SEO 文件
 
 #### `.github/workflows/generate_trending.yml`
-- 每天 UTC 2点（北京时间 10点）自动运行
+- 北京时间 10:00 完整运行；04:00、16:00、22:00 仅刷新资讯
 - 包含网络诊断、数据爬取、AI 总结、历史保存、部署到 GitHub Pages
 
 ### 添加新功能建议

@@ -3,14 +3,19 @@ from datetime import datetime
 from xml.etree import ElementTree as ET
 
 import pytest
+from PIL import Image
 
 from github_trending.app import (
     BEIJING_TZ,
+    CARD_VARIANTS,
     build_payload,
     fetch_github_trending,
+    fetch_news_bundle,
+    generate_news_rss,
     generate_rss,
     generate_site,
     generate_trend_card,
+    parse_news_datetime,
     parse_news_feed,
     parse_trending_html,
     validate_payload,
@@ -36,6 +41,14 @@ SAMPLE_RSS = """
   <description><![CDATA[<p>A useful <strong>AI</strong> release.</p>]]></description>
   <pubDate>Wed, 22 Jul 2026 02:00:00 GMT</pubDate></item>
 </channel></rss>
+"""
+
+SAMPLE_ATOM = """
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry><title>Fresh model paper</title><id>tag:arxiv.org,2026:1234</id>
+  <link href="https://arxiv.org/abs/1234"/><published>2026-07-22T02:00:00Z</published>
+  <summary>Research summary</summary></entry>
+</feed>
 """
 
 
@@ -73,17 +86,34 @@ def test_fetch_rejects_unknown_period():
 
 
 def test_parse_news_feed_supports_rss_and_strips_html():
-    news = parse_news_feed(SAMPLE_RSS, source="Example", category="AI")
-    assert news == [
-        {
-            "title": "Open source AI release",
-            "url": "https://example.com/ai",
-            "source": "Example",
-            "category": "AI",
-            "published": "Wed, 22 Jul 2026 02:00:00 GMT",
-            "summary": "A useful AI release.",
-        }
-    ]
+    news = parse_news_feed(
+        SAMPLE_RSS,
+        source="Example",
+        category="AI",
+        source_id="example",
+        now=datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ),
+    )
+    assert len(news) == 1
+    assert news[0]["title"] == "Open source AI release"
+    assert news[0]["url"] == "https://example.com/ai"
+    assert news[0]["summary"] == "A useful AI release."
+    assert news[0]["source_id"] == "example"
+    assert news[0]["id"]
+
+
+def test_parse_news_feed_supports_atom_and_72_hour_window():
+    now = datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ)
+    assert parse_news_feed(SAMPLE_ATOM, "arXiv", "研究", now=now)[0]["url"] == "https://arxiv.org/abs/1234"
+    old = SAMPLE_RSS.replace("Wed, 22 Jul 2026 02:00:00 GMT", "Sat, 18 Jul 2026 02:00:00 GMT")
+    assert parse_news_feed(old, "Example", "AI", now=now) == []
+
+
+def test_news_datetime_and_url_normalization():
+    now = datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ)
+    assert parse_news_datetime("not-a-date", now=now) is None
+    from github_trending.app import normalize_news_url
+
+    assert normalize_news_url("HTTPS://EXAMPLE.COM/a/?utm_source=x&keep=1") == "https://example.com/a?keep=1"
 
 
 def test_build_payload_adds_movement_cross_periods_and_deduplicates():
@@ -130,7 +160,11 @@ def test_generate_site_writes_public_interfaces_and_escapes_embedded_data(tmp_pa
     assert (tmp_path / "data/latest.json").exists()
     assert (tmp_path / f"data/{payload['date']}.json").exists()
     assert (tmp_path / "feed.xml").exists()
+    assert (tmp_path / "news-feed.xml").exists()
+    assert (tmp_path / "data/news/latest.json").exists()
+    assert (tmp_path / "cards/manifest.json").exists()
     assert (tmp_path / "today-card.svg").exists()
+    assert (tmp_path / "today-card.png").exists()
     assert (tmp_path / "robots.txt").exists()
     assert (tmp_path / "sitemap.xml").exists()
     html = (tmp_path / "index.html").read_text(encoding="utf-8")
@@ -145,11 +179,70 @@ def test_generate_trend_card_contains_daily_repos_and_news():
         {"daily": [repo()], "weekly": [], "monthly": []},
         news=parse_news_feed(SAMPLE_RSS, source="Example", category="AI"),
     )
-    card = generate_trend_card(payload)
+    card = generate_trend_card(payload, "portrait")
     root = ET.fromstring(card)
     assert root.tag.endswith("svg")
     assert "octocat/Hello-World" in card
     assert "Open source AI release" in card
+
+
+def test_news_rss_and_card_variants_are_valid(tmp_path):
+    payload = build_payload(
+        {"daily": [repo()], "weekly": [], "monthly": []},
+        news=parse_news_feed(SAMPLE_RSS, source="Example", category="AI"),
+    )
+    rss = generate_news_rss({"generated_at": payload["generated_at"], "items": payload["news"]})
+    assert ET.fromstring(rss).findtext("channel/item/title") == "Open source AI release"
+    generate_site(payload, tmp_path)
+    for variant, size in CARD_VARIANTS.items():
+        assert ET.parse(tmp_path / f"cards/latest-{variant}.svg").getroot().tag.endswith("svg")
+        assert Image.open(tmp_path / f"cards/latest-{variant}.png").size == (size["width"], size["height"])
+
+
+def test_news_only_site_generation_keeps_immutable_ranking_snapshot(tmp_path):
+    first = build_payload(
+        {"daily": [repo()], "weekly": [], "monthly": []},
+        now=datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ),
+    )
+    generate_site(first, tmp_path)
+    snapshot = (tmp_path / "data/2026-07-22.json").read_text(encoding="utf-8")
+    second = build_payload(
+        {"daily": [repo()]},
+        news=parse_news_feed(SAMPLE_RSS, "Example", "AI"),
+        now=datetime(2026, 7, 22, 16, 0, tzinfo=BEIJING_TZ),
+    )
+    generate_site(second, tmp_path, write_trending_snapshot=False)
+    assert (tmp_path / "data/2026-07-22.json").read_text(encoding="utf-8") == snapshot
+
+
+def test_news_refresh_falls_back_to_previous_source():
+    class Response:
+        def __init__(self, text=None, error=None):
+            self.text = text or ""
+            self.error = error
+
+        def raise_for_status(self):
+            if self.error:
+                raise self.error
+
+    class Session:
+        def get(self, url, timeout=None):
+            if "github.blog" in url:
+                return Response(error=__import__("requests").RequestException("offline"))
+            return Response(SAMPLE_RSS)
+
+    previous = {
+        "items": parse_news_feed(
+            SAMPLE_RSS.replace("https://example.com/ai", "https://github.blog/old-news"),
+            "GitHub Blog",
+            "开源生态",
+            source_id="github-blog",
+        ),
+        "sources": [{"id": "github-blog", "last_success_at": "2026-07-22T08:00:00+08:00"}],
+    }
+    bundle = fetch_news_bundle(Session(), previous=previous, now=datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ))
+    stale = [item for item in bundle["items"] if item["source_id"] == "github-blog"]
+    assert stale and stale[0]["stale"] is True
 
 
 def test_generated_html_exposes_accessible_controls(tmp_path):
