@@ -57,6 +57,19 @@
     return repos;
   }
 
+  function renderNews() {
+    const news = Array.isArray(state.data.news) ? state.data.news : [];
+    $("#news-count").textContent = news.length ? `${news.length} 条公开资讯` : "资讯源暂不可用";
+    $("#news-list").innerHTML = news.length
+      ? news.map((item) => `<article class="news-item">
+          <div class="news-item-top"><span class="news-category">${escapeHtml(item.category || "资讯")}</span><span>${escapeHtml(item.source || "公开 RSS")}</span></div>
+          <h3><a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a></h3>
+          ${item.summary ? `<p>${escapeHtml(item.summary)}</p>` : ""}
+          <div class="news-item-meta">${escapeHtml(item.published || "今日更新")}</div>
+        </article>`).join("")
+      : `<div class="empty-state"><strong>今日资讯暂不可用</strong><p>新闻源偶尔会限流，榜单和趋势卡片仍可正常使用。</p></div>`;
+  }
+
   function movementMarkup(movement) {
     const direction = movement?.direction || "new";
     const icons = { up: "↑", down: "↓", same: "→", new: "+" };
@@ -165,6 +178,7 @@
     });
     $("#reset-filters").addEventListener("click", () => { state.query = ""; state.language = "all"; $("#search-input").value = ""; $("#language-filter").value = "all"; render(); });
     $("#share-page").addEventListener("click", () => share("GitHub 趋势雷达", location.href));
+    $("#share-card").addEventListener("click", () => share("今日开源趋势卡片", new URL("today-card.svg", location.href).href));
     $("#theme-toggle").addEventListener("click", () => applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
     document.addEventListener("keydown", (event) => { if (event.key === "/" && document.activeElement.tagName !== "INPUT") { event.preventDefault(); $("#search-input").focus(); } });
   }
@@ -174,7 +188,7 @@
     if (!state.data?.periods) { $("#empty-state").hidden = false; $("#empty-state strong").textContent = "榜单数据加载失败"; return; }
     state.favorites = readFavorites();
     const preferred = localStorage.getItem(STORAGE.theme) || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    applyTheme(preferred); updateStats(); populateLanguages(); bindEvents(); render();
+    applyTheme(preferred); updateStats(); populateLanguages(); renderNews(); bindEvents(); render();
   }
 
   document.addEventListener("DOMContentLoaded", init);

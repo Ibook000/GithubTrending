@@ -5,15 +5,18 @@ from __future__ import annotations
 import concurrent.futures
 import json
 import os
+import re
 import shutil
+import textwrap
 import threading
 import time
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
+from html import escape
 from pathlib import Path
 from typing import Any
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 from xml.etree import ElementTree as ET
 
 import requests
@@ -35,6 +38,19 @@ DEFAULT_LLM_MODEL = "deepseek-v4-flash"
 GITHUB_TRENDING_URL = "https://github.com/trending"
 REQUEST_TIMEOUT = (10, 30)
 PERIODS = ("daily", "weekly", "monthly")
+NEWS_FEEDS = (
+    {"name": "GitHub Blog", "category": "开源", "url": "https://github.blog/feed/"},
+    {
+        "name": "Hugging Face Blog",
+        "category": "AI",
+        "url": "https://huggingface.co/blog/feed.xml",
+    },
+    {
+        "name": "Hacker News",
+        "category": "开发者",
+        "url": "https://hnrss.org/newest?q=opensource%20OR%20llm%20OR%20ai",
+    },
+)
 BEIJING_TZ = timezone(timedelta(hours=8))
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -139,6 +155,105 @@ def fetch_github_trending(
             session.close()
 
 
+def _clean_news_text(value: str | None) -> str:
+    if not value:
+        return ""
+    text = BeautifulSoup(value, "html.parser").get_text(" ", strip=True)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def parse_news_feed(
+    xml_text: str,
+    source: str,
+    category: str,
+    limit: int = 4,
+) -> list[dict[str, str]]:
+    """解析 RSS 2.0 或 Atom 新闻源，过滤无链接和重复标题。"""
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
+        return []
+
+    items: list[dict[str, str]] = []
+    rss_items = root.findall("./channel/item")
+    atom_items = root.findall(".//{http://www.w3.org/2005/Atom}entry")
+    candidates = rss_items or atom_items
+    atom_ns = "{http://www.w3.org/2005/Atom}"
+    for item in candidates:
+        if item.tag.endswith("entry"):
+            title = _clean_news_text(item.findtext(f"{atom_ns}title"))
+            summary = _clean_news_text(
+                item.findtext(f"{atom_ns}summary") or item.findtext(f"{atom_ns}content")
+            )
+            published = _clean_news_text(
+                item.findtext(f"{atom_ns}published") or item.findtext(f"{atom_ns}updated")
+            )
+            link_node = item.find(f"{atom_ns}link[@href]")
+            url = link_node.get("href", "") if link_node is not None else ""
+        else:
+            title = _clean_news_text(item.findtext("title"))
+            summary = _clean_news_text(
+                item.findtext("description")
+                or item.findtext("{http://purl.org/rss/1.0/modules/content/}encoded")
+            )
+            published = _clean_news_text(
+                item.findtext("pubDate") or item.findtext("{http://purl.org/dc/elements/1.1/}date")
+            )
+            url = str(item.findtext("link") or "").strip()
+        parsed_url = urlparse(url)
+        if not title or parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
+            continue
+        items.append(
+            {
+                "title": title,
+                "url": url,
+                "source": source,
+                "category": category,
+                "published": published,
+                "summary": summary[:220],
+            }
+        )
+        if len(items) >= limit:
+            break
+    return items
+
+
+def fetch_news(session: requests.Session | None = None, limit: int = 8) -> list[dict[str, str]]:
+    """抓取公开 AI/开源 RSS；新闻源异常时返回已有结果而不阻断榜单。"""
+    owns_session = session is None
+    session = session or create_http_session()
+    grouped_results: list[list[dict[str, str]]] = []
+    try:
+        for feed in NEWS_FEEDS:
+            try:
+                response = session.get(feed["url"], timeout=(5, 12))
+                response.raise_for_status()
+                grouped_results.append(
+                    parse_news_feed(
+                        response.text,
+                        source=feed["name"],
+                        category=feed["category"],
+                        limit=3,
+                    )
+                )
+            except requests.RequestException as exc:
+                print(f"⚠️ 新闻源 {feed['name']} 暂不可用: {type(exc).__name__}")
+                grouped_results.append([])
+        results = [
+            group[index]
+            for index in range(max((len(group) for group in grouped_results), default=0))
+            for group in grouped_results
+            if index < len(group)
+        ]
+        unique: dict[str, dict[str, str]] = {}
+        for item in results:
+            unique.setdefault(item["url"], item)
+        return list(unique.values())[:limit]
+    finally:
+        if owns_session:
+            session.close()
+
+
 def generate_fallback_summary(repo: dict[str, Any]) -> str:
     """在没有 AI 服务时生成稳定、可读的中文摘要。"""
     title = str(repo.get("title", "")).lower()
@@ -223,6 +338,58 @@ def ai_summarize_projects(
     return result
 
 
+def ai_localize_news(
+    news: list[dict[str, str]], api_key: str
+) -> list[dict[str, str]]:
+    """将公开 RSS 标题与摘要转为简洁中文，失败时保留原文。"""
+    if not news or OpenAI is None:
+        return news
+    config = get_llm_config()
+    is_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+    client = OpenAI(
+        base_url=config["base_url"],
+        api_key=api_key,
+        timeout=30 if is_actions else 60,
+    )
+    success_count = 0
+    lock = threading.Lock()
+
+    def localize(item: dict[str, str]) -> dict[str, str]:
+        nonlocal success_count
+        original_title = item["title"]
+        prompt = (
+            "请把下面的科技新闻整理成适合中文开发者阅读的内容。"
+            "只输出两行，格式严格为“标题：...”和“摘要：...”。"
+            "标题准确自然，摘要不超过45个汉字，不使用营销话术。\n"
+            f"原标题：{original_title}\n原摘要：{item.get('summary', '')}"
+        )
+        try:
+            completion = client.chat.completions.create(
+                model=config["model"],
+                messages=[{"role": "user", "content": prompt}],
+                timeout=20 if is_actions else 60,
+            )
+            content = (completion.choices[0].message.content or "").strip()
+            title_match = re.search(r"标题[：:]\s*(.+)", content)
+            summary_match = re.search(r"摘要[：:]\s*(.+)", content)
+            if title_match:
+                item["original_title"] = original_title
+                item["title"] = title_match.group(1).strip()
+            if summary_match:
+                item["summary"] = summary_match.group(1).strip()[:120]
+            if title_match or summary_match:
+                with lock:
+                    success_count += 1
+        except Exception as exc:
+            print(f"⚠️ {item['source']} 资讯中文化失败: {type(exc).__name__}")
+        return item
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=min(8, len(news))) as pool:
+        result = list(pool.map(localize, news))
+    print(f"📰 AI 资讯中文化 {success_count}/{len(news)}")
+    return result
+
+
 def load_previous_payload(path: Path) -> dict[str, Any] | None:
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
@@ -248,6 +415,7 @@ def build_payload(
     all_repos: dict[str, list[dict[str, Any]]],
     previous: dict[str, Any] | None = None,
     now: datetime | None = None,
+    news: list[dict[str, str]] | None = None,
 ) -> dict[str, Any]:
     now = now or datetime.now(BEIJING_TZ)
     previous_periods = (previous or {}).get("periods", {})
@@ -288,6 +456,7 @@ def build_payload(
         "generated_at": now.isoformat(),
         "source": GITHUB_TRENDING_URL,
         "periods": periods,
+        "news": news or [],
     }
 
 
@@ -341,6 +510,68 @@ def generate_rss(payload: dict[str, Any]) -> str:
     )
 
 
+def _svg_text(lines: list[str], x: int, y: int, size: int, fill: str = "#f4f7f2", weight: int = 400, gap: int = 34) -> str:
+    chunks = [
+        f'<text x="{x}" y="{y}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="{size}px" font-weight="{weight}" fill="{fill}">'
+    ]
+    for index, line in enumerate(lines):
+        dy = 0 if index == 0 else gap
+        chunks.append(f'<tspan x="{x}" dy="{dy}px">{escape(line)}</tspan>')
+    chunks.append("</text>")
+    return "".join(chunks)
+
+
+def generate_trend_card(payload: dict[str, Any]) -> str:
+    """生成适合社交分享的今日开源趋势 SVG 卡片。"""
+    width, height = 1200, 1700
+    daily = payload.get("periods", {}).get("daily", [])[:4]
+    news = payload.get("news", [])[:3]
+    date = payload.get("date", "")
+    parts: list[str] = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d2018"/><stop offset="1" stop-color="#153c2b"/></linearGradient></defs>',
+        '<rect width="1200" height="1700" rx="44" fill="url(#bg)"/>',
+        '<circle cx="1040" cy="150" r="180" fill="#73d69f" opacity=".12"/>',
+        _svg_text(["GITHUB 趋势雷达", "今日开源趋势卡片"], 72, 110, 32, weight=760, gap=48),
+        _svg_text([date], 72, 230, 24, fill="#b9d0c1"),
+        '<rect x="72" y="285" width="1056" height="2" fill="#527261"/>',
+        _svg_text(["今日热榜"], 72, 360, 28, fill="#9bb6a5", weight=700),
+    ]
+    y = 430
+    for index, repo in enumerate(daily):
+        rank = str(repo.get("rank", index + 1)).zfill(2)
+        title = str(repo.get("title", "未知项目"))
+        summary = str(repo.get("summary") or repo.get("description") or "")
+        title_lines = textwrap.wrap(title, width=28)[:2]
+        summary_lines = textwrap.wrap(summary, width=46)[:1]
+        parts.append(f'<rect x="72" y="{y - 42}" width="1056" height="132" rx="22" fill="#1e4b36" opacity=".82"/>')
+        parts.append(_svg_text([rank], 100, y + 4, 44, fill="#73d69f", weight=760))
+        parts.append(_svg_text(title_lines, 190, y - 2, 25, weight=700, gap=30))
+        parts.append(_svg_text(summary_lines, 190, y + 52, 18, fill="#b9d0c1", gap=25))
+        parts.append(_svg_text([f"★ {repo.get('stars', '0')}   {repo.get('language', '未知')}"], 820, y + 4, 16, fill="#9bb6a5"))
+        y += 156
+    y += 12
+    parts.extend([
+        f'<rect x="72" y="{y}" width="1056" height="2" fill="#527261"/>',
+        _svg_text(["AI · 开源 · 开发者资讯"], 72, y + 76, 28, fill="#9bb6a5", weight=700),
+    ])
+    y += 132
+    if news:
+        for item in news:
+            title = " ".join(textwrap.wrap(str(item.get("title", "")), width=58)[:1])
+            label = f"[{item.get('category', '资讯')}] {title}"
+            parts.append(_svg_text([label], 86, y, 19, fill="#f4f7f2"))
+            y += 62
+    else:
+        parts.append(_svg_text(["今日资讯源暂不可用，榜单仍正常更新。"], 86, y, 19, fill="#b9d0c1"))
+    parts.extend([
+        '<rect x="72" y="1575" width="1056" height="1" fill="#527261"/>',
+        _svg_text(["ibook000.github.io/GithubTrending", "零后端 · 零账户 · 开放数据"], 72, 1625, 17, fill="#9bb6a5", gap=27),
+        "</svg>",
+    ])
+    return "".join(parts)
+
+
 def generate_site(payload: dict[str, Any], output_dir: Path) -> None:
     """生成站点、开放数据、RSS 和 SEO 文件。"""
     validate_payload(payload)
@@ -353,6 +584,7 @@ def generate_site(payload: dict[str, Any], output_dir: Path) -> None:
     (data_dir / "latest.json").write_text(payload_text, encoding="utf-8")
     (data_dir / f"{payload['date']}.json").write_text(payload_text, encoding="utf-8")
     (output_dir / "feed.xml").write_text(generate_rss(payload), encoding="utf-8")
+    (output_dir / "today-card.svg").write_text(generate_trend_card(payload), encoding="utf-8")
 
     template = (assets_dir / "index.html").read_text(encoding="utf-8")
     embedded = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).replace(
@@ -440,8 +672,12 @@ def run(output_dir: Path | str = "site") -> dict[str, Any]:
             for repo in repos:
                 repo["summary"] = generate_fallback_summary(repo)
 
+    news = fetch_news()
+    if api_key and news:
+        news = ai_localize_news(news, str(api_key))
+    print(f"📰 资讯聚合 {len(news)} 条")
     previous = load_previous_payload(output_dir / "data" / "latest.json")
-    payload = build_payload(all_repos, previous=previous)
+    payload = build_payload(all_repos, previous=previous, news=news)
     generate_site(payload, output_dir)
     print(f"🎉 站点已生成到 {output_dir.resolve()}")
     return payload

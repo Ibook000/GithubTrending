@@ -31,6 +31,8 @@
     </a>
     <nav class="header-nav" aria-label="站点导航">
       <a href="#rankings">榜单</a>
+      <a href="#trend-card">趋势卡片</a>
+      <a href="#news">资讯</a>
       <a href="history/">历史</a>
       <a href="data/latest.json">数据</a>
       <a href="feed.xml">RSS</a>
@@ -65,6 +67,40 @@
       <div><strong id="stat-unique">0</strong><span>独立项目</span></div>
       <div><strong id="stat-cross">0</strong><span>跨榜项目</span></div>
       <div><strong id="stat-languages">0</strong><span>编程语言</span></div>
+    </section>
+
+    <section id="trend-card" class="trend-card-section" aria-labelledby="trend-card-title">
+      <div class="section-heading">
+        <div>
+          <p class="overline">TODAY IN ONE CARD</p>
+          <h2 id="trend-card-title">一图看懂今日开源趋势</h2>
+        </div>
+        <p class="result-count">榜单 + AI / 开源资讯</p>
+      </div>
+      <div class="trend-card-layout">
+        <div class="trend-card-preview">
+          <img id="trend-card-image" src="today-card.svg" alt="今日开源趋势卡片" loading="lazy">
+        </div>
+        <div class="trend-card-copy">
+          <p>把今天最值得关注的仓库、技术方向和开源资讯压缩成一张可保存、可转发的卡片。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="today-card.svg" download="github-trending-today.svg">下载趋势卡片</a>
+            <button class="button button-secondary" id="share-card" type="button">分享趋势卡片</button>
+          </div>
+          <p class="card-note">SVG 是开放格式，适合公众号、社群、日报和二次设计。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="news-section" aria-labelledby="news-title">
+      <div class="section-heading">
+        <div>
+          <p class="overline">AI · OPEN SOURCE · DEVELOPERS</p>
+          <h2 id="news-title">今日科技与开源资讯</h2>
+        </div>
+        <p id="news-count" class="result-count" aria-live="polite"></p>
+      </div>
+      <div id="news-list" class="news-list"></div>
     </section>
 
     <section id="rankings" class="rankings" aria-labelledby="rankings-title">
