@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>GitHub 趋势雷达 · AI 科技与开源资讯</title>
+    <link>https://Ibook000.github.io/GithubTrending/#news</link>
+    <description>权威一手 AI、开源和开发者生态资讯</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 24 Jul 2026 23:25:50 +0800</lastBuildDate>
+    <atom:link href="https://Ibook000.github.io/GithubTrending/news-feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dependabot 引入三天冷却期，延迟版本更新</title>
+      <link>https://github.blog/security/supply-chain-security/the-case-for-a-cooldown-why-dependabot-now-waits-before-issuing-version-updates</link>
+      <guid isPermaLink="false">ed2eeefbfeebb927</guid>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>新默认三天冷却期延迟版本更新 PR，让维护者和安全研究人员有时间处理发布版本中的问题。｜来源：GitHub Blog</description>
+    </item>
+    <item>
+      <title>将Nunchaku 4-bit扩散推理集成到Diffusers</title>
+      <link>https://huggingface.co/blog/nunchaku-diffusers</link>
+      <guid isPermaLink="false">96f5dc656a14a806</guid>
+      <pubDate>Thu, 23 Jul 2026 08:00:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>将Nunchaku 4-bit扩散推理功能添加至Diffusers库。｜来源：Hugging Face Blog</description>
+    </item>
+    <item>
+      <title>ChatGPT 推出健康功能，支持连接医疗记录和 Apple Health</title>
+      <link>https://openai.com/index/health-in-chatgpt</link>
+      <guid isPermaLink="false">bf70d809f9542eee</guid>
+      <pubDate>Thu, 23 Jul 2026 08:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>符合条件的美国用户现可安全连接个人医疗记录与 Apple Health 数据，在 ChatGPT 中获得更个性化的健康洞察。｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>我的LFX导师之旅：与kgateway共成长</title>
+      <link>https://www.cncf.io/blog/2026/07/24/my-lfx-mentorship-journey-with-kgateway</link>
+      <guid isPermaLink="false">05ebdab309129a5d</guid>
+      <pubDate>Fri, 24 Jul 2026 19:00:00 +0800</pubDate>
+      <category>云原生</category>
+      <description>作者作为云原生生态工程师，分享了参与kgateway项目LFX导师计划的经历，回顾了多年来在Kubernetes相关技术上的贡献。｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>3D感知的视觉语言模型融合隐式与显式几何</title>
+      <link>https://arxiv.org/abs/2607.21595v1</link>
+      <guid isPermaLink="false">2a285cf7ee5b659f</guid>
+      <pubDate>Fri, 24 Jul 2026 01:59:59 +0800</pubDate>
+      <category>研究</category>
+      <description>现有VLM基于2D输入，难以处理需要细粒度空间理解的3D任务，该研究提出融合隐式和显式几何的3D感知VLM。｜来源：arXiv AI / ML / NLP</description>
+    </item>
+    <item>
+      <title>Copilot与原始API访问：你实际支付的是什么？</title>
+      <link>https://github.blog/ai-and-ml/github-copilot/copilot-vs-raw-api-access-what-are-you-actually-paying-for</link>
+      <guid isPermaLink="false">98b061f178880396</guid>
+      <pubDate>Thu, 23 Jul 2026 03:00:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>Copilot现在按公布的API费率计费，比较直接模型访问与围绕它的编码工作流、策略和工具。｜来源：GitHub Blog</description>
+    </item>
+    <item>
+      <title>物理AI的模拟现状：概述</title>
+      <link>https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai</link>
+      <guid isPermaLink="false">91a5b7c5572d9140</guid>
+      <pubDate>Wed, 22 Jul 2026 04:00:27 +0800</pubDate>
+      <category>研究</category>
+      <description>对物理AI模拟技术的现状进行概述。｜来源：Hugging Face Blog</description>
+    </item>
+    <item>
+      <title>OpenAI 宣布在佐治亚州建设 AI 基础设施项目</title>
+      <link>https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community</link>
+      <guid isPermaLink="false">082c4173c70b0451</guid>
+      <pubDate>Wed, 22 Jul 2026 21:00:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>OpenAI 发布 Project Camellia，承诺负责任能源、社区投资、就业岗位及 Codex 访问权限。｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>OpenTelemetry 正式从 CNCF 毕业</title>
+      <link>https://www.cncf.io/blog/2026/07/24/opentelemetry-has-graduated-now-what</link>
+      <guid isPermaLink="false">08c516069db9dfdc</guid>
+      <pubDate>Fri, 24 Jul 2026 19:00:00 +0800</pubDate>
+      <category>云原生</category>
+      <description>OpenTelemetry 已获得 CNCF 毕业状态，成为与 Kubernetes、Prometheus 等并列的顶级开源项目。｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>扩展流映射</title>
+      <link>https://arxiv.org/abs/2607.21585v1</link>
+      <guid isPermaLink="false">15ffb7c45e391bba</guid>
+      <pubDate>Fri, 24 Jul 2026 01:57:38 +0800</pubDate>
+      <category>研究</category>
+      <description>基于流的生成模型在连续和离散状态空间上实现了快速可控生成，但现有参数化受限于固定维度或固定结构。｜来源：arXiv AI / ML / NLP</description>
+    </item>
+    <item>
+      <title>GitHub 重构漏洞赏金计划</title>
+      <link>https://github.blog/security/next-chapter-restructuring-githubs-bug-bounty-program</link>
+      <guid isPermaLink="false">91d03bfc81e607b1</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0800</pubDate>
+      <category>安全</category>
+      <description>GitHub 对其漏洞赏金计划进行重大调整，旨在改善研究人员与团队协作的体验。｜来源：GitHub Blog</description>
+    </item>
+    <item>
+      <title>新闻机构如何利用AI推进其重要使命</title>
+      <link>https://openai.com/index/how-news-organizations-are-using-ai</link>
+      <guid isPermaLink="false">932591afba7f1cf5</guid>
+      <pubDate>Wed, 22 Jul 2026 21:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>新闻机构正使用AI来加强报道、扩大受众并改善业务运营，OpenAI工具为全球记者和出版商提供支持。｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>CNCF 日本分会成立 AI 基础设施 SIG，首次 meetup 开放演讲征集</title>
+      <link>https://www.cncf.io/blog/2026/07/23/launch-of-the-ai-infra-sig-under-the-cncf-japan-chapter-first-meetup-and-call-for-speakers</link>
+      <guid isPermaLink="false">83dd6ad062b628a1</guid>
+      <pubDate>Fri, 24 Jul 2026 08:05:00 +0800</pubDate>
+      <category>开源生态</category>
+      <description>CNCF 日本分会宣布成立 AI 基础设施特别兴趣小组（SIG），并举办首次 meetup 活动，现面向社区征集演讲者。该小组旨在应对从生成式 AI 向 AI 代理演进带来的可扩展、高效基础设施需求，聚焦 Kubernetes 及云原生生态｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>GraphVid: 交互式图可控视频生成</title>
+      <link>https://arxiv.org/abs/2607.21580v1</link>
+      <guid isPermaLink="false">3fb107311bd6ceac</guid>
+      <pubDate>Fri, 24 Jul 2026 01:56:30 +0800</pubDate>
+      <category>AI模型</category>
+      <description>提出GraphVid方法，通过图结构控制多对象交互，以解决文本提示或运动控制难以精确指定多对象交互的问题。｜来源：arXiv AI / ML / NLP</description>
+    </item>
+  </channel>
+</rss>

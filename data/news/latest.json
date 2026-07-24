@@ -1,0 +1,358 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-24T23:25:50.649243+08:00",
+  "items": [
+    {
+      "id": "ed2eeefbfeebb927",
+      "title": "Dependabot 引入三天冷却期，延迟版本更新",
+      "original_title": "The case for a cooldown: Why Dependabot now waits before issuing version updates",
+      "url": "https://github.blog/security/supply-chain-security/the-case-for-a-cooldown-why-dependabot-now-waits-before-issuing-version-updates",
+      "source": "GitHub Blog",
+      "source_id": "github-blog",
+      "source_url": "https://github.blog/",
+      "category": "开发工具",
+      "tags": [
+        "依赖更新",
+        "安全",
+        "冷却期"
+      ],
+      "published": "Thu, 23 Jul 2026 16:00:00 +0000",
+      "published_at": "2026-07-24T00:00:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "新默认三天冷却期延迟版本更新 PR，让维护者和安全研究人员有时间处理发布版本中的问题。",
+      "original_summary": "A new default three-day cooldown delays version update pull requests so maintainers and security researchers can address findings in a release before it gets into your code. The post The case for a cooldown: Why Dependab",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "96f5dc656a14a806",
+      "title": "将Nunchaku 4-bit扩散推理集成到Diffusers",
+      "original_title": "Bringing Nunchaku 4-bit Diffusion Inference to Diffusers",
+      "url": "https://huggingface.co/blog/nunchaku-diffusers",
+      "source": "Hugging Face Blog",
+      "source_id": "huggingface-blog",
+      "source_url": "https://huggingface.co/blog",
+      "category": "开发工具",
+      "tags": [
+        "Nunchaku",
+        "4-bit推理",
+        "Diffusers"
+      ],
+      "published": "Thu, 23 Jul 2026 00:00:00 GMT",
+      "published_at": "2026-07-23T08:00:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "将Nunchaku 4-bit扩散推理功能添加至Diffusers库。",
+      "original_summary": "",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "bf70d809f9542eee",
+      "title": "ChatGPT 推出健康功能，支持连接医疗记录和 Apple Health",
+      "original_title": "Launching Health in ChatGPT",
+      "url": "https://openai.com/index/health-in-chatgpt",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "AI 模型",
+      "tags": [
+        "ChatGPT",
+        "健康",
+        "Apple Health"
+      ],
+      "published": "Thu, 23 Jul 2026 00:00:00 GMT",
+      "published_at": "2026-07-23T08:00:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "符合条件的美国用户现可安全连接个人医疗记录与 Apple Health 数据，在 ChatGPT 中获得更个性化的健康洞察。",
+      "original_summary": "Health in ChatGPT now lets eligible U.S. users securely connect medical records and Apple Health to get more personalized insights and better understand their health.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "05ebdab309129a5d",
+      "title": "我的LFX导师之旅：与kgateway共成长",
+      "original_title": "My LFX mentorship journey with kgateway",
+      "url": "https://www.cncf.io/blog/2026/07/24/my-lfx-mentorship-journey-with-kgateway",
+      "source": "CNCF Blog",
+      "source_id": "cncf-blog",
+      "source_url": "https://www.cncf.io/blog/",
+      "category": "云原生",
+      "tags": [
+        "Kubernetes",
+        "云原生",
+        "开源"
+      ],
+      "published": "Fri, 24 Jul 2026 11:00:00 +0000",
+      "published_at": "2026-07-24T19:00:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "作者作为云原生生态工程师，分享了参与kgateway项目LFX导师计划的经历，回顾了多年来在Kubernetes相关技术上的贡献。",
+      "original_summary": "Open source has been a defining part of my career for many years. As an engineer working in the cloud native ecosystem, I have spent the last five years building and contributing to technologies around Kubernetes,...",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "2a285cf7ee5b659f",
+      "title": "3D感知的视觉语言模型融合隐式与显式几何",
+      "original_title": "3D-Aware VLMs with Implicit and Explicit Geometries",
+      "url": "https://arxiv.org/abs/2607.21595v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "研究",
+      "tags": [
+        "VLM",
+        "3D感知",
+        "空间推理"
+      ],
+      "published": "2026-07-23T17:59:59Z",
+      "published_at": "2026-07-24T01:59:59+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "现有VLM基于2D输入，难以处理需要细粒度空间理解的3D任务，该研究提出融合隐式和显式几何的3D感知VLM。",
+      "original_summary": "Despite rapid progress, most existing vision-language models (VLMs) built from 2D visual inputs often struggle when handling various 3D tasks that require fine-grained spatial understanding and reasoning. To bridge this ",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "98b061f178880396",
+      "title": "Copilot与原始API访问：你实际支付的是什么？",
+      "original_title": "Copilot vs. raw API access: What are you actually paying for?",
+      "url": "https://github.blog/ai-and-ml/github-copilot/copilot-vs-raw-api-access-what-are-you-actually-paying-for",
+      "source": "GitHub Blog",
+      "source_id": "github-blog",
+      "source_url": "https://github.blog/",
+      "category": "开发工具",
+      "tags": [
+        "Copilot",
+        "API",
+        "定价"
+      ],
+      "published": "Wed, 22 Jul 2026 19:00:00 +0000",
+      "published_at": "2026-07-23T03:00:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "Copilot现在按公布的API费率计费，比较直接模型访问与围绕它的编码工作流、策略和工具。",
+      "original_summary": "Copilot now bills usage at listed API rates. Compare direct model access with the coding workflow, policy, and harness work around it. The post Copilot vs. raw API access: What are you actually paying for? appeared first",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "91a5b7c5572d9140",
+      "title": "物理AI的模拟现状：概述",
+      "original_title": "The State of Simulation for Physical AI: An Overview",
+      "url": "https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai",
+      "source": "Hugging Face Blog",
+      "source_id": "huggingface-blog",
+      "source_url": "https://huggingface.co/blog",
+      "category": "研究",
+      "tags": [
+        "物理AI",
+        "模拟",
+        "现状"
+      ],
+      "published": "Tue, 21 Jul 2026 20:00:27 GMT",
+      "published_at": "2026-07-22T04:00:27+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "对物理AI模拟技术的现状进行概述。",
+      "original_summary": "",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "082c4173c70b0451",
+      "title": "OpenAI 宣布在佐治亚州建设 AI 基础设施项目",
+      "original_title": "Building AI infrastructure with the Effingham County community",
+      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "开发工具",
+      "tags": [
+        "OpenAI",
+        "Codex",
+        "AI基础设施"
+      ],
+      "published": "Wed, 22 Jul 2026 13:00:00 GMT",
+      "published_at": "2026-07-22T21:00:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "OpenAI 发布 Project Camellia，承诺负责任能源、社区投资、就业岗位及 Codex 访问权限。",
+      "original_summary": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "08c516069db9dfdc",
+      "title": "OpenTelemetry 正式从 CNCF 毕业",
+      "original_title": "OpenTelemetry has graduated… Now what?",
+      "url": "https://www.cncf.io/blog/2026/07/24/opentelemetry-has-graduated-now-what",
+      "source": "CNCF Blog",
+      "source_id": "cncf-blog",
+      "source_url": "https://www.cncf.io/blog/",
+      "category": "云原生",
+      "tags": [
+        "CNCF",
+        "可观测性",
+        "毕业"
+      ],
+      "published": "Fri, 24 Jul 2026 11:00:00 +0000",
+      "published_at": "2026-07-24T19:00:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "OpenTelemetry 已获得 CNCF 毕业状态，成为与 Kubernetes、Prometheus 等并列的顶级开源项目。",
+      "original_summary": "In case you missed it: OpenTelemetry (OTel) has officially achieved CNCF graduated status! It now stands proudly alongside amazing open source projects such as Kubernetes and Prometheus, to name just a few. It’s been a l",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "15ffb7c45e391bba",
+      "title": "扩展流映射",
+      "original_title": "Expanding Flow Maps",
+      "url": "https://arxiv.org/abs/2607.21585v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "研究",
+      "tags": [
+        "流模型",
+        "生成模型",
+        "参数化"
+      ],
+      "published": "2026-07-23T17:57:38Z",
+      "published_at": "2026-07-24T01:57:38+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "基于流的生成模型在连续和离散状态空间上实现了快速可控生成，但现有参数化受限于固定维度或固定结构。",
+      "original_summary": "Flow-based generative models have enabled remarkable progress in fast and controllable generation across continuous and discrete state spaces, yet existing parameterizations are constrained to fixed dimensions or fixed s",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "91d03bfc81e607b1",
+      "title": "GitHub 重构漏洞赏金计划",
+      "original_title": "Next chapter: Restructuring GitHub’s bug bounty program",
+      "url": "https://github.blog/security/next-chapter-restructuring-githubs-bug-bounty-program",
+      "source": "GitHub Blog",
+      "source_id": "github-blog",
+      "source_url": "https://github.blog/",
+      "category": "安全",
+      "tags": [
+        "漏洞赏金",
+        "GitHub",
+        "安全"
+      ],
+      "published": "Wed, 22 Jul 2026 16:00:00 +0000",
+      "published_at": "2026-07-23T00:00:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "GitHub 对其漏洞赏金计划进行重大调整，旨在改善研究人员与团队协作的体验。",
+      "original_summary": "GitHub is making some significant changes to its bug bounty program, shifting its focus to give researchers a better experience working with the GitHub team. The post Next chapter: Restructuring GitHub’s bug bounty progr",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "932591afba7f1cf5",
+      "title": "新闻机构如何利用AI推进其重要使命",
+      "original_title": "How news organizations are using AI to advance their vital missions",
+      "url": "https://openai.com/index/how-news-organizations-are-using-ai",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "AI 模型",
+      "tags": [
+        "新闻机构",
+        "OpenAI",
+        "AI应用"
+      ],
+      "published": "Wed, 22 Jul 2026 13:00:00 GMT",
+      "published_at": "2026-07-22T21:00:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "新闻机构正使用AI来加强报道、扩大受众并改善业务运营，OpenAI工具为全球记者和出版商提供支持。",
+      "original_summary": "News organizations are using AI to strengthen reporting, grow audiences, and improve business operations, with OpenAI tools supporting journalists and publishers worldwide.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "83dd6ad062b628a1",
+      "title": "CNCF 日本分会成立 AI 基础设施 SIG，首次 meetup 开放演讲征集",
+      "original_title": "Launch of the AI Infra SIG under the CNCF Japan chapter: First meetup and call for speakers",
+      "url": "https://www.cncf.io/blog/2026/07/23/launch-of-the-ai-infra-sig-under-the-cncf-japan-chapter-first-meetup-and-call-for-speakers",
+      "source": "CNCF Blog",
+      "source_id": "cncf-blog",
+      "source_url": "https://www.cncf.io/blog/",
+      "category": "开源生态",
+      "tags": [
+        "CNCF",
+        "AI 基础设施",
+        "Kubernetes"
+      ],
+      "published": "Fri, 24 Jul 2026 00:05:00 +0000",
+      "published_at": "2026-07-24T08:05:00+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "CNCF 日本分会宣布成立 AI 基础设施特别兴趣小组（SIG），并举办首次 meetup 活动，现面向社区征集演讲者。该小组旨在应对从生成式 AI 向 AI 代理演进带来的可扩展、高效基础设施需求，聚焦 Kubernetes 及云原生生态",
+      "original_summary": "Japanese article follows English one. As we all know, AI is advancing from generative AI to agents, driving growing demand for scalable, efficient infrastructure. Kubernetes and the broader Cloud Native ecosystem are bec",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "3fb107311bd6ceac",
+      "title": "GraphVid: 交互式图可控视频生成",
+      "original_title": "GraphVid: Interactive Graph-Controllable Video Generation",
+      "url": "https://arxiv.org/abs/2607.21580v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "AI模型",
+      "tags": [
+        "视频生成",
+        "图控制",
+        "交互控制"
+      ],
+      "published": "2026-07-23T17:56:30Z",
+      "published_at": "2026-07-24T01:56:30+08:00",
+      "fetched_at": "2026-07-24T23:25:50.649243+08:00",
+      "summary": "提出GraphVid方法，通过图结构控制多对象交互，以解决文本提示或运动控制难以精确指定多对象交互的问题。",
+      "original_summary": "Controllable video generation remains challenging due to the difficulty of specifying precise multi-object interactions using text prompts or motion-control inputs that primarily constrain pixel movement. In practice, tr",
+      "localized": true,
+      "stale": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "github-blog",
+      "name": "GitHub Blog",
+      "url": "https://github.blog/",
+      "status": "ok",
+      "last_success_at": "2026-07-24T23:25:50.649243+08:00"
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog",
+      "status": "ok",
+      "last_success_at": "2026-07-24T23:25:50.649243+08:00"
+    },
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "status": "ok",
+      "last_success_at": "2026-07-24T23:25:50.649243+08:00"
+    },
+    {
+      "id": "cncf-blog",
+      "name": "CNCF Blog",
+      "url": "https://www.cncf.io/blog/",
+      "status": "ok",
+      "last_success_at": "2026-07-24T23:25:50.649243+08:00"
+    },
+    {
+      "id": "linux-foundation",
+      "name": "Linux Foundation",
+      "url": "https://www.linuxfoundation.org/blog/",
+      "status": "ok",
+      "last_success_at": "2026-07-24T23:25:50.649243+08:00"
+    },
+    {
+      "id": "arxiv-ai",
+      "name": "arXiv AI / ML / NLP",
+      "url": "https://arxiv.org/",
+      "status": "ok",
+      "last_success_at": "2026-07-24T23:25:50.649243+08:00"
+    }
+  ]
+}

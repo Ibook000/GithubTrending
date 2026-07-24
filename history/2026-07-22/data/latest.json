@@ -1,0 +1,977 @@
+{
+  "schema_version": "1.0",
+  "site": {
+    "name": "GitHub 趋势雷达",
+    "url": "https://Ibook000.github.io/GithubTrending"
+  },
+  "date": "2026-07-22",
+  "generated_at": "2026-07-22T13:00:33.272370+08:00",
+  "source": "https://github.com/trending",
+  "periods": {
+    "daily": [
+      {
+        "title": "koala73/worldmonitor",
+        "url": "https://github.com/koala73/worldmonitor",
+        "description": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface",
+        "language": "TypeScript",
+        "stars": "66,116",
+        "forks": "10,258",
+        "author": "koala73",
+        "summary": "该项目是一个实时全球情报仪表盘，通过AI整合新闻聚合、地缘政治监控和基础设施跟踪，提供统一的态势感知界面。",
+        "rank": 1,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "bojieli/ai-agent-book",
+        "url": "https://github.com/bojieli/ai-agent-book",
+        "description": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码",
+        "language": "Python",
+        "stars": "15,453",
+        "forks": "1,455",
+        "author": "bojieli",
+        "summary": "该项目提供《深入理解 AI Agent：设计原理与工程实践》一书的全文、编译版 PDF 和按章配套代码的开源仓库。",
+        "rank": 2,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "tirth8205/code-review-graph",
+        "url": "https://github.com/tirth8205/code-review-graph",
+        "description": "Local-first code intelligence graph for MCP and CLI. Builds a persistent map of your codebase so AI coding tools read only what matters, with benchmarked context reductions on reviews and large-repo workflows.",
+        "language": "Python",
+        "stars": "24,757",
+        "forks": "2,364",
+        "author": "tirth8205",
+        "summary": "这个项目是一个本地优先的代码智能图工具，通过构建代码库的持久映射，帮助AI编码工具仅读取相关代码，从而在代码审查和大仓库工作流中减少上下文。",
+        "rank": 3,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily",
+          "weekly"
+        ]
+      },
+      {
+        "title": "ayghri/i-have-adhd",
+        "url": "https://github.com/ayghri/i-have-adhd",
+        "description": "A skill for your coding agent to stop it from burying the answer. ADHD-friendly output.",
+        "language": "未知",
+        "stars": "7,155",
+        "forks": "303",
+        "author": "ayghri",
+        "summary": "该项目为编程助手提供了一种技能，使其能够输出简洁直接的答案，避免冗长解释，适合注意力不易集中的人群。",
+        "rank": 4,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "earthtojake/text-to-cad",
+        "url": "https://github.com/earthtojake/text-to-cad",
+        "description": "A collection of agent skills for CAD, robotics and hardware design",
+        "language": "JavaScript",
+        "stars": "9,263",
+        "forks": "1,033",
+        "author": "earthtojake",
+        "summary": "一个将文本描述转换为CAD模型的代理技能集合，适用于机器人和硬件设计。",
+        "rank": 5,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "1jehuang/jcode",
+        "url": "https://github.com/1jehuang/jcode",
+        "description": "The most intelligent agent harness for code",
+        "language": "Rust",
+        "stars": "10,436",
+        "forks": "1,144",
+        "author": "1jehuang",
+        "summary": "这是一个用于代码的智能代理框架，旨在提供高效、灵活的代码处理能力。",
+        "rank": 6,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily",
+          "weekly"
+        ]
+      },
+      {
+        "title": "oblien/openship",
+        "url": "https://github.com/oblien/openship",
+        "description": "Self-hosted deployment platform",
+        "language": "TypeScript",
+        "stars": "6,424",
+        "forks": "464",
+        "author": "oblien",
+        "summary": "一个用于部署应用的自托管平台。",
+        "rank": 7,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "AstrBotDevs/AstrBot",
+        "url": "https://github.com/AstrBotDevs/AstrBot",
+        "description": "AI Agent Assistant & development framework that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨",
+        "language": "Python",
+        "stars": "37,563",
+        "forks": "2,618",
+        "author": "AstrBotDevs",
+        "summary": "AstrBot是一个集成多种即时通讯平台、大语言模型、插件和AI功能的AI代理助手与开发框架，可作为OpenClaw的替代方案。",
+        "rank": 8,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "every-app/open-seo",
+        "url": "https://github.com/every-app/open-seo",
+        "description": "Open source alternative to Semrush and Ahrefs",
+        "language": "TypeScript",
+        "stars": "6,676",
+        "forks": "719",
+        "author": "every-app",
+        "summary": "这是一个开源的SEO工具，旨在替代Semrush和Ahrefs。",
+        "rank": 9,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "tradesdontlie/tradingview-mcp",
+        "url": "https://github.com/tradesdontlie/tradingview-mcp",
+        "description": "AI-assisted TradingView chart analysis — connect Claude Code to your TradingView Desktop for personal workflow automation",
+        "language": "JavaScript",
+        "stars": "4,914",
+        "forks": "2,179",
+        "author": "tradesdontlie",
+        "summary": "该项目通过MCP协议连接AI助手到TradingView桌面版，实现AI辅助的图表分析和个性化工作流自动化。",
+        "rank": 10,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      }
+    ],
+    "weekly": [
+      {
+        "title": "Nutlope/hallmark",
+        "url": "https://github.com/Nutlope/hallmark",
+        "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
+        "language": "CSS",
+        "stars": "15,072",
+        "forks": "753",
+        "author": "Nutlope",
+        "summary": "该项目为Claude Code、Cursor和Codex等AI编程工具提供反AI垃圾的设计技巧，旨在减少生成代码中的AI痕迹并提升代码质量。",
+        "rank": 1,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "OpenCut-app/OpenCut",
+        "url": "https://github.com/OpenCut-app/OpenCut",
+        "description": "The open-source CapCut alternative",
+        "language": "TypeScript",
+        "stars": "77,120",
+        "forks": "7,728",
+        "author": "OpenCut-app",
+        "summary": "OpenCut 是一个开源的视频编辑工具，作为 CapCut 的替代品。",
+        "rank": 2,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "HKUDS/DeepTutor",
+        "url": "https://github.com/HKUDS/DeepTutor",
+        "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/ .",
+        "language": "Python",
+        "stars": "28,896",
+        "forks": "3,808",
+        "author": "HKUDS",
+        "summary": "DeepTutor 是一个实现终身个性化辅导的开源项目。",
+        "rank": 3,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "tirth8205/code-review-graph",
+        "url": "https://github.com/tirth8205/code-review-graph",
+        "description": "Local-first code intelligence graph for MCP and CLI. Builds a persistent map of your codebase so AI coding tools read only what matters, with benchmarked context reductions on reviews and large-repo workflows.",
+        "language": "Python",
+        "stars": "24,757",
+        "forks": "2,364",
+        "author": "tirth8205",
+        "summary": "该项目是一个本地优先的代码智能图工具，通过构建持久化的代码库映射，使AI编码工具仅读取必要内容，并在代码审查及大型仓库工作流中实现了可量化的上下文缩减。",
+        "rank": 4,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily",
+          "weekly"
+        ]
+      },
+      {
+        "title": "Shubhamsaboo/awesome-llm-apps",
+        "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+        "description": "100+ AI Agents, Agent Skills and RAG Apps - Free and Open Source.",
+        "language": "Python",
+        "stars": "125,892",
+        "forks": "18,578",
+        "author": "Shubhamsaboo",
+        "summary": "该开源项目提供了超过100个免费的AI代理、代理技能和RAG应用。",
+        "rank": 5,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "MoonshotAI/kimi-cli",
+        "url": "https://github.com/MoonshotAI/kimi-cli",
+        "description": "Kimi Code CLI is your next CLI agent.",
+        "language": "Python",
+        "stars": "10,538",
+        "forks": "1,234",
+        "author": "MoonshotAI",
+        "summary": "Kimi Code CLI 是一个命令行智能代理，用于辅助开发者完成代码编写、调试等任务。",
+        "rank": 6,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "ibelick/ui-skills",
+        "url": "https://github.com/ibelick/ui-skills",
+        "description": "Skills for Design Engineers",
+        "language": "TypeScript",
+        "stars": "5,880",
+        "forks": "249",
+        "author": "ibelick",
+        "summary": "这是一个面向设计工程师的UI技巧集合，展示了多种前端交互效果及其实现代码。",
+        "rank": 7,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "1jehuang/jcode",
+        "url": "https://github.com/1jehuang/jcode",
+        "description": "The most intelligent agent harness for code",
+        "language": "Rust",
+        "stars": "10,436",
+        "forks": "1,144",
+        "author": "1jehuang",
+        "summary": "jcode 是一个为代码开发提供智能代理支持的工具，旨在提升代码编写和管理的效率。",
+        "rank": 8,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily",
+          "weekly"
+        ]
+      },
+      {
+        "title": "kangarooking/cangjie-skill",
+        "url": "https://github.com/kangarooking/cangjie-skill",
+        "description": "把书、长视频、播客等高价值内容蒸馏成可执行的 Agent Skills",
+        "language": "Python",
+        "stars": "4,289",
+        "forks": "563",
+        "author": "kangarooking",
+        "summary": "该项目将书籍、长视频、播客等高价值内容转化为可执行的Agent技能。",
+        "rank": 9,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "HKUDS/Vibe-Trading",
+        "url": "https://github.com/HKUDS/Vibe-Trading",
+        "description": "\"Vibe-Trading: Your Personal Trading Agent\"",
+        "language": "Python",
+        "stars": "26,200",
+        "forks": "4,291",
+        "author": "HKUDS",
+        "summary": "Vibe-Trading 是一个个人交易代理项目，旨在通过自动化策略辅助用户进行交易决策。",
+        "rank": 10,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      }
+    ],
+    "monthly": [
+      {
+        "title": "MadsLorentzen/ai-job-search",
+        "url": "https://github.com/MadsLorentzen/ai-job-search",
+        "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
+        "language": "TypeScript",
+        "stars": "24,991",
+        "forks": "8,128",
+        "author": "MadsLorentzen",
+        "summary": "这是一个基于Claude Code的AI求职框架，能在本地运行，帮助用户评估职位、定制简历、撰写求职信和准备面试。",
+        "rank": 1,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "calesthio/OpenMontage",
+        "url": "https://github.com/calesthio/OpenMontage",
+        "description": "World's first open-source, agentic video production system. 12 pipelines, 52 tools, 500+ agent skills. Turn your AI coding assistant into a full video production studio.",
+        "language": "Python",
+        "stars": "40,939",
+        "forks": "4,838",
+        "author": "calesthio",
+        "summary": "OpenMontage是一个开源的视频制作系统，通过12条流水线、52个工具和500多个代理技能，将AI编码助手转变为完整的视频制作工作室。",
+        "rank": 2,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "usestrix/strix",
+        "url": "https://github.com/usestrix/strix",
+        "description": "Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.",
+        "language": "Python",
+        "stars": "43,238",
+        "forks": "4,467",
+        "author": "usestrix",
+        "summary": "Strix 是一个开源的 AI 渗透测试工具，用于发现和修复应用程序的漏洞。",
+        "rank": 3,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "DeusData/codebase-memory-mcp",
+        "url": "https://github.com/DeusData/codebase-memory-mcp",
+        "description": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 158 languages, sub-ms queries, 99% fewer tokens. Single static binary, zero dependencies.",
+        "language": "C",
+        "stars": "33,803",
+        "forks": "2,589",
+        "author": "DeusData",
+        "summary": "这个项目是一个高性能的代码智能 MCP 服务器，通过将代码库索引为持久知识图，支持 158 种语言，实现亚毫秒级查询并减少 99% 的令牌。",
+        "rank": 4,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "catchorg/Catch2",
+        "url": "https://github.com/catchorg/Catch2",
+        "description": "A modern, C++-native, test framework for unit-tests, TDD and BDD - using C++14, C++17 and later (C++11 support is in v2.x branch, and C++03 on the Catch1.x branch)",
+        "language": "C++",
+        "stars": "21,269",
+        "forks": "3,354",
+        "author": "catchorg",
+        "summary": "Catch2是一个用于单元测试、TDD和BDD的现代C++原生测试框架，主要支持C++14及以上版本，并提供分支兼容C++11和C++03",
+        "rank": 5,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "kunchenguid/no-mistakes",
+        "url": "https://github.com/kunchenguid/no-mistakes",
+        "description": "git push no-mistakes",
+        "language": "Go",
+        "stars": "6,821",
+        "forks": "522",
+        "author": "kunchenguid",
+        "summary": "该Git项目通过在推送前自动检查代码错误，帮助开发者避免将错误提交到远程仓库。",
+        "rank": 6,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "diegosouzapw/OmniRoute",
+        "url": "https://github.com/diegosouzapw/OmniRoute",
+        "description": "Never stop coding. Free MIT AI gateway: one endpoint, 268+ providers (50+ free), 500+ models — Kimi, Claude, GPT, OpenAI, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 500+ contributors",
+        "language": "TypeScript",
+        "stars": "23,874",
+        "forks": "3,199",
+        "author": "diegosouzapw",
+        "summary": "OmniRoute 是一个免费开源的 AI 网关，通过单一端点聚合 268 多个提供商和 500 多种模型，并具备配额感知自动回退与 token 压缩功能。",
+        "rank": 7,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "stablyai/orca",
+        "url": "https://github.com/stablyai/orca",
+        "description": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop, mobile and VPS.",
+        "language": "TypeScript",
+        "stars": "25,230",
+        "forks": "1,819",
+        "author": "stablyai",
+        "summary": "Orca 是一个用于管理并行代理集群的智能体开发环境，支持在桌面、移动端和 VPS 上使用自有订阅运行各类编码代理。",
+        "rank": 8,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "ogulcancelik/herdr",
+        "url": "https://github.com/ogulcancelik/herdr",
+        "description": "agent multiplexer that lives in your terminal.",
+        "language": "Rust",
+        "stars": "19,222",
+        "forks": "1,261",
+        "author": "ogulcancelik",
+        "summary": "这个项目是一个运行在终端中的智能体复用器，用于在命令行环境下同时管理和交互多个AI代理。",
+        "rank": 9,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "Zackriya-Solutions/meetily",
+        "url": "https://github.com/Zackriya-Solutions/meetily",
+        "description": "Privacy first, AI meeting assistant with 4x faster Parakeet/Whisper live transcription, speaker diarization, and Ollama summarization built on Rust. 100% local processing. no cloud required. Meetily (Meetly Ai - https://meetily.ai ) is the #1 Self-hosted, Open-source Ai meeting note taker for macOS & Windows. Understand How to write meeting minutes",
+        "language": "Rust",
+        "stars": "25,971",
+        "forks": "2,613",
+        "author": "Zackriya-Solutions",
+        "summary": "这是一个隐私优先的AI会议助手，基于Rust构建，提供4倍速实时转录、说话人分离和Ollama总结功能，所有处理完全本地化，无需云端，支持macOS和Windows。",
+        "rank": 10,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      }
+    ]
+  },
+  "news": [
+    {
+      "id": "24abb84d61b2e525",
+      "title": "如何使用画布构建交互式体验",
+      "original_title": "How to build interactive experiences with canvases",
+      "url": "https://github.blog/ai-and-ml/github-copilot/how-to-build-interactive-experiences-with-canvases",
+      "source": "GitHub Blog",
+      "source_id": "github-blog",
+      "source_url": "https://github.blog/",
+      "category": "开发工具",
+      "tags": [
+        "画布",
+        "交互体验",
+        "AI工作空间"
+      ],
+      "published": "Tue, 21 Jul 2026 16:00:00 +0000",
+      "published_at": "2026-07-22T00:00:00+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "画布将AI转变为交互式工作空间，您可以在其中可视化信息、探索工作流并对复杂任务采取行动。",
+      "original_summary": "Canvases turn AI into interactive workspaces where you can visualize information, explore workflows, and take action across complex tasks. The post How to build interactive experiences with canvases appeared first on The",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "91a5b7c5572d9140",
+      "title": "物理AI仿真的现状概述",
+      "original_title": "The State of Simulation for Physical AI: An Overview",
+      "url": "https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai",
+      "source": "Hugging Face Blog",
+      "source_id": "huggingface-blog",
+      "source_url": "https://huggingface.co/blog",
+      "category": "研究",
+      "tags": [
+        "物理AI",
+        "仿真",
+        "现状"
+      ],
+      "published": "Tue, 21 Jul 2026 20:00:27 GMT",
+      "published_at": "2026-07-22T04:00:27+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "本文是对物理AI仿真现状的概述。",
+      "original_summary": "",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "3064e426d18ccd85",
+      "title": "OpenAI 推出小企业 ChatGPT 计划",
+      "original_title": "Introducing the ChatGPT for small business program",
+      "url": "https://openai.com/index/introducing-chatgpt-small-business-program",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "AI 模型",
+      "tags": [
+        "ChatGPT",
+        "小企业",
+        "自动化"
+      ],
+      "published": "Tue, 21 Jul 2026 17:00:00 GMT",
+      "published_at": "2026-07-22T01:00:00+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "OpenAI 启动面向小企业的 ChatGPT 计划，帮助创业者提升 AI 技能、实现工作自动化并借助 ChatGPT Work 实现增长。",
+      "original_summary": "OpenAI launches the ChatGPT for Small Businesses program, helping entrepreneurs build AI skills, automate work, and grow with ChatGPT Work.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "99aeb40a9ea5f404",
+      "title": "面向代理型企业的平台工程：管理应用、资源和AI代理",
+      "original_title": "Platform engineering for the agentic enterprise: Managing applications, resources, and AI agents",
+      "url": "https://www.cncf.io/blog/2026/07/21/platform-engineering-for-the-agentic-enterprise-managing-applications-resources-and-ai-agents",
+      "source": "CNCF Blog",
+      "source_id": "cncf-blog",
+      "source_url": "https://www.cncf.io/blog/",
+      "category": "云原生",
+      "tags": [
+        "平台工程",
+        "AI代理",
+        "云原生"
+      ],
+      "published": "Tue, 21 Jul 2026 11:00:00 +0000",
+      "published_at": "2026-07-21T19:00:00+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "平台工程正在演进。它已成为云原生时代的定义性学科之一。随着组织采用Kubernetes、微服务、GitOps和分布式架构，...",
+      "original_summary": "Platform engineering is evolving Platform engineering has become one of the defining disciplines of the cloud native era. As organizations embraced Kubernetes, microservices, GitOps, and distributed architectures, the co",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "605b238dd753f4a7",
+      "title": "从校园到社区第三部分：大学的独特贡献",
+      "original_title": "From Campus to Community Part 3: What Universities Uniquely Bring",
+      "url": "https://www.linuxfoundation.org/blog/from-campus-to-community-part-3-what-universities-uniquely-bring",
+      "source": "Linux Foundation",
+      "source_id": "linux-foundation",
+      "source_url": "https://www.linuxfoundation.org/blog/",
+      "category": "开源生态",
+      "tags": [
+        "开源",
+        "大学",
+        "社区"
+      ],
+      "published": "Tue, 21 Jul 2026 14:14:34 GMT",
+      "published_at": "2026-07-21T22:14:34+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "本文是Linux基金会董事会主席Nithya Ruff系列文章的第三部分，探讨大学在开源生态中的独特价值和贡献。",
+      "original_summary": "This is a series from Linux Foundation Board Chair, Nithya Ruff. Read Part One and Two .",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "f556f41c22fc8b3c",
+      "title": "证据感知强化学习克服长上下文推理中的重复复制问题",
+      "original_title": "Copy Less, Ground More: Overcoming Repetitive Copying in Long-Context Reasoning via Evidence-Aware Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2607.19345v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "研究",
+      "tags": [
+        "长上下文推理",
+        "强化学习",
+        "证据感知"
+      ],
+      "published": "2026-07-21T17:59:21Z",
+      "published_at": "2026-07-22T01:59:21+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "大语言模型在复杂任务中通过逐步推理取得了强性能，但在长上下文环境下，模型常会逐字复制整个上下文，导致重复且低效的推理轨迹。为此，提出证据感知强化学习（EARL）框架，鼓励模型直接定位并引用相关证据而非复制大段文本。实验表明，EARL能有效减",
+      "original_summary": "Large language models that generate step-by-step reasoning traces have achieved strong performance on complex tasks, and extending them to long-context settings has emerged as an important frontier. However, we identify ",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "6d50f3704b78e823",
+      "title": "1亿美元开源里程碑：社区共建的成就",
+      "original_title": "$100 million for open source: A milestone built by the community",
+      "url": "https://github.blog/open-source/maintainers/100-million-for-open-source-a-milestone-built-by-the-community",
+      "source": "GitHub Blog",
+      "source_id": "github-blog",
+      "source_url": "https://github.blog/",
+      "category": "开源生态",
+      "tags": [
+        "开源",
+        "社区",
+        "贡献"
+      ],
+      "published": "Mon, 20 Jul 2026 16:00:00 +0000",
+      "published_at": "2026-07-21T00:00:00+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "庆祝社区向日常构建和维护开源的人们贡献了1亿美元。",
+      "original_summary": "Celebrating $100 million contributed by the community to the people who build and sustain open source every day. The post $100 million for open source: A milestone built by the community appeared first on The GitHub Blog",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "8549f9ed22c455ab",
+      "title": "Grabette: 一个用于记录机器人操作数据的开放系统",
+      "original_title": "Grabette: an open system to record robot-manipulation data",
+      "url": "https://huggingface.co/blog/grabette",
+      "source": "Hugging Face Blog",
+      "source_id": "huggingface-blog",
+      "source_url": "https://huggingface.co/blog",
+      "category": "开源生态",
+      "tags": [
+        "机器人",
+        "数据记录",
+        "开源"
+      ],
+      "published": "Tue, 21 Jul 2026 00:00:00 GMT",
+      "published_at": "2026-07-21T08:00:00+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "Grabette 是一个开放系统，旨在记录机器人操作数据。",
+      "original_summary": "",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "d925d8c91f460a44",
+      "title": "OpenAI与Hugging Face合作应对模型评估中的安全事件",
+      "original_title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "安全",
+      "tags": [
+        "安全事件",
+        "模型评估",
+        "防御"
+      ],
+      "published": "Tue, 21 Jul 2026 07:00:00 GMT",
+      "published_at": "2026-07-21T15:00:00+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "OpenAI和Hugging Face分享了AI模型评估期间安全事件的早期发现，强调先进的网络攻击能力及对防御者的教训。",
+      "original_summary": "OpenAI and Hugging Face share early findings from a security incident during AI model evaluation, highlighting advanced cyber capabilities and lessons for defenders.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "a0ef2978ed279a5f",
+      "title": "智能体需要访问你的文档",
+      "original_title": "Why your agent needs access to your documentation",
+      "url": "https://www.cncf.io/blog/2026/07/21/why-your-agent-needs-access-to-your-documentation",
+      "source": "CNCF Blog",
+      "source_id": "cncf-blog",
+      "source_url": "https://www.cncf.io/blog/",
+      "category": "AI 模型",
+      "tags": [
+        "智能体",
+        "知识库搜索",
+        "文档"
+      ],
+      "published": "Tue, 21 Jul 2026 11:00:00 +0000",
+      "published_at": "2026-07-21T19:00:00+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "通过对1192次智能体对话的分析，我们了解了知识库搜索的关键要点。我们产品中内置的智能体允许用户查询部署相关问题。",
+      "original_summary": "What 1,192 agent conversations taught us about knowledge base search A few months ago we shipped an agent inside our own product. It lives in our web app and lets users ask questions about their deployment,...",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "99f8967b3f69f5b3",
+      "title": "外观指针：扩散变换器的多模态区域控制",
+      "original_title": "Appearance Pointers -- Multimodal Region Control of Diffusion Transformers",
+      "url": "https://arxiv.org/abs/2607.19344v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "研究",
+      "tags": [
+        "扩散变换器",
+        "多模态",
+        "区域控制"
+      ],
+      "published": "2026-07-21T17:59:12Z",
+      "published_at": "2026-07-22T01:59:12+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "针对创意专业人士对材质、物体身份和空间布局的精确区域控制需求，提出一种多模态区域控制方法。",
+      "original_summary": "Controllable image generation remains challenging for creative professionals, who often require precise regional control over materials, object identities, and spatial arrangements that cannot be reliably achieved throug",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "69e481323262afa1",
+      "title": "David Vélez 和 Robin Vince 加入 OpenAI 基金会与 OpenAI Group PBC 董事会",
+      "original_title": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC",
+      "url": "https://openai.com/index/david-velez-robin-vince-join-openai-boards",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "研究",
+      "tags": [
+        "董事会",
+        "OpenAI",
+        "治理"
+      ],
+      "published": "Tue, 21 Jul 2026 00:00:00 GMT",
+      "published_at": "2026-07-21T08:00:00+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "两人加入董事会，带来金融、技术与治理方面的全球领导力。",
+      "original_summary": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC, bringing global leadership in finance, technology, and governance.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "5dc36e6d9b745a85",
+      "title": "ArgoCon Japan 2026 将与 KubeCon 同地举办，聚焦 Argo CD 3.5 与企业实践",
+      "original_title": "ArgoCon Japan 2026: Meeting the Maintainers, enterprise insights, and the road to Argo CD 3.5",
+      "url": "https://www.cncf.io/blog/2026/07/20/argocon-japan-2026-meeting-the-maintainers-enterprise-insights-and-the-road-to-argo-cd-3-5",
+      "source": "CNCF Blog",
+      "source_id": "cncf-blog",
+      "source_url": "https://www.cncf.io/blog/",
+      "category": "云原生",
+      "tags": [
+        "Argo CD",
+        "ArgoCon",
+        "KubeCon"
+      ],
+      "published": "Mon, 20 Jul 2026 12:34:00 +0000",
+      "published_at": "2026-07-20T20:34:00+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "2026年7月28日在横滨举行半日 ArgoCon Japan，与 KubeCon+CloudNativeCon 同地，内容涵盖与维护者交流、企业 Argo CD 使用经验及 Argo CD 3.5 预览。",
+      "original_summary": "A special half-day ArgoCon Japan (1:30pm – 6:30pm) will be held July 28, 2026 in Yokohama, Japan as a colocated event with KubeCon + CloudNativeCon. This is a chance to hear from and meet both end...",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "b1ff5bd695cb36e4",
+      "title": "CodeRescue: Budget-Calibrated Recovery Routing for Coding Agents",
+      "original_title": "CodeRescue: Budget-Calibrated Recovery Routing for Coding Agents",
+      "url": "https://arxiv.org/abs/2607.19338v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "研究",
+      "tags": [
+        "代码代理",
+        "故障恢复",
+        "预算校准"
+      ],
+      "published": "2026-07-21T17:56:49Z",
+      "published_at": "2026-07-22T01:56:49+08:00",
+      "fetched_at": "2026-07-22T12:59:53.626174+08:00",
+      "summary": "Coding agents increasingly operate in executable environments where a failed attempt produces actionable feedback rather",
+      "original_summary": "Coding agents increasingly operate in executable environments where a failed attempt produces actionable feedback rather than merely an incorrect answer. Existing cost-aware systems typically treat such failures as casca",
+      "localized": true,
+      "stale": false
+    }
+  ],
+  "news_generated_at": "2026-07-22T12:59:53.626174+08:00",
+  "news_sources": [
+    {
+      "id": "github-blog",
+      "name": "GitHub Blog",
+      "url": "https://github.blog/",
+      "status": "ok",
+      "last_success_at": "2026-07-22T12:59:53.626174+08:00"
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog",
+      "status": "ok",
+      "last_success_at": "2026-07-22T12:59:53.626174+08:00"
+    },
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "status": "ok",
+      "last_success_at": "2026-07-22T12:59:53.626174+08:00"
+    },
+    {
+      "id": "cncf-blog",
+      "name": "CNCF Blog",
+      "url": "https://www.cncf.io/blog/",
+      "status": "ok",
+      "last_success_at": "2026-07-22T12:59:53.626174+08:00"
+    },
+    {
+      "id": "linux-foundation",
+      "name": "Linux Foundation",
+      "url": "https://www.linuxfoundation.org/blog/",
+      "status": "ok",
+      "last_success_at": "2026-07-22T12:59:53.626174+08:00"
+    },
+    {
+      "id": "arxiv-ai",
+      "name": "arXiv AI / ML / NLP",
+      "url": "https://arxiv.org/",
+      "status": "ok",
+      "last_success_at": "2026-07-22T12:59:53.626174+08:00"
+    }
+  ]
+}
