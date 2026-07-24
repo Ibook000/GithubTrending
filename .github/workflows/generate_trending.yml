@@ -2,8 +2,17 @@ name: 自动生成 GitHub 趋势雷达
 
 on:
   schedule:
+    # 北京时间 10:00 完整更新；04:00、16:00、22:00 轻量刷新资讯
     - cron: "0 2 * * *"
+    - cron: "0 8,14,20 * * *"
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "运行完整榜单或仅刷新资讯"
+        type: choice
+        required: true
+        default: full
+        options: [full, news]
 
 concurrency:
   group: github-trending-pages
@@ -15,7 +24,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     env:
       PYTHONUNBUFFERED: "1"
       SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
@@ -23,6 +32,22 @@ jobs:
     steps:
       - name: 检出源码
         uses: actions/checkout@v4
+
+      - name: 设置运行模式
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            mode="${{ inputs.mode }}"
+          elif [ "${{ github.event.schedule }}" = "0 2 * * *" ]; then
+            mode="full"
+          else
+            mode="news"
+          fi
+          echo "REFRESH_MODE=$mode" >> "$GITHUB_ENV"
+          echo "本次运行模式：$mode"
+
+      - name: 安装系统字体
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
 
       - name: 设置 Python
         uses: actions/setup-python@v5
@@ -41,48 +66,49 @@ jobs:
       - name: 运行质量检查
         run: |
           ruff check .
+          python -m compileall -q src github_trending_cards.py
           pytest
 
-      - name: 恢复上一版开放数据与历史记录
+      - name: 恢复上一版 Pages 内容
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p site/data history
+          mkdir -p site history
           if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
             temp_dir=$(mktemp -d)
             git clone --depth=1 --branch gh-pages --single-branch \
               "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$temp_dir/pages"
-            if [ -f "$temp_dir/pages/data/latest.json" ]; then
-              cp "$temp_dir/pages/data/latest.json" site/data/latest.json
-            fi
-            if [ -d "$temp_dir/pages/history" ]; then
-              cp -R "$temp_dir/pages/history/." history/
+            if [ "$REFRESH_MODE" = "news" ]; then
+              # 轻量刷新以完整 gh-pages 为基线，避免覆盖历史页面和旧卡片。
+              cp -R "$temp_dir/pages/." site/
+            else
+              [ -f "$temp_dir/pages/data/latest.json" ] && cp "$temp_dir/pages/data/latest.json" site/data/latest.json || true
+              [ -d "$temp_dir/pages/history" ] && cp -R "$temp_dir/pages/history/." history/ || true
             fi
           fi
 
-      - name: 生成榜单、JSON 与 RSS
+      - name: 生成榜单、资讯、开放数据与卡片
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'https://integrate.api.nvidia.com/v1' }}
-          LLM_MODEL: ${{ vars.LLM_MODEL || 'minimaxai/minimax-m2.7' }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'http://154.217.247.37:8317/v1' }}
+          LLM_MODEL: ${{ vars.LLM_MODEL || 'deepseek-v4-flash' }}
           OUTPUT_DIR: site
-        run: python github_trending_cards.py
+        run: python github_trending_cards.py --mode "$REFRESH_MODE"
 
       - name: 创建每日历史快照
+        if: env.REFRESH_MODE == 'full'
         run: |
           snapshot_date=$(python -c "import json; print(json.load(open('site/data/latest.json'))['date'])")
           snapshot_dir="history/$snapshot_date"
-          mkdir -p "$snapshot_dir"
-          cp site/index.html "$snapshot_dir/index.html"
-          cp site/styles.css "$snapshot_dir/styles.css"
-          cp site/app.js "$snapshot_dir/app.js"
-          cp site/favicon.svg "$snapshot_dir/favicon.svg"
-          cp site/data/latest.json "$snapshot_dir/data.json"
           mkdir -p "$snapshot_dir/data"
+          cp site/index.html site/styles.css site/app.js site/favicon.svg "$snapshot_dir/"
+          cp site/today-card.svg site/today-card.png "$snapshot_dir/"
+          cp site/data/latest.json "$snapshot_dir/data.json"
           cp site/data/latest.json "$snapshot_dir/data/latest.json"
-          cp site/feed.xml "$snapshot_dir/feed.xml"
-          cp site/metadata.json "$snapshot_dir/metadata.json"
+          cp site/data/news/latest.json "$snapshot_dir/data/news.json"
+          cp site/feed.xml site/news-feed.xml site/metadata.json "$snapshot_dir/"
           python scripts/generate_history_stats.py
           mkdir -p site/history
           cp -R history/. site/history/
@@ -93,17 +119,31 @@ jobs:
           import json
           from pathlib import Path
           from xml.etree import ElementTree as ET
+          from PIL import Image
 
           root = Path("site")
-          required = ["index.html", "styles.css", "app.js", "feed.xml", "data/latest.json", "history/index.html"]
+          required = [
+              "index.html", "styles.css", "app.js", "today-card.svg", "today-card.png",
+              "feed.xml", "news-feed.xml", "data/latest.json", "data/news/latest.json",
+              "cards/manifest.json", "cards/latest-portrait.svg", "cards/latest-portrait.png",
+              "cards/latest-square.svg", "cards/latest-square.png", "cards/latest-og.svg", "cards/latest-og.png",
+          ]
           missing = [name for name in required if not (root / name).is_file() or (root / name).stat().st_size == 0]
           if missing:
               raise SystemExit(f"发布文件缺失或为空: {missing}")
           data = json.loads((root / "data/latest.json").read_text(encoding="utf-8"))
+          news = json.loads((root / "data/news/latest.json").read_text(encoding="utf-8"))
           if not data["periods"]["daily"]:
               raise SystemExit("日榜为空，拒绝部署")
+          if not isinstance(news.get("items"), list):
+              raise SystemExit("新闻接口格式错误")
+          for name, size in {"portrait": (1080, 1440), "square": (1080, 1080), "og": (1200, 630)}.items():
+              ET.parse(root / f"cards/latest-{name}.svg")
+              if Image.open(root / f"cards/latest-{name}.png").size != size:
+                  raise SystemExit(f"卡片尺寸错误: {name}")
           ET.parse(root / "feed.xml")
-          print(f"校验通过：日榜 {len(data['periods']['daily'])} 条")
+          ET.parse(root / "news-feed.xml")
+          print(f"校验通过：日榜 {len(data['periods']['daily'])} 条，资讯 {len(news['items'])} 条")
           PY
 
       - name: 部署到 gh-pages
