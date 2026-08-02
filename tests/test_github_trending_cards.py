@@ -39,14 +39,14 @@ SAMPLE_RSS = """
 <rss version="2.0"><channel>
   <item><title>Open source AI release</title><link>https://example.com/ai</link>
   <description><![CDATA[<p>A useful <strong>AI</strong> release.</p>]]></description>
-  <pubDate>Wed, 22 Jul 2026 02:00:00 GMT</pubDate></item>
+  <pubDate>Wed, 29 Jul 2026 10:00:00 GMT</pubDate></item>
 </channel></rss>
 """
 
 SAMPLE_ATOM = """
 <feed xmlns="http://www.w3.org/2005/Atom">
   <entry><title>Fresh model paper</title><id>tag:arxiv.org,2026:1234</id>
-  <link href="https://arxiv.org/abs/1234"/><published>2026-07-22T02:00:00Z</published>
+  <link href="https://arxiv.org/abs/1234"/><published>2026-07-29T10:00:00Z</published>
   <summary>Research summary</summary></entry>
 </feed>
 """
@@ -91,7 +91,7 @@ def test_parse_news_feed_supports_rss_and_strips_html():
         source="Example",
         category="AI",
         source_id="example",
-        now=datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ),
+        now=datetime(2026, 7, 31, 10, 0, tzinfo=BEIJING_TZ),
     )
     assert len(news) == 1
     assert news[0]["title"] == "Open source AI release"
@@ -102,14 +102,14 @@ def test_parse_news_feed_supports_rss_and_strips_html():
 
 
 def test_parse_news_feed_supports_atom_and_72_hour_window():
-    now = datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ)
+    now = datetime(2026, 7, 31, 10, 0, tzinfo=BEIJING_TZ)
     assert parse_news_feed(SAMPLE_ATOM, "arXiv", "研究", now=now)[0]["url"] == "https://arxiv.org/abs/1234"
-    old = SAMPLE_RSS.replace("Wed, 22 Jul 2026 02:00:00 GMT", "Sat, 18 Jul 2026 02:00:00 GMT")
+    old = SAMPLE_RSS.replace("Wed, 29 Jul 2026 10:00:00 GMT", "Sat, 25 Jul 2026 02:00:00 GMT")
     assert parse_news_feed(old, "Example", "AI", now=now) == []
 
 
 def test_news_datetime_and_url_normalization():
-    now = datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ)
+    now = datetime(2026, 7, 31, 10, 0, tzinfo=BEIJING_TZ)
     assert parse_news_datetime("not-a-date", now=now) is None
     from github_trending.app import normalize_news_url
 
@@ -128,7 +128,7 @@ def test_build_payload_adds_movement_cross_periods_and_deduplicates():
             "monthly": [],
         },
         previous=previous,
-        now=datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ),
+        now=datetime(2026, 7, 31, 10, 0, tzinfo=BEIJING_TZ),
     )
     daily = payload["periods"]["daily"]
     assert len(daily) == 2
@@ -175,9 +175,10 @@ def test_generate_site_writes_public_interfaces_and_escapes_embedded_data(tmp_pa
 
 
 def test_generate_trend_card_contains_daily_repos_and_news():
+    now = datetime(2026, 7, 31, 10, 0, tzinfo=BEIJING_TZ)
     payload = build_payload(
         {"daily": [repo()], "weekly": [], "monthly": []},
-        news=parse_news_feed(SAMPLE_RSS, source="Example", category="AI"),
+        news=parse_news_feed(SAMPLE_RSS, source="Example", category="AI", now=now),
     )
     card = generate_trend_card(payload, "portrait")
     root = ET.fromstring(card)
@@ -187,9 +188,10 @@ def test_generate_trend_card_contains_daily_repos_and_news():
 
 
 def test_news_rss_and_card_variants_are_valid(tmp_path):
+    now = datetime(2026, 7, 31, 10, 0, tzinfo=BEIJING_TZ)
     payload = build_payload(
         {"daily": [repo()], "weekly": [], "monthly": []},
-        news=parse_news_feed(SAMPLE_RSS, source="Example", category="AI"),
+        news=parse_news_feed(SAMPLE_RSS, source="Example", category="AI", now=now),
     )
     rss = generate_news_rss({"generated_at": payload["generated_at"], "items": payload["news"]})
     assert ET.fromstring(rss).findtext("channel/item/title") == "Open source AI release"
@@ -202,17 +204,17 @@ def test_news_rss_and_card_variants_are_valid(tmp_path):
 def test_news_only_site_generation_keeps_immutable_ranking_snapshot(tmp_path):
     first = build_payload(
         {"daily": [repo()], "weekly": [], "monthly": []},
-        now=datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ),
+        now=datetime(2026, 7, 31, 10, 0, tzinfo=BEIJING_TZ),
     )
     generate_site(first, tmp_path)
-    snapshot = (tmp_path / "data/2026-07-22.json").read_text(encoding="utf-8")
+    snapshot = (tmp_path / "data/2026-07-31.json").read_text(encoding="utf-8")
     second = build_payload(
         {"daily": [repo()]},
         news=parse_news_feed(SAMPLE_RSS, "Example", "AI"),
-        now=datetime(2026, 7, 22, 16, 0, tzinfo=BEIJING_TZ),
+        now=datetime(2026, 7, 31, 16, 0, tzinfo=BEIJING_TZ),
     )
     generate_site(second, tmp_path, write_trending_snapshot=False)
-    assert (tmp_path / "data/2026-07-22.json").read_text(encoding="utf-8") == snapshot
+    assert (tmp_path / "data/2026-07-31.json").read_text(encoding="utf-8") == snapshot
 
 
 def test_news_refresh_falls_back_to_previous_source():
@@ -237,10 +239,11 @@ def test_news_refresh_falls_back_to_previous_source():
             "GitHub Blog",
             "开源生态",
             source_id="github-blog",
+            now=datetime(2026, 7, 31, 8, 0, tzinfo=BEIJING_TZ),
         ),
-        "sources": [{"id": "github-blog", "last_success_at": "2026-07-22T08:00:00+08:00"}],
+        "sources": [{"id": "github-blog", "last_success_at": "2026-07-31T08:00:00+08:00"}],
     }
-    bundle = fetch_news_bundle(Session(), previous=previous, now=datetime(2026, 7, 22, 10, 0, tzinfo=BEIJING_TZ))
+    bundle = fetch_news_bundle(Session(), previous=previous, now=datetime(2026, 7, 31, 10, 0, tzinfo=BEIJING_TZ))
     stale = [item for item in bundle["items"] if item["source_id"] == "github-blog"]
     assert stale and stale[0]["stale"] is True
 
