@@ -260,3 +260,57 @@ def test_generated_html_exposes_accessible_controls(tmp_path):
     assert 'id="news-list"' in html
     assert 'id="share-card"' in html
     assert "prefers-reduced-motion" in (tmp_path / "styles.css").read_text(encoding="utf-8")
+
+def test_llm_config_requires_explicit_endpoint(monkeypatch):
+    from github_trending.app import (
+        NVIDIA_BASE_URL,
+        OPENROUTER_BASE_URL,
+        _resolved_api_key,
+        get_llm_config,
+    )
+
+    for key in (
+        "LLM_API_KEY",
+        "NVIDIA_API_KEY",
+        "OPENROUTER_API_KEY",
+        "LLM_BASE_URL",
+        "LLM_MODEL",
+        "LLM_FALLBACK_BASE_URL",
+        "LLM_FALLBACK_API_KEY",
+        "LLM_FALLBACK_MODEL",
+    ):
+        monkeypatch.delenv(key, raising=False)
+
+    config = get_llm_config()
+    assert config["base_url"] is None
+    assert config["api_key"] is None
+    assert config["fallback"] is None
+    assert _resolved_api_key() is None
+
+    monkeypatch.setenv("OPENROUTER_API_KEY", "or-key")
+    config = get_llm_config()
+    assert config["base_url"] == OPENROUTER_BASE_URL
+    assert config["api_key"] == "or-key"
+    assert _resolved_api_key() == "or-key"
+
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+    monkeypatch.setenv("NVIDIA_API_KEY", "nv-key")
+    config = get_llm_config()
+    assert config["base_url"] == NVIDIA_BASE_URL
+    assert _resolved_api_key() == "nv-key"
+
+    monkeypatch.delenv("NVIDIA_API_KEY", raising=False)
+    monkeypatch.setenv("LLM_BASE_URL", "https://example.com/v1")
+    monkeypatch.setenv("LLM_API_KEY", "custom-key")
+    config = get_llm_config()
+    assert config["base_url"] == "https://example.com/v1"
+    assert _resolved_api_key() == "custom-key"
+
+    monkeypatch.delenv("LLM_API_KEY", raising=False)
+    monkeypatch.setenv("LLM_BASE_URL", "http://127.0.0.1:8317/v1")
+    assert _resolved_api_key() == "not-needed"
+
+    monkeypatch.setenv("LLM_FALLBACK_BASE_URL", "https://backup.example/v1")
+    monkeypatch.setenv("LLM_FALLBACK_API_KEY", "backup-key")
+    assert get_llm_config()["fallback"]["base_url"] == "https://backup.example/v1"
+

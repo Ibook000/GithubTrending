@@ -44,15 +44,15 @@ python scripts/check_network.py
 ### 环境变量
 
 ```bash
-# 可选 AI 摘要与资讯中文化
+# 可选 AI 摘要与资讯中文化（未配置时使用本地摘要）
 export LLM_API_KEY="your-api-key-here"
 export LLM_BASE_URL="https://your-openai-compatible-endpoint/v1"
 export LLM_MODEL="your-model"
 
 # 可选备用端点：主端点失败时自动切换，两个都失败才用本地摘要
 export LLM_FALLBACK_API_KEY="your-fallback-key"
-export LLM_FALLBACK_BASE_URL="https://token.sensenova.cn/v1"
-export LLM_FALLBACK_MODEL="deepseek-v4-flash"
+export LLM_FALLBACK_BASE_URL="https://your-backup-endpoint/v1"
+export LLM_FALLBACK_MODEL="your-model"
 ```
 
 ---
@@ -103,7 +103,7 @@ export LLM_FALLBACK_MODEL="deepseek-v4-flash"
 1. 新增榜单类型 → 修改 `fetch_github_trending()` 的 `since` 参数
 2. 修改页面布局 → 更新 `assets/index.html`
 3. 调整样式 → 修改 `assets/styles.css`
-4. 更换 AI 模型 → 设置 `LLM_MODEL` / `LLM_BASE_URL` 环境变量，或修改默认常量
+4. 更换 AI 模型 → 设置 `LLM_MODEL` / `LLM_BASE_URL`（及密钥）环境变量；未配置时使用本地摘要
 
 ---
 

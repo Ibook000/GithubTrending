@@ -50,8 +50,10 @@ SCHEMA_VERSION = "1.0"
 NEWS_SCHEMA_VERSION = "1.0"
 SITE_NAME = "GitHub 趋势雷达"
 SITE_URL = os.environ.get("SITE_URL", "https://ibook000.github.io/GithubTrending").rstrip("/")
-DEFAULT_LLM_BASE_URL = "http://154.217.247.37:8317/v1"
+# 不提供默认公网/明文 LLM 端点。未显式配置时使用本地摘要。
 DEFAULT_LLM_MODEL = "deepseek-v4-flash"
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
 GITHUB_TRENDING_URL = "https://github.com/trending"
 REQUEST_TIMEOUT = (10, 30)
 PERIODS = ("daily", "weekly", "monthly")
@@ -119,25 +121,46 @@ def project_root() -> Path:
 
 def get_fallback_llm_config() -> dict[str, str | None] | None:
     """读取备用 OpenAI 兼容端点配置；未完整配置时返回 None。"""
-    base_url = os.environ.get("LLM_FALLBACK_BASE_URL")
-    api_key = os.environ.get("LLM_FALLBACK_API_KEY")
+    base_url = (os.environ.get("LLM_FALLBACK_BASE_URL") or "").strip() or None
+    api_key = (os.environ.get("LLM_FALLBACK_API_KEY") or "").strip() or None
     if not base_url or not api_key:
         return None
     return {
         "api_key": api_key,
         "base_url": base_url,
-        "model": os.environ.get("LLM_FALLBACK_MODEL", DEFAULT_LLM_MODEL),
+        "model": (os.environ.get("LLM_FALLBACK_MODEL") or DEFAULT_LLM_MODEL).strip()
+        or DEFAULT_LLM_MODEL,
     }
 
 
+def _infer_provider_base_url() -> str | None:
+    """仅在已知 HTTPS 提供商密钥存在时推断 base_url；从不回落到明文公网 IP。"""
+    has_llm = bool((os.environ.get("LLM_API_KEY") or "").strip())
+    has_nvidia = bool((os.environ.get("NVIDIA_API_KEY") or "").strip())
+    has_openrouter = bool((os.environ.get("OPENROUTER_API_KEY") or "").strip())
+    if has_llm:
+        return None
+    if has_nvidia:
+        return NVIDIA_BASE_URL
+    if has_openrouter:
+        return OPENROUTER_BASE_URL
+    return None
+
+
 def get_llm_config() -> dict[str, Any]:
-    base_url = os.environ.get("LLM_BASE_URL", DEFAULT_LLM_BASE_URL)
+    api_key = (
+        (os.environ.get("LLM_API_KEY") or "").strip()
+        or (os.environ.get("NVIDIA_API_KEY") or "").strip()
+        or (os.environ.get("OPENROUTER_API_KEY") or "").strip()
+        or None
+    )
+    base_url = (os.environ.get("LLM_BASE_URL") or "").strip() or None
+    if not base_url:
+        base_url = _infer_provider_base_url()
     config: dict[str, Any] = {
-        "api_key": os.environ.get("LLM_API_KEY")
-        or os.environ.get("NVIDIA_API_KEY")
-        or os.environ.get("OPENROUTER_API_KEY"),
+        "api_key": api_key,
         "base_url": base_url,
-        "model": os.environ.get("LLM_MODEL", DEFAULT_LLM_MODEL),
+        "model": (os.environ.get("LLM_MODEL") or DEFAULT_LLM_MODEL).strip() or DEFAULT_LLM_MODEL,
     }
     config["fallback"] = get_fallback_llm_config()
     return config
@@ -494,6 +517,10 @@ def ai_summarize_projects(
         return repos
 
     config = get_llm_config()
+    if not config.get("base_url"):
+        for repo in repos:
+            repo["summary"] = generate_fallback_summary(repo)
+        return repos
     is_actions = os.environ.get("GITHUB_ACTIONS") == "true"
     client = OpenAI(
         base_url=config["base_url"],
@@ -569,6 +596,8 @@ def ai_localize_news(
     if not news or OpenAI is None:
         return news
     config = get_llm_config()
+    if not config.get("base_url"):
+        return news
     is_actions = os.environ.get("GITHUB_ACTIONS") == "true"
     client = OpenAI(
         base_url=config["base_url"],
@@ -1206,7 +1235,6 @@ def generate_site(
         .replace("{{SITE_URL}}", SITE_URL)
     )
     (output_dir / "index.html").write_text(html, encoding="utf-8")
-    (output_dir / "github_trending_cards.html").write_text(html, encoding="utf-8")
 
     for name in ("styles.css", "app.js", "favicon.svg", "social-card.svg"):
         shutil.copy2(assets_dir / name, output_dir / name)
@@ -1248,11 +1276,19 @@ def fetch_all_periods() -> dict[str, list[dict[str, str]]]:
 
 
 def _resolved_api_key() -> str | None:
+    """仅在显式配置了 base_url 时启用 AI。
+
+    无默认公网端点。自托管接口可只设 LLM_BASE_URL、省略密钥。
+    """
     config = get_llm_config()
-    api_key = config["api_key"]
-    if not api_key and str(config["base_url"]).startswith("http://"):
-        api_key = "not-needed"
-    return str(api_key) if api_key else None
+    base_url = config.get("base_url")
+    if not base_url:
+        return None
+    api_key = config.get("api_key")
+    if api_key:
+        return str(api_key)
+    # 用户显式配置了端点但未提供密钥：按无鉴权自托管接口处理。
+    return "not-needed"
 
 
 def _previous_news_bundle(output_dir: Path, previous_payload: dict[str, Any] | None) -> dict[str, Any] | None:

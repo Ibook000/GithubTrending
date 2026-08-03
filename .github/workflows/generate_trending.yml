@@ -92,9 +92,10 @@ jobs:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'http://154.217.247.37:8317/v1' }}
+          # 不设默认公网/明文端点；需 AI 时请配置仓库变量 LLM_BASE_URL 与对应密钥。
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
           LLM_MODEL: ${{ vars.LLM_MODEL || 'deepseek-v4-flash' }}
-          LLM_FALLBACK_BASE_URL: ${{ vars.LLM_FALLBACK_BASE_URL || 'https://token.sensenova.cn/v1' }}
+          LLM_FALLBACK_BASE_URL: ${{ vars.LLM_FALLBACK_BASE_URL }}
           LLM_FALLBACK_MODEL: ${{ vars.LLM_FALLBACK_MODEL || 'deepseek-v4-flash' }}
           LLM_FALLBACK_API_KEY: ${{ secrets.LLM_FALLBACK_API_KEY }}
           OUTPUT_DIR: site
