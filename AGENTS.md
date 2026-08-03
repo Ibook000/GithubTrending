@@ -48,6 +48,11 @@ python scripts/check_network.py
 export LLM_API_KEY="your-api-key-here"
 export LLM_BASE_URL="https://your-openai-compatible-endpoint/v1"
 export LLM_MODEL="your-model"
+
+# 可选备用端点：主端点失败时自动切换，两个都失败才用本地摘要
+export LLM_FALLBACK_API_KEY="your-fallback-key"
+export LLM_FALLBACK_BASE_URL="https://token.sensenova.cn/v1"
+export LLM_FALLBACK_MODEL="deepseek-v4-flash"
 ```
 
 ---

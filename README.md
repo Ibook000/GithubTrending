@@ -63,6 +63,14 @@ python github_trending_cards.py --mode full
 
 也可以继续使用 `NVIDIA_API_KEY` 或 `OPENROUTER_API_KEY`。模型只处理新 URL，历史中文化结果会复用；密钥只在生成过程中使用，不会写入 HTML、JSON、RSS 或日志。
 
+可选：配置备用端点。主端点限速或不可用时自动切换，两个都失败才使用本地摘要：
+
+```bash
+export LLM_FALLBACK_BASE_URL="https://token.sensenova.cn/v1"
+export LLM_FALLBACK_MODEL="deepseek-v4-flash"
+export LLM_FALLBACK_API_KEY="your-fallback-key"
+```
+
 > 默认接口是明文 HTTP。请不要通过它发送敏感数据；生产环境建议改成 HTTPS，并通过 `LLM_BASE_URL`、`LLM_MODEL` 和 `LLM_API_KEY` 覆盖默认配置。
 
 ## 开放数据

@@ -117,15 +117,30 @@ def project_root() -> Path:
     return Path(__file__).resolve().parents[2]
 
 
-def get_llm_config() -> dict[str, str | None]:
-    base_url = os.environ.get("LLM_BASE_URL", DEFAULT_LLM_BASE_URL)
+def get_fallback_llm_config() -> dict[str, str | None] | None:
+    """读取备用 OpenAI 兼容端点配置；未完整配置时返回 None。"""
+    base_url = os.environ.get("LLM_FALLBACK_BASE_URL")
+    api_key = os.environ.get("LLM_FALLBACK_API_KEY")
+    if not base_url or not api_key:
+        return None
     return {
+        "api_key": api_key,
+        "base_url": base_url,
+        "model": os.environ.get("LLM_FALLBACK_MODEL", DEFAULT_LLM_MODEL),
+    }
+
+
+def get_llm_config() -> dict[str, Any]:
+    base_url = os.environ.get("LLM_BASE_URL", DEFAULT_LLM_BASE_URL)
+    config: dict[str, Any] = {
         "api_key": os.environ.get("LLM_API_KEY")
         or os.environ.get("NVIDIA_API_KEY")
         or os.environ.get("OPENROUTER_API_KEY"),
         "base_url": base_url,
         "model": os.environ.get("LLM_MODEL", DEFAULT_LLM_MODEL),
     }
+    config["fallback"] = get_fallback_llm_config()
+    return config
 
 
 def create_http_session() -> requests.Session:
@@ -485,6 +500,19 @@ def ai_summarize_projects(
         api_key=api_key,
         timeout=30 if is_actions else 60,
     )
+    fallback_cfg = config.get("fallback")
+    fallback_client = (
+        OpenAI(
+            base_url=fallback_cfg["base_url"],
+            api_key=fallback_cfg["api_key"],
+            timeout=30 if is_actions else 60,
+        )
+        if fallback_cfg
+        else None
+    )
+    clients: list[tuple[Any, str]] = [(client, config["model"])]
+    if fallback_client:
+        clients.append((fallback_client, fallback_cfg["model"]))
     success_count = 0
     lock = threading.Lock()
     # 自动部署必须有明确的时间上限。失败时本地摘要足以保证页面正常发布，
@@ -498,25 +526,28 @@ def ai_summarize_projects(
             "不要使用营销话术或额外符号。\n"
             f"项目名称：{repo['title']}\n简介：{repo['description']}"
         )
-        for attempt in range(max_retries):
-            try:
-                completion = client.chat.completions.create(
-                    model=config["model"],
-                    messages=[{"role": "user", "content": prompt}],
-                    timeout=20 if is_actions else 60,
-                )
-                content = completion.choices[0].message.content
-                repo["summary"] = (content or "").strip() or generate_fallback_summary(repo)
-                with lock:
-                    success_count += 1
-                return repo
-            except Exception as exc:  # API SDK 错误类型随版本变化
-                print(
-                    f"⚠️ {repo['title']} AI 摘要失败 "
-                    f"({attempt + 1}/{max_retries}): {type(exc).__name__}"
-                )
-                if attempt + 1 < max_retries:
-                    time.sleep(2**attempt)
+        for current_client, model in clients:
+            if current_client is fallback_client:
+                print(f"🔄 {repo['title']} 主端点失败，切换备用端点重试")
+            for attempt in range(max_retries):
+                try:
+                    completion = current_client.chat.completions.create(
+                        model=model,
+                        messages=[{"role": "user", "content": prompt}],
+                        timeout=20 if is_actions else 60,
+                    )
+                    content = completion.choices[0].message.content
+                    repo["summary"] = (content or "").strip() or generate_fallback_summary(repo)
+                    with lock:
+                        success_count += 1
+                    return repo
+                except Exception as exc:  # API SDK 错误类型随版本变化
+                    print(
+                        f"⚠️ {repo['title']} AI 摘要失败 "
+                        f"({attempt + 1}/{max_retries}): {type(exc).__name__}"
+                    )
+                    if attempt + 1 < max_retries:
+                        time.sleep(2**attempt)
         repo["summary"] = generate_fallback_summary(repo)
         return repo
 
@@ -544,6 +575,20 @@ def ai_localize_news(
         api_key=api_key,
         timeout=30 if is_actions else 60,
     )
+    fallback_cfg = config.get("fallback")
+    fallback_client = (
+        OpenAI(
+            base_url=fallback_cfg["base_url"],
+            api_key=fallback_cfg["api_key"],
+            timeout=30 if is_actions else 60,
+        )
+        if fallback_cfg
+        else None
+    )
+    clients: list[tuple[Any, str]] = [(client, config["model"])]
+    if fallback_client:
+        clients.append((fallback_client, fallback_cfg["model"]))
+    max_retries = 1 if is_actions else 2
     previous_by_id = {
         str(item.get("id")): item
         for item in (previous or {}).get("items", [])
@@ -584,39 +629,51 @@ def ai_localize_news(
             "标签最多三个，用顿号分隔；不使用营销话术，不补充原文没有的事实。\n"
             f"原标题：{original_title}\n原摘要：{original_summary}"
         )
-        try:
-            completion = client.chat.completions.create(
-                model=config["model"],
-                messages=[{"role": "user", "content": prompt}],
-                timeout=20 if is_actions else 60,
-            )
-            content = (completion.choices[0].message.content or "").strip()
-            title_match = re.search(r"标题[：:]\s*(.+)", content)
-            summary_match = re.search(r"摘要[：:]\s*(.+)", content)
-            category_match = re.search(r"分类[：:]\s*(.+)", content)
-            tags_match = re.search(r"标签[：:]\s*(.+)", content)
-            item["original_title"] = original_title
-            item["original_summary"] = original_summary
-            if title_match:
-                item["title"] = title_match.group(1).strip()
-            if summary_match:
-                item["summary"] = summary_match.group(1).strip()[:120]
-            item["category"] = (
-                category_match.group(1).strip()
-                if category_match and category_match.group(1).strip()
-                else news_category(original_title, original_summary, item.get("category", "开源生态"))
-            )
-            item["tags"] = (
-                [tag.strip() for tag in re.split(r"[、,，]", tags_match.group(1)) if tag.strip()][:3]
-                if tags_match
-                else []
-            )
-            if title_match or summary_match or category_match:
-                item["localized"] = True
-                with lock:
-                    success_count += 1
-        except Exception as exc:
-            print(f"⚠️ {item['source']} 资讯中文化失败: {type(exc).__name__}")
+        localized = False
+        for current_client, model in clients:
+            if current_client is fallback_client:
+                print(f"🔄 {item['source']} 资讯中文化主端点失败，切换备用端点重试")
+            for attempt in range(max_retries):
+                try:
+                    completion = current_client.chat.completions.create(
+                        model=model,
+                        messages=[{"role": "user", "content": prompt}],
+                        timeout=20 if is_actions else 60,
+                    )
+                    content = (completion.choices[0].message.content or "").strip()
+                    title_match = re.search(r"标题[：:]\s*(.+)", content)
+                    summary_match = re.search(r"摘要[：:]\s*(.+)", content)
+                    category_match = re.search(r"分类[：:]\s*(.+)", content)
+                    tags_match = re.search(r"标签[：:]\s*(.+)", content)
+                    item["original_title"] = original_title
+                    item["original_summary"] = original_summary
+                    if title_match:
+                        item["title"] = title_match.group(1).strip()
+                    if summary_match:
+                        item["summary"] = summary_match.group(1).strip()[:120]
+                    item["category"] = (
+                        category_match.group(1).strip()
+                        if category_match and category_match.group(1).strip()
+                        else news_category(original_title, original_summary, item.get("category", "开源生态"))
+                    )
+                    item["tags"] = (
+                        [tag.strip() for tag in re.split(r"[、,，]", tags_match.group(1)) if tag.strip()][:3]
+                        if tags_match
+                        else []
+                    )
+                    if title_match or summary_match or category_match:
+                        item["localized"] = True
+                        with lock:
+                            success_count += 1
+                        localized = True
+                        break
+                except Exception as exc:
+                    print(f"⚠️ {item['source']} 资讯中文化失败: {type(exc).__name__}")
+                    if attempt + 1 < max_retries:
+                        time.sleep(2**attempt)
+            if localized:
+                break
+        if not localized:
             item["category"] = news_category(original_title, original_summary, item.get("category", "开源生态"))
         return item
 
