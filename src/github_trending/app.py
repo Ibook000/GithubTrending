@@ -58,13 +58,14 @@ GITHUB_TRENDING_URL = "https://github.com/trending"
 REQUEST_TIMEOUT = (10, 30)
 PERIODS = ("daily", "weekly", "monthly")
 NEWS_MAX_AGE = timedelta(hours=72)
-NEWS_LIMIT = 24
+NEWS_LIMIT = 30
 CARD_VARIANTS = {
     "portrait": {"width": 1080, "height": 1440, "label": "竖版"},
     "square": {"width": 1080, "height": 1080, "label": "方形"},
     "og": {"width": 1200, "height": 630, "label": "横版"},
 }
 NEWS_FEEDS = (
+    # ── 国际权威 AI / 科技源 ──
     {
         "id": "github-blog",
         "name": "GitHub Blog",
@@ -87,6 +88,27 @@ NEWS_FEEDS = (
         "homepage": "https://openai.com/news/",
     },
     {
+        "id": "techcrunch-ai",
+        "name": "TechCrunch AI",
+        "category": "AI 模型",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "homepage": "https://techcrunch.com/category/artificial-intelligence/",
+    },
+    {
+        "id": "wired-ai",
+        "name": "Wired AI",
+        "category": "AI 模型",
+        "url": "https://www.wired.com/feed/tag/ai/latest/rss",
+        "homepage": "https://www.wired.com/tag/artificial-intelligence/",
+    },
+    {
+        "id": "arstechnica",
+        "name": "Ars Technica",
+        "category": "开发工具",
+        "url": "https://feeds.arstechnica.com/arstechnica/index",
+        "homepage": "https://arstechnica.com/",
+    },
+    {
         "id": "cncf-blog",
         "name": "CNCF Blog",
         "category": "云原生",
@@ -100,6 +122,50 @@ NEWS_FEEDS = (
         "url": "https://www.linuxfoundation.org/blog/rss.xml",
         "homepage": "https://www.linuxfoundation.org/blog/",
     },
+    # ── 国内权威科技媒体 ──
+    {
+        "id": "qbitai",
+        "name": "量子位",
+        "category": "AI 模型",
+        "url": "https://www.qbitai.com/feed",
+        "homepage": "https://www.qbitai.com/",
+    },
+    {
+        "id": "36kr",
+        "name": "36氪",
+        "category": "开发工具",
+        "url": "https://36kr.com/feed",
+        "homepage": "https://36kr.com/",
+    },
+    {
+        "id": "infoq-cn",
+        "name": "InfoQ 中文",
+        "category": "开发工具",
+        "url": "https://www.infoq.cn/feed",
+        "homepage": "https://www.infoq.cn/",
+    },
+    {
+        "id": "tmtpost",
+        "name": "钛媒体",
+        "category": "开发工具",
+        "url": "https://www.tmtpost.com/rss.xml",
+        "homepage": "https://www.tmtpost.com/",
+    },
+    {
+        "id": "ifanr",
+        "name": "爱范儿",
+        "category": "开发工具",
+        "url": "https://www.ifanr.com/feed",
+        "homepage": "https://www.ifanr.com/",
+    },
+    {
+        "id": "leiphone",
+        "name": "雷锋网",
+        "category": "开发工具",
+        "url": "https://www.leiphone.com/feed",
+        "homepage": "https://www.leiphone.com/",
+    },
+    # ── 学术研究 ──
     {
         "id": "arxiv-ai",
         "name": "arXiv AI / ML / NLP",
@@ -298,12 +364,12 @@ def parse_news_datetime(value: str | None, now: datetime | None = None) -> datet
 def news_category(title: str, summary: str, fallback: str) -> str:
     text = f"{title} {summary}".lower()
     categories = (
-        (("security", "vulnerability", "cve", "安全"), "安全"),
-        (("kubernetes", "cloud native", "cncf", "云原生"), "云原生"),
-        (("paper", "research", "arxiv", "benchmark", "论文", "研究"), "研究"),
-        (("llm", "model", "agent", "transformer", "inference", "模型", "智能体"), "AI 模型"),
-        (("sdk", "cli", "developer", "framework", "开发", "工具"), "开发工具"),
-        (("open source", "opensource", "linux", "github", "开源"), "开源生态"),
+        (("security", "vulnerability", "cve", "安全", "漏洞"), "安全"),
+        (("kubernetes", "cloud native", "cncf", "云原生", "容器"), "云原生"),
+        (("paper", "research", "arxiv", "benchmark", "论文", "研究", "arxiv"), "研究"),
+        (("llm", "model", "agent", "transformer", "inference", "大模型", "模型", "智能体", "ai", "gpt", "deepseek", "gpu", "推理"), "AI 模型"),
+        (("sdk", "cli", "developer", "framework", "开发", "工具", "编程", "java", "python", "代码", "前端", "后端", "开源项目"), "开发工具"),
+        (("open source", "opensource", "linux", "github", "开源", "操作系统"), "开源生态"),
     )
     for keywords, category in categories:
         if any(keyword in text for keyword in keywords):
@@ -419,7 +485,7 @@ def fetch_news_bundle(
                         response.text,
                         source=feed["name"],
                         category=feed["category"],
-                        limit=3,
+                        limit=4,
                         source_id=feed["id"],
                         source_url=feed["homepage"],
                         now=now,

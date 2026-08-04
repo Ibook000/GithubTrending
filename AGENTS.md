@@ -65,7 +65,7 @@ export LLM_FALLBACK_MODEL="your-model"
 ├── assets/                     # HTML、CSS、JavaScript和品牌资源
 ├── scripts/                    # 历史页与网络诊断脚本
 ├── tests/                      # 自动化测试
-├── requirements.txt            # Python依赖
+├── requirements.txt            # Python依赖（含 14 个 RSS 新闻源）
 ├── .github/workflows/          # GitHub Actions配置
 │   └── generate_trending.yml   # 完整榜单与每 6 小时资讯刷新工作流
 ├── history/                    # 本地历史记录目录

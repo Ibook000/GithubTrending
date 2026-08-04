@@ -67,6 +67,30 @@ python github_trending_cards.py --mode full
 也可以只设置 `OPENROUTER_API_KEY` 或 `NVIDIA_API_KEY`：会自动使用对应官方 HTTPS 端点。  
 模型只处理新 URL，历史中文化结果会复用；密钥只在生成过程中使用，不会写入 HTML、JSON、RSS 或日志。
 
+### 新闻源
+
+项目聚合以下 **14 个权威来源**的内容（每源最多 4 条，总计最多 30 条），覆盖国际 AI 前沿、学术论文、云原生生态、及国内科技媒体：
+
+| 来源 | 领域 |
+| --- | --- |
+| GitHub Blog | 开源生态 |
+| Hugging Face Blog | AI 模型 |
+| OpenAI News | AI 模型 |
+| TechCrunch AI | AI 模型 |
+| Wired AI | AI 模型 |
+| Ars Technica | 开发工具 |
+| CNCF Blog | 云原生 |
+| Linux Foundation | 开源生态 |
+| 量子位 | AI 模型 |
+| 36氪 | 开发工具 |
+| InfoQ 中文 | 开发工具 |
+| 钛媒体 | 开发工具 |
+| 爱范儿 | 开发工具 |
+| 雷锋网 | 开发工具 |
+| arXiv AI / ML / NLP | 研究 |
+
+资讯每 72 小时内自动刷新，AI 中文化复用历史缓存，不重复消耗额度。
+
 可选：配置备用端点。主端点限速或不可用时自动切换，两个都失败才使用本地摘要：
 
 ```bash
