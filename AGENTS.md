@@ -65,7 +65,7 @@ export LLM_FALLBACK_MODEL="your-model"
 ├── assets/                     # HTML、CSS、JavaScript和品牌资源
 ├── scripts/                    # 历史页与网络诊断脚本
 ├── tests/                      # 自动化测试
-├── requirements.txt            # Python依赖（含 14 个 RSS 新闻源）
+├── requirements.txt            # Python依赖（含 25 个 RSS 新闻源）
 ├── .github/workflows/          # GitHub Actions配置
 │   └── generate_trending.yml   # 完整榜单与每 6 小时资讯刷新工作流
 ├── history/                    # 本地历史记录目录
@@ -87,7 +87,7 @@ export LLM_FALLBACK_MODEL="your-model"
 #### `src/github_trending/app.py`
 - `fetch_github_trending(since)`: 爬取 GitHub Trending 数据
 - `ai_summarize_projects(repos, api_key)`: 调用 OpenRouter API 生成中文总结
-- `fetch_news_bundle()`: 聚合权威 AI、开源与开发者生态 RSS/Atom，并做 72 小时过滤与失败回退
+- `fetch_news_bundle()`: 聚合权威 AI、开源与开发者生态 RSS/Atom，并做 96 小时过滤与失败回退
 - `ai_localize_news(news, api_key)`: 将资讯标题与摘要转换成简洁中文
 - `generate_trend_card(payload, variant)`: 生成竖版、方形或横版 SVG 趋势卡片
 - `generate_card_assets(payload, output_dir)`: 输出 SVG、PNG、二维码和 `cards/manifest.json`

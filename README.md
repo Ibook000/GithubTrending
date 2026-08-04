@@ -69,27 +69,37 @@ python github_trending_cards.py --mode full
 
 ### 新闻源
 
-项目聚合以下 **14 个权威来源**的内容（每源最多 4 条，总计最多 30 条），覆盖国际 AI 前沿、学术论文、云原生生态、及国内科技媒体：
+项目聚合以下 **25 个权威来源**的内容（每源最多 6 条，总计最多 50 条），覆盖国际 AI 前沿、学术论文、云原生生态、及国内科技媒体：
 
 | 来源 | 领域 |
 | --- | --- |
 | GitHub Blog | 开源生态 |
 | Hugging Face Blog | AI 模型 |
 | OpenAI News | AI 模型 |
+| Google AI Blog | AI 模型 |
+| DeepMind Blog | AI 模型 |
+| VentureBeat AI | AI 模型 |
 | TechCrunch AI | AI 模型 |
 | Wired AI | AI 模型 |
+| The Verge | 开发工具 |
 | Ars Technica | 开发工具 |
 | CNCF Blog | 云原生 |
 | Linux Foundation | 开源生态 |
+| MIT Technology Review | 研究 |
 | 量子位 | AI 模型 |
 | 36氪 | 开发工具 |
 | InfoQ 中文 | 开发工具 |
 | 钛媒体 | 开发工具 |
 | 爱范儿 | 开发工具 |
 | 雷锋网 | 开发工具 |
+| 极客公园 | 开发工具 |
+| 新智元 | AI 模型 |
+| CSDN | 开发工具 |
+| 少数派 | 开发工具 |
+| 开源中国 | 开源生态 |
 | arXiv AI / ML / NLP | 研究 |
 
-资讯每 72 小时内自动刷新，AI 中文化复用历史缓存，不重复消耗额度。
+资讯每 96 小时内自动刷新，AI 中文化复用历史缓存，不重复消耗额度。
 
 可选：配置备用端点。主端点限速或不可用时自动切换，两个都失败才使用本地摘要：
 

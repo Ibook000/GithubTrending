@@ -58,7 +58,7 @@ GITHUB_TRENDING_URL = "https://github.com/trending"
 REQUEST_TIMEOUT = (10, 30)
 PERIODS = ("daily", "weekly", "monthly")
 NEWS_MAX_AGE = timedelta(hours=96)
-NEWS_LIMIT = 40
+NEWS_LIMIT = 50
 CARD_VARIANTS = {
     "portrait": {"width": 1080, "height": 1440, "label": "竖版"},
     "square": {"width": 1080, "height": 1080, "label": "方形"},
@@ -172,6 +172,78 @@ NEWS_FEEDS = (
         "category": "研究",
         "url": "https://export.arxiv.org/api/query?search_query=cat:cs.AI%20OR%20cat:cs.LG%20OR%20cat:cs.CL&start=0&max_results=12&sortBy=submittedDate&sortOrder=descending",
         "homepage": "https://arxiv.org/",
+    },
+    # ── 新增国内权威科技媒体 ──
+    {
+        "id": "geekpark",
+        "name": "极客公园",
+        "category": "开发工具",
+        "url": "https://www.geekpark.net/rss",
+        "homepage": "https://www.geekpark.net/",
+    },
+    {
+        "id": "oschina",
+        "name": "开源中国",
+        "category": "开源生态",
+        "url": "https://www.oschina.net/news/rss",
+        "homepage": "https://www.oschina.net/",
+    },
+    {
+        "id": "aiera",
+        "name": "新智元",
+        "category": "AI 模型",
+        "url": "https://www.aiera.com.cn/feed",
+        "homepage": "https://www.aiera.com.cn/",
+    },
+    {
+        "id": "csdn",
+        "name": "CSDN",
+        "category": "开发工具",
+        "url": "https://blog.csdn.net/csdnnews/rss/list",
+        "homepage": "https://www.csdn.net/",
+    },
+    {
+        "id": "sspai",
+        "name": "少数派",
+        "category": "开发工具",
+        "url": "https://sspai.com/feed",
+        "homepage": "https://sspai.com/",
+    },
+    # ── 新增国际权威 AI / 科技源 ──
+    {
+        "id": "the-verge",
+        "name": "The Verge",
+        "category": "开发工具",
+        "url": "https://www.theverge.com/rss/index.xml",
+        "homepage": "https://www.theverge.com/",
+    },
+    {
+        "id": "venturebeat-ai",
+        "name": "VentureBeat AI",
+        "category": "AI 模型",
+        "url": "https://venturebeat.com/category/ai/feed/",
+        "homepage": "https://venturebeat.com/category/ai/",
+    },
+    {
+        "id": "mit-tech-review",
+        "name": "MIT Technology Review",
+        "category": "研究",
+        "url": "https://www.technologyreview.com/feed/",
+        "homepage": "https://www.technologyreview.com/",
+    },
+    {
+        "id": "google-ai-blog",
+        "name": "Google AI Blog",
+        "category": "AI 模型",
+        "url": "https://blog.google/technology/ai/rss/",
+        "homepage": "https://blog.google/technology/ai/",
+    },
+    {
+        "id": "deepmind-blog",
+        "name": "DeepMind Blog",
+        "category": "AI 模型",
+        "url": "https://deepmind.google/blog/rss.xml",
+        "homepage": "https://deepmind.google/blog/",
     },
 )
 BEIJING_TZ = timezone(timedelta(hours=8))
