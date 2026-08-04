@@ -57,8 +57,8 @@ NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
 GITHUB_TRENDING_URL = "https://github.com/trending"
 REQUEST_TIMEOUT = (10, 30)
 PERIODS = ("daily", "weekly", "monthly")
-NEWS_MAX_AGE = timedelta(hours=72)
-NEWS_LIMIT = 30
+NEWS_MAX_AGE = timedelta(hours=96)
+NEWS_LIMIT = 40
 CARD_VARIANTS = {
     "portrait": {"width": 1080, "height": 1440, "label": "竖版"},
     "square": {"width": 1080, "height": 1080, "label": "方形"},
@@ -247,6 +247,7 @@ def create_http_session() -> requests.Session:
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
     session.mount("https://", HTTPAdapter(max_retries=retry))
+    session.mount("http://", HTTPAdapter(max_retries=retry))
     return session
 
 
@@ -485,7 +486,7 @@ def fetch_news_bundle(
                         response.text,
                         source=feed["name"],
                         category=feed["category"],
-                        limit=4,
+                        limit=6,
                         source_id=feed["id"],
                         source_url=feed["homepage"],
                         now=now,
