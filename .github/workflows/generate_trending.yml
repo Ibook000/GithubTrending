@@ -3,8 +3,8 @@ name: 自动生成 GitHub 趋势雷达
 on:
   schedule:
     # 北京时间 10:00 完整更新；04:00、16:00、22:00 轻量刷新资讯
-    - cron: "0 2 * * *"
-    - cron: "0 8,14,20 * * *"
+    - cron: "0 2 * * *"      # 10:00 CST — 完整更新
+    - cron: "0 14 * * *"     # 22:00 CST — 轻量刷新资讯
   workflow_dispatch:
     inputs:
       mode:
