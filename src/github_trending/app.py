@@ -1424,6 +1424,9 @@ def generate_site(
     news_date = _card_date(payload)
     (news_dir / "latest.json").write_text(news_text, encoding="utf-8")
     (news_dir / f"{news_date}.json").write_text(news_text, encoding="utf-8")
+    # 保存带时间戳的新闻快照（精确到分钟），确保每次运行都不被覆盖
+    ts = news_payload["generated_at"].replace(":", "-").replace("+", "+").split("+")[0]
+    (news_dir / f"{news_date}-{ts}.json").write_text(news_text, encoding="utf-8")
     (output_dir / "news-feed.xml").write_text(
         generate_news_rss(news_payload), encoding="utf-8"
     )

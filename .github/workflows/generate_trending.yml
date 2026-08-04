@@ -101,7 +101,7 @@ jobs:
           OUTPUT_DIR: site
         run: python github_trending_cards.py --mode "$REFRESH_MODE"
 
-      - name: 创建每日历史快照
+      - name: 创建每日历史快照（完整榜单）
         if: env.REFRESH_MODE == 'full'
         run: |
           snapshot_date=$(python -c "import json; print(json.load(open('site/data/latest.json'))['date'])")
@@ -114,6 +114,20 @@ jobs:
           cp site/data/news/latest.json "$snapshot_dir/data/news.json"
           cp site/feed.xml site/news-feed.xml site/metadata.json "$snapshot_dir/"
           python scripts/generate_history_stats.py
+          mkdir -p site/history
+          cp -R history/. site/history/
+
+      - name: 创建每日新闻快照（资讯刷新）
+        if: env.REFRESH_MODE == 'news'
+        run: |
+          snapshot_date=$(python -c "import json; print(json.load(open('site/data/news/latest.json'))['generated_at'][:10])")
+          snapshot_dir="history/$snapshot_date"
+          mkdir -p "$snapshot_dir/data"
+          cp site/data/news/latest.json "$snapshot_dir/data/news.json"
+          # 也复制当日已有的完整快照避免覆盖
+          if [ -f "$snapshot_dir/data.json" ]; then
+            cp "$snapshot_dir/data.json" "$snapshot_dir/data/latest.json"
+          fi
           mkdir -p site/history
           cp -R history/. site/history/
 
