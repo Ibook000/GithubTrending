@@ -32,10 +32,10 @@
 - 移除内置明文 HTTP LLM 默认公网地址；未显式配置 `LLM_BASE_URL` 或已知提供商密钥时仅使用本地摘要。
 
 ### Added
-- 新增 10 个新闻源：极客公园、开源中国、新智元、CSDN、少数派、The Verge、VentureBeat AI、MIT Technology Review、Google AI Blog、DeepMind Blog。
-- 新闻源总量从 15 个增至 25 个，覆盖更多国际 AI 大模型与国内权威科技媒体。
+- 新增 19 个新闻源：极客公园、开源中国、新智元、CSDN、少数派、IT之家、博客园、蓝点网、SegmentFault、V2EX、FreeBuf、Solidot、The Verge、VentureBeat AI、MIT Technology Review、Google AI Blog、DeepMind Blog、Apple Machine Learning、OpenAI Blog。
+- 新闻源总量从 15 个增至 34 个，覆盖更多国际 AI 大模型与国内权威科技媒体。
 
 ### Changed
-- 每源取数从 4 条增至 6 条，新闻总量上限提升至 50 条。
+- 每源取数从 4 条增至 6 条，新闻总量上限提升至 60 条。
 - 资讯新鲜度窗口从 72 小时放宽至 96 小时。
 - `create_http_session()` 现在也为 `http://` 请求挂载重试适配器。

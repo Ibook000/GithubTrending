@@ -69,13 +69,14 @@ python github_trending_cards.py --mode full
 
 ### 新闻源
 
-项目聚合以下 **25 个权威来源**的内容（每源最多 6 条，总计最多 50 条），覆盖国际 AI 前沿、学术论文、云原生生态、及国内科技媒体：
+项目聚合以下 **34 个权威来源**的内容（每源最多 6 条，总计最多 60 条），覆盖国际 AI 前沿、学术论文、云原生生态、及国内科技媒体：
 
 | 来源 | 领域 |
 | --- | --- |
 | GitHub Blog | 开源生态 |
 | Hugging Face Blog | AI 模型 |
 | OpenAI News | AI 模型 |
+| OpenAI Blog | AI 模型 |
 | Google AI Blog | AI 模型 |
 | DeepMind Blog | AI 模型 |
 | VentureBeat AI | AI 模型 |
@@ -83,6 +84,7 @@ python github_trending_cards.py --mode full
 | Wired AI | AI 模型 |
 | The Verge | 开发工具 |
 | Ars Technica | 开发工具 |
+| Apple Machine Learning | 研究 |
 | CNCF Blog | 云原生 |
 | Linux Foundation | 开源生态 |
 | MIT Technology Review | 研究 |
@@ -97,6 +99,13 @@ python github_trending_cards.py --mode full
 | CSDN | 开发工具 |
 | 少数派 | 开发工具 |
 | 开源中国 | 开源生态 |
+| IT之家 | 开发工具 |
+| 博客园 | 开发工具 |
+| 蓝点网 | 开发工具 |
+| SegmentFault | 开发工具 |
+| V2EX | 开发工具 |
+| FreeBuf | 开发工具 |
+| Solidot | 开源生态 |
 | arXiv AI / ML / NLP | 研究 |
 
 资讯每 96 小时内自动刷新，AI 中文化复用历史缓存，不重复消耗额度。

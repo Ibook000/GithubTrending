@@ -58,7 +58,7 @@ GITHUB_TRENDING_URL = "https://github.com/trending"
 REQUEST_TIMEOUT = (10, 30)
 PERIODS = ("daily", "weekly", "monthly")
 NEWS_MAX_AGE = timedelta(hours=96)
-NEWS_LIMIT = 50
+NEWS_LIMIT = 60
 CARD_VARIANTS = {
     "portrait": {"width": 1080, "height": 1440, "label": "竖版"},
     "square": {"width": 1080, "height": 1080, "label": "方形"},
@@ -244,6 +244,71 @@ NEWS_FEEDS = (
         "category": "AI 模型",
         "url": "https://deepmind.google/blog/rss.xml",
         "homepage": "https://deepmind.google/blog/",
+    },
+    # ── 更多国内权威科技媒体 ──
+    {
+        "id": "ithome",
+        "name": "IT之家",
+        "category": "开发工具",
+        "url": "https://www.ithome.com/rss/",
+        "homepage": "https://www.ithome.com/",
+    },
+    {
+        "id": "cnblogs",
+        "name": "博客园",
+        "category": "开发工具",
+        "url": "https://feed.cnblogs.com/news/rss",
+        "homepage": "https://www.cnblogs.com/",
+    },
+    {
+        "id": "landiannews",
+        "name": "蓝点网",
+        "category": "开发工具",
+        "url": "https://www.landiannews.com/feed",
+        "homepage": "https://www.landiannews.com/",
+    },
+    {
+        "id": "segmentfault",
+        "name": "SegmentFault",
+        "category": "开发工具",
+        "url": "https://segmentfault.com/feeds",
+        "homepage": "https://segmentfault.com/",
+    },
+    {
+        "id": "v2ex",
+        "name": "V2EX",
+        "category": "开发工具",
+        "url": "https://www.v2ex.com/index.xml",
+        "homepage": "https://www.v2ex.com/",
+    },
+    {
+        "id": "solidot",
+        "name": "Solidot",
+        "category": "开源生态",
+        "url": "https://www.solidot.org/index.rss",
+        "homepage": "https://www.solidot.org/",
+    },
+    {
+        "id": "freebuf",
+        "name": "FreeBuf",
+        "category": "开发工具",
+        "url": "https://www.freebuf.com/feed",
+        "homepage": "https://www.freebuf.com/",
+    },
+    # ── 新增国际 AI 研究源 ──
+    {
+        "id": "apple-ml",
+        "name": "Apple Machine Learning",
+        "category": "研究",
+        "url": "https://machinelearning.apple.com/rss.xml",
+        "homepage": "https://machinelearning.apple.com/",
+    },
+    {
+        "id": "openai-blog",
+        "name": "OpenAI Blog",
+        "category": "AI 模型",
+        "url": "https://openai.com/blog/rss.xml",
+        "homepage": "https://openai.com/blog/",
     },
 )
 BEIJING_TZ = timezone(timedelta(hours=8))
