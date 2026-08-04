@@ -32,8 +32,8 @@
 - 移除内置明文 HTTP LLM 默认公网地址；未显式配置 `LLM_BASE_URL` 或已知提供商密钥时仅使用本地摘要。
 
 ### Added
-- 新增 19 个新闻源：极客公园、开源中国、新智元、CSDN、少数派、IT之家、博客园、蓝点网、SegmentFault、V2EX、FreeBuf、Solidot、The Verge、VentureBeat AI、MIT Technology Review、Google AI Blog、DeepMind Blog、Apple Machine Learning、OpenAI Blog。
-- 新闻源总量从 15 个增至 34 个，覆盖更多国际 AI 大模型与国内权威科技媒体。
+- 新增 21 个新闻源：极客公园、开源中国、新智元、CSDN、少数派、IT之家、博客园、蓝点网、SegmentFault、V2EX、FreeBuf、Solidot、36氪 文章、36氪 快讯、The Verge、VentureBeat AI、MIT Technology Review、Google AI Blog、DeepMind Blog、Apple Machine Learning、OpenAI Blog。
+- 新闻源总量从 15 个增至 36 个，覆盖更多国际 AI 大模型与国内权威科技媒体。
 
 ### Changed
 - 每源取数从 4 条增至 6 条，新闻总量上限提升至 60 条。

@@ -310,6 +310,21 @@ NEWS_FEEDS = (
         "url": "https://openai.com/blog/rss.xml",
         "homepage": "https://openai.com/blog/",
     },
+    # ── 36氪 子频道（官方 RSS 订阅中心） ──
+    {
+        "id": "36kr-article",
+        "name": "36氪 文章",
+        "category": "开发工具",
+        "url": "https://36kr.com/feed-article",
+        "homepage": "https://36kr.com/",
+    },
+    {
+        "id": "36kr-newsflash",
+        "name": "36氪 快讯",
+        "category": "开发工具",
+        "url": "https://36kr.com/feed-newsflash",
+        "homepage": "https://36kr.com/",
+    },
 )
 BEIJING_TZ = timezone(timedelta(hours=8))
 USER_AGENT = (
