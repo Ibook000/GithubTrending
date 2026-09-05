@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-06T00:30:07.917852+08:00",
+  "date": "2026-09-06",
+  "content_hash": "47299b7a32777e2e",
+  "variants": {
+    "portrait": {
+      "label": "竖版",
+      "width": 1080,
+      "height": 1440,
+      "svg": "cards/latest-portrait.svg",
+      "png": "cards/latest-portrait.png",
+      "files": {
+        "svg": {
+          "path": "cards/latest-portrait.svg",
+          "media_type": "image/svg+xml",
+          "download_url": "https://Ibook000.github.io/GithubTrending/cards/latest-portrait.svg"
+        },
+        "png": {
+          "path": "cards/latest-portrait.png",
+          "media_type": "image/png",
+          "download_url": "https://Ibook000.github.io/GithubTrending/cards/latest-portrait.png"
+        }
+      }
+    },
+    "square": {
+      "label": "方形",
+      "width": 1080,
+      "height": 1080,
+      "svg": "cards/latest-square.svg",
+      "png": "cards/latest-square.png",
+      "files": {
+        "svg": {
+          "path": "cards/latest-square.svg",
+          "media_type": "image/svg+xml",
+          "download_url": "https://Ibook000.github.io/GithubTrending/cards/latest-square.svg"
+        },
+        "png": {
+          "path": "cards/latest-square.png",
+          "media_type": "image/png",
+          "download_url": "https://Ibook000.github.io/GithubTrending/cards/latest-square.png"
+        }
+      }
+    },
+    "og": {
+      "label": "横版",
+      "width": 1200,
+      "height": 630,
+      "svg": "cards/latest-og.svg",
+      "png": "cards/latest-og.png",
+      "files": {
+        "svg": {
+          "path": "cards/latest-og.svg",
+          "media_type": "image/svg+xml",
+          "download_url": "https://Ibook000.github.io/GithubTrending/cards/latest-og.svg"
+        },
+        "png": {
+          "path": "cards/latest-og.png",
+          "media_type": "image/png",
+          "download_url": "https://Ibook000.github.io/GithubTrending/cards/latest-og.png"
+        }
+      }
+    }
+  }
+}
