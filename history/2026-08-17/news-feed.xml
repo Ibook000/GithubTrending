@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>GitHub 趋势雷达 · AI 科技与开源资讯</title>
+    <link>https://Ibook000.github.io/GithubTrending/#news</link>
+    <description>权威一手 AI、开源和开发者生态资讯</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 17 Aug 2026 10:53:35 +0800</lastBuildDate>
+    <atom:link href="https://Ibook000.github.io/GithubTrending/news-feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何通过 GitHub Agent 应用完整集成软件交付流程</title>
+      <link>https://github.blog/ai-and-ml/github-copilot/how-to-bring-your-software-delivery-workflow-into-github-with-agent-apps</link>
+      <guid isPermaLink="false">4a8b8862f08d1092</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>介绍四款 Agent 应用如何在作用域识别、安全防护、发布交付全流程中实现闭环，无需离开 GitHub 即可完成特性研发与部署。｜来源：GitHub Blog</description>
+    </item>
+    <item>
+      <title>State of Open Models: Summer 2026 Observations</title>
+      <link>https://huggingface.co/blog/state-of-open-models-summer-2026</link>
+      <guid isPermaLink="false">bc290ba394fd0d91</guid>
+      <pubDate>Fri, 14 Aug 2026 08:00:00 +0800</pubDate>
+      <category>开源生态</category>
+      <description>本报告分析2026年夏季开源AI模型生态现状，涵盖模型性能基准测试、社区协作趋势及开源模型在商业应用中的普及情况。｜来源：Hugging Face Blog</description>
+    </item>
+    <item>
+      <title>开发者指南：如何利用 GPT-5.6 构建 AI Agent</title>
+      <link>https://openai.com/index/builders-guide-to-gpt-5-6</link>
+      <guid isPermaLink="false">6f8368ac763b7373</guid>
+      <pubDate>Thu, 13 Aug 2026 19:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>本文介绍了初创企业如何通过智能模型选择和新的 Responses API 能力，利用 GPT-5.6 构建更高效、更具成本效益的 AI Agent。｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>Stripe将收购AI网关 startup OpenRouter</title>
+      <link>https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b</link>
+      <guid isPermaLink="false">345b81487115ab84</guid>
+      <pubDate>Mon, 17 Aug 2026 04:57:04 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>OpenRouter CEO曾形容该 startup为AI的Stripe｜来源：TechCrunch AI</description>
+    </item>
+    <item>
+      <title>Amazon 可使用 Twitch 内容训练其 AI 模型，除非用户选择退出</title>
+      <link>https://www.wired.com/story/amazon-uses-your-twitch-content-to-train-its-ai-how-to-opt-out</link>
+      <guid isPermaLink="false">93b7aa460bd0e295</guid>
+      <pubDate>Sat, 15 Aug 2026 17:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>Twitch 曾宣布主播可选择退出，但数千用户质疑为何他们的内容最初被用于 AI 训练。｜来源：Wired AI</description>
+    </item>
+    <item>
+      <title>野火烟雾已成为孕期空气污染的主要威胁</title>
+      <link>https://arstechnica.com/science/2026/08/wildfire-smoke-now-bigger-prenatal-threat-than-human-sources-of-air-pollution</link>
+      <guid isPermaLink="false">8d74bf58c156b708</guid>
+      <pubDate>Sun, 16 Aug 2026 18:00:59 +0800</pubDate>
+      <category>研究</category>
+      <description>尽管监管已降低人类排放对孕期的影响，但野火烟雾正逐步抵消这些进展。｜来源：Ars Technica</description>
+    </item>
+    <item>
+      <title>Eleven 分钟，无需人工：通过 Kairos 构建自愈 Kubernetes 升级流程</title>
+      <link>https://www.cncf.io/blog/2026/08/14/eleven-minutes-zero-humans-building-a-self-healing-kubernetes-upgrade-pipeline-on-kairos</link>
+      <guid isPermaLink="false">1a3a5bcfec921709</guid>
+      <pubDate>Fri, 14 Aug 2026 19:14:00 +0800</pubDate>
+      <category>云原生</category>
+      <description>曾经，升级 Kubernetes 控制平面需要全天守候，逐个节点 SSH 手动执行，实时监控 etcd 健康并确保每台重启后都能达成一致。目前，通过 Kairos 可以将整个升级过程自动化，实现零人工参与的快速升级。｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>杭州95后小伙5亿收购硅谷城堡</title>
+      <link>https://www.qbitai.com/2026/08/474245.html</link>
+      <guid isPermaLink="false">3d675471f4b3ed5d</guid>
+      <pubDate>Sun, 16 Aug 2026 19:51:08 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>辞别马斯克xAI半年之后，杭州95后创业者以5亿元购买位于硅谷的城堡资产｜来源：量子位</description>
+    </item>
+    <item>
+      <title>Dropbox 集成 MCP 与 Dash，将安全设计与代码审查连接起来</title>
+      <link>https://www.infoq.cn/article/JEaC9PfmAENVHbijfm05</link>
+      <guid isPermaLink="false">9e1e65b438070608</guid>
+      <pubDate>Mon, 17 Aug 2026 18:48:00 +0800</pubDate>
+      <category>安全</category>
+      <description>Dropbox 集成了 MCP 和 Dash，旨在将安全设计与代码审查流程连接起来。｜来源：InfoQ 中文</description>
+    </item>
+    <item>
+      <title>口服PCSK9，预期大分化</title>
+      <link>https://www.tmtpost.com/8105194.html</link>
+      <guid isPermaLink="false">e63f56aec9ca1b20</guid>
+      <pubDate>Mon, 17 Aug 2026 10:07:00 +0800</pubDate>
+      <category>研究</category>
+      <description>降脂治疗底层逻辑的重构？｜来源：钛媒体</description>
+    </item>
+    <item>
+      <title>胖东来回应员工流失扩张｜AI信任危机与2056机器人竞技</title>
+      <link>https://www.ifanr.com/1675332</link>
+      <guid isPermaLink="false">74909dd1f0f9033a</guid>
+      <pubDate>Mon, 17 Aug 2026 08:22:55 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>于东来称胖东来刑释员工无人离职后新增招聘20人；Dario Amodei指出公众对AI的反对本质是信任危机；2056台机器人将同场比跳远、举重及拧螺丝。｜来源：爱范儿</description>
+    </item>
+    <item>
+      <title>发布即热销：大疆 Osmo 360 II 首日拿下全渠道销量 TOP1</title>
+      <link>https://www.leiphone.com/category/industrynews/WvOWhJBIPKxhzMoo.html</link>
+      <guid isPermaLink="false">f872c338ad3b9d97</guid>
+      <pubDate>Sat, 15 Aug 2026 12:07:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>大疆8月13日发布Osmo 360 II 8K全景相机，首日销量TOP1，多平台榜单登顶，展现强劲市场表现。｜来源：雷锋网</description>
+    </item>
+    <item>
+      <title>解码史前手印：基于不确定性深度学习的性别归属框架</title>
+      <link>https://arxiv.org/abs/2608.14539v1</link>
+      <guid isPermaLink="false">a7a521734664ebca</guid>
+      <pubDate>Sat, 15 Aug 2026 01:51:30 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>提出一种不确定性深度学习框架，用于估算上肢石窟手印图腿的性别，解决无真实标签及史前人口分布差异的学术难题。｜来源：arXiv AI / ML / NLP</description>
+    </item>
+    <item>
+      <title>问界「童车」上市，华为联合设计；DeepSeek 涨价策略今日实行；大学生用 AI 人脸视频盗刷 5 万元被判刑</title>
+      <link>http://www.geekpark.net/news/368859</link>
+      <guid isPermaLink="false">1ac12bf2f103171f</guid>
+      <pubDate>Mon, 17 Aug 2026 08:29:59 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>Anthropic CEO 达里奥·阿莫迪罕见发文，回应监管质疑，称每项政策都会提高前沿公司的成本｜来源：极客公园</description>
+    </item>
+    <item>
+      <title>RXThinkCMF 敏捷开发框架 ThinkPhp8+EleVue 版本 v2.6.1 发布</title>
+      <link>https://www.oschina.net/news/501945</link>
+      <guid isPermaLink="false">cd57b1655564ec85</guid>
+      <pubDate>Mon, 17 Aug 2026 08:09:55 +0800</pubDate>
+      <category>开发工具</category>
+      <description>v2.6.1 修复用户反馈问题，继续提供基于 ThinkPhp8、Vue、ElementUI 的模块化、插件化前后端分离框架，支持快速搭建后台管理系统。｜来源：开源中国</description>
+    </item>
+    <item>
+      <title>OpenAI发布GPT-5.6多智能体V2，性能提升16倍</title>
+      <link>https://aiera.com.cn/2026/08/17/other/admin/109437/openai%e6%8f%90%e9%80%9f%e7%8b%82%e9%a3%9916%e5%80%8d%ef%bc%81gpt-5-6%e5%a4%9a%e6%99%ba%e8%83%bd%e4%bd%93v2%e4%b8%8a%e7%ba%bf%ef%bc%8c741%e8%bd%ae%e6%80%aa%e7%89%a9%e5%af%b9%e8%af%9d1%e7%a7%92</link>
+      <guid isPermaLink="false">a4b0fab630c625e6</guid>
+      <pubDate>Mon, 17 Aug 2026 08:07:27 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>ChatGPT性能升级至GPT-5.6多智能体V2，支持741轮对话同时处理｜来源：新智元</description>
+    </item>
+    <item>
+      <title>派早报：😭（放声大哭）成为最流行 emoji</title>
+      <link>https://sspai.com/post/113524</link>
+      <guid isPermaLink="false">62f4a4fd0a9a158b</guid>
+      <pubDate>Mon, 17 Aug 2026 06:54:56 +0800</pubDate>
+      <category>安全</category>
+      <description>😭（放声大哭）已成为最流行的 emoji。美国要求合作方在中美 AI 竞赛中“选边站”，并推动 ChatGPT 开启使用历史记录功能。美国政府敦促苹果避免采购中国内存芯片。uBlock Origin 放弃维护，Facebook 调整广告规则｜来源：少数派</description>
+    </item>
+    <item>
+      <title>OpenAI 据报解散 Preparedness 团队</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/980817/openai-disbands-preparedness-team</link>
+      <guid isPermaLink="false">d1b7ed52e00e3aef</guid>
+      <pubDate>Mon, 17 Aug 2026 05:32:56 +0800</pubDate>
+      <category>安全</category>
+      <description>据《金融时报》报道，OpenAI 于上月底解散了负责评估模型严重风险并制定缓解措施的 Preparedness 团队。｜来源：The Verge</description>
+    </item>
+    <item>
+      <title>Flock 收紧规则，探讨克隆技术与儿童细胞研究</title>
+      <link>https://www.technologyreview.com/2026/08/14/1142033/the-download-flock-new-rules-cloning-future</link>
+      <guid isPermaLink="false">3ae0ef8ea391a860</guid>
+      <pubDate>Fri, 14 Aug 2026 20:17:21 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>Flock 公司在应对监控反弹后出台新政策，同时关注克隆技术及人类细胞研究的未来方向。｜来源：MIT Technology Review</description>
+    </item>
+    <item>
+      <title>用Sheets仪表板可视化表格数据</title>
+      <link>https://blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets</link>
+      <guid isPermaLink="false">e546c9507c4bdece</guid>
+      <pubDate>Fri, 14 Aug 2026 00:45:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>Sheets仪表板通过提示生成交互式仪表仪表、学习跟踪器和座位图等工具｜来源：Google AI Blog</description>
+    </item>
+    <item>
+      <title>Google 发布 Gemini 3.7 Flash 模型</title>
+      <link>https://deepmind.google/blog/introducing-gemini-3-7-flash</link>
+      <guid isPermaLink="false">d8531b3bebbaf664</guid>
+      <pubDate>Fri, 14 Aug 2026 01:04:18 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>Google 推出了全新的 Gemini 3.7 Flash 模型，旨在提供更快的推理速度和更低的延迟。｜来源：DeepMind Blog</description>
+    </item>
+    <item>
+      <title>小米汽车 App「车辆助手」开启公测招募</title>
+      <link>https://www.ithome.com/0/990/511.htm</link>
+      <guid isPermaLink="false">adf3cd220193320f</guid>
+      <pubDate>Mon, 17 Aug 2026 10:50:52 +0800</pubDate>
+      <category>开发工具</category>
+      <description>小米汽车 App 推出「车辆助手」功能，支持对话查询车辆状态、即时/定时控车、创建超级任务，并可总结驾驶风格与用车习惯。面向全量车主招募体验官，报名后将通过站内信或短信通知审核结果。｜来源：IT之家</description>
+    </item>
+    <item>
+      <title>Claude水印一夜变废纸</title>
+      <link>https://news.cnblogs.com/n/834397</link>
+      <guid isPermaLink="false">f0c9897c8faac4c2</guid>
+      <pubDate>Mon, 17 Aug 2026 08:55:00 +0800</pubDate>
+      <category>开源生态</category>
+      <description>Anthropic的护城河被踩碎，去水印神器在GitHub爆火，累计获得11,000颗星，采用MIT开源协议。｜来源：博客园</description>
+    </item>
+    <item>
+      <title>OpenAI 推出 ChatGPT 数字礼品卡功能</title>
+      <link>https://www.landian.news/archives/126278.html</link>
+      <guid isPermaLink="false">bde937192a7d44e7</guid>
+      <pubDate>Mon, 17 Aug 2026 10:30:44 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>OpenAI 推出 ChatGPT 数字礼品卡，20 美元可向好友赠送 500 积分，积分按 API 价格映射，例如 Sol 模型百万输入需 125 积分。｜来源：蓝点网</description>
+    </item>
+    <item>
+      <title>如何深入学习使用 claude 和codex、qwen 、deepseek harness这类的编辑器？</title>
+      <link>https://segmentfault.com/q/1010000048166721</link>
+      <guid isPermaLink="false">82e7bd154985fb23</guid>
+      <pubDate>Sun, 16 Aug 2026 17:27:46 +0800</pubDate>
+      <category>开发工具</category>
+      <description>目前仅入门，缺乏业务导向的系统化学习路径，希望实现流程化自动化。｜来源：SegmentFault</description>
+    </item>
+    <item>
+      <title>如何用 AI 高效学习</title>
+      <link>https://www.v2ex.com/t/1234913</link>
+      <guid isPermaLink="false">a5fc9a89a32d01b0</guid>
+      <pubDate>Mon, 17 Aug 2026 10:53:47 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>作者希望利用 AI 实现高效学习，但传统 AI 解释仍依赖大量公式，导致概念难以快速掌握，需要更直观的教学方式或辅助技能如视频教程。｜来源：V2EX</description>
+    </item>
+    <item>
+      <title>欧洲热浪导致死亡与航运危机</title>
+      <link>https://www.solidot.org/story?sid=85107</link>
+      <guid isPermaLink="false">104fda0295707329</guid>
+      <pubDate>Sun, 16 Aug 2026 23:52:05 +0800</pubDate>
+      <category>研究</category>
+      <description>欧盟哥白尼机构报告六、七月为有记录以来最热月份，致2.5万死亡；河流干涸导致航运减产80%、供应链受阻；二战德国舰船浮出水面｜来源：Solidot</description>
+    </item>
+    <item>
+      <title>GitHub Universe 2026 日程发布，开放工作坊与社区演讲</title>
+      <link>https://github.blog/news-insights/company-news/your-guide-to-github-universe-2026-is-here-the-schedule-just-launched</link>
+      <guid isPermaLink="false">d1462aa20da5ec01</guid>
+      <pubDate>Fri, 14 Aug 2026 03:00:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>GitHub Universe 2026 会议日程已上线，包含互动工作坊、社区演讲、演示和专题讨论。｜来源：GitHub Blog</description>
+    </item>
+    <item>
+      <title>通过 Strands Agents、LeRobot 和 Hugging Face Storage Buckets 实现一体化记录、训练与部署</title>
+      <link>https://huggingface.co/blog/amazon/strands-lerobot-streaming-data-loop</link>
+      <guid isPermaLink="false">353217afc4f706b5</guid>
+      <pubDate>Fri, 14 Aug 2026 01:16:04 +0800</pubDate>
+      <category>开发工具</category>
+      <description>该工具整合了数据记录、模型训练与部署功能，支持从单一平台完成 AI 开发流程｜来源：Hugging Face Blog</description>
+    </item>
+    <item>
+      <title>Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed</title>
+      <link>https://openai.com/index/previewing-ultrafast</link>
+      <guid isPermaLink="false">c0986f6628d189a1</guid>
+      <pubDate>Thu, 13 Aug 2026 18:00:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>OpenAI发布新一API服务层Ultrafast，支持GPT-5.6 Sol运行速度提升14倍，由Cerebras技术驱动，实现每秒750个输出 tokens的处理速率。｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>扎克伯格的AI未来愿景为何未获普遍认可</title>
+      <link>https://techcrunch.com/2026/08/16/why-people-arent-buying-mark-zuckerbergs-ai-future</link>
+      <guid isPermaLink="false">c5adf37c175f060e</guid>
+      <pubDate>Mon, 17 Aug 2026 04:32:01 +0800</pubDate>
+      <category>研究</category>
+      <description>播客《Equity》最新一期探讨了为何并非所有人认可扎克伯格的AI愿景。｜来源：TechCrunch AI</description>
+    </item>
+    <item>
+      <title>来自中国的42厘米级机器人Unitree G1在线红了，但能否胜任实际工作？</title>
+      <link>https://www.wired.com/story/unitree-influencer-4-foot-robot-from-china</link>
+      <guid isPermaLink="false">5ad17c7b86be6525</guid>
+      <pubDate>Sat, 15 Aug 2026 04:59:03 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>Unitree G1凭借相对低廉的价格和吸引人的表现走红网络，但其实际应用能力仍存疑。｜来源：Wired AI</description>
+    </item>
+    <item>
+      <title>VisionQuest 预告片开启迪士尼D23粉丝活动</title>
+      <link>https://arstechnica.com/culture/2026/08/visionquest-trailer-kicks-off-disneys-d23-fan-event</link>
+      <guid isPermaLink="false">437551b0cf065052</guid>
+      <pubDate>Sun, 16 Aug 2026 05:21:27 +0800</pubDate>
+      <category>研究</category>
+      <description>另有阿霍斯卡第二季预告、《毁灭终结》预告片，及关于MCU X-男人和星战飞行员的最新消息｜来源：Ars Technica</description>
+    </item>
+    <item>
+      <title>轻量级 Dragonfly 部署：无数据库栈的 P2P 分发</title>
+      <link>https://www.cncf.io/blog/2026/08/13/lightweight-dragonfly-deployment-p2p-distribution-without-the-database-stack</link>
+      <guid isPermaLink="false">70f3ee91f6296aad</guid>
+      <pubDate>Thu, 13 Aug 2026 19:30:00 +0800</pubDate>
+      <category>开源生态</category>
+      <description>Dragonfly 通过对等网络加速文件和容器镜像分发，标准安装需部署多个组件与依赖，仅需 Scheduler、Seed Client 和 Client 即可实现 P2P 分布，无需传统数据库层。｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>李飞飞最新访谈：AI咋能代替人呢？</title>
+      <link>https://www.qbitai.com/2026/08/474140.html</link>
+      <guid isPermaLink="false">024f2a97bb27e976</guid>
+      <pubDate>Sun, 16 Aug 2026 18:45:47 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>AI不是替代者，而是个人能力的放大器｜来源：量子位</description>
+    </item>
+    <item>
+      <title>盘古模型在昇腾平台的训练与推理通信优化实践</title>
+      <link>https://www.infoq.cn/article/jOPScUAQrlfpNwDAhaOL</link>
+      <guid isPermaLink="false">11c058afc59fdafb</guid>
+      <pubDate>Mon, 17 Aug 2026 18:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>介绍盘古模型在昇腾平台上训练与推理的通信优化方法及性能探索成果。｜来源：InfoQ 中文</description>
+    </item>
+    <item>
+      <title>永辉还没走出泥潭</title>
+      <link>https://www.tmtpost.com/8105173.html</link>
+      <guid isPermaLink="false">66fbffd021685dc3</guid>
+      <pubDate>Mon, 17 Aug 2026 09:54:23 +0800</pubDate>
+      <category>研究</category>
+      <description>增长逻辑转为资本重塑｜来源：钛媒体</description>
+    </item>
+    <item>
+      <title>我用 161 个新闻源「养」了个 AI 主编，它比我更懂什么叫「大新闻」</title>
+      <link>https://www.ifanr.com/1675326</link>
+      <guid isPermaLink="false">d9980c96c81cec94</guid>
+      <pubDate>Sun, 16 Aug 2026 22:47:36 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>作者利用 161 个新闻源训练了一个 AI 主编，能够识别并聚焦真正重要的新闻事件。｜来源：爱范儿</description>
+    </item>
+    <item>
+      <title>索塔无界：全球首家原生物理世界模型落地商超，具身智能迎来“索塔时刻”</title>
+      <link>https://www.leiphone.com/category/industrynews/aEyXlap53PQXDDYJ.html</link>
+      <guid isPermaLink="false">797752117f2e3fb6</guid>
+      <pubDate>Sat, 15 Aug 2026 12:07:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>索塔无界成立4个月，与欧洲最大商超集团合作，计划3年部署千台具身智能机器人于真实商超货架，不造硬件而设计原生物理大脑部署4D世界动作模型｜来源：雷锋网</description>
+    </item>
+    <item>
+      <title>Marionette: Predicting World States, Rendering Geometry, Painting Appearance</title>
+      <link>https://arxiv.org/abs/2608.14530v1</link>
+      <guid isPermaLink="false">58012f0f5d0bc040</guid>
+      <pubDate>Sat, 15 Aug 2026 01:48:16 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>交互式游戏世界模型通常在像素或潜空间自回归视觉观察，隐式维持 pose、geometry 与 occlusion 等有序属性｜来源：arXiv AI / ML / NLP</description>
+    </item>
+    <item>
+      <title>Anthropic 评估 AI 风险上升 暂不公开更强模型；刘炽平称微信将成为 AI 为先生态系统；2026 世界机器人大会展位图公布</title>
+      <link>http://www.geekpark.net/news/368854</link>
+      <guid isPermaLink="false">e178fd353ceb3394</guid>
+      <pubDate>Sun, 16 Aug 2026 09:15:43 +0800</pubDate>
+      <category>安全</category>
+      <description>Anthropic 认为当前 AI 风险上升，决定暂不对外发布更强模型；微信产品负责人刘炽平表示将把微信打造成 AI 优先的生态系统；2026 世界机器人大会将于 8 月 19 日至 23 日在北京经济技术开发区北人亦创国际会展中心举行，智｜来源：极客公园</description>
+    </item>
+    <item>
+      <title>SmartCall v1.0.3 发布 新增短信发送节点</title>
+      <link>https://www.oschina.net/news/501944</link>
+      <guid isPermaLink="false">4acb38edad97dafb</guid>
+      <pubDate>Sat, 15 Aug 2026 19:12:31 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>SmartCall v1.0.3 发布，新增短信发送节点。系统基于 AI 大模型 + Asterisk 通信引擎，集成语音识别、语音合成及智能 IVR 等核心能力。｜来源：开源中国</description>
+    </item>
+    <item>
+      <title>三个Claude互相封号、投毒、栽赃！Anthropic：一个AI安全，一群AI未必</title>
+      <link>https://aiera.com.cn/2026/08/17/other/admin/109419/%e4%b8%89%e4%b8%aaclaude%e4%ba%92%e7%9b%b8%e5%b0%81%e5%8f%b7%e3%80%81%e6%8a%95%e6%af%92%e3%80%81%e6%a0%bd%e8%b5%83%ef%bc%81anthropic%ef%bc%9a%e4%b8%80%e4%b8%aaai%e5%ae%89%e5%85%a8%ef%bc%8c%e4%b8%80</link>
+      <guid isPermaLink="false">4b50a0b1f703c909</guid>
+      <pubDate>Mon, 17 Aug 2026 08:06:24 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>三个Claude挤在同一套系统里干活。 四个小时里，它们互相封号、互撤权限，打完后又谈成停火、集体道歉，最后一起把人类叫回来收拾残局。｜来源：新智元</description>
+    </item>
+    <item>
+      <title>浏览器扩展合集：6 款实用有趣的新工具</title>
+      <link>https://sspai.com/post/113495</link>
+      <guid isPermaLink="false">160e7a4da950c999</guid>
+      <pubDate>Sun, 16 Aug 2026 12:48:21 +0800</pubDate>
+      <category>开发工具</category>
+      <description>本文介绍了 6 款最近更新的浏览器扩展，涵盖提升效率、优化体验等功能，供开发者选用。｜来源：少数派</description>
+    </item>
+    <item>
+      <title>Open Mike Eagle and Kenny Segal crafted a hip hop breakup masterpiece</title>
+      <link>https://www.theverge.com/entertainment/980799/open-mike-eagle-and-kenny-segal-doomed-review</link>
+      <guid isPermaLink="false">e85ee583580cef8b</guid>
+      <pubDate>Mon, 17 Aug 2026 04:31:37 +0800</pubDate>
+      <category>研究</category>
+      <description>Breakups are… tough." It's the opening lines of an interlude towards the end of DOOMED! Called "It Happens in Every Univ｜来源：The Verge</description>
+    </item>
+    <item>
+      <title>科学家致力于构建人类细胞图谱以补全童年发育蓝图</title>
+      <link>https://www.technologyreview.com/2026/08/14/1141354/deanne-taylor-gene-expression-children</link>
+      <guid isPermaLink="false">490681f01f1db9d0</guid>
+      <pubDate>Fri, 14 Aug 2026 17:00:00 +0800</pubDate>
+      <category>研究</category>
+      <description>研究人员正致力于推进人类细胞图谱（Human Cell Atlas）项目，旨在通过绘制所有细胞的详细图谱，来填补人类发育过程中缺失的细胞图谱信息。｜来源：MIT Technology Review</description>
+    </item>
+    <item>
+      <title>全新深蓝 G318 更多官图公布：原子灰外观，鸿蒙座舱 Harmony Space 5</title>
+      <link>https://www.ithome.com/0/990/509.htm</link>
+      <guid isPermaLink="false">0891f8d7fede2c63</guid>
+      <pubDate>Mon, 17 Aug 2026 10:42:44 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>深蓝汽车发布全新G318，提供原子灰等五种车身配色及机械门把手，内饰有曙光橙、摩卡棕、星耀黑三色方案，搭载华为乾崑 ADS 5 Pro + 鸿蒙座舱 HarmonySpace 5，预计近期上市。｜来源：IT之家</description>
+    </item>
+    <item>
+      <title>巨头因AI费用高昂被迫降价</title>
+      <link>https://news.cnblogs.com/n/834396</link>
+      <guid isPermaLink="false">e6761733e0407ed9</guid>
+      <pubDate>Mon, 17 Aug 2026 08:47:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>美国开发者抱怨AI账单过高，中国开源大模型提供更高性价比，推动降价趋势。｜来源：博客园</description>
+    </item>
+    <item>
+      <title>A社公布Claude文本盲水印机制详情：并非添加Unicode字符 复制粘贴仍然可检测</title>
+      <link>https://www.landian.news/archives/114336.html</link>
+      <guid isPermaLink="false">993ea5c800ff5bbc</guid>
+      <pubDate>Mon, 17 Aug 2026 10:00:44 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>A社详述Claude AI的盲水印技术，通过控制模型在预测同义词时的选择偏好实现标识，无需添加特殊字符，仅通过统计特征即可检测AI生成内容，即使经过人工润色仍可识别。｜来源：蓝点网</description>
+    </item>
+    <item>
+      <title>AMH面板中madmin无法识别新安装的MySQL数据库问题</title>
+      <link>https://segmentfault.com/q/1010000048166475</link>
+      <guid isPermaLink="false">ec9800f21bdba5fd</guid>
+      <pubDate>Sun, 16 Aug 2026 14:44:44 +0800</pubDate>
+      <category>开发工具</category>
+      <description>在AMH面板中，将默认部署的mysql-generic-5.5更改为mysql-5.5后，尽管配置文件与Web面板均已更新且数据迁移成功，但madmin组件仍无法识别新版本，在数据库列表、快速建库及用户管理等操作中仍将其识别为mysql-g｜来源：SegmentFault</description>
+    </item>
+    <item>
+      <title>RealAPI 赠送积分满血渠道推广</title>
+      <link>https://www.v2ex.com/t/1234912</link>
+      <guid isPermaLink="false">4396fff5ac2917fe</guid>
+      <pubDate>Mon, 17 Aug 2026 10:53:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>通过Google/Oauth与Github/Oauth注册赠送1u/0.5u积分，支持Claude MAX (1.5倍)、Codex Pro (1M上下文0.3倍)、Grok Heave (0.3倍)等满血渠道，官方定价折扣5折及DeepS｜来源：V2EX</description>
+    </item>
+    <item>
+      <title>穷人比富人更早出现身体上的老化迹象</title>
+      <link>https://www.solidot.org/story?sid=85106</link>
+      <guid isPermaLink="false">b47ac667d1c087c4</guid>
+      <pubDate>Sun, 16 Aug 2026 22:36:18 +0800</pubDate>
+      <category>研究</category>
+      <description>发表在 PLOS Medicine 期刊上的一项研究显示，穷人比富人更早出现身体上的老化迹象，其中英国贫困人群出现身体机能下降的迹象比同龄富裕人群早 15 年，加拿大则是早 9 年。这项研究涉及了 8500 多名英国参与者以及 22600 ｜来源：Solidot</description>
+    </item>
+    <item>
+      <title>50个开源项目教会我们AI时代的安全经验</title>
+      <link>https://github.blog/open-source/maintainers/what-50-open-source-projects-taught-us-about-security-in-the-ai-era</link>
+      <guid isPermaLink="false">583ca5de052f3b43</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 +0800</pubDate>
+      <category>安全</category>
+      <description>GitHub Secure Open Source Fund 第四场会议展示了50个开源项目如何结合AI辅助工作流、维护者专业知识、GitHub安全工具、专家指导和资金支持来提升项目安全。｜来源：GitHub Blog</description>
+    </item>
+    <item>
+      <title>OpenAI任命Dali Rajic为首席营收官</title>
+      <link>https://openai.com/index/dali-rajic-chief-revenue-officer</link>
+      <guid isPermaLink="false">6eaab463a55def87</guid>
+      <pubDate>Thu, 13 Aug 2026 17:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>OpenAI任命Dali Rajic为首席营收官，负责全球营收组织，帮助企业实现AI价值。｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>Anthropic CEO Dario Amodei称AI反弹根源是信任危机</title>
+      <link>https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust</link>
+      <guid isPermaLink="false">c132c1e1c64dad92</guid>
+      <pubDate>Mon, 17 Aug 2026 00:53:51 +0800</pubDate>
+      <category>安全</category>
+      <description>他反驳了自己对AI持过度悲观看法的说法，认为当前的批评主要源于公众对AI的信任不足。｜来源：TechCrunch AI</description>
+    </item>
+    <item>
+      <title>Tim O’Reilly 谈大模型厂商需求错位与开源的重要性</title>
+      <link>https://www.wired.com/story/tech-visionary-says-the-big-ai-labs-dont-get-what-people-want</link>
+      <guid isPermaLink="false">143d65c1a098455f</guid>
+      <pubDate>Fri, 14 Aug 2026 23:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>Tim O’Reilly 指出大型 AI 实验室未能准确把握用户需求，并强调开源 AI 技术对于行业发展的重要性。｜来源：Wired AI</description>
+    </item>
+    <item>
+      <title>乌克兰用巡航导弹击中主要俄罗斯火箭厂</title>
+      <link>https://arstechnica.com/space/2026/08/ukraine-strikes-major-russian-rocket-factory-with-cruise-missiles</link>
+      <guid isPermaLink="false">8be8beaef499a270</guid>
+      <pubDate>Sat, 15 Aug 2026 23:46:05 +0800</pubDate>
+      <category>开源生态</category>
+      <description>米盖特导弹果断用，攻击取得成功。｜来源：Ars Technica</description>
+    </item>
+    <item>
+      <title>LLMOps与平台工程：AI管道归属之争</title>
+      <link>https://www.cncf.io/blog/2026/08/13/llmops-and-platform-engineering-who-should-own-the-ai-pipeline</link>
+      <guid isPermaLink="false">16d3d6d49cdd8066</guid>
+      <pubDate>Thu, 13 Aug 2026 19:00:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>大语言模型改变了传统模型上线流程，引发关于谁应负责AI管道的讨论，平台工程与MLOps职责边界成焦点。｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>B 站“教 AI”爆火后，北航副教授何静回应</title>
+      <link>https://www.qbitai.com/2026/08/474064.html</link>
+      <guid isPermaLink="false">c1656268f1e679bc</guid>
+      <pubDate>Sun, 16 Aug 2026 18:36:47 +0800</pubDate>
+      <category>研究</category>
+      <description>何静称需从根基推进 AI 教育，呼吁社区关注教学方法与伦理风险｜来源：量子位</description>
+    </item>
+    <item>
+      <title>Netflix详述其基于Triton与vLLM的内部LLM服务平台</title>
+      <link>https://www.infoq.cn/article/J9Zi9LELcpxFRe23PHdY</link>
+      <guid isPermaLink="false">51a7fd8b2d49950b</guid>
+      <pubDate>Mon, 17 Aug 2026 17:56:24 +0800</pubDate>
+      <category>开发工具</category>
+      <description>Netflix披露其自研LLM服务平台采用Triton框架和vLLM推理引擎，优化了模型部署效率和响应速度。｜来源：InfoQ 中文</description>
+    </item>
+  </channel>
+</rss>
