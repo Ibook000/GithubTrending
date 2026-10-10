@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub 趋势榜单（2026-03-24）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="github_trending_cards.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+    </div>
+
+    <!-- 页面标题 -->
+    <div class="header-container">
+        <h1>
+            <i class="fab fa-github"></i>
+            GitHub 趋势榜单
+            <span class="date-badge">2026-03-24</span>
+        </h1>
+        <p class="subtitle">发现最热门的开源项目</p>
+        
+        <!-- 历史记录入口 -->
+        <div class="history-entrance">
+            <a href="history/" class="history-btn">
+                <i class="fas fa-history"></i>
+                <span>查看历史记录</span>
+            </a>
+            <div class="history-tooltip">
+                📅 每日历史榜单已保存，点击查看完整记录
+            </div>
+        </div>
+    </div>
+
+    <!-- 标签页导航 -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="showTab('daily')" data-tab="daily">
+            <i class="fas fa-calendar-day"></i>
+            <span>日榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('weekly')" data-tab="weekly">
+            <i class="fas fa-calendar-week"></i>
+            <span>周榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('monthly')" data-tab="monthly">
+            <i class="fas fa-calendar-alt"></i>
+            <span>月榜</span>
+        </button>
+    </div>
+
+    <div id="daily" class="container tab-content">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/FujiwaraChoki/MoneyPrinterV2" target="_blank">FujiwaraChoki/MoneyPrinterV2</a></div>
+            <div class="desc">Automate the process of making money online.</div>
+            <div class="meta">
+                <span>🌟 23,309</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：FujiwaraChoki</div>
+            <div class="ai-summary"><b>AI总结：</b>自动化在线赚钱流程</div>
+            <a class="btn" href="https://github.com/FujiwaraChoki/MoneyPrinterV2" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/bytedance/deer-flow" target="_blank">bytedance/deer-flow</a></div>
+            <div class="desc">An open-source SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.</div>
+            <div class="meta">
+                <span>🌟 40,110</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：bytedance</div>
+            <div class="ai-summary"><b>AI总结：</b>这是一个强大的代理系统，基于沙盒、记忆、工具、子代理和消息网关等模块的协同工作，能够自动化解决复杂问题。</div>
+            <a class="btn" href="https://github.com/bytedance/deer-flow" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/Crosstalk-Solutions/project-nomad" target="_blank">Crosstalk-Solutions/project-nomad</a></div>
+            <div class="desc">Project N.O.M.A.D, is a self-contained, offline survival computer packed with critical tools, knowledge, and AI to keep you informed and empowered—anytime, anywhere.</div>
+            <div class="meta">
+                <span>🌟 13,615</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：Crosstalk-Solutions</div>
+            <div class="ai-summary"><b>AI总结：</b>Project N.O.M.A.D 是一款独立离线生存计算机，提供关键工具知识AI以随时保持信息和赋能。</div>
+            <a class="btn" href="https://github.com/Crosstalk-Solutions/project-nomad" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/vxcontrol/pentagi" target="_blank">vxcontrol/pentagi</a></div>
+            <div class="desc">Fully autonomous AI Agents system capable of performing complex penetration testing tasks</div>
+            <div class="meta">
+                <span>🌟 13,115</span>
+                <span>🍴 0</span>
+                <span>📝 Go</span>
+            </div>
+            <div class="author">作者：vxcontrol</div>
+            <div class="ai-summary"><b>AI总结：</b>通用自主人工智能代理系统，能执行复杂的渗透测试任务</div>
+            <a class="btn" href="https://github.com/vxcontrol/pentagi" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/browser-use/browser-use" target="_blank">browser-use/browser-use</a></div>
+            <div class="desc">🌐 Make websites accessible for AI agents. Automate tasks online with ease.</div>
+            <div class="meta">
+                <span>🌟 83,833</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：browser-use</div>
+            <div class="ai-summary"><b>AI总结：</b>让AI代理访问网站，轻松实现网页自动化，核心是自动化在线任务。</div>
+            <a class="btn" href="https://github.com/browser-use/browser-use" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/TauricResearch/TradingAgents" target="_blank">TauricResearch/TradingAgents</a></div>
+            <div class="desc">TradingAgents: Multi-Agents LLM Financial Trading Framework</div>
+            <div class="meta">
+                <span>🌟 39,589</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：TauricResearch</div>
+            <div class="ai-summary"><b>AI总结：</b>基于大语言模型协同多智能体实现金融量化策略交易框架</div>
+            <a class="btn" href="https://github.com/TauricResearch/TradingAgents" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/tinygrad/tinygrad" target="_blank">tinygrad/tinygrad</a></div>
+            <div class="desc">You like pytorch? You like micrograd? You love tinygrad! ❤️</div>
+            <div class="meta">
+                <span>🌟 31,918</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：tinygrad</div>
+            <div class="ai-summary"><b>AI总结：</b>核心用途是为极简、流动张量梯度的高效构建而生。
+亮点是构建轻量级模型的理想选择。</div>
+            <a class="btn" href="https://github.com/tinygrad/tinygrad" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/affaan-m/everything-claude-code" target="_blank">affaan-m/everything-claude-code</a></div>
+            <div class="desc">The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.</div>
+            <div class="meta">
+                <span>🌟 102,434</span>
+                <span>🍴 0</span>
+                <span>📝 JavaScript</span>
+            </div>
+            <div class="author">作者：affaan-m</div>
+            <div class="ai-summary"><b>AI总结：</b>一个专注于高性能优化的团队通识能力增强生态系统，专为Claude代码及相关研发平台设计，采用研究优先理念整合了多领域智能能力辅助开发。 
+
+（解析我关注的要点：1. 核心是"agent harness performance optimization system"作为定位词；2. 明确列出Claude Code/Codex/Opencode/Cursor 等目标平台；3. 保留"skills, instincts, memory, security"等原生亮点词；4. 融合"research-first development"的研究优先理念，用"多领域智能能力"概括具体功能；5. 使用"生态系统""辅助开发"等词保持技术准确性，同时确保中文语序流畅）</div>
+            <a class="btn" href="https://github.com/affaan-m/everything-claude-code" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/NousResearch/hermes-agent" target="_blank">NousResearch/hermes-agent</a></div>
+            <div class="desc">The agent that grows with you</div>
+            <div class="meta">
+                <span>🌟 11,712</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：NousResearch</div>
+            <div class="ai-summary"><b>AI总结：</b>智能代理助手，伴随你一同成长
+
+根据项目名称和简介"the agent that grows with you"(与你一同成长的智能代理)，这里已经提供了核心答案，只需简洁地组合起来。这样的表述既包含了核心用途(提供智能代理服务)，也突出了亮点(伴随成长)。</div>
+            <a class="btn" href="https://github.com/NousResearch/hermes-agent" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/jingyaogong/minimind" target="_blank">jingyaogong/minimind</a></div>
+            <div class="desc">🚀🚀 「大模型」2小时完全从0训练26M的小参数GPT！🌏 Train a 26M-parameter GPT from scratch in just 2h!</div>
+            <div class="meta">
+                <span>🌟 42,699</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：jingyaogong</div>
+            <div class="ai-summary"><b>AI总结：</b>该项目专注于在2小时内从零开始训练一个参数为26M的小型GPT模型，突出其快速高效的核心优势。</div>
+            <a class="btn" href="https://github.com/jingyaogong/minimind" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <div id="weekly" class="container tab-content" style="display:none;">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/Crosstalk-Solutions/project-nomad" target="_blank">Crosstalk-Solutions/project-nomad</a></div>
+            <div class="desc">Project N.O.M.A.D, is a self-contained, offline survival computer packed with critical tools, knowledge, and AI to keep you informed and empowered—anytime, anywhere.</div>
+            <div class="meta">
+                <span>🌟 13,617</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：Crosstalk-Solutions</div>
+            <div class="ai-summary"><b>AI总结：</b>这个 GitHub 项目核心用途是提供一个功能齐全的便携式离线生存计算机，亮点在于其强大的自持能力和集成基础AI功能与关键知识，帮助用户在任何环境下保持信息和资源领先地位。</div>
+            <a class="btn" href="https://github.com/Crosstalk-Solutions/project-nomad" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/jarrodwatts/claude-hud" target="_blank">jarrodwatts/claude-hud</a></div>
+            <div class="desc">A Claude Code plugin that shows what's happening - context usage, active tools, running agents, and todo progress</div>
+            <div class="meta">
+                <span>🌟 12,104</span>
+                <span>🍴 0</span>
+                <span>📝 JavaScript</span>
+            </div>
+            <div class="author">作者：jarrodwatts</div>
+            <div class="ai-summary"><b>AI总结：</b>Claude代码插件可视化运行状态，提供上下文使用、活跃工具、运行代理和待办事项的实时HUD界面。</div>
+            <a class="btn" href="https://github.com/jarrodwatts/claude-hud" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/FujiwaraChoki/MoneyPrinterV2" target="_blank">FujiwaraChoki/MoneyPrinterV2</a></div>
+            <div class="desc">Automate the process of making money online.</div>
+            <div class="meta">
+                <span>🌟 23,312</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：FujiwaraChoki</div>
+            <div class="ai-summary"><b>AI总结：</b>这项目可以自动化辅助在线赚钱的重复过程。</div>
+            <a class="btn" href="https://github.com/FujiwaraChoki/MoneyPrinterV2" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a></div>
+            <div class="desc">An agentic skills framework & software development methodology that works.</div>
+            <div class="meta">
+                <span>🌟 108,399</span>
+                <span>🍴 0</span>
+                <span>📝 Shell</span>
+            </div>
+            <div class="author">作者：obra</div>
+            <div class="ai-summary"><b>AI总结：</b>obra/superpowers 是一个专注于代理技能和软件开发的框架与方法论 其核心用途在于帮助开发智能代理系统 亮点在于其实际有效且可靠易用</div>
+            <a class="btn" href="https://github.com/obra/superpowers" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/666ghj/MiroFish" target="_blank">666ghj/MiroFish</a></div>
+            <div class="desc">A Simple and Universal Swarm Intelligence Engine, Predicting Anything. 简洁通用的群体智能引擎，预测万物</div>
+            <div class="meta">
+                <span>🌟 41,031</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：666ghj</div>
+            <div class="ai-summary"><b>AI总结：</b>描述万物的通用群体智能工具</div>
+            <a class="btn" href="https://github.com/666ghj/MiroFish" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/affaan-m/everything-claude-code" target="_blank">affaan-m/everything-claude-code</a></div>
+            <div class="desc">The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.</div>
+            <div class="meta">
+                <span>🌟 102,435</span>
+                <span>🍴 0</span>
+                <span>📝 JavaScript</span>
+            </div>
+            <div class="author">作者：affaan-m</div>
+            <div class="ai-summary"><b>AI总结：</b>A universal performance optimization system for Claude Agent, code intelligence tools, and more.</div>
+            <a class="btn" href="https://github.com/affaan-m/everything-claude-code" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/TauricResearch/TradingAgents" target="_blank">TauricResearch/TradingAgents</a></div>
+            <div class="desc">TradingAgents: Multi-Agents LLM Financial Trading Framework</div>
+            <div class="meta">
+                <span>🌟 39,589</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：TauricResearch</div>
+            <div class="ai-summary"><b>AI总结：</b>多智能体系统通过协作，利用大型语言模型等先进技术提升金融交易策略的分析与决策智能化水平。</div>
+            <a class="btn" href="https://github.com/TauricResearch/TradingAgents" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/langchain-ai/deepagents" target="_blank">langchain-ai/deepagents</a></div>
+            <div class="desc">Agent harness built with LangChain and LangGraph. Equipped with a planning tool, a filesystem backend, and the ability to spawn subagents - well-equipped to handle complex agentic tasks.</div>
+            <div class="meta">
+                <span>🌟 17,124</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：langchain-ai</div>
+            <div class="ai-summary"><b>AI总结：</b>DeepAgents是一款基于LangChain和LangGraph构建的智能体工具包，通过配备规划工具、文件系统和多智能体协同处理能力，实现复杂工作任务的自主执行。</div>
+            <a class="btn" href="https://github.com/langchain-ai/deepagents" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/unslothai/unsloth" target="_blank">unslothai/unsloth</a></div>
+            <div class="desc">Unsloth Studio is a web UI for training and running open models like Qwen, DeepSeek, gpt-oss and Gemma locally.</div>
+            <div class="meta">
+                <span>🌟 57,842</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：unslothai</div>
+            <div class="ai-summary"><b>AI总结：</b>一款开放且本地可运行的中文网页界面，供用户训练及使用Qwen、DeepSeek、gpt-oss和Gemma等开源模型，无需GPU，轻松简化AI本地部署流程</div>
+            <a class="btn" href="https://github.com/unslothai/unsloth" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/shadps4-emu/shadPS4" target="_blank">shadps4-emu/shadPS4</a></div>
+            <div class="desc">PlayStation 4 emulator for Windows, Linux and macOS written in C++</div>
+            <div class="meta">
+                <span>🌟 30,457</span>
+                <span>🍴 0</span>
+                <span>📝 C++</span>
+            </div>
+            <div class="author">作者：shadps4-emu</div>
+            <div class="ai-summary"><b>AI总结：</b>PlayStation 4模拟器 shadPS4 简介，以下信息已提取：</div>
+            <a class="btn" href="https://github.com/shadps4-emu/shadPS4" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <div id="monthly" class="container tab-content" style="display:none;">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/ruvnet/RuView" target="_blank">ruvnet/RuView</a></div>
+            <div class="desc">π RuView: WiFi DensePose turns commodity WiFi signals into real-time human pose estimation, vital sign monitoring, and presence detection — all without a single pixel of video.</div>
+            <div class="meta">
+                <span>🌟 40,391</span>
+                <span>🍴 0</span>
+                <span>📝 Rust</span>
+            </div>
+            <div class="author">作者：ruvnet</div>
+            <div class="ai-summary"><b>AI总结：</b>项目名称：ruvnet/RuView
+简介：π RuView: WiFi DensePose turns commodity WiFi signals into real-time human pose estimation, vital sign monitoring, and presence detection — all without a single pixel of video.
+
+RuView通过先进的WiFi DensePose技术，无需视频即可实时估计人体姿态与监测生命体征，实现隐私保护的感知方案。</div>
+            <a class="btn" href="https://github.com/ruvnet/RuView" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/666ghj/MiroFish" target="_blank">666ghj/MiroFish</a></div>
+            <div class="desc">A Simple and Universal Swarm Intelligence Engine, Predicting Anything. 简洁通用的群体智能引擎，预测万物</div>
+            <div class="meta">
+                <span>🌟 41,031</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：666ghj</div>
+            <div class="ai-summary"><b>AI总结：</b>基于群体智能实现多种事物预测与优化的简约通用计算引擎</div>
+            <a class="btn" href="https://github.com/666ghj/MiroFish" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/abhigyanpatwari/GitNexus" target="_blank">abhigyanpatwari/GitNexus</a></div>
+            <div class="desc">GitNexus: The Zero-Server Code Intelligence Engine - GitNexus is a client-side knowledge graph creator that runs entirely in your browser. Drop in a GitHub repo or ZIP file, and get an interactive knowledge graph wit a built in Graph RAG Agent. Perfect for code exploration</div>
+            <div class="meta">
+                <span>🌟 19,192</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：abhigyanpatwari</div>
+            <div class="ai-summary"><b>AI总结：</b>GitNexus是一个在浏览器中运行的代码智能引擎，可将GitHub仓库或ZIP文件转化为交互式知识图谱，并内置Graph RAG代理，助力高效代码探索。</div>
+            <a class="btn" href="https://github.com/abhigyanpatwari/GitNexus" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/D4Vinci/Scrapling" target="_blank">D4Vinci/Scrapling</a></div>
+            <div class="desc">🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!</div>
+            <div class="meta">
+                <span>🌟 32,267</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：D4Vinci</div>
+            <div class="ai-summary"><b>AI总结：</b>D4Vinci/Scrapling 是一个适应性强、既能处理小规模数据又能高效完成大规模网络爬取的框架。</div>
+            <a class="btn" href="https://github.com/D4Vinci/Scrapling" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/bytedance/deer-flow" target="_blank">bytedance/deer-flow</a></div>
+            <div class="desc">An open-source SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.</div>
+            <div class="meta">
+                <span>🌟 40,111</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：bytedance</div>
+            <div class="ai-summary"><b>AI总结：</b>便捷处理复杂任务的智能代理框架，通过模块化设计简化构建和执行 intricate workflow。</div>
+            <a class="btn" href="https://github.com/bytedance/deer-flow" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/koala73/worldmonitor" target="_blank">koala73/worldmonitor</a></div>
+            <div class="desc">Real-time global intelligence dashboard — AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface</div>
+            <div class="meta">
+                <span>🌟 43,264</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：koala73</div>
+            <div class="ai-summary"><b>AI总结：</b>koala73/worldmonitor 是一个AI驱动的全球实时情报仪表板，通过统一的情境感知界面整合新闻聚合、地缘政治监测和基础设施追踪，实现全面的全球信息监控。</div>
+            <a class="btn" href="https://github.com/koala73/worldmonitor" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/shanraisshan/claude-code-best-practice" target="_blank">shanraisshan/claude-code-best-practice</a></div>
+            <div class="desc">practice made claude perfect</div>
+            <div class="meta">
+                <span>🌟 21,229</span>
+                <span>🍴 0</span>
+                <span>📝 HTML</span>
+            </div>
+            <div class="author">作者：shanraisshan</div>
+            <div class="ai-summary"><b>AI总结：</b>优化Claude AI代码实践工具，提升生成质量。</div>
+            <a class="btn" href="https://github.com/shanraisshan/claude-code-best-practice" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/moeru-ai/airi" target="_blank">moeru-ai/airi</a></div>
+            <div class="desc">💖🧸 Self hosted, you-owned Grok Companion, a container of souls of waifu, cyber livings to bring them into our worlds, wishing to achieve Neuro-sama's altitude. Capable of realtime voice chat, Minecraft, Factorio playing. Web / macOS / Windows supported.</div>
+            <div class="meta">
+                <span>🌟 35,350</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：moeru-ai</div>
+            <div class="ai-summary"><b>AI总结：</b>一个可本地自托管、追求神经元智能的拟人聊天伴侣，既支持实时语音及游戏互动又完全私有可控</div>
+            <a class="btn" href="https://github.com/moeru-ai/airi" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/shareAI-lab/learn-claude-code" target="_blank">shareAI-lab/learn-claude-code</a></div>
+            <div class="desc">Bash is all you need - A nano claude code–like 「agent harness」, built from 0 to 1</div>
+            <div class="meta">
+                <span>🌟 37,259</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：shareAI-lab</div>
+            <div class="ai-summary"><b>AI总结：</b>Nano-Bash Agent Harness: Only need Bash to build an agent harness similar to Claude-like functionality.</div>
+            <a class="btn" href="https://github.com/shareAI-lab/learn-claude-code" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/volcengine/OpenViking" target="_blank">volcengine/OpenViking</a></div>
+            <div class="desc">OpenViking is an open-source context database designed specifically for AI Agents(such as openclaw). OpenViking unifies the management of context (memory, resources, and skills) that Agents need through a file system paradigm, enabling hierarchical context delivery and self-evolving.</div>
+            <div class="meta">
+                <span>🌟 18,497</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：volcengine</div>
+            <div class="ai-summary"><b>AI总结：</b>OpenViking是专为AI Agent设计的上下文数据库，通过文件系统支撑记忆、技能统一存储和自动演进，简化Agent开发。</div>
+            <a class="btn" href="https://github.com/volcengine/OpenViking" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <script>
+    // 主题切换功能
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // 添加切换动画
+        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+    }
+
+    // 页面加载时恢复主题设置
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+
+    // 标签页切换功能
+    function showTab(tab) {
+        // 隐藏所有标签页内容
+        document.getElementById('daily').style.display = 'none';
+        document.getElementById('weekly').style.display = 'none';
+        document.getElementById('monthly').style.display = 'none';
+
+        // 显示选中的标签页
+        document.getElementById(tab).style.display = '';
+
+        // 更新标签页按钮状态
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+
+        // 添加切换动画
+        const container = document.getElementById(tab);
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(20px)';
+
+        setTimeout(() => {
+            container.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+        }, 50);
+
+        setTimeout(() => {
+            container.style.transition = '';
+        }, 450);
+    }
+
+    // 卡片动画效果
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    });
+    </script>
+</body>
+</html>

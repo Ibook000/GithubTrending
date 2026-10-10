@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub 趋势榜单（2026-05-10）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="github_trending_cards.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+    </div>
+
+    <main class="page-shell">
+        <section class="hero reveal-item">
+            <div class="hero-copy">
+                <div class="hero-topline">
+                    <span class="eyebrow">OPEN SOURCE RADAR</span>
+                    <span class="date-badge">2026-05-10</span>
+                </div>
+                <h1>GitHub 趋势榜单</h1>
+                <p class="hero-lead">把 GitHub Trending 做成一张更好扫读的中文技术榜单，帮助你在几分钟内判断哪些项目值得点开。</p>
+                <div class="hero-actions">
+                    <a href="#repo-sections" class="primary-link">开始浏览</a>
+                    <a href="history/" class="history-btn">查看历史记录</a>
+                </div>
+                <div class="hero-strip">
+                    <div class="hero-stat">
+                        <strong>3</strong>
+                        <span>日 / 周 / 月榜</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>30</strong>
+                        <span>本次收录项目</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>AI</strong>
+                        <span>一句话辅助筛选</span>
+                    </div>
+                </div>
+                <p class="hero-caption">自动抓取 GitHub Trending Top 10，结合作者、语言、Star 与 AI 摘要快速建立第一判断。</p>
+            </div>
+
+            <aside class="hero-spotlight reveal-item">
+                <span class="spotlight-label">DAILY HIGHLIGHT</span>
+                <h2><a href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener noreferrer">anthropics/financial-services</a></h2>
+                <p class="spotlight-desc">无描述</p>
+                <div class="spotlight-meta">
+                    <span><i class="fa-solid fa-star"></i>17,679</span>
+                    <span><i class="fa-solid fa-code"></i>Python</span>
+                    <span><i class="fa-regular fa-user"></i>anthropics</span>
+                </div>
+                <div class="spotlight-summary">
+                    <span>AI 一句话</span>
+                    <p>一个Python项目：无描述...</p>
+                </div>
+            </aside>
+        </section>
+
+        <section class="tabs-shell reveal-item" id="repo-sections">
+            <div class="section-intro">
+                <span class="eyebrow">TREND WINDOWS</span>
+                <h2>按时间尺度切换热度</h2>
+                <p>日榜看刚起势的项目，周榜看持续发酵的方向，月榜更适合判断长期关注价值。</p>
+            </div>
+            <div class="tab-navigation" role="tablist" aria-label="趋势榜单切换">
+                <button id="tab-daily" class="tab-btn active" onclick="showTab('daily')" data-tab="daily" role="tab" aria-selected="true" aria-controls="daily">
+                    <span class="tab-label">日榜</span>
+                    <span class="tab-sub">Today</span>
+                </button>
+                <button id="tab-weekly" class="tab-btn" onclick="showTab('weekly')" data-tab="weekly" role="tab" aria-selected="false" aria-controls="weekly">
+                    <span class="tab-label">周榜</span>
+                    <span class="tab-sub">Week</span>
+                </button>
+                <button id="tab-monthly" class="tab-btn" onclick="showTab('monthly')" data-tab="monthly" role="tab" aria-selected="false" aria-controls="monthly">
+                    <span class="tab-label">月榜</span>
+                    <span class="tab-sub">Month</span>
+                </button>
+            </div>
+        </section>
+
+        <div class="repo-sections">
+
+            <section id="daily" class="tab-content active" role="tabpanel" aria-labelledby="tab-daily">
+                <div class="section-head reveal-item">
+                    <div class="section-copy">
+                        <span class="eyebrow">TODAY SIGNAL</span>
+                        <h2>日榜</h2>
+                        <p>追踪今天刚刚升温的项目，适合快速发现新热点。</p>
+                    </div>
+                    <div class="section-meta">
+                        <span class="section-count">10</span>
+                        <span class="section-note">Top 10 repositories</span>
+                    </div>
+                </div>
+                <div class="repo-list">
+
+                <article class="repo-entry reveal-item" style="--entry-delay:60ms;">
+                    <div class="repo-rank">01</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener noreferrer">anthropics/financial-services</a></h3>
+                        </div>
+                        <p class="repo-desc">无描述</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>一个Python项目：无描述...</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>17,679</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 anthropics</span>
+                        </div>
+                        <a class="btn" href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:120ms;">
+                    <div class="repo-rank">02</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/bytedance/UI-TARS-desktop" target="_blank" rel="noopener noreferrer">bytedance/UI-TARS-desktop</a></h3>
+                        </div>
+                        <p class="repo-desc">The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>这是一个开源的多模态AI智能体框架，整合先进的AI模型和智能体基础设施，帮助开发者快速构建多模态AI应用。</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>31,561</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>TypeScript</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 bytedance</span>
+                        </div>
+                        <a class="btn" href="https://github.com/bytedance/UI-TARS-desktop" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:180ms;">
+                    <div class="repo-rank">03</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/rohitg00/agentmemory" target="_blank" rel="noopener noreferrer">rohitg00/agentmemory</a></h3>
+                        </div>
+                        <p class="repo-desc">#1 Persistent memory for AI coding agents based on real-world benchmarks</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>一个TypeScript项目：#1 Persistent memory for AI co...</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>3,603</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>TypeScript</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 rohitg00</span>
+                        </div>
+                        <a class="btn" href="https://github.com/rohitg00/agentmemory" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:240ms;">
+                    <div class="repo-rank">04</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/datawhalechina/hello-agents" target="_blank" rel="noopener noreferrer">datawhalechina/hello-agents</a></h3>
+                        </div>
+                        <p class="repo-desc">📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>datawhalechina/hello-agents是一个帮助开发者从零学习智能体原理并通过实践掌握构建智能体技能的教程项目</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>45,839</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 datawhalechina</span>
+                        </div>
+                        <a class="btn" href="https://github.com/datawhalechina/hello-agents" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:300ms;">
+                    <div class="repo-rank">05</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/datawhalechina/easy-vibe" target="_blank" rel="noopener noreferrer">datawhalechina/easy-vibe</a></h3>
+                        </div>
+                        <p class="repo-desc">💻 vibe coding 2026 | Your first modern programming course for beginners to master step by step.</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>一个JavaScript项目：💻 vibe coding 2026 | Your firs...</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>8,646</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>JavaScript</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 datawhalechina</span>
+                        </div>
+                        <a class="btn" href="https://github.com/datawhalechina/easy-vibe" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:360ms;">
+                    <div class="repo-rank">06</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/rowboatlabs/rowboat" target="_blank" rel="noopener noreferrer">rowboatlabs/rowboat</a></h3>
+                        </div>
+                        <p class="repo-desc">Open-source AI coworker, with memory</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>一个TypeScript项目：Open-source AI coworker, with ...</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>13,859</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>TypeScript</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 rowboatlabs</span>
+                        </div>
+                        <a class="btn" href="https://github.com/rowboatlabs/rowboat" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:420ms;">
+                    <div class="repo-rank">07</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener noreferrer">ChromeDevTools/chrome-devtools-mcp</a></h3>
+                        </div>
+                        <p class="repo-desc">Chrome DevTools for coding agents</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>让AI编程代理能够使用Chrome开发者工具进行网页调试和检查的开源工具</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>38,905</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>TypeScript</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 ChromeDevTools</span>
+                        </div>
+                        <a class="btn" href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:480ms;">
+                    <div class="repo-rank">08</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/masterking32/MasterDnsVPN" target="_blank" rel="noopener noreferrer">masterking32/MasterDnsVPN</a></h3>
+                        </div>
+                        <p class="repo-desc">Advanced DNS tunneling VPN for censorship bypass, optimized beyond DNSTT and SlipStream with low-overhead ARQ, resolver load balancing, high packet-loss stability and speed.</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>一个Go项目：Advanced DNS tunneling VPN for...</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>2,632</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Go</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 masterking32</span>
+                        </div>
+                        <a class="btn" href="https://github.com/masterking32/MasterDnsVPN" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:540ms;">
+                    <div class="repo-rank">09</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/playcanvas/supersplat" target="_blank" rel="noopener noreferrer">playcanvas/supersplat</a></h3>
+                        </div>
+                        <p class="repo-desc">3D Gaussian Splat Editor</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>这是一个用于实时编辑和预览3D Gaussian Splat模型的Web编辑器，支持可视化管理大规模点云场景</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>6,399</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>TypeScript</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 playcanvas</span>
+                        </div>
+                        <a class="btn" href="https://github.com/playcanvas/supersplat" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:600ms;">
+                    <div class="repo-rank">10</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">日榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/Lordog/dive-into-llms" target="_blank" rel="noopener noreferrer">Lordog/dive-into-llms</a></h3>
+                        </div>
+                        <p class="repo-desc">《动手学大模型Dive into LLMs》系列编程实践教程</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>动手学系列编程实践教程帮助开发者从零基础快速掌握大模型核心技术与应用开发</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>36,594</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Jupyter Notebook</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 Lordog</span>
+                        </div>
+                        <a class="btn" href="https://github.com/Lordog/dive-into-llms" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                </div>
+            </section>
+        
+            <section id="weekly" class="tab-content" role="tabpanel" aria-labelledby="tab-weekly" hidden>
+                <div class="section-head reveal-item">
+                    <div class="section-copy">
+                        <span class="eyebrow">WEEKLY MOMENTUM</span>
+                        <h2>周榜</h2>
+                        <p>观察一周内持续发酵的仓库，更容易看出真正被社区验证的方向。</p>
+                    </div>
+                    <div class="section-meta">
+                        <span class="section-count">10</span>
+                        <span class="section-note">Top 10 repositories</span>
+                    </div>
+                </div>
+                <div class="repo-list">
+
+                <article class="repo-entry reveal-item" style="--entry-delay:60ms;">
+                    <div class="repo-rank">01</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener noreferrer">anthropics/financial-services</a></h3>
+                        </div>
+                        <p class="repo-desc">无描述</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>该项目提供金融领域的人工智能模型、数据管道和示例代码，帮助快速构建智能金融服务</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>17,706</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 anthropics</span>
+                        </div>
+                        <a class="btn" href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:120ms;">
+                    <div class="repo-rank">02</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/ruvnet/ruflo" target="_blank" rel="noopener noreferrer">ruvnet/ruflo</a></h3>
+                        </div>
+                        <p class="repo-desc">🌊 The leading agent orchestration platform for Claude. Deploy intelligent multi-agent swarms, coordinate autonomous workflows, and build conversational AI systems. Features enterprise-grade architecture, self-learning swarm intelligence, RAG integration, and native Claude Code / Codex Integration</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>这是一个面向Claude的智能agent编排平台可部署多agent系统编排自主工作流具备企业级架构自学习群智能和RAG集成等亮点</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>47,965</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>TypeScript</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 ruvnet</span>
+                        </div>
+                        <a class="btn" href="https://github.com/ruvnet/ruflo" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:180ms;">
+                    <div class="repo-rank">03</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/TauricResearch/TradingAgents" target="_blank" rel="noopener noreferrer">TauricResearch/TradingAgents</a></h3>
+                        </div>
+                        <p class="repo-desc">TradingAgents: Multi-Agents LLM Financial Trading Framework</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>基于大语言模型的多智能体金融交易框架实现自动行情分析策略生成和执行</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>72,628</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 TauricResearch</span>
+                        </div>
+                        <a class="btn" href="https://github.com/TauricResearch/TradingAgents" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:240ms;">
+                    <div class="repo-rank">04</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/docusealco/docuseal" target="_blank" rel="noopener noreferrer">docusealco/docuseal</a></h3>
+                        </div>
+                        <p class="repo-desc">Open source DocuSign alternative. Create, fill, and sign digital documents ✍️</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>开源文档签署平台支持创建填写并签署数字文档</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>16,117</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Ruby</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 docusealco</span>
+                        </div>
+                        <a class="btn" href="https://github.com/docusealco/docuseal" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:300ms;">
+                    <div class="repo-rank">05</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/virattt/dexter" target="_blank" rel="noopener noreferrer">virattt/dexter</a></h3>
+                        </div>
+                        <p class="repo-desc">An autonomous agent for deep financial research</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>这是一个用于深度金融研究的自主代理平台自动分析海量金融数据并生成投资洞见</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>25,079</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>TypeScript</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 virattt</span>
+                        </div>
+                        <a class="btn" href="https://github.com/virattt/dexter" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:360ms;">
+                    <div class="repo-rank">06</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/soxoj/maigret" target="_blank" rel="noopener noreferrer">soxoj/maigret</a></h3>
+                        </div>
+                        <p class="repo-desc">🕵️‍♂️ Collect a dossier on a person by username from 3000+ sites</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>根据用户名在三千多个网站上快速收集个人资料生成档案</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>27,130</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 soxoj</span>
+                        </div>
+                        <a class="btn" href="https://github.com/soxoj/maigret" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:420ms;">
+                    <div class="repo-rank">07</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/1jehuang/jcode" target="_blank" rel="noopener noreferrer">1jehuang/jcode</a></h3>
+                        </div>
+                        <p class="repo-desc">Coding Agent Harness</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>该项目是一个编码代理框架实现代码生成审查和优化提升开发效率</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>5,391</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Rust</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 1jehuang</span>
+                        </div>
+                        <a class="btn" href="https://github.com/1jehuang/jcode" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:480ms;">
+                    <div class="repo-rank">08</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/cocoindex-io/cocoindex" target="_blank" rel="noopener noreferrer">cocoindex-io/cocoindex</a></h3>
+                        </div>
+                        <p class="repo-desc">Incremental engine for long horizon agents 🌟 Star if you like it!</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>cocoindex提供高效增量计算能力帮助构建长时域智能代理</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>9,363</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 cocoindex-io</span>
+                        </div>
+                        <a class="btn" href="https://github.com/cocoindex-io/cocoindex" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:540ms;">
+                    <div class="repo-rank">09</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/AIDC-AI/Pixelle-Video" target="_blank" rel="noopener noreferrer">AIDC-AI/Pixelle-Video</a></h3>
+                        </div>
+                        <p class="repo-desc">🚀 AI 全自动短视频引擎 | AI Fully Automated Short Video Engine</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>这是一款AI全自动短视频引擎，能自动化完成短视频从生成到制作的完整流程</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>14,276</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 AIDC-AI</span>
+                        </div>
+                        <a class="btn" href="https://github.com/AIDC-AI/Pixelle-Video" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:600ms;">
+                    <div class="repo-rank">10</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">周榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener noreferrer">mattpocock/skills</a></h3>
+                        </div>
+                        <p class="repo-desc">Skills for Real Engineers. Straight from my .claude directory.</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>为实际工程师提供可直接使用的真实技能集合。</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>68,242</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Shell</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 mattpocock</span>
+                        </div>
+                        <a class="btn" href="https://github.com/mattpocock/skills" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                </div>
+            </section>
+        
+            <section id="monthly" class="tab-content" role="tabpanel" aria-labelledby="tab-monthly" hidden>
+                <div class="section-head reveal-item">
+                    <div class="section-copy">
+                        <span class="eyebrow">MONTHLY ARC</span>
+                        <h2>月榜</h2>
+                        <p>筛选月度长坡厚雪型项目，适合判断长期关注价值。</p>
+                    </div>
+                    <div class="section-meta">
+                        <span class="section-count">10</span>
+                        <span class="section-note">Top 10 repositories</span>
+                    </div>
+                </div>
+                <div class="repo-list">
+
+                <article class="repo-entry reveal-item" style="--entry-delay:60ms;">
+                    <div class="repo-rank">01</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/forrestchang/andrej-karpathy-skills" target="_blank" rel="noopener noreferrer">forrestchang/andrej-karpathy-skills</a></h3>
+                        </div>
+                        <p class="repo-desc">A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy&#x27;s observations on LLM coding pitfalls.</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>这个项目通过提供CLAUDE.md配置文件，结合Andrej Karpathy对LLM编码陷阱的深入观察，帮助AI编程助手避免常见错误并提升代码生成质量</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>122,590</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>未知</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 forrestchang</span>
+                        </div>
+                        <a class="btn" href="https://github.com/forrestchang/andrej-karpathy-skills" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:120ms;">
+                    <div class="repo-rank">02</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener noreferrer">mattpocock/skills</a></h3>
+                        </div>
+                        <p class="repo-desc">Skills for Real Engineers. Straight from my .claude directory.</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>这个项目为工程师提供真实实用的技能和经验集合</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>68,254</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Shell</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 mattpocock</span>
+                        </div>
+                        <a class="btn" href="https://github.com/mattpocock/skills" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:180ms;">
+                    <div class="repo-rank">03</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">NousResearch/hermes-agent</a></h3>
+                        </div>
+                        <p class="repo-desc">The agent that grows with you</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>NousResearch/hermes-agent是一个随需求不断成长和扩展的智能代理框架</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>141,278</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 NousResearch</span>
+                        </div>
+                        <a class="btn" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:240ms;">
+                    <div class="repo-rank">04</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/Alishahryar1/free-claude-code" target="_blank" rel="noopener noreferrer">Alishahryar1/free-claude-code</a></h3>
+                        </div>
+                        <p class="repo-desc">Use claude-code for free in the terminal, VSCode extension or discord like OpenClaw (voice supported)</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>在终端和VSCode扩展以及Discord上免费使用支持语音的Claude代码工具</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>23,304</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 Alishahryar1</span>
+                        </div>
+                        <a class="btn" href="https://github.com/Alishahryar1/free-claude-code" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:300ms;">
+                    <div class="repo-rank">05</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/multica-ai/multica" target="_blank" rel="noopener noreferrer">multica-ai/multica</a></h3>
+                        </div>
+                        <p class="repo-desc">The open-source managed agents platform. Turn coding agents into real teammates — assign tasks, track progress, compound skills.</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>开源托管代理平台让编码代理成为可分配任务跟踪进度并累积技能的团队成员</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>26,678</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>TypeScript</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 multica-ai</span>
+                        </div>
+                        <a class="btn" href="https://github.com/multica-ai/multica" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:360ms;">
+                    <div class="repo-rank">06</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener noreferrer">addyosmani/agent-skills</a></h3>
+                        </div>
+                        <p class="repo-desc">Production-grade engineering skills for AI coding agents.</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>一个Shell项目：Production-grade engineering s...</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>37,623</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Shell</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 addyosmani</span>
+                        </div>
+                        <a class="btn" href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:420ms;">
+                    <div class="repo-rank">07</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/AIDC-AI/Pixelle-Video" target="_blank" rel="noopener noreferrer">AIDC-AI/Pixelle-Video</a></h3>
+                        </div>
+                        <p class="repo-desc">🚀 AI 全自动短视频引擎 | AI Fully Automated Short Video Engine</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>基于AI的全自动短视频生成引擎实现从文本或素材快速创作高质量短视频</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>14,278</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 AIDC-AI</span>
+                        </div>
+                        <a class="btn" href="https://github.com/AIDC-AI/Pixelle-Video" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:480ms;">
+                    <div class="repo-rank">08</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/lsdefine/GenericAgent" target="_blank" rel="noopener noreferrer">lsdefine/GenericAgent</a></h3>
+                        </div>
+                        <p class="repo-desc">Self-evolving agent: grows skill tree from 3.3K-line seed, achieving full system control with 6x less token consumption</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>通用智能体自进化从三千三百行代码种子扩展技能树实现系统全面控制令牌消耗降低六倍</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>10,343</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 lsdefine</span>
+                        </div>
+                        <a class="btn" href="https://github.com/lsdefine/GenericAgent" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:540ms;">
+                    <div class="repo-rank">09</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer">shiyu-coder/Kronos</a></h3>
+                        </div>
+                        <p class="repo-desc">Kronos: A Foundation Model for the Language of Financial Markets</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>Kronos是金融市场的语言基础模型提供市场预测和情绪分析</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>23,810</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 shiyu-coder</span>
+                        </div>
+                        <a class="btn" href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                <article class="repo-entry reveal-item" style="--entry-delay:600ms;">
+                    <div class="repo-rank">10</div>
+                    <div class="repo-main">
+                        <div class="repo-heading">
+                            <span class="repo-kicker">月榜</span>
+                            <h3 class="repo-title"><a href="https://github.com/ComposioHQ/awesome-codex-skills" target="_blank" rel="noopener noreferrer">ComposioHQ/awesome-codex-skills</a></h3>
+                        </div>
+                        <p class="repo-desc">A curated list of practical Codex skills for automating workflows across the Codex CLI and API.</p>
+                        <div class="repo-summary">
+                            <span class="summary-label">AI 一句话</span>
+                            <p>该项目收集实用的Codex技能帮助在Codex CLI和API上自动化工作流程并提升效率简化复杂任务。</p>
+                        </div>
+                    </div>
+                    <div class="repo-side">
+                        <div class="repo-meta">
+
+                    <span class="meta-pill"><i class="fa-solid fa-star"></i>7,844</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code-fork"></i>0</span>
+                    <span class="meta-pill"><i class="fa-solid fa-code"></i>Python</span>
+        
+                        </div>
+                        <div class="author-line">
+                            <i class="fa-regular fa-user"></i>
+                            <span>作者 ComposioHQ</span>
+                        </div>
+                        <a class="btn" href="https://github.com/ComposioHQ/awesome-codex-skills" target="_blank" rel="noopener noreferrer">查看仓库</a>
+                    </div>
+                </article>
+        
+                </div>
+            </section>
+        
+        </div>
+
+        <footer class="page-footer">
+            <p>数据来源 GitHub Trending · 支持日榜、周榜、月榜 · 历史页面保存在 gh-pages 分支</p>
+            <p>页面生成时间 2026-05-10</p>
+        </footer>
+    </main>
+
+    <script>
+    function applyTheme(theme) {
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
+
+    function toggleTheme() {
+        const currentTheme = document.body.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        applyTheme(nextTheme);
+    }
+
+    function showTab(tab) {
+        const sections = document.querySelectorAll('.tab-content');
+        const buttons = document.querySelectorAll('.tab-btn');
+
+        sections.forEach(section => {
+            const active = section.id === tab;
+            section.hidden = !active;
+            section.classList.toggle('active', active);
+        });
+
+        buttons.forEach(button => {
+            const active = button.dataset.tab === tab;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        applyTheme(localStorage.getItem('theme') || 'light');
+        showTab('daily');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -10% 0px'
+        });
+
+        document.querySelectorAll('.reveal-item').forEach(item => {
+            observer.observe(item);
+        });
+    });
+    </script>
+</body>
+</html>

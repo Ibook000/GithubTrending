@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub 趋势榜单（2025-12-18）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="github_trending_cards.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+    </div>
+
+    <!-- 页面标题 -->
+    <div class="header-container">
+        <h1>
+            <i class="fab fa-github"></i>
+            GitHub 趋势榜单
+            <span class="date-badge">2025-12-18</span>
+        </h1>
+        <p class="subtitle">发现最热门的开源项目</p>
+        
+        <!-- 历史记录入口 -->
+        <div class="history-entrance">
+            <a href="history/" class="history-btn">
+                <i class="fas fa-history"></i>
+                <span>查看历史记录</span>
+            </a>
+            <div class="history-tooltip">
+                📅 每日历史榜单已保存，点击查看完整记录
+            </div>
+        </div>
+    </div>
+
+    <!-- 标签页导航 -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="showTab('daily')" data-tab="daily">
+            <i class="fas fa-calendar-day"></i>
+            <span>日榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('weekly')" data-tab="weekly">
+            <i class="fas fa-calendar-week"></i>
+            <span>周榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('monthly')" data-tab="monthly">
+            <i class="fas fa-calendar-alt"></i>
+            <span>月榜</span>
+        </button>
+    </div>
+
+    <div id="daily" class="container tab-content">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/C4illin/ConvertX" target="_blank">C4illin/ConvertX</a></div>
+            <div class="desc">💾 Self-hosted online file converter. Supports 1000+ formats ⚙️</div>
+            <div class="meta">
+                <span>🌟 12,151</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：C4illin</div>
+            <div class="ai-summary"><b>AI总结：</b>将1000多种格式文件互相转码的自托管式在线转换平台</div>
+            <a class="btn" href="https://github.com/C4illin/ConvertX" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/resemble-ai/chatterbox" target="_blank">resemble-ai/chatterbox</a></div>
+            <div class="desc">SoTA open-source TTS</div>
+            <div class="meta">
+                <span>🌟 15,855</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：resemble-ai</div>
+            <div class="ai-summary"><b>AI总结：</b>将文字转换为自然语音的最新技术系统</div>
+            <a class="btn" href="https://github.com/resemble-ai/chatterbox" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/virattt/ai-hedge-fund" target="_blank">virattt/ai-hedge-fund</a></div>
+            <div class="desc">An AI Hedge Fund Team</div>
+            <div class="meta">
+                <span>🌟 43,409</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：virattt</div>
+            <div class="ai-summary"><b>AI总结：</b>AI量化投资团队</div>
+            <a class="btn" href="https://github.com/virattt/ai-hedge-fund" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/simstudioai/sim" target="_blank">simstudioai/sim</a></div>
+            <div class="desc">Open-source platform to build and deploy AI agent workflows.</div>
+            <div class="meta">
+                <span>🌟 23,493</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：simstudioai</div>
+            <div class="ai-summary"><b>AI总结：</b>这是一个构建和部署AI代理工作流的开源平台，集成了模型集成与定制能力。</div>
+            <a class="btn" href="https://github.com/simstudioai/sim" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/Free-TV/IPTV" target="_blank">Free-TV/IPTV</a></div>
+            <div class="desc">M3U Playlist for free TV channels</div>
+            <div class="meta">
+                <span>🌟 8,655</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：Free-TV</div>
+            <div class="ai-summary"><b>AI总结：</b>提供免费电视频道的M3U播放列表，方便用户随时随地观看。</div>
+            <a class="btn" href="https://github.com/Free-TV/IPTV" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/TapXWorld/ChinaTextbook" target="_blank">TapXWorld/ChinaTextbook</a></div>
+            <div class="desc">所有小初高、大学PDF教材。</div>
+            <div class="meta">
+                <span>🌟 62,904</span>
+                <span>🍴 0</span>
+                <span>📝 Roff</span>
+            </div>
+            <div class="author">作者：TapXWorld</div>
+            <div class="ai-summary"><b>AI总结：</b>提供各类教材的免费获取渠道</div>
+            <a class="btn" href="https://github.com/TapXWorld/ChinaTextbook" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/0xk1h0/ChatGPT_DAN" target="_blank">0xk1h0/ChatGPT_DAN</a></div>
+            <div class="desc">ChatGPT DAN, Jailbreaks prompt</div>
+            <div class="meta">
+                <span>🌟 10,468</span>
+                <span>🍴 0</span>
+                <span>📝 未知</span>
+            </div>
+            <div class="author">作者：0xk1h0</div>
+            <div class="ai-summary"><b>AI总结：</b>此项目旨在提供突破ChatGPT伦理限制、实现自由对话模式的工具，用户可与ChatGPT进行各种角色扮演和风格对话。</div>
+            <a class="btn" href="https://github.com/0xk1h0/ChatGPT_DAN" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/public-apis/public-apis" target="_blank">public-apis/public-apis</a></div>
+            <div class="desc">A collective list of free APIs</div>
+            <div class="meta">
+                <span>🌟 386,120</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：public-apis</div>
+            <div class="ai-summary"><b>AI总结：</b>公共 apis 项目提供一个免费 api 的集中清单 其核心用途是方便开发者发现和使用各种 api 其亮点在于汇集众多资源便于快速探索</div>
+            <a class="btn" href="https://github.com/public-apis/public-apis" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/nicotsx/zerobyte" target="_blank">nicotsx/zerobyte</a></div>
+            <div class="desc">Backup automation for self-hosters. Built on top of restic</div>
+            <div class="meta">
+                <span>🌟 3,265</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：nicotsx</div>
+            <div class="ai-summary"><b>AI总结：</b>自托管备份自动化工具，基于restic</div>
+            <a class="btn" href="https://github.com/nicotsx/zerobyte" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/jellyfin/jellyfin-desktop" target="_blank">jellyfin/jellyfin-desktop</a></div>
+            <div class="desc">Jellyfin Desktop Client</div>
+            <div class="meta">
+                <span>🌟 4,894</span>
+                <span>🍴 0</span>
+                <span>📝 C++</span>
+            </div>
+            <div class="author">作者：jellyfin</div>
+            <div class="ai-summary"><b>AI总结：</b>通过客户端桌面应用管理访问Jellyfin媒体服务器，支持本地播放增强用户媒体体验。</div>
+            <a class="btn" href="https://github.com/jellyfin/jellyfin-desktop" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <div id="weekly" class="container tab-content" style="display:none;">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/thedotmack/claude-mem" target="_blank">thedotmack/claude-mem</a></div>
+            <div class="desc">A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude's agent-sdk), and injects relevant context back into future sessions.</div>
+            <div class="meta">
+                <span>🌟 7,838</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：thedotmack</div>
+            <div class="ai-summary"><b>AI总结：</b>自动化记录Claude在代码会话中的行为，通过AI整合经验，提升后续编码表现与理解。</div>
+            <a class="btn" href="https://github.com/thedotmack/claude-mem" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/simstudioai/sim" target="_blank">simstudioai/sim</a></div>
+            <div class="desc">Open-source platform to build and deploy AI agent workflows.</div>
+            <div class="meta">
+                <span>🌟 23,493</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：simstudioai</div>
+            <div class="ai-summary"><b>AI总结：</b>这个项目是构建和部署AI代理工作流程的开源平台。</div>
+            <a class="btn" href="https://github.com/simstudioai/sim" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/DayuanJiang/next-ai-draw-io" target="_blank">DayuanJiang/next-ai-draw-io</a></div>
+            <div class="desc">A next.js web application that integrates AI capabilities with draw.io diagrams. This app allows you to create, modify, and enhance diagrams through natural language commands and AI-assisted visualization.</div>
+            <div class="meta">
+                <span>🌟 12,767</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：DayuanJiang</div>
+            <div class="ai-summary"><b>AI总结：</b>一款结合Next.js开发的工具，通过自然语言命令与AI增强功能让用户对draw.io图表进行高级交互、分析与优化</div>
+            <a class="btn" href="https://github.com/DayuanJiang/next-ai-draw-io" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/agentsmd/agents.md" target="_blank">agentsmd/agents.md</a></div>
+            <div class="desc">AGENTS.md — a simple, open format for guiding coding agents</div>
+            <div class="meta">
+                <span>🌟 12,341</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：agentsmd</div>
+            <div class="ai-summary"><b>AI总结：</b>AGENTS.md 是一种简单、开放的格式，用于定义编码代理的行为规则，便于开发者配置和使用智能代理。</div>
+            <a class="btn" href="https://github.com/agentsmd/agents.md" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/Tencent/WeKnora" target="_blank">Tencent/WeKnora</a></div>
+            <div class="desc">LLM-powered framework for deep document understanding, semantic retrieval, and context-aware answers using RAG paradigm.</div>
+            <div class="meta">
+                <span>🌟 9,224</span>
+                <span>🍴 0</span>
+                <span>📝 Go</span>
+            </div>
+            <div class="author">作者：Tencent</div>
+            <div class="ai-summary"><b>AI总结：</b>LLM驱动框架引擎，采用RAG实现语义检索和深度内容理解，并提供上下文感知的答案</div>
+            <a class="btn" href="https://github.com/Tencent/WeKnora" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/block/goose" target="_blank">block/goose</a></div>
+            <div class="desc">an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM</div>
+            <div class="meta">
+                <span>🌟 24,647</span>
+                <span>🍴 0</span>
+                <span>📝 Rust</span>
+            </div>
+            <div class="author">作者：block</div>
+            <div class="ai-summary"><b>AI总结：</b>通过一个可扩展的AI代理执行任何大型语言模型的安装、运行、编辑和测试。</div>
+            <a class="btn" href="https://github.com/block/goose" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/datawhalechina/hello-agents" target="_blank">datawhalechina/hello-agents</a></div>
+            <div class="desc">📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程</div>
+            <div class="meta">
+                <span>🌟 10,343</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：datawhalechina</div>
+            <div class="ai-summary"><b>AI总结：</b>《从零开始构建智能体》提供从零起步的智能体原理与实践教程。</div>
+            <a class="btn" href="https://github.com/datawhalechina/hello-agents" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/tursodatabase/turso" target="_blank">tursodatabase/turso</a></div>
+            <div class="desc">Turso is an in-process SQL database, compatible with SQLite.</div>
+            <div class="meta">
+                <span>🌟 15,766</span>
+                <span>🍴 0</span>
+                <span>📝 Rust</span>
+            </div>
+            <div class="author">作者：tursodatabase</div>
+            <div class="ai-summary"><b>AI总结：</b>兼容 SQLite 的进程内数据库</div>
+            <a class="btn" href="https://github.com/tursodatabase/turso" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/KaijuEngine/kaiju" target="_blank">KaijuEngine/kaiju</a></div>
+            <div class="desc">General purpose 3D and 2D game engine using Go (golang) and Vulkan with built in editor</div>
+            <div class="meta">
+                <span>🌟 3,726</span>
+                <span>🍴 0</span>
+                <span>📝 Go</span>
+            </div>
+            <div class="author">作者：KaijuEngine</div>
+            <div class="ai-summary"><b>AI总结：</b>现代化游戏开发框架：Kaiju提供基于Go语言与 Vulkan API 的通用3D和2D引擎，集成编辑器支持。</div>
+            <a class="btn" href="https://github.com/KaijuEngine/kaiju" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/microsoft/VibeVoice" target="_blank">microsoft/VibeVoice</a></div>
+            <div class="desc">Open-Source Frontier Voice AI</div>
+            <div class="meta">
+                <span>🌟 18,533</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：microsoft</div>
+            <div class="ai-summary"><b>AI总结：</b>边界前沿开源语音AI解决方案</div>
+            <a class="btn" href="https://github.com/microsoft/VibeVoice" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <div id="monthly" class="container tab-content" style="display:none;">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/kavishdevar/librepods" target="_blank">kavishdevar/librepods</a></div>
+            <div class="desc">AirPods liberated from Apple's ecosystem.</div>
+            <div class="meta">
+                <span>🌟 22,691</span>
+                <span>🍴 0</span>
+                <span>📝 Kotlin</span>
+            </div>
+            <div class="author">作者：kavishdevar</div>
+            <div class="ai-summary"><b>AI总结：</b>该项目旨在通过开源方式解放AirPods，使其摆脱苹果限制，提升自由度与兼容性。</div>
+            <a class="btn" href="https://github.com/kavishdevar/librepods" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/sansan0/TrendRadar" target="_blank">sansan0/TrendRadar</a></div>
+            <div class="desc">🎯 告别信息过载，AI 助你看懂新闻资讯热点，简单的舆情监控分析 - 多平台热点聚合+基于 MCP 的AI分析工具。监控35个平台（抖音、知乎、B站、华尔街见闻、财联社等），智能筛选+自动推送+AI对话分析（用自然语言深度挖掘新闻：趋势追踪、情感分析、相似检索等13种工具）。支持企业微信/个人微信/飞书/钉钉/Telegram/邮件/ntfy/bark/slack 推送，1分钟手机通知，无需编程。支持Docker部署，支持数据远程云存储⭐ 让算法为你服务，用AI理解热点</div>
+            <div class="meta">
+                <span>🌟 39,550</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：sansan0</div>
+            <div class="ai-summary"><b>AI总结：</b>多平台热点聚合+AI分析工具，无需编程自动推送舆情趋势与情感</div>
+            <a class="btn" href="https://github.com/sansan0/TrendRadar" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/rustfs/rustfs" target="_blank">rustfs/rustfs</a></div>
+            <div class="desc">🚀2.3x faster than MinIO for 4KB object payloads. RustFS is an open-source, S3-compatible high-performance object storage system supporting migration and coexistence with other S3-compatible platforms such as MinIO and Ceph.</div>
+            <div class="meta">
+                <span>🌟 17,511</span>
+                <span>🍴 0</span>
+                <span>📝 Rust</span>
+            </div>
+            <div class="author">作者：rustfs</div>
+            <div class="ai-summary"><b>AI总结：</b>RustFS是一款高性能S3兼容对象存储系统，显著快于MinIO</div>
+            <a class="btn" href="https://github.com/rustfs/rustfs" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/apurvsinghgautam/robin" target="_blank">apurvsinghgautam/robin</a></div>
+            <div class="desc">AI-Powered Dark Web OSINT Tool</div>
+            <div class="meta">
+                <span>🌟 2,050</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：apurvsinghgautam</div>
+            <div class="ai-summary"><b>AI总结：</b>基于AI技术的自动化暗网信息挖掘工具，革新传统OSINT方法</div>
+            <a class="btn" href="https://github.com/apurvsinghgautam/robin" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/datawhalechina/hello-agents" target="_blank">datawhalechina/hello-agents</a></div>
+            <div class="desc">📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程</div>
+            <div class="meta">
+                <span>🌟 10,343</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：datawhalechina</div>
+            <div class="ai-summary"><b>AI总结：</b>datawhalechina/hello-agents 是一个从零开始构建智能体的教程核心目的在于教授智能体原理与实践其亮点在于为初学者提供易于上手机和理论实践相结合的体验</div>
+            <a class="btn" href="https://github.com/datawhalechina/hello-agents" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/microsoft/magentic-ui" target="_blank">microsoft/magentic-ui</a></div>
+            <div class="desc">A research prototype of a human-centered web agent</div>
+            <div class="meta">
+                <span>🌟 9,169</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：microsoft</div>
+            <div class="ai-summary"><b>AI总结：</b>人本化网络代理界面，旨在提升人与AI交互的自然流畅度</div>
+            <a class="btn" href="https://github.com/microsoft/magentic-ui" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/anthropics/claude-quickstarts" target="_blank">anthropics/claude-quickstarts</a></div>
+            <div class="desc">A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API</div>
+            <div class="meta">
+                <span>🌟 12,464</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：anthropics</div>
+            <div class="ai-summary"><b>AI总结：</b>该项目的核心用途是通过提供Claude API的示例项目集合帮助开发者快速入门并构建可部署应用，亮点在于简化开发和部署过程。</div>
+            <a class="btn" href="https://github.com/anthropics/claude-quickstarts" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/MemoriLabs/Memori" target="_blank">MemoriLabs/Memori</a></div>
+            <div class="desc">SQL Native Memory Layer for LLMs, AI Agents & Multi-Agent Systems</div>
+            <div class="meta">
+                <span>🌟 11,084</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：MemoriLabs</div>
+            <div class="ai-summary"><b>AI总结：</b>Memori是专为大语言模型、AI智能体及多智能体系统设计的SQL原生内存层，通过在内存中高效处理数据，显著提升这些AI系统的响应速度和处理能力。</div>
+            <a class="btn" href="https://github.com/MemoriLabs/Memori" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/trustedsec/social-engineer-toolkit" target="_blank">trustedsec/social-engineer-toolkit</a></div>
+            <div class="desc">The Social-Engineer Toolkit (SET) repository from TrustedSec - All new versions of SET will be deployed here.</div>
+            <div class="meta">
+                <span>🌟 13,884</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：trustedsec</div>
+            <div class="ai-summary"><b>AI总结：</b>该GitHub项目旨在部署更新的社交工程攻防测试框架，提供多种攻击向量与防御评估工具。</div>
+            <a class="btn" href="https://github.com/trustedsec/social-engineer-toolkit" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/agentsmd/agents.md" target="_blank">agentsmd/agents.md</a></div>
+            <div class="desc">AGENTS.md — a simple, open format for guiding coding agents</div>
+            <div class="meta">
+                <span>🌟 12,341</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：agentsmd</div>
+            <div class="ai-summary"><b>AI总结：</b>构建一套指导编码代理的开放格式，简单易用，开放可扩展，赋能编程代理系列开发。</div>
+            <a class="btn" href="https://github.com/agentsmd/agents.md" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <script>
+    // 主题切换功能
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // 添加切换动画
+        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+    }
+
+    // 页面加载时恢复主题设置
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+
+    // 标签页切换功能
+    function showTab(tab) {
+        // 隐藏所有标签页内容
+        document.getElementById('daily').style.display = 'none';
+        document.getElementById('weekly').style.display = 'none';
+        document.getElementById('monthly').style.display = 'none';
+
+        // 显示选中的标签页
+        document.getElementById(tab).style.display = '';
+
+        // 更新标签页按钮状态
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+
+        // 添加切换动画
+        const container = document.getElementById(tab);
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(20px)';
+
+        setTimeout(() => {
+            container.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+        }, 50);
+
+        setTimeout(() => {
+            container.style.transition = '';
+        }, 450);
+    }
+
+    // 卡片动画效果
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    });
+    </script>
+</body>
+</html>
