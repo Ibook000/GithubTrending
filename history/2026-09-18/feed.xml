@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>GitHub 趋势雷达</title>
+    <link>https://Ibook000.github.io/GithubTrending/</link>
+    <description>每日 GitHub Trending 中文技术榜单</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 18 Sep 2026 15:00:43 +0800</lastBuildDate>
+    <atom:link href="https://Ibook000.github.io/GithubTrending/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>#1 alibaba/open-code-review</title>
+      <link>https://github.com/alibaba/open-code-review</link>
+      <guid isPermaLink="false">2026-09-18:alibaba/open-code-review</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>这是一个混合架构的代码审查工具，结合确定性管道与LLM Agent，内置NPE、线程安全、XSS、SQL注入等多语言安全规则，提供精准行级注释，兼容OpenAI与Anthropic大语言模型，并经阿里大规模实战验证。｜Go｜35,566 Stars</description>
+    </item>
+    <item>
+      <title>#2 cloudflare/security-audit-skill</title>
+      <link>https://github.com/cloudflare/security-audit-skill</link>
+      <guid isPermaLink="false">2026-09-18:cloudflare/security-audit-skill</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>该项目是面向代码代理的多阶段安全审计技能，能够生成经过独立验证且机器可读的审计结果。｜JavaScript｜11,216 Stars</description>
+    </item>
+    <item>
+      <title>#3 addyosmani/agent-skills</title>
+      <link>https://github.com/addyosmani/agent-skills</link>
+      <guid isPermaLink="false">2026-09-18:addyosmani/agent-skills</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>该项目为AI编码助手提供一套面向生产环境的工程技能集合，以提升其代码编写、测试与审查的专业性和可靠性。｜JavaScript｜96,017 Stars</description>
+    </item>
+    <item>
+      <title>#4 Tencent/BrowserSkill</title>
+      <link>https://github.com/Tencent/BrowserSkill</link>
+      <guid isPermaLink="false">2026-09-18:Tencent/BrowserSkill</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>BrowserSkill 通过命令行接口和浏览器扩展，让 AI 代理操控用户真实已登录的浏览器，实现跨平台自动化而不干扰工作。｜TypeScript｜4,586 Stars</description>
+    </item>
+    <item>
+      <title>#5 alphaXiv/OpenResearch</title>
+      <link>https://github.com/alphaXiv/OpenResearch</link>
+      <guid isPermaLink="false">2026-09-18:alphaXiv/OpenResearch</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>该项目通过提供工具和框架，使编程代理能够承担文献检索、实验设计和数据分析等研究任务，从而转化为具有研究能力的代理。｜Rust｜5,114 Stars</description>
+    </item>
+    <item>
+      <title>#6 anthropics/claude-code</title>
+      <link>https://github.com/anthropics/claude-code</link>
+      <guid isPermaLink="false">2026-09-18:anthropics/claude-code</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>Claude Code 是一个基于终端的智能编程助手，能够理解代码库并通过自然语言指令协助开发者完成编码任务、解释复杂代码以及处理 Git 工作流程等重复性操作。｜TypeScript｜145,965 Stars</description>
+    </item>
+    <item>
+      <title>#7 NationalSecurityAgency/ghidra</title>
+      <link>https://github.com/NationalSecurityAgency/ghidra</link>
+      <guid isPermaLink="false">2026-09-18:NationalSecurityAgency/ghidra</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>Ghidra是一个软件逆向工程框架。｜Java｜78,675 Stars</description>
+    </item>
+    <item>
+      <title>#8 anthropics/knowledge-work-plugins</title>
+      <link>https://github.com/anthropics/knowledge-work-plugins</link>
+      <guid isPermaLink="false">2026-09-18:anthropics/knowledge-work-plugins</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>这个项目提供了一系列面向知识工作者的开源插件，用于在 Claude Cowork 中扩展功能。｜Python｜24,648 Stars</description>
+    </item>
+    <item>
+      <title>#9 Tencent/WeKnora</title>
+      <link>https://github.com/Tencent/WeKnora</link>
+      <guid isPermaLink="false">2026-09-18:Tencent/WeKnora</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>WeKnora 是一个开源平台，能将原始文档转化为可查询的 RAG、自主推理代理和自维护的维基。｜Go｜26,575 Stars</description>
+    </item>
+    <item>
+      <title>#10 abue-ammar/tinycast</title>
+      <link>https://github.com/abue-ammar/tinycast</link>
+      <guid isPermaLink="false">2026-09-18:abue-ammar/tinycast</guid>
+      <pubDate>Fri, 18 Sep 2026 15:00:43 +0800</pubDate>
+      <description>Tinycast 是一个轻量、完全本地的 macOS 启动器，提供热键和剪贴板历史记录功能。｜Swift｜6,247 Stars</description>
+    </item>
+  </channel>
+</rss>
