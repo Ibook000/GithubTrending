@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>GitHub 趋势雷达 · AI 科技与开源资讯</title>
+    <link>https://Ibook000.github.io/GithubTrending/#news</link>
+    <description>权威一手 AI、开源和开发者生态资讯</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 20 Oct 2026 14:53:05 +0800</lastBuildDate>
+    <atom:link href="https://Ibook000.github.io/GithubTrending/news-feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何在 VS Code 中延续 GitHub Copilot app 会话</title>
+      <link>https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code</link>
+      <guid isPermaLink="false">1be45fb0ef68a5f7</guid>
+      <pubDate>Tue, 20 Oct 2026 02:47:22 +0800</pubDate>
+      <category>开发工具</category>
+      <description>介绍如何将 GitHub Copilot app 的 agent 会话迁移到 VS Code，不丢失对话记录、代码修改和工作上下文。｜来源：GitHub Blog</description>
+    </item>
+    <item>
+      <title>TorchNeuron：在 AWS Trainium 上运行 Hugging Face 模型更简单</title>
+      <link>https://huggingface.co/blog/hf-torchneuron</link>
+      <guid isPermaLink="false">5c52b7d34becd1cc</guid>
+      <pubDate>Mon, 19 Oct 2026 08:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>TorchNeuron 简化了在 AWS Trainium 上部署和运行 Hugging Face 模型的流程｜来源：Hugging Face Blog</description>
+    </item>
+    <item>
+      <title>低资源语言编程支持提升——ChatGPT 进展</title>
+      <link>https://openai.com/index/low-resource-programming-languages</link>
+      <guid isPermaLink="false">1dbe22633003a2af</guid>
+      <pubDate>Mon, 19 Oct 2026 20:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>OpenAI 通过新评估提升 ChatGPT 在低资源编程语言（如软件工程、SQLite、COBOL）上的表现，实现跨语言迁移。｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>曼达尼批评联邦政府放弃AI监管，呼吁纽约市民反抗</title>
+      <link>https://techcrunch.com/2026/10/19/mamdani-says-feds-have-abdicated-on-ai-urges-new-yorkers-to-push-back</link>
+      <guid isPermaLink="false">64a3076b94d5dad5</guid>
+      <pubDate>Tue, 20 Oct 2026 09:27:03 +0800</pubDate>
+      <category>安全</category>
+      <description>市长曼达尼表示，联邦政府已放弃AI监管，呼吁纽约市民抵制AI必然接管的说法，要求制定保护公众、将权力交还民众的法规。｜来源：TechCrunch AI</description>
+    </item>
+    <item>
+      <title>OpenAI 工程师被指控监视高管，法院命令其继续羁押</title>
+      <link>https://www.wired.com/story/openai-engineer-accused-of-spying-on-executives-ordered-to-remain-in-custody</link>
+      <guid isPermaLink="false">af50baf45e95a8be</guid>
+      <pubDate>Tue, 20 Oct 2026 03:49:17 +0800</pubDate>
+      <category>安全</category>
+      <description>法官命令 Abdulrahman Alfozan 继续被羁押，并将沙特政府提出的担保释放方案比作“空白支票”。｜来源：Wired AI</description>
+    </item>
+    <item>
+      <title>日本发射任务带回火星卫星火卫一的一块碎片</title>
+      <link>https://arstechnica.com/space/2026/10/japan-launches-mission-to-bring-home-a-piece-of-the-martian-moon-phobos</link>
+      <guid isPermaLink="false">c724d86504b14124</guid>
+      <pubDate>Tue, 20 Oct 2026 13:59:56 +0800</pubDate>
+      <category>研究</category>
+      <description>MMX的高潮将在2029年到来，届时航天器将尝试在火卫一上进行多达两次着陆。｜来源：Ars Technica</description>
+    </item>
+    <item>
+      <title>How AI workloads are reshaping Kubernetes autoscaling</title>
+      <link>https://www.cncf.io/blog/2026/10/19/how-ai-workloads-are-reshaping-kubernetes-autoscaling</link>
+      <guid isPermaLink="false">6a0d0cba482407df</guid>
+      <pubDate>Mon, 19 Oct 2026 19:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>Kubernetes 的调度与扩缩机制因 AI 工作负载的特性而演变，需要更细粒度的资源感知和动态调度。｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>Claude新模型曝光能跳出思维定势修Bug治本</title>
+      <link>https://www.qbitai.com/2026/10/504314.html</link>
+      <guid isPermaLink="false">3ba16f7af300afc0</guid>
+      <pubDate>Tue, 20 Oct 2026 09:09:43 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>OpenAI发布6.1版本模型，在逻辑推理和代码生成上表现增强，能够跳出常规思路，具备精修错误的能力。｜来源：量子位</description>
+    </item>
+    <item>
+      <title>Linux 异步多进程基础已稳固，但仍需进一步测试</title>
+      <link>https://www.infoq.cn/article/cioICj3URrN6Txq2hNjq</link>
+      <guid isPermaLink="false">8de96b02fe4a2062</guid>
+      <pubDate>Tue, 20 Oct 2026 21:47:00 +0800</pubDate>
+      <category>研究</category>
+      <description>点击查看原文&gt;｜来源：InfoQ 中文</description>
+    </item>
+    <item>
+      <title>迦智科技IPO观察：九年累计亏损超6亿，股权转让多档定价引争议</title>
+      <link>https://www.tmtpost.com/8171049.html</link>
+      <guid isPermaLink="false">9cb4fafe1842e085</guid>
+      <pubDate>Tue, 20 Oct 2026 14:28:01 +0800</pubDate>
+      <category>研究</category>
+      <description>2025年12月同一交易日、同一批受让方参与的股权转让出现四档不同交易价格，最高最低价差近50%；仅3天后新一轮增资单价又较前期股权转让价大幅抬升。｜来源：钛媒体</description>
+    </item>
+    <item>
+      <title>押注记忆原生，MemT 1.0 破局养成系 AI 下半场</title>
+      <link>https://www.ifanr.com/1684997</link>
+      <guid isPermaLink="false">4bd3c570c359f267</guid>
+      <pubDate>Tue, 20 Oct 2026 11:57:44 +0800</pubDate>
+      <category>开源生态</category>
+      <description>MemT 1.0 开源，给出「记忆原生」新解法｜来源：爱范儿</description>
+    </item>
+    <item>
+      <title>新石器完成近4亿美元E轮融资</title>
+      <link>https://www.leiphone.com/category/industrynews/eSrgjx3nGEGMMePm.html</link>
+      <guid isPermaLink="false">a57884391a4f7df7</guid>
+      <pubDate>Tue, 20 Oct 2026 12:22:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>自动驾驶公司新石器宣布完成E轮融资，加速全球化与规模化商业落地。｜来源：雷锋网</description>
+    </item>
+    <item>
+      <title>Text-to-Image Generative Modeling Without Language Pretraining</title>
+      <link>https://arxiv.org/abs/2610.26863v1</link>
+      <guid isPermaLink="false">6d838b59cc298bdf</guid>
+      <pubDate>Tue, 20 Oct 2026 01:59:59 +0800</pubDate>
+      <category>研究</category>
+      <description>Modern text-to-image (T2I) systems use internet-scale language pretraining for text-conditioned image generation. We ask｜来源：arXiv AI / ML / NLP</description>
+    </item>
+    <item>
+      <title>设计师的第一个 Personal Agent，可能就是 Lovart 2.0 的 Arti 了</title>
+      <link>http://www.geekpark.net/news/372612</link>
+      <guid isPermaLink="false">d1c974cb82fce923</guid>
+      <pubDate>Tue, 20 Oct 2026 13:46:53 +0800</pubDate>
+      <category>开发工具</category>
+      <description>Lovart 将设计思路、图片和视频物料生成串联到同一画布；随着生成能力和指令遵循程度提升，文章以 Arti 为切入点讨论 Personal Agent，以及 AI 如何个性化解决个人问题。｜来源：极客公园</description>
+    </item>
+    <item>
+      <title>蚂蚁百灵开源 Ming-3.0 语音系列：给台词加个导演</title>
+      <link>https://www.oschina.net/news/503107</link>
+      <guid isPermaLink="false">1426670c21e09d17</guid>
+      <pubDate>Tue, 20 Oct 2026 12:04:03 +0800</pubDate>
+      <category>开源生态</category>
+      <description>蚂蚁百灵开源了 Ming-3.0 语音系列，将声音创作、长语音分析、业务语音转写三类任务拆分为五款模型，开发者可按需选型和组合；TTS 部分支持导演模式，可通过文字描述或参考音频定义目标音色。｜来源：开源中国</description>
+    </item>
+    <item>
+      <title>既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布</title>
+      <link>https://aiera.com.cn/2026/10/20/other/admin/119658/%e6%97%a2%e8%83%bd%e5%81%9a%e9%80%89%e6%8b%a9%e9%a2%98%ef%bc%8c%e4%b9%9f%e8%83%bd%e5%81%9a%e5%a1%ab%e7%a9%ba%e9%a2%98-%e6%98%9f%e8%be%b0%e6%84%8f</link>
+      <guid isPermaLink="false">ba36099ee223d0b4</guid>
+      <pubDate>Tue, 20 Oct 2026 13:09:03 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>中电信星辰实验室发布并开源 Xing4.0-29B-Intent 意图理解模型，同步提供275万条训练语料和模型权重。｜来源：新智元</description>
+    </item>
+    <item>
+      <title>紫毫：基于 Rime 引擎、支持双拼纠错的 iOS 输入法</title>
+      <link>https://sspai.com/post/116430</link>
+      <guid isPermaLink="false">7bf51060b58dc322</guid>
+      <pubDate>Tue, 20 Oct 2026 10:34:39 +0800</pubDate>
+      <category>开发工具</category>
+      <description>简单干净、支持双拼纠错的 iOS 输入法。｜来源：少数派</description>
+    </item>
+    <item>
+      <title>Baseus’ new security camera has a spotlight that tracks and follows moving targets</title>
+      <link>https://www.theverge.com/tech/1005073/baseus-security-primesentinel-u2-pro-outdoor-3k-dual-camera-tracking-spotlight</link>
+      <guid isPermaLink="false">74e54eaf5e346ea7</guid>
+      <pubDate>Tue, 20 Oct 2026 12:00:00 +0800</pubDate>
+      <category>安全</category>
+      <description>Baseus announced a new addition to its lineup of AI-assisted security cameras that's more proactive about discouraging u｜来源：The Verge</description>
+    </item>
+    <item>
+      <title>让互联网更适配 AI 智能体，可能反而对其他人更不利</title>
+      <link>https://www.technologyreview.com/2026/10/19/1147186/making-the-internet-better-for-ai-agents-might-make-it-worse-for-everyone-else</link>
+      <guid isPermaLink="false">ad159791a7e240b8</guid>
+      <pubDate>Tue, 20 Oct 2026 02:22:47 +0800</pubDate>
+      <category>开发工具</category>
+      <description>文章讨论改善互联网以支持 AI 智能体的做法，是否会损害其他互联网用户的利益；原文刊于 AI 周报 The Algorithm。｜来源：MIT Technology Review</description>
+    </item>
+    <item>
+      <title>消息称微软正考虑大幅下调新款入门级 12 英寸 Surface 设备硬件规格，重新评估处理器选型</title>
+      <link>https://www.ithome.com/1/015/311.htm</link>
+      <guid isPermaLink="false">b68e21814e24258a</guid>
+      <pubDate>Tue, 20 Oct 2026 14:51:27 +0800</pubDate>
+      <category>开发工具</category>
+      <description>IT之家 10 月 20 日消息，据 DigiTimes 报道，微软正在重新评估 Surface 产品策略，以应对苹果 MacBook Neo 激进的定价策略和不断上涨的零部件成本。 目前该公司正考虑大幅下调旗下新款入门级 12 英寸 Su｜来源：IT之家</description>
+    </item>
+    <item>
+      <title>记忆张量开源 MemT 1.0：长历史推理提速近 4 倍，存储缩减 130 倍</title>
+      <link>https://news.cnblogs.com/n/841669</link>
+      <guid isPermaLink="false">3dbe10b316166ec8</guid>
+      <pubDate>Tue, 20 Oct 2026 12:20:00 +0800</pubDate>
+      <category>开源生态</category>
+      <description>MemTensor 发布并开源记忆原生基础模型 MemT 1.0 系列，包括 MemT-1.0-Flash 和 MemT-1.0-Nano。官方测试显示，该系列模型在 11 项记忆基准中位列同类方法前两名。｜来源：博客园</description>
+    </item>
+    <item>
+      <title>TP-Link 联洲国际签署意向书将在美国本土组装 WiFi 8 路由器，可能绕过 FCC 限制</title>
+      <link>https://www.landian.news/archives/127486.html</link>
+      <guid isPermaLink="false">a9a2cba72067dbb0</guid>
+      <pubDate>Tue, 20 Oct 2026 14:30:00 +0800</pubDate>
+      <category>安全</category>
+      <description>TP‑Link 与当地制造商合作计划在美国本土生产路由器，依据 FCC 规定外国路由器需国防部或国土安全部批准，此举旨在规避现有限制，但仍待 FCC 批准。｜来源：蓝点网</description>
+    </item>
+    <item>
+      <title>开发者求助：稳定使用两年的翻墙工具突然失效，求推荐替代方案</title>
+      <link>https://segmentfault.com/q/1010000048356501</link>
+      <guid isPermaLink="false">0a48cacb3517e5a4</guid>
+      <pubDate>Fri, 16 Oct 2026 21:04:29 +0800</pubDate>
+      <category>开发工具</category>
+      <description>开发者在做App项目时需访问国外资源，原工具失效，寻求可用的突破网络限制的途径。｜来源：SegmentFault</description>
+    </item>
+    <item>
+      <title>Zooproxy 静态 ISP / 动态住宅代理</title>
+      <link>https://www.v2ex.com/t/1250312</link>
+      <guid isPermaLink="false">031315578aef6d42</guid>
+      <pubDate>Tue, 20 Oct 2026 14:49:34 +0800</pubDate>
+      <category>开发工具</category>
+      <description>Zooproxy（原 FluxISP）提供全球住宅代理与静态 ISP 代理，适配跨境账号运营、网页数据采集、广告校验及 Muse AI 智能体自动化。覆盖 195+ 国家/地区，支持国家、城市、ASN 精准筛选，IP 纯净度高。｜来源：V2EX</description>
+    </item>
+    <item>
+      <title>ESA Hera 探测器准备飞越 DART 撞击的小行星</title>
+      <link>https://www.solidot.org/story?sid=85652</link>
+      <guid isPermaLink="false">9b60c1041c6d14ca</guid>
+      <pubDate>Mon, 19 Oct 2026 21:59:09 +0800</pubDate>
+      <category>研究</category>
+      <description>ESA Hera 探测器计划一个月后与 Didymos-Dimorphos 双小行星交会，该系统曾于 2022 年 9 月接受 NASA DART 任务的首次行星防御测试撞击。｜来源：Solidot</description>
+    </item>
+    <item>
+      <title>Itaú如何为全客户群构建生成式AI</title>
+      <link>https://openai.com/index/itau-generative-ai</link>
+      <guid isPermaLink="false">9732b2763df5a67a</guid>
+      <pubDate>Sat, 17 Oct 2026 03:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>Itaú通过ia.i对话界面和IARA治理平台，向客户和员工应用其AI First战略，在巴西监管最严的行业之一中推进生成式AI。｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>Nscale 与 Anthropic 再度商谈 450 亿美元算力协议</title>
+      <link>https://techcrunch.com/2026/10/19/nscale-and-anthropic-are-reportedly-in-talks-for-yet-another-45-billion-compute-deal</link>
+      <guid isPermaLink="false">2da5c5a9206a6794</guid>
+      <pubDate>Tue, 20 Oct 2026 07:39:38 +0800</pubDate>
+      <category>云原生</category>
+      <description>如果协议达成，Anthropic 将在过去一年内再签订一起大型算力协议。｜来源：TechCrunch AI</description>
+    </item>
+    <item>
+      <title>WhatsApp 帮助页面泄露 Meta 聊天机器人隐藏指令</title>
+      <link>https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot</link>
+      <guid isPermaLink="false">48a8da46caf41a62</guid>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0800</pubDate>
+      <category>安全</category>
+      <description>约 80 页 WhatsApp 网页泄露了其聊天机器人使用的隐藏指令，其中包括 “WHAT NOT TO SAY” 等内容，Meta 称此为错误导致。｜来源：Wired AI</description>
+    </item>
+    <item>
+      <title>宾夕法尼亚州发布先天性麻疹预警</title>
+      <link>https://arstechnica.com/health/2026/10/pennsylvania-issues-alert-on-congenital-measles-something-us-hasnt-seen-for-decades</link>
+      <guid isPermaLink="false">d474c2e16dfe0ad0</guid>
+      <pubDate>Tue, 20 Oct 2026 06:44:26 +0800</pubDate>
+      <category>研究</category>
+      <description>先天性麻疹可能致命，幸存者需长期监测。｜来源：Ars Technica</description>
+    </item>
+    <item>
+      <title>在 EKS 上部署、维护和迁移生产环境 n8n</title>
+      <link>https://www.cncf.io/blog/2026/10/16/deploying-maintaining-and-migrating-production-n8n-on-eks</link>
+      <guid isPermaLink="false">c3021d9a55f26299</guid>
+      <pubDate>Sat, 17 Oct 2026 00:39:04 +0800</pubDate>
+      <category>云原生</category>
+      <description>n8n 单容器 SQLite 仅适合快速演示，面对生产流量运行复杂，需 workers、webhook 处理器、PostgreSQL 等组件。｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>从百比特芯片到整机交付，这家量子计算公司正将量子算力推向可调用服务</title>
+      <link>https://www.qbitai.com/2026/10/504277.html</link>
+      <guid isPermaLink="false">415d59bb4bc17609</guid>
+      <pubDate>Mon, 19 Oct 2026 22:33:26 +0800</pubDate>
+      <category>云原生</category>
+      <description>同步搭建千比特规模量子算力云平台｜来源：量子位</description>
+    </item>
+    <item>
+      <title>调查发现：AI 生成代码会提升调试难度与故障发生率，并造成代码理解鸿沟</title>
+      <link>https://www.infoq.cn/article/ywvgVDVLsSU7r47Jk6lq</link>
+      <guid isPermaLink="false">991b14c5252700de</guid>
+      <pubDate>Tue, 20 Oct 2026 19:00:00 +0800</pubDate>
+      <category>研究</category>
+      <description>AI 生成的代码在实际使用中更难以调试，故障发生概率更高，并导致开发者对代码的理解出现鸿沟。｜来源：InfoQ 中文</description>
+    </item>
+    <item>
+      <title>广晟大宝山IPO：控股股东身兼大客户与核心供应商，不差钱仍募资补流</title>
+      <link>https://www.tmtpost.com/8171054.html</link>
+      <guid isPermaLink="false">05e3b11ef1d95741</guid>
+      <pubDate>Tue, 20 Oct 2026 13:40:32 +0800</pubDate>
+      <category>研究</category>
+      <description>控股股东广晟控股是公司重要客户和核心供应商，购销两端大额关联交易，市场对业务独立性和定价公允性存疑。｜来源：钛媒体</description>
+    </item>
+    <item>
+      <title>特斯拉只能飞5秒？科学家称其为「放屁车」，联邦航空局：不符合航空器定义</title>
+      <link>https://www.ifanr.com/1684938</link>
+      <guid isPermaLink="false">4774b45fd5f421d2</guid>
+      <pubDate>Tue, 20 Oct 2026 10:18:01 +0800</pubDate>
+      <category>研究</category>
+      <description>特斯拉飞行时间仅5秒，科学家称其为放屁车，联邦航空局称不符合航空器定义｜来源：爱范儿</description>
+    </item>
+    <item>
+      <title>华为MatePad系列双11限时优惠，可叠加15%国补与教育优惠</title>
+      <link>https://www.leiphone.com/category/industrynews/lG1dWd9RNAK2bEb7.html</link>
+      <guid isPermaLink="false">d39eede76f6181b1</guid>
+      <pubDate>Tue, 20 Oct 2026 12:12:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>双11期间，华为MatePad平板提供限时折扣，符合条件用户可享受15%国家补贴及教育优惠，适用于无纸化学习、移动办公及专业创作，具备鸿蒙AI能力及原生PC应用生态。｜来源：雷锋网</description>
+    </item>
+    <item>
+      <title>OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory</title>
+      <link>https://arxiv.org/abs/2610.26860v1</link>
+      <guid isPermaLink="false">e59dcd5a5c8f0237</guid>
+      <pubDate>Tue, 20 Oct 2026 01:59:58 +0800</pubDate>
+      <category>研究</category>
+      <description>MLLMs 视觉推理进展与内部推理获取证据的局限性，基于 22 个基准的受控研究｜来源：arXiv AI / ML / NLP</description>
+    </item>
+    <item>
+      <title>iPhone Duo 预购一分钟售罄，发货时间推至2027年</title>
+      <link>http://www.geekpark.net/news/372583</link>
+      <guid isPermaLink="false">27f5df3a6925c82f</guid>
+      <pubDate>Tue, 20 Oct 2026 09:34:14 +0800</pubDate>
+      <category>开发工具</category>
+      <description>2023年10月16日晚8点，苹果首款折叠屏手机 iPhone Duo 开启预购，开售约1分钟后全型号库存售罄，京东、天猫页面显示售罄；约40分钟后苹果官网预计送达时间已跳至2027年1月底；同一天美国东部时间上午8点再现同样情况。｜来源：极客公园</description>
+    </item>
+    <item>
+      <title>Apache SeaTunnel 社区 2026 年 9 月贡献总结报告</title>
+      <link>https://www.oschina.net/news/503106</link>
+      <guid isPermaLink="false">7a058a31cd408f2b</guid>
+      <pubDate>Tue, 20 Oct 2026 11:49:52 +0800</pubDate>
+      <category>开源生态</category>
+      <description>报告基于 apache/seatunnel dev 分支合并提交，统计窗口为 2026-09-01 至 2026-09-30，合并提交数 260，活跃贡献者 48，日均提交数 8.7，新增连接器 24，OptionRule 迁移 20，Ze｜来源：开源中国</description>
+    </item>
+    <item>
+      <title>Anthropic 宣布成立公益基金，捐赠公司 5% 股份</title>
+      <link>https://aiera.com.cn/2026/10/20/other/admin/119656/%e5%88%9a%e5%88%9a%ef%bc%8canthropic%e5%ae%98%e5%ae%a3%ef%bc%81%e8%a6%81%e6%8d%903200%e4%ba%bf%e5%88%86%e7%bb%99%e6%99%ae%e9%80%9a%e4%ba%ba</link>
+      <guid isPermaLink="false">cecbc3e97a2a7cf1</guid>
+      <pubDate>Tue, 20 Oct 2026 08:04:37 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>Anthropic 官宣成立公益基金，将捐出公司 5% 股份（估值近 500 亿美元）用于造福公众。｜来源：新智元</description>
+    </item>
+    <item>
+      <title>MiniMax 发布 M3.1 Flash 模型</title>
+      <link>https://sspai.com/post/116758</link>
+      <guid isPermaLink="false">0df63021091ab019</guid>
+      <pubDate>Tue, 20 Oct 2026 08:39:33 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>MiniMax 最新发布了 M3.1 Flash 模型，该模型专为移动设备优化，具备更低的延迟和更好的能耗 efficiency，有助于提升 AI 在移动端的应用性能。｜来源：少数派</description>
+    </item>
+    <item>
+      <title>马斯克拟通过“特朗普账户”向美国儿童赠送SpaceX股份</title>
+      <link>https://www.theverge.com/tech/1014115/elon-musk-spacex-trump-account</link>
+      <guid isPermaLink="false">1d960afcbf15efa4</guid>
+      <pubDate>Tue, 20 Oct 2026 06:30:42 +0800</pubDate>
+      <category>研究</category>
+      <description>特朗普宣布马斯克将把SpaceX股份通过“特朗普账户”发放给美国儿童，此前马斯克曾表态拟赠送每个孩子一股。｜来源：The Verge</description>
+    </item>
+    <item>
+      <title>“我们之前看错了”：颠覆 AI 领域认知的爆炸性主张</title>
+      <link>https://www.technologyreview.com/2026/10/19/1147149/we-were-looking-at-it-wrong-the-explosive-claim-thats-upended-the-ai-world</link>
+      <guid isPermaLink="false">39de9490ca71f5b3</guid>
+      <pubDate>Tue, 20 Oct 2026 01:45:55 +0800</pubDate>
+      <category>研究</category>
+      <description>Goodfire 研究员 Nick Cammarata 以“我认为关于神经网络的性质，我有个好消息”引出一篇长达 2.6 万词的博客文章，对 AI 领域形成冲击。｜来源：MIT Technology Review</description>
+    </item>
+    <item>
+      <title>点一下 Win11 桌面即打开必应：Bing 壁纸应用被指存在引流行为</title>
+      <link>https://www.ithome.com/1/015/310.htm</link>
+      <guid isPermaLink="false">2189b55fd80a60b8</guid>
+      <pubDate>Tue, 20 Oct 2026 14:47:49 +0800</pubDate>
+      <category>安全</category>
+      <description>测试最新版 Bing Wallpaper 发现用户左键点击 Windows 11 桌面背景后会通过默认浏览器自动打开必应网站，即使更改默认浏览器也会触发，间隔 24 小时可重现。｜来源：IT之家</description>
+    </item>
+    <item>
+      <title>英伟达黄仁勋：AI是新工具，专业知识不会被取代</title>
+      <link>https://news.cnblogs.com/n/841668</link>
+      <guid isPermaLink="false">b2fe117582212891</guid>
+      <pubDate>Tue, 20 Oct 2026 12:14:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>黄仁勋在柏林对话中表示，AI将超越聊天功能，进入工厂、机器人和医院等场景，增强现有专业能力，并探讨与德国制造业在汽车、机械等领域的结合。｜来源：博客园</description>
+    </item>
+    <item>
+      <title>微软向更多Windows 11用户推送蓝牙改进 涉及配对、重新连接、通话和稳定性</title>
+      <link>https://www.landian.news/archives/127485.html</link>
+      <guid isPermaLink="false">9bf63140f9ccbce6</guid>
+      <pubDate>Tue, 20 Oct 2026 14:00:00 +0800</pubDate>
+      <category>开发工具</category>
+      <description>微软推送蓝牙改进，提升配对速度、重新连接、通话质量和音频稳定性，修复崩溃并增强低功耗设备重连后播放稳定性｜来源：蓝点网</description>
+    </item>
+    <item>
+      <title>免费获取 Claude Opus 5.5 等多模型 API 试用额度</title>
+      <link>https://www.v2ex.com/t/1250311</link>
+      <guid isPermaLink="false">82fdd6135a6310f6</guid>
+      <pubDate>Tue, 20 Oct 2026 14:45:14 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>通过 Midalo API 中转站注册后可领取 2‑5 美元试用额度，可用于 Claude Opus 5.5、GPT‑6.1‑sol、Grok‑4.7、DeepSeek‑V4.1‑flash 等模型。｜来源：V2EX</description>
+    </item>
+    <item>
+      <title>Wine 移植到 OpenBSD</title>
+      <link>https://www.solidot.org/story?sid=85651</link>
+      <guid isPermaLink="false">d98cb911c22cf070</guid>
+      <pubDate>Mon, 19 Oct 2026 21:25:27 +0800</pubDate>
+      <category>开源生态</category>
+      <description>Wine 项目已移植支持 OpenBSD，可运行大部分 64 位 Windows 应用，但 WoW64 模式异常，暂不支持 32 位应用。｜来源：Solidot</description>
+    </item>
+    <item>
+      <title>Embedded AI evaluators不会是简单解决方案，Hugging Face政策负责人称</title>
+      <link>https://techcrunch.com/2026/10/19/embedded-ai-evaluators-wont-be-an-easy-solution-hugging-faces-policy-chief-says</link>
+      <guid isPermaLink="false">11399fbe3d99cc26</guid>
+      <pubDate>Tue, 20 Oct 2026 06:49:27 +0800</pubDate>
+      <category>安全</category>
+      <description>嵌入式AI评估器概念指的是所谓中立的第三方观察员进入AI组织内部，近年来因安全事件增多被讨论，但并非易行方案。｜来源：TechCrunch AI</description>
+    </item>
+    <item>
+      <title>迪士尼要求 Character.AI 申请破产以获得免责卡</title>
+      <link>https://www.wired.com/story/disney-asked-characterai-to-go-bankrupt-for-a-get-out-of-lawsuits-card</link>
+      <guid isPermaLink="false">13e37eaea476c349</guid>
+      <pubDate>Mon, 19 Oct 2026 17:00:00 +0800</pubDate>
+      <category>安全</category>
+      <description>迪士尼希望从该初创公司获取信任与安全技术等其他知识产权，而该公司的聊天机器人被多个州指控鼓励未成年人自残及杀害父母。｜来源：Wired AI</description>
+    </item>
+    <item>
+      <title>俄空间器极近距离运行至 ICEYE-X36 卫星</title>
+      <link>https://arstechnica.com/space/2026/10/russian-spacecraft-maneuvers-in-extreme-proximity-to-satellite-used-by-ukraine</link>
+      <guid isPermaLink="false">72a7c7b90e594040</guid>
+      <pubDate>Tue, 20 Oct 2026 04:54:17 +0800</pubDate>
+      <category>研究</category>
+      <description>Kosmos 2612 从数百公里外接近至 ICEYE-X36 卫星极近距离｜来源：Ars Technica</description>
+    </item>
+    <item>
+      <title>把尼泊尔放在CNCF Golden Kubestronaut地图上</title>
+      <link>https://www.cncf.io/blog/2026/10/16/putting-nepal-on-the-cncf-golden-kubestronaut-map</link>
+      <guid isPermaLink="false">f61530528887f5a8</guid>
+      <pubDate>Fri, 16 Oct 2026 19:30:00 +0800</pubDate>
+      <category>云原生</category>
+      <description>分享成为CNCF Golden Kubestronaut的历程、动机及获证要求｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>通研院孵化的团队，也盯上了RSI</title>
+      <link>https://www.qbitai.com/2026/10/504294.html</link>
+      <guid isPermaLink="false">0917a45d3d50aa21</guid>
+      <pubDate>Mon, 19 Oct 2026 22:31:12 +0800</pubDate>
+      <category>研究</category>
+      <description>当AI越来越懂你，如何让智能真正属于你？｜来源：量子位</description>
+    </item>
+    <item>
+      <title>RISC-V 加速进入 AI 与高性能计算：玄铁车规 IP、服务器芯片等新进展亮相</title>
+      <link>https://www.infoq.cn/article/J1Z3RYgH3Vyd9LFEfmlF</link>
+      <guid isPermaLink="false">cb6f5e392a40f934</guid>
+      <pubDate>Tue, 20 Oct 2026 18:51:46 +0800</pubDate>
+      <category>研究</category>
+      <description>点击查看原文&gt;｜来源：InfoQ 中文</description>
+    </item>
+    <item>
+      <title>机器人技术在快递分拣领域的应用</title>
+      <link>https://www.tmtpost.com/8168146.html</link>
+      <guid isPermaLink="false">7f4928070eb2f847</guid>
+      <pubDate>Tue, 20 Oct 2026 12:30:05 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>分析具身智能企业为何集中涌入快递分拣市场｜来源：钛媒体</description>
+    </item>
+    <item>
+      <title>苹果新发布会官宣：iPad mini 终于配「高刷」，MacBook 要能「上手」了</title>
+      <link>https://www.ifanr.com/1684978</link>
+      <guid isPermaLink="false">3cd5e2c1ef6395cc</guid>
+      <pubDate>Tue, 20 Oct 2026 09:00:07 +0800</pubDate>
+      <category>开发工具</category>
+      <description>iPad mini 更新支持高刷新率显示屏，MacBook 系列或将新增人机交互功能。｜来源：爱范儿</description>
+    </item>
+    <item>
+      <title>启元机器人新进展：北大董豪团队推出 HIL-UMI，让后训练摆脱「真机依赖」</title>
+      <link>https://www.leiphone.com/category/ai/XgCxObsqu8pc44px.html</link>
+      <guid isPermaLink="false">ed942bf2765f94b3</guid>
+      <pubDate>Tue, 20 Oct 2026 12:06:00 +0800</pubDate>
+      <category>研究</category>
+      <description>北大董豪团队提出 HIL-UMI 方法，实现具身机器人的后训练不依赖真实硬件，提升后训练可行性和成功率。｜来源：雷锋网</description>
+    </item>
+    <item>
+      <title>能否真正运行？合成功能性 CAD 机制</title>
+      <link>https://arxiv.org/abs/2610.26861v1</link>
+      <guid isPermaLink="false">4fc97b5860c71b29</guid>
+      <pubDate>Tue, 20 Oct 2026 01:59:58 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>尽管 LLM 代理可以生成视觉上可行的 CAD 装配件，但这些设计往往无法实现预期的物理功能。研究专注于功能性 CAD 设计，即代理解释不明确规格的场景。｜来源：arXiv AI / ML / NLP</description>
+    </item>
+    <item>
+      <title>DeepSeek V4.1 Flash 1017 登顶 Code Arena WebDev 开源榜</title>
+      <link>http://www.geekpark.net/news/372568</link>
+      <guid isPermaLink="false">f25bc31b0a26eabb</guid>
+      <pubDate>Tue, 20 Oct 2026 09:01:44 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>10 月 19 日，AI 模型评测平台 Arena 公布最新排名，DeepSeek-V4.1-Flash-1017（Max）以 1670 分高居 Code Arena: WebDev 榜首，超越 Kimi K3（Max）、Mimo-V2.6｜来源：极客公园</description>
+    </item>
+    <item>
+      <title>CloudDM 4.5.0 发布，新增 Elasticsearch 与崖山数据库支持</title>
+      <link>https://www.oschina.net/news/503105</link>
+      <guid isPermaLink="false">359ffcc71d72dc51</guid>
+      <pubDate>Tue, 20 Oct 2026 11:44:01 +0800</pubDate>
+      <category>开源生态</category>
+      <description>CloudDM 4.5.0 新增对 Elasticsearch 和崖山数据库的支持，提升数据库管理灵活性；同时引入 AI SQL 助手，基于已授权数据库元数据实现自然语言转 SQL 功能。｜来源：开源中国</description>
+    </item>
+    <item>
+      <title>Claude Code助力安卓电视极简改造</title>
+      <link>https://aiera.com.cn/2026/10/20/other/admin/119637/claude-code%e4%b8%80%e6%ae%b5%e8%af%9d%e7%88%86%e6%94%b9%e7%94%b5%e8%a7%86%ef%bc%9a%e6%9e%81%e7%ae%80%e9%9b%b6%e5%b9%bf%e5%91%8a%ef%bc%8c%e5%ae%89%e5%8d%93%e5%8f%98%e3%80%8c%e8%8b%b9%e6%9e%9c%e3%80%8d</link>
+      <guid isPermaLink="false">788adb9f0e8703ef</guid>
+      <pubDate>Tue, 20 Oct 2026 08:04:06 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>用户通过Claude Code修改电视界面的代码，实现零广告、简化界面的效果｜来源：新智元</description>
+    </item>
+  </channel>
+</rss>

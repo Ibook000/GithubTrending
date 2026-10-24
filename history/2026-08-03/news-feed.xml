@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>GitHub 趋势雷达 · AI 科技与开源资讯</title>
+    <link>https://Ibook000.github.io/GithubTrending/#news</link>
+    <description>权威一手 AI、开源和开发者生态资讯</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 03 Aug 2026 18:06:03 +0800</lastBuildDate>
+    <atom:link href="https://Ibook000.github.io/GithubTrending/news-feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Don’t stop early: Case-folding source code at memory speed</title>
+      <link>https://github.blog/engineering/architecture-optimization/dont-stop-early-case-folding-source-code-at-memory-speed</link>
+      <guid isPermaLink="false">8374eb3de5361b2e</guid>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 +0800</pubDate>
+      <category>开源生态</category>
+      <description>How a branch-free loop and byte-space arithmetic let GitHub case-fold every byte of code search at &gt;45 GiB/s on a single core. The post Don’t stop early: Case-folding source code at memory speed appeared first on The Git｜来源：GitHub Blog</description>
+    </item>
+    <item>
+      <title>Ten advances in mathematics and theoretical computer science</title>
+      <link>https://openai.com/index/ten-advances-in-mathematics</link>
+      <guid isPermaLink="false">e299630b866e2d7e</guid>
+      <pubDate>Sat, 01 Aug 2026 08:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>OpenAI shares new results on long-standing open problems in mathematics and theoretical computer science, including advances in geometry, cryptography, and complexity.｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>Scaling Kubernetes pods with KEDA based on Amazon SQS queue depth</title>
+      <link>https://www.cncf.io/blog/2026/07/31/scaling-kubernetes-pods-with-keda-based-on-amazon-sqs-queue-depth</link>
+      <guid isPermaLink="false">8fd53ef199dde2ba</guid>
+      <pubDate>Fri, 31 Jul 2026 19:00:00 +0800</pubDate>
+      <category>云原生</category>
+      <description>In event-driven Kubernetes architectures, CPU and memory utilization often fail to reflect real system pressure. A worker pod may sit idle from a CPU perspective while thousands of messages pile up in an Amazon SQS queue｜来源：CNCF Blog</description>
+    </item>
+    <item>
+      <title>TokTier: Exact Stateful Tokenization for Agentic LLM Serving</title>
+      <link>https://arxiv.org/abs/2607.29678v1</link>
+      <guid isPermaLink="false">0b6f4583ad52e7cc</guid>
+      <pubDate>Sat, 01 Aug 2026 01:56:30 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>LLM serving systems cache prompt KV state, yet most front ends still re-tokenize the full request text on every call. The cost lands on coding agents, which resubmit a long transcript after each small tool result, and re｜来源：arXiv AI / ML / NLP</description>
+    </item>
+    <item>
+      <title>Advancing responsible AI across Europe</title>
+      <link>https://openai.com/index/advancing-responsible-ai-across-europe</link>
+      <guid isPermaLink="false">f8ec64126bdac17b</guid>
+      <pubDate>Fri, 31 Jul 2026 23:00:00 +0800</pubDate>
+      <category>安全</category>
+      <description>OpenAI shares how its safety, security, transparency, and provenance practices support responsible AI governance in Europe. The work will continue as the EU AI Act advances.｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>ExtractBench: A Benchmark for Schema-Guided Enterprise Document Extraction</title>
+      <link>https://arxiv.org/abs/2607.29677v1</link>
+      <guid isPermaLink="false">96cad8fa6f664f8b</guid>
+      <pubDate>Sat, 01 Aug 2026 01:55:58 +0800</pubDate>
+      <category>研究</category>
+      <description>Enterprise workflows increasingly rely on agents for \emph{schema-guided extraction}: given a document and a user-defined schema, the agent faithfully follows the schema to produce the correct output with source evidence｜来源：arXiv AI / ML / NLP</description>
+    </item>
+    <item>
+      <title>Building abundant intelligence</title>
+      <link>https://openai.com/index/building-abundant-intelligence</link>
+      <guid isPermaLink="false">966cd163f8692d8c</guid>
+      <pubDate>Fri, 31 Jul 2026 23:00:00 +0800</pubDate>
+      <category>AI 模型</category>
+      <description>A full-stack approach to making advanced AI more capable, more affordable, and more widely useful.｜来源：OpenAI News</description>
+    </item>
+    <item>
+      <title>Differentially Private Nonparametric Modal Learning with Applications to Regression and Clustering</title>
+      <link>https://arxiv.org/abs/2607.29675v1</link>
+      <guid isPermaLink="false">5b7b23009091f94b</guid>
+      <pubDate>Sat, 01 Aug 2026 01:55:02 +0800</pubDate>
+      <category>研究</category>
+      <description>Density modes provide a localized and interpretable summary of multimodal distributions, but their estimation under rigorous differential privacy constraints remains largely unexplored. We study differentially private re｜来源：arXiv AI / ML / NLP</description>
+    </item>
+  </channel>
+</rss>
