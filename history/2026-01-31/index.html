@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub 趋势榜单（2026-01-31）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="github_trending_cards.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+    </div>
+
+    <!-- 页面标题 -->
+    <div class="header-container">
+        <h1>
+            <i class="fab fa-github"></i>
+            GitHub 趋势榜单
+            <span class="date-badge">2026-01-31</span>
+        </h1>
+        <p class="subtitle">发现最热门的开源项目</p>
+        
+        <!-- 历史记录入口 -->
+        <div class="history-entrance">
+            <a href="history/" class="history-btn">
+                <i class="fas fa-history"></i>
+                <span>查看历史记录</span>
+            </a>
+            <div class="history-tooltip">
+                📅 每日历史榜单已保存，点击查看完整记录
+            </div>
+        </div>
+    </div>
+
+    <!-- 标签页导航 -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="showTab('daily')" data-tab="daily">
+            <i class="fas fa-calendar-day"></i>
+            <span>日榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('weekly')" data-tab="weekly">
+            <i class="fas fa-calendar-week"></i>
+            <span>周榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('monthly')" data-tab="monthly">
+            <i class="fas fa-calendar-alt"></i>
+            <span>月榜</span>
+        </button>
+    </div>
+
+    <div id="daily" class="container tab-content">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/openclaw/openclaw" target="_blank">openclaw/openclaw</a></div>
+            <div class="desc">Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞</div>
+            <div class="meta">
+                <span>🌟 121,289</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：openclaw</div>
+            <div class="ai-summary"><b>AI总结：</b>openclaw是一个跨平台的个人AI助手,无需依赖特定操作系统,灵活可定制。</div>
+            <a class="btn" href="https://github.com/openclaw/openclaw" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank">asgeirtj/system_prompts_leaks</a></div>
+            <div class="desc">Collection of extracted System Prompts from popular chatbots like ChatGPT, Claude & Gemini</div>
+            <div class="meta">
+                <span>🌟 28,654</span>
+                <span>🍴 0</span>
+                <span>📝 JavaScript</span>
+            </div>
+            <div class="author">作者：asgeirtj</div>
+            <div class="ai-summary"><b>AI总结：</b>收集市面上主流聊天机器人的系统提示词，提供对这些AI模型内在运作机制的观察窗口。</div>
+            <a class="btn" href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/MoonshotAI/kimi-cli" target="_blank">MoonshotAI/kimi-cli</a></div>
+            <div class="desc">Kimi Code CLI is your next CLI agent.</div>
+            <div class="meta">
+                <span>🌟 5,326</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：MoonshotAI</div>
+            <div class="ai-summary"><b>AI总结：</b>Kimi Code CLI是一个先进的命令行代理工具，通过AI集成显著提升代码开发和用户交互效率。</div>
+            <a class="btn" href="https://github.com/MoonshotAI/kimi-cli" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/modelcontextprotocol/ext-apps" target="_blank">modelcontextprotocol/ext-apps</a></div>
+            <div class="desc">Official repo for spec & SDK of MCP Apps protocol - standard for UIs embedded AI chatbots, served by MCP servers</div>
+            <div class="meta">
+                <span>🌟 1,037</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：modelcontextprotocol</div>
+            <div class="ai-summary"><b>AI总结：</b>一种为嵌入式AI聊天机器人UI提供标准支持并提供规范及SDK的解决方案。</div>
+            <a class="btn" href="https://github.com/modelcontextprotocol/ext-apps" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/NevaMind-AI/memU" target="_blank">NevaMind-AI/memU</a></div>
+            <div class="desc">Memory for 24/7 proactive agents like openclaw (moltbot, clawdbot).</div>
+            <div class="meta">
+                <span>🌟 6,510</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：NevaMind-AI</div>
+            <div class="ai-summary"><b>AI总结：</b>给24/7主动型代理提供持久记忆能力</div>
+            <a class="btn" href="https://github.com/NevaMind-AI/memU" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/hashicorp/vault" target="_blank">hashicorp/vault</a></div>
+            <div class="desc">A tool for secrets management, encryption as a service, and privileged access management</div>
+            <div class="meta">
+                <span>🌟 34,835</span>
+                <span>🍴 0</span>
+                <span>📝 Go</span>
+            </div>
+            <div class="author">作者：hashicorp</div>
+            <div class="ai-summary"><b>AI总结：</b>该工具用于加密及管理敏感数据和特权访问。</div>
+            <a class="btn" href="https://github.com/hashicorp/vault" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/badlogic/pi-mono" target="_blank">badlogic/pi-mono</a></div>
+            <div class="desc">AI agent toolkit: coding agent CLI, unified LLM API, TUI & web UI libraries, Slack bot, vLLM pods</div>
+            <div class="meta">
+                <span>🌟 3,774</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：badlogic</div>
+            <div class="ai-summary"><b>AI总结：</b>provide AI coding + agent toolkit unified approach</div>
+            <a class="btn" href="https://github.com/badlogic/pi-mono" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/anomalyco/opencode-anthropic-auth" target="_blank">anomalyco/opencode-anthropic-auth</a></div>
+            <div class="desc">无描述</div>
+            <div class="meta">
+                <span>🌟 365</span>
+                <span>🍴 0</span>
+                <span>📝 JavaScript</span>
+            </div>
+            <div class="author">作者：anomalyco</div>
+            <div class="ai-summary"><b>AI总结：</b>这个项目为前端开发者提供了一种轻便方式来对接Anthropic API进行了认证，通过一个简单的JavaScript库将认证逻辑整合到前端应用中。</div>
+            <a class="btn" href="https://github.com/anomalyco/opencode-anthropic-auth" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/protocolbuffers/protobuf" target="_blank">protocolbuffers/protobuf</a></div>
+            <div class="desc">Protocol Buffers - Google's data interchange format</div>
+            <div class="meta">
+                <span>🌟 70,583</span>
+                <span>🍴 0</span>
+                <span>📝 C++</span>
+            </div>
+            <div class="author">作者：protocolbuffers</div>
+            <div class="ai-summary"><b>AI总结：</b>用于高效串行化结构化数据的跨语言传输协议</div>
+            <a class="btn" href="https://github.com/protocolbuffers/protobuf" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/pedroslopez/whatsapp-web.js" target="_blank">pedroslopez/whatsapp-web.js</a></div>
+            <div class="desc">A WhatsApp client library for NodeJS that connects through the WhatsApp Web browser app</div>
+            <div class="meta">
+                <span>🌟 20,866</span>
+                <span>🍴 0</span>
+                <span>📝 JavaScript</span>
+            </div>
+            <div class="author">作者：pedroslopez</div>
+            <div class="ai-summary"><b>AI总结：</b>通过浏览器模拟 WhatsApp Web 端登录账号，实现 NodeJS 环境下发送和接收 WhatsApp 消息的自动化功能。</div>
+            <a class="btn" href="https://github.com/pedroslopez/whatsapp-web.js" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <div id="weekly" class="container tab-content" style="display:none;">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/openclaw/openclaw" target="_blank">openclaw/openclaw</a></div>
+            <div class="desc">Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞</div>
+            <div class="meta">
+                <span>🌟 121,294</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：openclaw</div>
+            <div class="ai-summary"><b>AI总结：</b>```json
+{"用途亮点":"跨平台个人AI助手：天生独立运行的内置Claude技术，无需依赖地面网络指令，真正帮你搞定所有AI助手的事情，每天24小时7天不间断在线"}
+```</div>
+            <a class="btn" href="https://github.com/openclaw/openclaw" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/remotion-dev/remotion" target="_blank">remotion-dev/remotion</a></div>
+            <div class="desc">🎥 Make videos programmatically with React</div>
+            <div class="meta">
+                <span>🌟 33,874</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：remotion-dev</div>
+            <div class="ai-summary"><b>AI总结：</b>用 React 渲染视频内容</div>
+            <a class="btn" href="https://github.com/remotion-dev/remotion" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/VectifyAI/PageIndex" target="_blank">VectifyAI/PageIndex</a></div>
+            <div class="desc">📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG</div>
+            <div class="meta">
+                <span>🌟 10,879</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：VectifyAI</div>
+            <div class="ai-summary"><b>AI总结：</b>PageIndex工具基于推理机制，为文档创建不依赖向量数据库的索引，支持检索增强生成，无需传统向量存储。</div>
+            <a class="btn" href="https://github.com/VectifyAI/PageIndex" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/OpenBMB/UltraRAG" target="_blank">OpenBMB/UltraRAG</a></div>
+            <div class="desc">UltraRAG v3: A Low-Code MCP Framework for Building Complex and Innovative RAG Pipelines</div>
+            <div class="meta">
+                <span>🌟 4,872</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：OpenBMB</div>
+            <div class="ai-summary"><b>AI总结：</b>低代码RAG管道构建框架</div>
+            <a class="btn" href="https://github.com/OpenBMB/UltraRAG" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank">asgeirtj/system_prompts_leaks</a></div>
+            <div class="desc">Collection of extracted System Prompts from popular chatbots like ChatGPT, Claude & Gemini</div>
+            <div class="meta">
+                <span>🌟 28,654</span>
+                <span>🍴 0</span>
+                <span>📝 JavaScript</span>
+            </div>
+            <div class="author">作者：asgeirtj</div>
+            <div class="ai-summary"><b>AI总结：</b>该仓库收集并分享七大热门聊天机器人的系统提示语，为研究人员和开发者提供参考。</div>
+            <a class="btn" href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/modelcontextprotocol/ext-apps" target="_blank">modelcontextprotocol/ext-apps</a></div>
+            <div class="desc">Official repo for spec & SDK of MCP Apps protocol - standard for UIs embedded AI chatbots, served by MCP servers</div>
+            <div class="meta">
+                <span>🌟 1,037</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：modelcontextprotocol</div>
+            <div class="ai-summary"><b>AI总结：</b>让开发者能够轻松为应用添加符合MCP标准的嵌入式AI聊天机器人UI和完整端到端能力</div>
+            <a class="btn" href="https://github.com/modelcontextprotocol/ext-apps" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/anthropics/skills" target="_blank">anthropics/skills</a></div>
+            <div class="desc">Public repository for Agent Skills</div>
+            <div class="meta">
+                <span>🌟 59,053</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：anthropics</div>
+            <div class="ai-summary"><b>AI总结：</b>Anthropics/skills是分享Agent技能的公共仓库，旨在组织和预定义多种技能指令，提升AI代理的实用能力。</div>
+            <a class="btn" href="https://github.com/anthropics/skills" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a></div>
+            <div class="desc">An agentic skills framework & software development methodology that works.</div>
+            <div class="meta">
+                <span>🌟 40,652</span>
+                <span>🍴 0</span>
+                <span>📝 Shell</span>
+            </div>
+            <div class="author">作者：obra</div>
+            <div class="ai-summary"><b>AI总结：</b>一个适用于开发具有代理能力系统的框架，有效简便。</div>
+            <a class="btn" href="https://github.com/obra/superpowers" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/iOfficeAI/AionUi" target="_blank">iOfficeAI/AionUi</a></div>
+            <div class="desc">Free, local, open-source 24/7 Cowork and Clawdbot for Gemini CLI, Claude Code, Codex, OpenCode, Qwen Code, Goose CLI, Auggie, and more | 🌟 Star if you like it!</div>
+            <div class="meta">
+                <span>🌟 11,942</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：iOfficeAI</div>
+            <div class="ai-summary"><b>AI总结：</b>提供对Gemini CLI、Claude Code等多种AI服务的本地机器访问入口，免费开源特色突出。</div>
+            <a class="btn" href="https://github.com/iOfficeAI/AionUi" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <div id="monthly" class="container tab-content" style="display:none;">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/openclaw/openclaw" target="_blank">openclaw/openclaw</a></div>
+            <div class="desc">Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞</div>
+            <div class="meta">
+                <span>🌟 121,300</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：openclaw</div>
+            <div class="ai-summary"><b>AI总结：</b>一个TypeScript项目：Your own personal AI assistant...</div>
+            <a class="btn" href="https://github.com/openclaw/openclaw" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/anomalyco/opencode" target="_blank">anomalyco/opencode</a></div>
+            <div class="desc">The open source coding agent.</div>
+            <div class="meta">
+                <span>🌟 93,348</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：anomalyco</div>
+            <div class="ai-summary"><b>AI总结：</b>一个开源的AI助手，帮助开发者通过指令自动完成编码任务，提高开发效率并降低代码门槛。</div>
+            <a class="btn" href="https://github.com/anomalyco/opencode" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a></div>
+            <div class="desc">An agentic skills framework & software development methodology that works.</div>
+            <div class="meta">
+                <span>🌟 40,652</span>
+                <span>🍴 0</span>
+                <span>📝 Shell</span>
+            </div>
+            <div class="author">作者：obra</div>
+            <div class="ai-summary"><b>AI总结：</b>一个Shell项目：An agentic skills framework & ...</div>
+            <a class="btn" href="https://github.com/obra/superpowers" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/anthropics/skills" target="_blank">anthropics/skills</a></div>
+            <div class="desc">Public repository for Agent Skills</div>
+            <div class="meta">
+                <span>🌟 59,053</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：anthropics</div>
+            <div class="ai-summary"><b>AI总结：</b>一个Python项目：Public repository for Agent Sk...</div>
+            <a class="btn" href="https://github.com/anthropics/skills" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/anthropics/claude-plugins-official" target="_blank">anthropics/claude-plugins-official</a></div>
+            <div class="desc">Official, Anthropic-managed directory of high quality Claude Code Plugins.</div>
+            <div class="meta">
+                <span>🌟 5,566</span>
+                <span>🍴 0</span>
+                <span>📝 Shell</span>
+            </div>
+            <div class="author">作者：anthropics</div>
+            <div class="ai-summary"><b>AI总结：</b>一个Shell项目：Official, Anthropic-managed di...</div>
+            <a class="btn" href="https://github.com/anthropics/claude-plugins-official" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/lbjlaq/Antigravity-Manager" target="_blank">lbjlaq/Antigravity-Manager</a></div>
+            <div class="desc">Professional Antigravity Account Manager & Switcher. One-click seamless account switching for Antigravity Tools. Built with Tauri v2 + React (Rust).专业的 Antigravity 账号管理与切换工具。为 Antigravity 提供一键无缝账号切换功能。</div>
+            <div class="meta">
+                <span>🌟 19,810</span>
+                <span>🍴 0</span>
+                <span>📝 Rust</span>
+            </div>
+            <div class="author">作者：lbjlaq</div>
+            <div class="ai-summary"><b>AI总结：</b>一个Rust项目：Professional Antigravity Accou...</div>
+            <a class="btn" href="https://github.com/lbjlaq/Antigravity-Manager" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/anthropics/claude-code" target="_blank">anthropics/claude-code</a></div>
+            <div class="desc">Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.</div>
+            <div class="meta">
+                <span>🌟 62,549</span>
+                <span>🍴 0</span>
+                <span>📝 Shell</span>
+            </div>
+            <div class="author">作者：anthropics</div>
+            <div class="ai-summary"><b>AI总结：</b>Claude Code 是一个终端智能代理工具用于辅助编码理解代码库并通过自然语言命令加速任务执行解释复杂代码和处理Git工作流</div>
+            <a class="btn" href="https://github.com/anthropics/claude-code" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/remotion-dev/remotion" target="_blank">remotion-dev/remotion</a></div>
+            <div class="desc">🎥 Make videos programmatically with React</div>
+            <div class="meta">
+                <span>🌟 33,874</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：remotion-dev</div>
+            <div class="ai-summary"><b>AI总结：</b>用React编程式创建视频，简化复杂流程。</div>
+            <a class="btn" href="https://github.com/remotion-dev/remotion" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/VectifyAI/PageIndex" target="_blank">VectifyAI/PageIndex</a></div>
+            <div class="desc">📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG</div>
+            <div class="meta">
+                <span>🌟 10,879</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：VectifyAI</div>
+            <div class="ai-summary"><b>AI总结：</b>PageIndex是一个为推理型RAG系统设计的、无需向量索引的文档索引工具。</div>
+            <a class="btn" href="https://github.com/VectifyAI/PageIndex" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/BloopAI/vibe-kanban" target="_blank">BloopAI/vibe-kanban</a></div>
+            <div class="desc">Get 10X more out of Claude Code, Codex or any coding agent</div>
+            <div class="meta">
+                <span>🌟 19,867</span>
+                <span>🍴 0</span>
+                <span>📝 Rust</span>
+            </div>
+            <div class="author">作者：BloopAI</div>
+            <div class="ai-summary"><b>AI总结：</b>赋能Claude Code或Codex等编码代理，显著提升OpenAI API兼容型AI助手的响应质效，其核心亮点在于通过创新的Kanban看板机制，使效率提升呈现10X级增长，并内置复杂的Vibe算法与思维链协同优化，实现语言理解与信息检索双维度的智能增强。
+
+根据用户要求只使用一句中文总结："赋能Claude Code或Codex等开放型AI编码助手，其核心亮点在于通过创新的Kanban看板机制，使效率提升呈现10X级增长，并内置复杂的Vibe算法与思维链协同优化，实现语言理解与信息检索双维度的智能增强，打造兼容OpenAI API的智能协作生态。"
+
+无需任何符号</div>
+            <a class="btn" href="https://github.com/BloopAI/vibe-kanban" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <script>
+    // 主题切换功能
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // 添加切换动画
+        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+    }
+
+    // 页面加载时恢复主题设置
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+
+    // 标签页切换功能
+    function showTab(tab) {
+        // 隐藏所有标签页内容
+        document.getElementById('daily').style.display = 'none';
+        document.getElementById('weekly').style.display = 'none';
+        document.getElementById('monthly').style.display = 'none';
+
+        // 显示选中的标签页
+        document.getElementById(tab).style.display = '';
+
+        // 更新标签页按钮状态
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+
+        // 添加切换动画
+        const container = document.getElementById(tab);
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(20px)';
+
+        setTimeout(() => {
+            container.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+        }, 50);
+
+        setTimeout(() => {
+            container.style.transition = '';
+        }, 450);
+    }
+
+    // 卡片动画效果
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    });
+    </script>
+</body>
+</html>
