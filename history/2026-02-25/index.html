@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub 趋势榜单（2026-02-25）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="github_trending_cards.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+    </div>
+
+    <!-- 页面标题 -->
+    <div class="header-container">
+        <h1>
+            <i class="fab fa-github"></i>
+            GitHub 趋势榜单
+            <span class="date-badge">2026-02-25</span>
+        </h1>
+        <p class="subtitle">发现最热门的开源项目</p>
+        
+        <!-- 历史记录入口 -->
+        <div class="history-entrance">
+            <a href="history/" class="history-btn">
+                <i class="fas fa-history"></i>
+                <span>查看历史记录</span>
+            </a>
+            <div class="history-tooltip">
+                📅 每日历史榜单已保存，点击查看完整记录
+            </div>
+        </div>
+    </div>
+
+    <!-- 标签页导航 -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="showTab('daily')" data-tab="daily">
+            <i class="fas fa-calendar-day"></i>
+            <span>日榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('weekly')" data-tab="weekly">
+            <i class="fas fa-calendar-week"></i>
+            <span>周榜</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('monthly')" data-tab="monthly">
+            <i class="fas fa-calendar-alt"></i>
+            <span>月榜</span>
+        </button>
+    </div>
+
+    <div id="daily" class="container tab-content">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/huggingface/skills" target="_blank">huggingface/skills</a></div>
+            <div class="desc">无描述</div>
+            <div class="meta">
+                <span>🌟 5,567</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：huggingface</div>
+            <div class="ai-summary"><b>AI总结：</b>基于Hugging Face开发的、用于识别文本中蕴含的人物/事物抽象级别技能的知识库，其亮点在于提供了简单的方法来解析复杂的技能信息，目前的支持代码行数未公开。(注意:由于项目简介为空，此描述主要基于项目名称和Hugging Face团队的常见项目类型进行推测)</div>
+            <a class="btn" href="https://github.com/huggingface/skills" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering" target="_blank">muratcankoylan/Agent-Skills-for-Context-Engineering</a></div>
+            <div class="desc">A comprehensive collection of Agent Skills for context engineering, multi-agent architectures, and production agent systems. Use when building, optimizing, or debugging agent systems that require effective context management.</div>
+            <div class="meta">
+                <span>🌟 10,083</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：muratcankoylan</div>
+            <div class="ai-summary"><b>AI总结：</b>本项目提供全面的智能体技能集合，用于构建、优化和调试情境工程中的多代理系统。</div>
+            <a class="btn" href="https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/OpenBB-finance/OpenBB" target="_blank">OpenBB-finance/OpenBB</a></div>
+            <div class="desc">Financial data platform for analysts, quants and AI agents.</div>
+            <div class="meta">
+                <span>🌟 61,946</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：OpenBB-finance</div>
+            <div class="ai-summary"><b>AI总结：</b>为分析师、量化及AI代理提供金融数据服务的开源平台，亮点在于整合AI技术赋能金融数据分析与策略构建</div>
+            <a class="btn" href="https://github.com/OpenBB-finance/OpenBB" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/LadybirdBrowser/ladybird" target="_blank">LadybirdBrowser/ladybird</a></div>
+            <div class="desc">Truly independent web browser</div>
+            <div class="meta">
+                <span>🌟 59,155</span>
+                <span>🍴 0</span>
+                <span>📝 C++</span>
+            </div>
+            <div class="author">作者：LadybirdBrowser</div>
+            <div class="ai-summary"><b>AI总结：</b>独立网页浏览，专注保护隐私与自主性。</div>
+            <a class="btn" href="https://github.com/LadybirdBrowser/ladybird" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools" target="_blank">x1xhlol/system-prompts-and-models-of-ai-tools</a></div>
+            <div class="desc">FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, NotionAI, Orchids.app, Perplexity, Poke, Qoder, Replit, Same.dev, Trae, Traycer AI, VSCode Agent, Warp.dev, Windsurf, Xcode, Z.ai Code, Dia & v0. (And other Open Sourced) System Prompts, Internal Tools & AI Models</div>
+            <div class="meta">
+                <span>🌟 123,236</span>
+                <span>🍴 0</span>
+                <span>📝 未知</span>
+            </div>
+            <div class="author">作者：x1xhlol</div>
+            <div class="ai-summary"><b>AI总结：</b>x1xhlol/system-prompts-and-models-of-ai-tools 项目提供全量AI工具的系统提示、内部工具及开源模型支持。</div>
+            <a class="btn" href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a></div>
+            <div class="desc">An agentic skills framework & software development methodology that works.</div>
+            <div class="meta">
+                <span>🌟 60,667</span>
+                <span>🍴 0</span>
+                <span>📝 Shell</span>
+            </div>
+            <div class="author">作者：obra</div>
+            <div class="ai-summary"><b>AI总结：</b>obra/superpowers是一个代理技能实现软件开发的框架方法，该方法已被证实有效。</div>
+            <a class="btn" href="https://github.com/obra/superpowers" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/ruvnet/ruvector" target="_blank">ruvnet/ruvector</a></div>
+            <div class="desc">RuVector is a high performance Vector Graph & Ai System built in Rust, focsused on agentic systems, and real time analytics. It combines HNSW search, dynamic minimum cut coherence, graph intelligence, and self learning memory into one unified engine for scalable, low latency reasoning and structured retrieval.</div>
+            <div class="meta">
+                <span>🌟 789</span>
+                <span>🍴 0</span>
+                <span>📝 Rust</span>
+            </div>
+            <div class="author">作者：ruvnet</div>
+            <div class="ai-summary"><b>AI总结：</b>基于Rust语言的高性能向量智能图系统，集实时代理与分析于一身，融合多引擎实现极快推理与检索</div>
+            <a class="btn" href="https://github.com/ruvnet/ruvector" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/D4Vinci/Scrapling" target="_blank">D4Vinci/Scrapling</a></div>
+            <div class="desc">🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!</div>
+            <div class="meta">
+                <span>🌟 12,897</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：D4Vinci</div>
+            <div class="ai-summary"><b>AI总结：</b>Scrapling是一个自适应网页抓取框架，能高效处理从单个请求到全尺度爬虫的各种复杂需求</div>
+            <a class="btn" href="https://github.com/D4Vinci/Scrapling" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/GVCLab/PersonaLive" target="_blank">GVCLab/PersonaLive</a></div>
+            <div class="desc">[CVPR 2026] PersonaLive! : Expressive Portrait Image Animation for Live Streaming</div>
+            <div class="meta">
+                <span>🌟 2,070</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：GVCLab</div>
+            <div class="ai-summary"><b>AI总结：</b>实现高度表情表现力的人像图像实时驱动动画。</div>
+            <a class="btn" href="https://github.com/GVCLab/PersonaLive" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/HunxByts/GhostTrack" target="_blank">HunxByts/GhostTrack</a></div>
+            <div class="desc">Useful tool to track location or mobile number</div>
+            <div class="meta">
+                <span>🌟 7,521</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：HunxByts</div>
+            <div class="ai-summary"><b>AI总结：</b>手机定位追踪与号码隐私保护工具</div>
+            <a class="btn" href="https://github.com/HunxByts/GhostTrack" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <div id="weekly" class="container tab-content" style="display:none;">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools" target="_blank">x1xhlol/system-prompts-and-models-of-ai-tools</a></div>
+            <div class="desc">FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, NotionAI, Orchids.app, Perplexity, Poke, Qoder, Replit, Same.dev, Trae, Traycer AI, VSCode Agent, Warp.dev, Windsurf, Xcode, Z.ai Code, Dia & v0. (And other Open Sourced) System Prompts, Internal Tools & AI Models</div>
+            <div class="meta">
+                <span>🌟 123,236</span>
+                <span>🍴 0</span>
+                <span>📝 未知</span>
+            </div>
+            <div class="author">作者：x1xhlol</div>
+            <div class="ai-summary"><b>AI总结：</b>为众多AI工具提供标准化系统提示词和内部模型的资源索引</div>
+            <a class="btn" href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/huggingface/skills" target="_blank">huggingface/skills</a></div>
+            <div class="desc">无描述</div>
+            <div class="meta">
+                <span>🌟 5,567</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：huggingface</div>
+            <div class="ai-summary"><b>AI总结：</b>机器学习领域用于定义和处理技能的工具集</div>
+            <a class="btn" href="https://github.com/huggingface/skills" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/google-research/timesfm" target="_blank">google-research/timesfm</a></div>
+            <div class="desc">TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.</div>
+            <div class="meta">
+                <span>🌟 9,689</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：google-research</div>
+            <div class="ai-summary"><b>AI总结：</b>一款预训练的时间序列基础模型，主要用途是进行时间序列预测，其核心亮点在于通用性和高效性，避免为每项任务重复训练。</div>
+            <a class="btn" href="https://github.com/google-research/timesfm" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/alibaba/zvec" target="_blank">alibaba/zvec</a></div>
+            <div class="desc">A lightweight, lightning-fast, in-process vector database</div>
+            <div class="meta">
+                <span>🌟 7,765</span>
+                <span>🍴 0</span>
+                <span>📝 C++</span>
+            </div>
+            <div class="author">作者：alibaba</div>
+            <div class="ai-summary"><b>AI总结：</b>alibaba/zvec是一个轻量级且超快的内嵌向量数据库，专为高效实现相似度搜索而设计。</div>
+            <a class="btn" href="https://github.com/alibaba/zvec" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/p-e-w/heretic" target="_blank">p-e-w/heretic</a></div>
+            <div class="desc">Fully automatic censorship removal for language models</div>
+            <div class="meta">
+                <span>🌟 9,569</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：p-e-w</div>
+            <div class="ai-summary"><b>AI总结：</b>这款项目旨在通过全自动方法实现语言模型的内容过滤规避，并带来真正全自动的审查绕过体验。</div>
+            <a class="btn" href="https://github.com/p-e-w/heretic" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/SynkraAI/aios-core" target="_blank">SynkraAI/aios-core</a></div>
+            <div class="desc">Synkra AIOS: AI-Orchestrated System for Full Stack Development - Core Framework v4.0</div>
+            <div class="meta">
+                <span>🌟 1,793</span>
+                <span>🍴 0</span>
+                <span>📝 JavaScript</span>
+            </div>
+            <div class="author">作者：SynkraAI</div>
+            <div class="ai-summary"><b>AI总结：</b>SynkraAI开发的第四版core框架，是一个结合AI管理的全栈开发基础系统</div>
+            <a class="btn" href="https://github.com/SynkraAI/aios-core" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/cloudflare/agents" target="_blank">cloudflare/agents</a></div>
+            <div class="desc">Build and deploy AI Agents on Cloudflare</div>
+            <div class="meta">
+                <span>🌟 4,196</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：cloudflare</div>
+            <div class="ai-summary"><b>AI总结：</b>Cloudflare Agent零延迟部署，支持AI应用开发与高速实时调用</div>
+            <a class="btn" href="https://github.com/cloudflare/agents" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/seerr-team/seerr" target="_blank">seerr-team/seerr</a></div>
+            <div class="desc">Open-source media request and discovery manager for Jellyfin, Plex, and Emby.</div>
+            <div class="meta">
+                <span>🌟 9,794</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：seerr-team</div>
+            <div class="ai-summary"><b>AI总结：</b>seerr 是一款适用于 Jellyfin、Plex 和 Emby 的开源媒体请求与发现管理工具。</div>
+            <a class="btn" href="https://github.com/seerr-team/seerr" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/mihail911/modern-software-dev-assignments" target="_blank">mihail911/modern-software-dev-assignments</a></div>
+            <div class="desc">Assignments for CS146S: The Modern Software Dev (Stanford University Fall 2025)</div>
+            <div class="meta">
+                <span>🌟 2,236</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：mihail911</div>
+            <div class="ai-summary"><b>AI总结：</b>精品现代软件开发课程CS146S的题目合集与实践任务。</div>
+            <a class="btn" href="https://github.com/mihail911/modern-software-dev-assignments" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <div id="monthly" class="container tab-content" style="display:none;">
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/openclaw/openclaw" target="_blank">openclaw/openclaw</a></div>
+            <div class="desc">Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞</div>
+            <div class="meta">
+                <span>🌟 225,932</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：openclaw</div>
+            <div class="ai-summary"><b>AI总结：</b>OpenClaw是一个跨平台的个人AI助手，支持任何操作系统，并以灵活高效的方式提供AI服务。</div>
+            <a class="btn" href="https://github.com/openclaw/openclaw" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/badlogic/pi-mono" target="_blank">badlogic/pi-mono</a></div>
+            <div class="desc">AI agent toolkit: coding agent CLI, unified LLM API, TUI & web UI libraries, Slack bot, vLLM pods</div>
+            <div class="meta">
+                <span>🌟 15,993</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：badlogic</div>
+            <div class="ai-summary"><b>AI总结：</b>AI代理工具包，集成工具/接口，高效构建LLM应用</div>
+            <a class="btn" href="https://github.com/badlogic/pi-mono" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/KeygraphHQ/shannon" target="_blank">KeygraphHQ/shannon</a></div>
+            <div class="desc">Fully autonomous AI hacker to find actual exploits in your web apps. Shannon has achieved a 96.15% success rate on the hint-free, source-aware XBOW Benchmark.</div>
+            <div class="meta">
+                <span>🌟 24,873</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：KeygraphHQ</div>
+            <div class="ai-summary"><b>AI总结：</b>全自动AI黑客，用于发现Web应用漏洞，支持96.15%的成功率</div>
+            <a class="btn" href="https://github.com/KeygraphHQ/shannon" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank">asgeirtj/system_prompts_leaks</a></div>
+            <div class="desc">Collection of extracted System Prompts from popular chatbots like ChatGPT, Claude & Gemini</div>
+            <div class="meta">
+                <span>🌟 32,919</span>
+                <span>🍴 0</span>
+                <span>📝 HTML</span>
+            </div>
+            <div class="author">作者：asgeirtj</div>
+            <div class="ai-summary"><b>AI总结：</b>这是一份完整的、能够了解 ChatGPT、Claude、Gemini 等热门聊天机器人系统指令和运作方式的资源汇总。</div>
+            <a class="btn" href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/tobi/qmd" target="_blank">tobi/qmd</a></div>
+            <div class="desc">mini cli search engine for your docs, knowledge bases, meeting notes, whatever. Tracking current sota approaches while being all local</div>
+            <div class="meta">
+                <span>🌟 10,421</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：tobi</div>
+            <div class="ai-summary"><b>AI总结：</b>本地文档快速检索与知识追踪的高效搜索工具，立足本地利用前沿算法</div>
+            <a class="btn" href="https://github.com/tobi/qmd" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/openai/skills" target="_blank">openai/skills</a></div>
+            <div class="desc">Skills Catalog for Codex</div>
+            <div class="meta">
+                <span>🌟 9,662</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：openai</div>
+            <div class="ai-summary"><b>AI总结：</b>基于Codex的AI编程助手的技能扩展与管理工具</div>
+            <a class="btn" href="https://github.com/openai/skills" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/steipete/gogcli" target="_blank">steipete/gogcli</a></div>
+            <div class="desc">Google Suite CLI: Gmail, GCal, GDrive, GContacts.</div>
+            <div class="meta">
+                <span>🌟 4,914</span>
+                <span>🍴 0</span>
+                <span>📝 Go</span>
+            </div>
+            <div class="author">作者：steipete</div>
+            <div class="ai-summary"><b>AI总结：</b>一个Go项目：Google Suite CLI: Gmail, GCal,...</div>
+            <a class="btn" href="https://github.com/steipete/gogcli" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/p-e-w/heretic" target="_blank">p-e-w/heretic</a></div>
+            <div class="desc">Fully automatic censorship removal for language models</div>
+            <div class="meta">
+                <span>🌟 9,569</span>
+                <span>🍴 0</span>
+                <span>📝 Python</span>
+            </div>
+            <div class="author">作者：p-e-w</div>
+            <div class="ai-summary"><b>AI总结：</b>一个Python项目：Fully automatic censorship rem...</div>
+            <a class="btn" href="https://github.com/p-e-w/heretic" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/thedotmack/claude-mem" target="_blank">thedotmack/claude-mem</a></div>
+            <div class="desc">A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude's agent-sdk), and injects relevant context back into future sessions.</div>
+            <div class="meta">
+                <span>🌟 30,769</span>
+                <span>🍴 0</span>
+                <span>📝 TypeScript</span>
+            </div>
+            <div class="author">作者：thedotmack</div>
+            <div class="ai-summary"><b>AI总结：</b>一个TypeScript项目：A Claude Code plugin that auto...</div>
+            <a class="btn" href="https://github.com/thedotmack/claude-mem" target="_blank">查看仓库</a>
+        </div>
+
+        <div class="card">
+            <div class="repo-title"><a href="https://github.com/ThePrimeagen/99" target="_blank">ThePrimeagen/99</a></div>
+            <div class="desc">Neovim AI agent done right</div>
+            <div class="meta">
+                <span>🌟 4,071</span>
+                <span>🍴 0</span>
+                <span>📝 Lua</span>
+            </div>
+            <div class="author">作者：ThePrimeagen</div>
+            <div class="ai-summary"><b>AI总结：</b>这是一个实现出色的Neovim AI代理项目，旨在提升用户在代码编辑过程中的效率</div>
+            <a class="btn" href="https://github.com/ThePrimeagen/99" target="_blank">查看仓库</a>
+        </div>
+
+    </div>
+    <script>
+    // 主题切换功能
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // 添加切换动画
+        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+    }
+
+    // 页面加载时恢复主题设置
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+    });
+
+    // 标签页切换功能
+    function showTab(tab) {
+        // 隐藏所有标签页内容
+        document.getElementById('daily').style.display = 'none';
+        document.getElementById('weekly').style.display = 'none';
+        document.getElementById('monthly').style.display = 'none';
+
+        // 显示选中的标签页
+        document.getElementById(tab).style.display = '';
+
+        // 更新标签页按钮状态
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+
+        // 添加切换动画
+        const container = document.getElementById(tab);
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(20px)';
+
+        setTimeout(() => {
+            container.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+        }, 50);
+
+        setTimeout(() => {
+            container.style.transition = '';
+        }, 450);
+    }
+
+    // 卡片动画效果
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    });
+    </script>
+</body>
+</html>
