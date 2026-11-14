@@ -1,0 +1,813 @@
+{
+  "schema_version": "1.0",
+  "site": {
+    "name": "GitHub 趋势雷达",
+    "url": "https://Ibook000.github.io/GithubTrending"
+  },
+  "date": "2026-08-03",
+  "generated_at": "2026-08-03T18:06:10.686006+08:00",
+  "source": "https://github.com/trending",
+  "periods": {
+    "daily": [
+      {
+        "title": "microsoft/AI-For-Beginners",
+        "url": "https://github.com/microsoft/AI-For-Beginners",
+        "description": "12 Weeks, 24 Lessons, AI for All!",
+        "language": "Jupyter Notebook",
+        "stars": "60,171",
+        "forks": "11,780",
+        "author": "microsoft",
+        "summary": "一个聚焦人工智能与开发效率的 Jupyter Notebook 开源项目",
+        "rank": 1,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily",
+          "weekly"
+        ]
+      },
+      {
+        "title": "usekaneo/kaneo",
+        "url": "https://github.com/usekaneo/kaneo",
+        "description": "🎯 All you need. Nothing you don't. Open source project management that works for you, not against you.",
+        "language": "TypeScript",
+        "stars": "6,488",
+        "forks": "533",
+        "author": "usekaneo",
+        "summary": "一个聚焦人工智能与开发效率的 TypeScript 开源项目",
+        "rank": 2,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "lyogavin/airllm",
+        "url": "https://github.com/lyogavin/airllm",
+        "description": "AirLLM 70B inference with single 4GB GPU",
+        "language": "Jupyter Notebook",
+        "stars": "26,163",
+        "forks": "2,911",
+        "author": "lyogavin",
+        "summary": "AirLLM 能让单个 4GB 显存的 GPU 运行 70B 参数规模的大语言模型推理。",
+        "rank": 3,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "iv-org/invidious",
+        "url": "https://github.com/iv-org/invidious",
+        "description": "Invidious is an alternative front-end to YouTube",
+        "language": "Crystal",
+        "stars": "22,114",
+        "forks": "2,464",
+        "author": "iv-org",
+        "summary": "一个使用 Crystal 构建的开源项目：Invidious is an alternative front-end to YouTube",
+        "rank": 4,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "codecrafters-io/build-your-own-x",
+        "url": "https://github.com/codecrafters-io/build-your-own-x",
+        "description": "Master programming by recreating your favorite technologies from scratch.",
+        "language": "Markdown",
+        "stars": "535,381",
+        "forks": "50,589",
+        "author": "codecrafters-io",
+        "summary": "这个项目收集了从零开始重新构建各种流行技术的教程，帮助开发者通过实践深入理解其原理。",
+        "rank": 5,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "zhaoxuya520/reverse-skill",
+        "url": "https://github.com/zhaoxuya520/reverse-skill",
+        "description": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端",
+        "language": "PowerShell",
+        "stars": "14,735",
+        "forks": "2,173",
+        "author": "zhaoxuya520",
+        "summary": "这个项目是一个集成逆向工程与渗透测试技能的AI路由工具包，能够自动路由任务、按需启动工具链并构建自进化知识库。",
+        "rank": 6,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "different-ai/openwork",
+        "url": "https://github.com/different-ai/openwork",
+        "description": "The open-source alternative to Claude Cowork (powered by opencode)",
+        "language": "TypeScript",
+        "stars": "20,616",
+        "forks": "2,103",
+        "author": "different-ai",
+        "summary": "这是一个开源替代 Claude Cowork 的协作工具，基于 opencode 构建。",
+        "rank": 7,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "microsoft/generative-ai-for-beginners",
+        "url": "https://github.com/microsoft/generative-ai-for-beginners",
+        "description": "21 Lessons, Get Started Building with Generative AI",
+        "language": "Jupyter Notebook",
+        "stars": "115,165",
+        "forks": "61,371",
+        "author": "microsoft",
+        "summary": "一个聚焦人工智能与开发效率的 Jupyter Notebook 开源项目",
+        "rank": 8,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "Panniantong/Agent-Reach",
+        "url": "https://github.com/Panniantong/Agent-Reach",
+        "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+        "language": "Python",
+        "stars": "65,236",
+        "forks": "5,398",
+        "author": "Panniantong",
+        "summary": "一个通过命令行让AI代理免费读取和搜索多个社交平台内容的工具。",
+        "rank": 9,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "TencentCloud/TencentDB-Agent-Memory",
+        "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+        "description": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusable memory assets (Chat Memory, Skill, LLM-Wiki, Code-Graph) that are governed, shared, and equipped across agents and frameworks.",
+        "language": "TypeScript",
+        "stars": "11,589",
+        "forks": "1,094",
+        "author": "TencentCloud",
+        "summary": "一个聚焦人工智能与开发效率的 TypeScript 开源项目",
+        "rank": 10,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      }
+    ],
+    "weekly": [
+      {
+        "title": "block/buzz",
+        "url": "https://github.com/block/buzz",
+        "description": "A hive mind communication platform",
+        "language": "Rust",
+        "stars": "21,441",
+        "forks": "2,307",
+        "author": "block",
+        "summary": "一个使用 Rust 构建的开源项目：A hive mind communication platform",
+        "rank": 1,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "virgiliojr94/book-to-skill",
+        "url": "https://github.com/virgiliojr94/book-to-skill",
+        "description": "Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.",
+        "language": "Python",
+        "stars": "15,658",
+        "forks": "1,684",
+        "author": "virgiliojr94",
+        "summary": "一个使用 Python 构建的开源项目：Turn any technical book PDF into a Claude Code skill",
+        "rank": 2,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "ayghri/i-have-adhd",
+        "url": "https://github.com/ayghri/i-have-adhd",
+        "description": "A skill to stop your coding agent from burying the answer. ADHD-friendly output.",
+        "language": "Python",
+        "stars": "15,974",
+        "forks": "890",
+        "author": "ayghri",
+        "summary": "一个聚焦人工智能与开发效率的 Python 开源项目",
+        "rank": 3,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "microsoft/AI-For-Beginners",
+        "url": "https://github.com/microsoft/AI-For-Beginners",
+        "description": "12 Weeks, 24 Lessons, AI for All!",
+        "language": "Jupyter Notebook",
+        "stars": "60,171",
+        "forks": "11,780",
+        "author": "microsoft",
+        "summary": "一个聚焦人工智能与开发效率的 Jupyter Notebook 开源项目",
+        "rank": 4,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily",
+          "weekly"
+        ]
+      },
+      {
+        "title": "1jehuang/jcode",
+        "url": "https://github.com/1jehuang/jcode",
+        "description": "The most RAM efficient harness",
+        "language": "Rust",
+        "stars": "15,383",
+        "forks": "1,701",
+        "author": "1jehuang",
+        "summary": "一个使用 Rust 构建的开源项目：The most RAM efficient harness",
+        "rank": 5,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "pascalorg/editor",
+        "url": "https://github.com/pascalorg/editor",
+        "description": "Create and share 3D architectural projects.",
+        "language": "TypeScript",
+        "stars": "20,840",
+        "forks": "2,671",
+        "author": "pascalorg",
+        "summary": "一个使用 TypeScript 构建的开源项目：Create and share 3D architectural projects",
+        "rank": 6,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "alibaba/open-code-review",
+        "url": "https://github.com/alibaba/open-code-review",
+        "description": "Fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
+        "language": "Go",
+        "stars": "18,199",
+        "forks": "1,224",
+        "author": "alibaba",
+        "summary": "一个聚焦人工智能与开发效率的 Go 开源项目",
+        "rank": 7,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "permissionlesstech/bitchat",
+        "url": "https://github.com/permissionlesstech/bitchat",
+        "description": "bluetooth mesh chat, IRC vibes",
+        "language": "Swift",
+        "stars": "34,252",
+        "forks": "5,465",
+        "author": "permissionlesstech",
+        "summary": "一个使用 Swift 构建的开源项目：bluetooth mesh chat, IRC vibes",
+        "rank": 8,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly",
+          "monthly"
+        ]
+      },
+      {
+        "title": "moeru-ai/airi",
+        "url": "https://github.com/moeru-ai/airi",
+        "description": "💖🧸 Self hosted, you-owned Grok Companion, a container of souls of waifu, cyber livings to bring them into our worlds, wishing to achieve Neuro-sama's altitude. Capable of realtime voice chat, Minecraft, Factorio playing. Web / macOS / Windows supported.",
+        "language": "TypeScript",
+        "stars": "46,641",
+        "forks": "4,600",
+        "author": "moeru-ai",
+        "summary": "一个聚焦人工智能与开发效率的 TypeScript 开源项目",
+        "rank": 9,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "andrewyng/aisuite",
+        "url": "https://github.com/andrewyng/aisuite",
+        "description": "Simple, unified interface to multiple Generative AI providers",
+        "language": "Python",
+        "stars": "15,932",
+        "forks": "1,684",
+        "author": "andrewyng",
+        "summary": "一个聚焦人工智能与开发效率的 Python 开源项目",
+        "rank": 10,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      }
+    ],
+    "monthly": [
+      {
+        "title": "permissionlesstech/bitchat",
+        "url": "https://github.com/permissionlesstech/bitchat",
+        "description": "bluetooth mesh chat, IRC vibes",
+        "language": "Swift",
+        "stars": "34,252",
+        "forks": "5,465",
+        "author": "permissionlesstech",
+        "summary": "一个使用 Swift 构建的开源项目：bluetooth mesh chat, IRC vibes",
+        "rank": 1,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly",
+          "monthly"
+        ]
+      },
+      {
+        "title": "diegosouzapw/OmniRoute",
+        "url": "https://github.com/diegosouzapw/OmniRoute",
+        "description": "Never stop coding. Free MIT AI gateway: one endpoint, 290+ providers (90+ free), 500+ models — Kimi, Claude, GPT, OpenAI, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 500+ contributors",
+        "language": "TypeScript",
+        "stars": "38,266",
+        "forks": "5,031",
+        "author": "diegosouzapw",
+        "summary": "一个聚焦人工智能与开发效率的 TypeScript 开源项目",
+        "rank": 2,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "stablyai/orca",
+        "url": "https://github.com/stablyai/orca",
+        "description": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop, mobile and VPS.",
+        "language": "TypeScript",
+        "stars": "36,229",
+        "forks": "2,559",
+        "author": "stablyai",
+        "summary": "一个聚焦人工智能与开发效率的 TypeScript 开源项目",
+        "rank": 3,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "emilkowalski/skills",
+        "url": "https://github.com/emilkowalski/skills",
+        "description": "Skills for Designers and Engineers.",
+        "language": "未知",
+        "stars": "24,157",
+        "forks": "1,308",
+        "author": "emilkowalski",
+        "summary": "一个聚焦游戏与图形开发的 未知 开源项目",
+        "rank": 4,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "tt-a1i/archify",
+        "url": "https://github.com/tt-a1i/archify",
+        "description": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
+        "language": "HTML",
+        "stars": "8,700",
+        "forks": "687",
+        "author": "tt-a1i",
+        "summary": "tt-a1i/archify 是一个用于生成架构、工作流、序列、数据流和生命周期图的项目，输出为包含动画且可清晰导出的自包含 HTML 文件。",
+        "rank": 5,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "Nutlope/hallmark",
+        "url": "https://github.com/Nutlope/hallmark",
+        "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
+        "language": "CSS",
+        "stars": "21,072",
+        "forks": "1,058",
+        "author": "Nutlope",
+        "summary": "一个聚焦人工智能与开发效率的 CSS 开源项目",
+        "rank": 6,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "koala73/worldmonitor",
+        "url": "https://github.com/koala73/worldmonitor",
+        "description": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface",
+        "language": "TypeScript",
+        "stars": "78,304",
+        "forks": "11,702",
+        "author": "koala73",
+        "summary": "一个聚焦人工智能与开发效率的 TypeScript 开源项目",
+        "rank": 7,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "bradautomates/claude-video",
+        "url": "https://github.com/bradautomates/claude-video",
+        "description": "Give Claude the ability to watch any video. /watch downloads, extracts frames, transcribes, hands it all to Claude.",
+        "language": "Python",
+        "stars": "13,567",
+        "forks": "1,323",
+        "author": "bradautomates",
+        "summary": "一个使用 Python 构建的开源项目：Give Claude the ability to watch any video. /watch d",
+        "rank": 8,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "Zackriya-Solutions/meetily",
+        "url": "https://github.com/Zackriya-Solutions/meetily",
+        "description": "Privacy first, AI meeting assistant with 4x faster Parakeet/Whisper live transcription, speaker diarization, and Ollama summarization built on Rust. 100% local processing. no cloud required. Meetily (Meetly Ai - https://meetily.ai ) is the #1 Self-hosted, Open-source Ai meeting note taker for macOS & Windows. Understand How to write meeting minutes",
+        "language": "Rust",
+        "stars": "28,068",
+        "forks": "2,915",
+        "author": "Zackriya-Solutions",
+        "summary": "一个聚焦人工智能与开发效率的 Rust 开源项目",
+        "rank": 9,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "iOfficeAI/OfficeCLI",
+        "url": "https://github.com/iOfficeAI/OfficeCLI",
+        "description": "OfficeCLI is the first and best Office suite purpose-built for AI agents to read, edit, and automate Word, Excel, and PowerPoint files. Free, open-source, single binary, no Office installation required.",
+        "language": "C#",
+        "stars": "24,572",
+        "forks": "1,657",
+        "author": "iOfficeAI",
+        "summary": "一个聚焦人工智能与开发效率的 C# 开源项目",
+        "rank": 10,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      }
+    ]
+  },
+  "news": [
+    {
+      "id": "8374eb3de5361b2e",
+      "title": "Don’t stop early: Case-folding source code at memory speed",
+      "original_title": "Don’t stop early: Case-folding source code at memory speed",
+      "url": "https://github.blog/engineering/architecture-optimization/dont-stop-early-case-folding-source-code-at-memory-speed",
+      "source": "GitHub Blog",
+      "source_id": "github-blog",
+      "source_url": "https://github.blog/",
+      "category": "开源生态",
+      "tags": [],
+      "published": "Fri, 31 Jul 2026 16:00:00 +0000",
+      "published_at": "2026-08-01T00:00:00+08:00",
+      "fetched_at": "2026-08-03T18:06:03.787734+08:00",
+      "summary": "How a branch-free loop and byte-space arithmetic let GitHub case-fold every byte of code search at >45 GiB/s on a single core. The post Don’t stop early: Case-folding source code at memory speed appeared first on The Git",
+      "original_summary": "How a branch-free loop and byte-space arithmetic let GitHub case-fold every byte of code search at >45 GiB/s on a single core. The post Don’t stop early: Case-folding source code at memory speed appeared first on The Git",
+      "localized": false,
+      "stale": false
+    },
+    {
+      "id": "e299630b866e2d7e",
+      "title": "Ten advances in mathematics and theoretical computer science",
+      "original_title": "Ten advances in mathematics and theoretical computer science",
+      "url": "https://openai.com/index/ten-advances-in-mathematics",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "AI 模型",
+      "tags": [],
+      "published": "Sat, 01 Aug 2026 00:00:00 GMT",
+      "published_at": "2026-08-01T08:00:00+08:00",
+      "fetched_at": "2026-08-03T18:06:03.787734+08:00",
+      "summary": "OpenAI shares new results on long-standing open problems in mathematics and theoretical computer science, including advances in geometry, cryptography, and complexity.",
+      "original_summary": "OpenAI shares new results on long-standing open problems in mathematics and theoretical computer science, including advances in geometry, cryptography, and complexity.",
+      "localized": false,
+      "stale": false
+    },
+    {
+      "id": "8fd53ef199dde2ba",
+      "title": "Scaling Kubernetes pods with KEDA based on Amazon SQS queue depth",
+      "original_title": "Scaling Kubernetes pods with KEDA based on Amazon SQS queue depth",
+      "url": "https://www.cncf.io/blog/2026/07/31/scaling-kubernetes-pods-with-keda-based-on-amazon-sqs-queue-depth",
+      "source": "CNCF Blog",
+      "source_id": "cncf-blog",
+      "source_url": "https://www.cncf.io/blog/",
+      "category": "云原生",
+      "tags": [],
+      "published": "Fri, 31 Jul 2026 11:00:00 +0000",
+      "published_at": "2026-07-31T19:00:00+08:00",
+      "fetched_at": "2026-08-03T18:06:03.787734+08:00",
+      "summary": "In event-driven Kubernetes architectures, CPU and memory utilization often fail to reflect real system pressure. A worker pod may sit idle from a CPU perspective while thousands of messages pile up in an Amazon SQS queue",
+      "original_summary": "In event-driven Kubernetes architectures, CPU and memory utilization often fail to reflect real system pressure. A worker pod may sit idle from a CPU perspective while thousands of messages pile up in an Amazon SQS queue",
+      "localized": false,
+      "stale": false
+    },
+    {
+      "id": "0b6f4583ad52e7cc",
+      "title": "TokTier: Exact Stateful Tokenization for Agentic LLM Serving",
+      "original_title": "TokTier: Exact Stateful Tokenization for Agentic LLM Serving",
+      "url": "https://arxiv.org/abs/2607.29678v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "AI 模型",
+      "tags": [],
+      "published": "2026-07-31T17:56:30Z",
+      "published_at": "2026-08-01T01:56:30+08:00",
+      "fetched_at": "2026-08-03T18:06:03.787734+08:00",
+      "summary": "LLM serving systems cache prompt KV state, yet most front ends still re-tokenize the full request text on every call. The cost lands on coding agents, which resubmit a long transcript after each small tool result, and re",
+      "original_summary": "LLM serving systems cache prompt KV state, yet most front ends still re-tokenize the full request text on every call. The cost lands on coding agents, which resubmit a long transcript after each small tool result, and re",
+      "localized": false,
+      "stale": false
+    },
+    {
+      "id": "f8ec64126bdac17b",
+      "title": "Advancing responsible AI across Europe",
+      "original_title": "Advancing responsible AI across Europe",
+      "url": "https://openai.com/index/advancing-responsible-ai-across-europe",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "安全",
+      "tags": [],
+      "published": "Fri, 31 Jul 2026 15:00:00 GMT",
+      "published_at": "2026-07-31T23:00:00+08:00",
+      "fetched_at": "2026-08-03T18:06:03.787734+08:00",
+      "summary": "OpenAI shares how its safety, security, transparency, and provenance practices support responsible AI governance in Europe. The work will continue as the EU AI Act advances.",
+      "original_summary": "OpenAI shares how its safety, security, transparency, and provenance practices support responsible AI governance in Europe. The work will continue as the EU AI Act advances.",
+      "localized": false,
+      "stale": false
+    },
+    {
+      "id": "96cad8fa6f664f8b",
+      "title": "ExtractBench: A Benchmark for Schema-Guided Enterprise Document Extraction",
+      "original_title": "ExtractBench: A Benchmark for Schema-Guided Enterprise Document Extraction",
+      "url": "https://arxiv.org/abs/2607.29677v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "研究",
+      "tags": [],
+      "published": "2026-07-31T17:55:58Z",
+      "published_at": "2026-08-01T01:55:58+08:00",
+      "fetched_at": "2026-08-03T18:06:03.787734+08:00",
+      "summary": "Enterprise workflows increasingly rely on agents for \\emph{schema-guided extraction}: given a document and a user-defined schema, the agent faithfully follows the schema to produce the correct output with source evidence",
+      "original_summary": "Enterprise workflows increasingly rely on agents for \\emph{schema-guided extraction}: given a document and a user-defined schema, the agent faithfully follows the schema to produce the correct output with source evidence",
+      "localized": false,
+      "stale": false
+    },
+    {
+      "id": "966cd163f8692d8c",
+      "title": "Building abundant intelligence",
+      "original_title": "Building abundant intelligence",
+      "url": "https://openai.com/index/building-abundant-intelligence",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "AI 模型",
+      "tags": [],
+      "published": "Fri, 31 Jul 2026 15:00:00 GMT",
+      "published_at": "2026-07-31T23:00:00+08:00",
+      "fetched_at": "2026-08-03T18:06:03.787734+08:00",
+      "summary": "A full-stack approach to making advanced AI more capable, more affordable, and more widely useful.",
+      "original_summary": "A full-stack approach to making advanced AI more capable, more affordable, and more widely useful.",
+      "localized": false,
+      "stale": false
+    },
+    {
+      "id": "5b7b23009091f94b",
+      "title": "Differentially Private Nonparametric Modal Learning with Applications to Regression and Clustering",
+      "original_title": "Differentially Private Nonparametric Modal Learning with Applications to Regression and Clustering",
+      "url": "https://arxiv.org/abs/2607.29675v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "研究",
+      "tags": [],
+      "published": "2026-07-31T17:55:02Z",
+      "published_at": "2026-08-01T01:55:02+08:00",
+      "fetched_at": "2026-08-03T18:06:03.787734+08:00",
+      "summary": "Density modes provide a localized and interpretable summary of multimodal distributions, but their estimation under rigorous differential privacy constraints remains largely unexplored. We study differentially private re",
+      "original_summary": "Density modes provide a localized and interpretable summary of multimodal distributions, but their estimation under rigorous differential privacy constraints remains largely unexplored. We study differentially private re",
+      "localized": false,
+      "stale": false
+    }
+  ],
+  "news_generated_at": "2026-08-03T18:06:03.787734+08:00",
+  "news_sources": [
+    {
+      "id": "github-blog",
+      "name": "GitHub Blog",
+      "url": "https://github.blog/",
+      "status": "ok",
+      "last_success_at": "2026-08-03T18:06:03.787734+08:00"
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog",
+      "status": "ok",
+      "last_success_at": "2026-08-03T18:06:03.787734+08:00"
+    },
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "status": "ok",
+      "last_success_at": "2026-08-03T18:06:03.787734+08:00"
+    },
+    {
+      "id": "cncf-blog",
+      "name": "CNCF Blog",
+      "url": "https://www.cncf.io/blog/",
+      "status": "ok",
+      "last_success_at": "2026-08-03T18:06:03.787734+08:00"
+    },
+    {
+      "id": "linux-foundation",
+      "name": "Linux Foundation",
+      "url": "https://www.linuxfoundation.org/blog/",
+      "status": "ok",
+      "last_success_at": "2026-08-03T18:06:03.787734+08:00"
+    },
+    {
+      "id": "arxiv-ai",
+      "name": "arXiv AI / ML / NLP",
+      "url": "https://arxiv.org/",
+      "status": "ok",
+      "last_success_at": "2026-08-03T18:06:03.787734+08:00"
+    }
+  ]
+}
