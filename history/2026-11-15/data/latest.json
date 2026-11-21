@@ -1,0 +1,2191 @@
+{
+  "schema_version": "1.0",
+  "site": {
+    "name": "GitHub 趋势雷达",
+    "url": "https://Ibook000.github.io/GithubTrending"
+  },
+  "date": "2026-11-15",
+  "generated_at": "2026-11-15T16:51:11.568405+08:00",
+  "source": "https://github.com/trending",
+  "periods": {
+    "daily": [
+      {
+        "title": "backnotprop/plannotator",
+        "url": "https://github.com/backnotprop/plannotator",
+        "description": "The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.",
+        "language": "TypeScript",
+        "stars": "11,409",
+        "forks": "992",
+        "author": "backnotprop",
+        "summary": "这是一个协作工作区，支持代码的建模、决策、规划、注释、审查和团队共享，并能将所有反馈一次性发送给代理。",
+        "rank": 1,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily",
+          "weekly"
+        ]
+      },
+      {
+        "title": "GoogleChrome/modern-web-guidance-src",
+        "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+        "description": "Keep your coding agent up to date with the latest web best practices",
+        "language": "TypeScript",
+        "stars": "6,364",
+        "forks": "489",
+        "author": "GoogleChrome",
+        "summary": "该项目帮助编码代理掌握并应用最新的Web最佳实践。",
+        "rank": 2,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "tradermonty/claude-trading-skills",
+        "url": "https://github.com/tradermonty/claude-trading-skills",
+        "description": "Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development.",
+        "language": "Python",
+        "stars": "5,049",
+        "forks": "1,065",
+        "author": "tradermonty",
+        "summary": "该项目为股票投资者和交易者提供基于 Claude Code 的技能集，涵盖市场分析、技术图表、经济日历、股票筛选和交易策略开发。",
+        "rank": 3,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "ChromeDevTools/chrome-devtools-mcp",
+        "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+        "description": "Chrome DevTools for coding agents",
+        "language": "TypeScript",
+        "stars": "56,507",
+        "forks": "4,784",
+        "author": "ChromeDevTools",
+        "summary": "该项目将 Chrome 开发者工具以 MCP 形式集成，供代码编辑器使用。",
+        "rank": 4,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "alibaba/open-code-review",
+        "url": "https://github.com/alibaba/open-code-review",
+        "description": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
+        "language": "Go",
+        "stars": "51,613",
+        "forks": "4,000",
+        "author": "alibaba",
+        "summary": "这是一个混合架构的代码审查工具，结合确定性管道与LLM代理，提供精准的行级注释，内置跨语言安全规则覆盖空指针、线程安全、XSS和SQL注入，并兼容OpenAI与Anthropic模型，适用于大规模生产环境。",
+        "rank": 5,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "QwenLM/qwen-code",
+        "url": "https://github.com/QwenLM/qwen-code",
+        "description": "An open-source AI coding agent that lives in your terminal.",
+        "language": "TypeScript",
+        "stars": "30,444",
+        "forks": "3,524",
+        "author": "QwenLM",
+        "summary": "QwenLM/qwen-code 是一个开源的 AI 编码助手，可直接在终端中使用。",
+        "rank": 6,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "dream-num/univer",
+        "url": "https://github.com/dream-num/univer",
+        "description": "Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core.",
+        "language": "TypeScript",
+        "stars": "25,131",
+        "forks": "2,302",
+        "author": "dream-num",
+        "summary": "Univer 是一个可扩展的开源 Office SDK，用于在自有产品中集成文档编辑、表格计算、协作和文件处理能力，并同时面向用户和 AI 智能体。",
+        "rank": 7,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "ag-ui-protocol/ag-ui",
+        "url": "https://github.com/ag-ui-protocol/ag-ui",
+        "description": "AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.",
+        "language": "TypeScript",
+        "stars": "17,484",
+        "forks": "1,731",
+        "author": "ag-ui-protocol",
+        "summary": "ag-ui 是一个定义智能体与用户交互协议的开源项目，通过标准化的事件流让各类 AI 智能体能够以流式方式与前端应用进行实时通信和状态同步。",
+        "rank": 8,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "ashhart/TensorFold",
+        "url": "https://github.com/ashhart/TensorFold",
+        "description": "LLM Inference Engine for Metal, CUDA and Vulkan.",
+        "language": "Zig",
+        "stars": "2,211",
+        "forks": "517",
+        "author": "ashhart",
+        "summary": "TensorFold 是一个支持 Metal、CUDA 和 Vulkan 的大语言模型推理引擎。",
+        "rank": 9,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      },
+      {
+        "title": "JuliusBrussee/caveman",
+        "url": "https://github.com/JuliusBrussee/caveman",
+        "description": "🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman.",
+        "language": "Go",
+        "stars": "120,223",
+        "forks": "7,009",
+        "author": "JuliusBrussee",
+        "summary": "该项目为编程编码智能体提供一种基于简短史前语言风格的代理方案，可将 token 消耗降低约 65%。",
+        "rank": 10,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily"
+        ]
+      }
+    ],
+    "weekly": [
+      {
+        "title": "meta/astryx",
+        "url": "https://github.com/meta/astryx",
+        "description": "An open source design system that's fully customizable and agent ready",
+        "language": "TypeScript",
+        "stars": "28,351",
+        "forks": "2,210",
+        "author": "meta",
+        "summary": "一个开源的设计系统，提供完全可定制的组件，并专为自动化代理场景做好准备。",
+        "rank": 1,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "sherlock-project/sherlock",
+        "url": "https://github.com/sherlock-project/sherlock",
+        "description": "Hunt down social media accounts by username across social networks",
+        "language": "Python",
+        "stars": "111,973",
+        "forks": "12,957",
+        "author": "sherlock-project",
+        "summary": "sherlock 是一个开源命令行工具，输入一个用户名即可在数百个社交网站和平台上批量查询同名账号是否存在，并汇总返回各站点的主页链接，同时可作为 Python 库调用并支持代理与 Tor 匿名访问。",
+        "rank": 2,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "anthropics/skills",
+        "url": "https://github.com/anthropics/skills",
+        "description": "Public repository for Agent Skills",
+        "language": "Python",
+        "stars": "194,823",
+        "forks": "22,919",
+        "author": "anthropics",
+        "summary": "该项目公开收集和展示 Agent Skills 的定义与示例，用模块化文件让智能体按需加载可复用的任务能力。",
+        "rank": 3,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly",
+          "monthly"
+        ]
+      },
+      {
+        "title": "vercel-labs/agent-browser",
+        "url": "https://github.com/vercel-labs/agent-browser",
+        "description": "Browser automation CLI for AI agents",
+        "language": "Rust",
+        "stars": "51,335",
+        "forks": "3,586",
+        "author": "vercel-labs",
+        "summary": "这是一个为 AI 代理提供的浏览器自动化命令行工具，旨在通过 CLI 方式实现网页操作。",
+        "rank": 4,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "google/elephant-goldfish-model",
+        "url": "https://github.com/google/elephant-goldfish-model",
+        "description": "Open-source plugin for designing and reviewing software with agents",
+        "language": "Python",
+        "stars": "19,336",
+        "forks": "1,436",
+        "author": "google",
+        "summary": "开源插件通过代理协助实现软件设计与审查",
+        "rank": 5,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "milind-soni/OpenMausBot",
+        "url": "https://github.com/milind-soni/OpenMausBot",
+        "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
+        "language": "TypeScript",
+        "stars": "22,937",
+        "forks": "3,195",
+        "author": "milind-soni",
+        "summary": "这个项目是一个开源的 Grok Bot 替代方案，它提供了一个虚拟机环境供机器人使用。",
+        "rank": 6,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "ZhuLinsen/daily_stock_analysis",
+        "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+        "description": "LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.",
+        "language": "Python",
+        "stars": "72,337",
+        "forks": "57,511",
+        "author": "ZhuLinsen",
+        "summary": "这个项目是一个基于大语言模型的多市场股票分析系统，整合多源行情、实时新闻、决策看板和自动推送，并支持零成本定时运行。",
+        "rank": 7,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "google-deepmind/mujoco",
+        "url": "https://github.com/google-deepmind/mujoco",
+        "description": "Multi-Joint dynamics with Contact. A general purpose physics simulator.",
+        "language": "C++",
+        "stars": "18,015",
+        "forks": "2,205",
+        "author": "google-deepmind",
+        "summary": "这是一个用于模拟多关节动力学与接触过程的通用物理仿真引擎。",
+        "rank": 8,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      },
+      {
+        "title": "backnotprop/plannotator",
+        "url": "https://github.com/backnotprop/plannotator",
+        "description": "The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.",
+        "language": "TypeScript",
+        "stars": "11,409",
+        "forks": "992",
+        "author": "backnotprop",
+        "summary": "backnotprop/plannotator 是专为跟进 AI 代理而设计的工作区，提供从塑造、决定、规划到注释、审阅代码、与团队共享以及单击即可向代理发送所有反馈的完整闭环流程。",
+        "rank": 9,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "daily",
+          "weekly"
+        ]
+      },
+      {
+        "title": "addyosmani/agent-skills",
+        "url": "https://github.com/addyosmani/agent-skills",
+        "description": "Production-grade engineering skills for AI coding agents.",
+        "language": "JavaScript",
+        "stars": "117,686",
+        "forks": "12,315",
+        "author": "addyosmani",
+        "summary": "该项目为 AI 编程智能体提供生产级别的工程技能实现。",
+        "rank": 10,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly"
+        ]
+      }
+    ],
+    "monthly": [
+      {
+        "title": "Nutlope/hallmark",
+        "url": "https://github.com/Nutlope/hallmark",
+        "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
+        "language": "CSS",
+        "stars": "55,173",
+        "forks": "2,953",
+        "author": "Nutlope",
+        "summary": "Nutlope/hallmark 是一个面向 Claude Code、Cursor 和 Codex 的设计技能，用于减少 AI 生成界面中常见的俗套和 AI 味设计，帮助开发者获得更自然专业的视觉呈现。",
+        "rank": 1,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "cloudflare/security-audit-skill",
+        "url": "https://github.com/cloudflare/security-audit-skill",
+        "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+        "language": "JavaScript",
+        "stars": "72,805",
+        "forks": "4,868",
+        "author": "cloudflare",
+        "summary": "一个专为多阶段安全审计设计的编码Agent技能，输出经独立验证且可机器阅读的审计结果。",
+        "rank": 2,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "morluto/rea",
+        "url": "https://github.com/morluto/rea",
+        "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
+        "language": "TypeScript",
+        "stars": "460,562",
+        "forks": "112,861",
+        "author": "morluto",
+        "summary": "该项目的核心用途是利用智能体技术对软件进行逆向工程，其范围涵盖从应用行为分析到原生二进制层，是这一领域较为新颖的自动化尝试。",
+        "rank": 3,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "pingdotgg/t3code",
+        "url": "https://github.com/pingdotgg/t3code",
+        "description": "The best way to control Claude Code, Codex and more from any computer or phone",
+        "language": "TypeScript",
+        "stars": "60,877",
+        "forks": "10,950",
+        "author": "pingdotgg",
+        "summary": "该项目用于通过任何电脑或手机远程控制 Claude Code、Codex 等多个 AI 编程工具。",
+        "rank": 4,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "thedotmack/claude-mem",
+        "url": "https://github.com/thedotmack/claude-mem",
+        "description": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
+        "language": "TypeScript",
+        "stars": "117,193",
+        "forks": "10,173",
+        "author": "thedotmack",
+        "summary": "该项目用于为 Claude Code、OpenClaw、Codex、Gemini 等多个 AI 编码代理保存会话上下文，将会话中产生的信息压缩后注入后续会话，以维持连续的长期上下文。",
+        "rank": 5,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "pbakaus/impeccable",
+        "url": "https://github.com/pbakaus/impeccable",
+        "description": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
+        "language": "Rust",
+        "stars": "110,384",
+        "forks": "6,589",
+        "author": "pbakaus",
+        "summary": "pbakaus/impeccable 为编码代理提供设计词汇与审查流程，帮助开发者以更有风格和勇气推进代码，并在发布前通过批评和审计发现 AI 生成的低质内容。",
+        "rank": 6,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "anthropics/skills",
+        "url": "https://github.com/anthropics/skills",
+        "description": "Public repository for Agent Skills",
+        "language": "Python",
+        "stars": "194,823",
+        "forks": "22,919",
+        "author": "anthropics",
+        "summary": "这个项目是一个公开的 Agent Skills 仓库，旨在为 AI 智能体提供可复用、可组合的能力模块，帮助它们在各种任务中更灵活地与环境交互。",
+        "rank": 7,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "weekly",
+          "monthly"
+        ]
+      },
+      {
+        "title": "heygen-com/hyperframes",
+        "url": "https://github.com/heygen-com/hyperframes",
+        "description": "Write HTML. Render video. Built for agents.",
+        "language": "TypeScript",
+        "stars": "84,469",
+        "forks": "7,816",
+        "author": "heygen-com",
+        "summary": "该项目通过编写 HTML 来渲染生成视频，专为 AI 智能体调用而设计。",
+        "rank": 8,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "HKUDS/DeepTutor",
+        "url": "https://github.com/HKUDS/DeepTutor",
+        "description": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/ .",
+        "language": "Python",
+        "stars": "59,321",
+        "forks": "7,189",
+        "author": "HKUDS",
+        "summary": "DeepTutor 提供终身个人化辅导，通过自适应学习技术为每位用户定制教学内容。",
+        "rank": 9,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      },
+      {
+        "title": "Leonxlnx/taste-skill",
+        "url": "https://github.com/Leonxlnx/taste-skill",
+        "description": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
+        "language": "JavaScript",
+        "stars": "115,792",
+        "forks": "7,773",
+        "author": "Leonxlnx",
+        "summary": "该项目为编码代理提供艺术指导、参考图像和浏览器检查功能，替代通用的人工智能页面。",
+        "rank": 10,
+        "previous_rank": null,
+        "movement": {
+          "direction": "new",
+          "amount": null,
+          "label": "新上榜"
+        },
+        "periods": [
+          "monthly"
+        ]
+      }
+    ]
+  },
+  "news": [
+    {
+      "id": "eaf76493fdb0b4bf",
+      "title": "GitHub 可用性报告：2026 年 10 月",
+      "original_title": "GitHub availability report: October 2026",
+      "url": "https://github.blog/news-insights/company-news/github-availability-report-october-2026",
+      "source": "GitHub Blog",
+      "source_id": "github-blog",
+      "source_url": "https://github.blog/",
+      "category": "开发工具",
+      "tags": [
+        "GitHub",
+        "可用性",
+        "性能下降"
+      ],
+      "published": "Fri, 13 Nov 2026 00:20:16 +0000",
+      "published_at": "2026-11-13T08:20:16+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "2026 年 10 月，GitHub 发生八起事件，导致 GitHub 服务性能下降。",
+      "original_summary": "In October, we experienced eight incidents that resulted in degraded performance across GitHub services. The post GitHub availability report: October 2026 appeared first on The GitHub Blog .",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "cdc8eef67bc55a0d",
+      "title": "基于 SimReady 资源构建机器人抓取放置仿真",
+      "original_title": "Build a Robot Pick-and-Place Simulation with SimReady Assets",
+      "url": "https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place",
+      "source": "Hugging Face Blog",
+      "source_id": "huggingface-blog",
+      "source_url": "https://huggingface.co/blog",
+      "category": "开发工具",
+      "tags": [
+        "机器人仿真",
+        "SimReady",
+        "抓取放置"
+      ],
+      "published": "Fri, 13 Nov 2026 18:00:39 GMT",
+      "published_at": "2026-11-14T02:00:39+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "使用 SimReady 资源搭建机器人抓取放置仿真环境。",
+      "original_summary": "",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "7d4d71d056da0286",
+      "title": "ChatGPT Wallet 发布",
+      "original_title": "Introducing ChatGPT Wallet",
+      "url": "https://openai.com/index/introducing-chatgpt-wallet",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "开发工具",
+      "tags": [
+        "ChatGPT Wallet",
+        "代理支付",
+        "用户批准"
+      ],
+      "published": "Fri, 13 Nov 2026 15:00:00 GMT",
+      "published_at": "2026-11-13T23:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "ChatGPT Wallet 为 ChatGPT Work、Codex 和 dots 中的代理提供安全购买方式，购物需用户批准，并沿用现有银行卡保护。",
+      "original_summary": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "167c81c5d6fc7db5",
+      "title": "Nvidia 安全团队在哪？",
+      "original_title": "Where was Nvidia’s security team?",
+      "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team",
+      "source": "TechCrunch AI",
+      "source_id": "techcrunch-ai",
+      "source_url": "https://techcrunch.com/category/artificial-intelligence/",
+      "category": "安全",
+      "tags": [
+        "Nvidia",
+        "芯片出口",
+        "高管离职"
+      ],
+      "published": "Sun, 15 Nov 2026 00:08:07 +0000",
+      "published_at": "2026-11-15T08:08:07+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "Nvidia 安全负责人于8月悄然离职；CEO Jensen Huang因其与一名被怀疑向中国转移芯片的公司高管有关的关系而辞职。",
+      "original_summary": "Nvidia’s security chief quietly left in August, and now that CEO Jensen Huang has stepped down over his relationships, including one with an executive at a company suspected of funneling chips to China, a former intellig",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "7f554d543072bd63",
+      "title": "警惕新型AI驱动勒索软件激增",
+      "original_title": "Beware the New AI-Fueled Ransomware Boom",
+      "url": "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom",
+      "source": "Wired AI",
+      "source_id": "wired-ai",
+      "source_url": "https://www.wired.com/tag/artificial-intelligence/",
+      "category": "安全",
+      "tags": [
+        "AI",
+        "勒索软件",
+        "工具"
+      ],
+      "published": "Sat, 14 Nov 2026 13:00:00 +0000",
+      "published_at": "2026-11-14T21:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "已完全自动化的勒索软件尚未出现，但利用AI工具的不甚复杂攻击者已造成混乱。",
+      "original_summary": "Fully automated ransomware hasn’t arrived—yet. But seemingly unsophisticated attackers are using AI tools to wreak havoc.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "77dd8cb90d44dd9e",
+      "title": "SpaceX returned its Starship rocket on Saturday—but there's a catch",
+      "original_title": "SpaceX returned its Starship rocket on Saturday—but there's a catch",
+      "url": "https://arstechnica.com/space/2026/11/with-starship-catch-spacex-still-shows-it-can-dazzle-the-world",
+      "source": "Ars Technica",
+      "source_id": "arstechnica",
+      "source_url": "https://arstechnica.com/",
+      "category": "开发工具",
+      "tags": [],
+      "published": "Sun, 15 Nov 2026 00:40:59 +0000",
+      "published_at": "2026-11-15T08:40:59+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "It felt like stepping into the future.",
+      "original_summary": "It felt like stepping into the future.",
+      "localized": false,
+      "stale": false
+    },
+    {
+      "id": "72362fb3a21ace22",
+      "title": "CNCF 在 2026 年社区奖项中表彰云原生先锋",
+      "original_title": "CNCF Recognizes Cloud Native Champions in 2026 Community Awards",
+      "url": "https://www.cncf.io/announcements/2026/11/12/cncf-recognizes-cloud-native-champions-in-2026-community-awards",
+      "source": "CNCF Blog",
+      "source_id": "cncf-blog",
+      "source_url": "https://www.cncf.io/blog/",
+      "category": "云原生",
+      "tags": [
+        "CNCF",
+        "云原生",
+        "开源"
+      ],
+      "published": "Thu, 12 Nov 2026 16:00:00 +0000",
+      "published_at": "2026-11-13T00:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "年度奖项表彰在开源基础设施领域的领导者、维护者和文档作者",
+      "original_summary": "Annual awards honor leaders, maintainers, and documentarians building open source infrastructure Key Highlights KUBECON + CLOUDNATIVECON NORTH AMERICA, SALT LAKE CITY – November 12, 2026 – The Cloud Native Computing Foun",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "92796bab8b90718e",
+      "title": "商业开源软件的演变历程",
+      "original_title": "The Evolution of Commercial Open Source Software",
+      "url": "https://www.linuxfoundation.org/blog/the-evolution-of-commercial-open-source-software",
+      "source": "Linux Foundation",
+      "source_id": "linux-foundation",
+      "source_url": "https://www.linuxfoundation.org/blog/",
+      "category": "开源生态",
+      "tags": [
+        "商业软件",
+        "开源生态",
+        "演变"
+      ],
+      "published": "Wed, 11 Nov 2026 16:53:07 GMT",
+      "published_at": "2026-11-12T00:53:07+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "早期发展阶段",
+      "original_summary": "The Early Days",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "eab8f98232fce370",
+      "title": "英伟达“奥特曼2.0”，员工集体请愿：让老黄回家！",
+      "original_title": "英伟达上演“奥特曼2.0”，员工集体请愿：让老黄回家！",
+      "url": "https://www.qbitai.com/2026/11/510297.html",
+      "source": "量子位",
+      "source_id": "qbitai",
+      "source_url": "https://www.qbitai.com/",
+      "category": "AI 模型",
+      "tags": [
+        "英伟达",
+        "马斯克",
+        "员工请愿"
+      ],
+      "published": "Sat, 14 Nov 2026 10:08:08 +0000",
+      "published_at": "2026-11-14T18:08:08+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "员工集体请愿让老黄回家，马斯克也签名了。",
+      "original_summary": "马斯克也签名了",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "3dee063b9c7521d0",
+      "title": "Yelp AI 助手融合原生 UI 与服务端驱动 UI",
+      "original_title": "Yelp AI 助手融合原生 UI 与服务端驱动 UI",
+      "url": "https://www.infoq.cn/article/1N801doFOEl2Swqey5Jy",
+      "source": "InfoQ 中文",
+      "source_id": "infoq-cn",
+      "source_url": "https://www.infoq.cn/",
+      "category": "AI 模型",
+      "tags": [
+        "AI 助手",
+        "原生 UI",
+        "Yelp"
+      ],
+      "published": "Sun, 15 Nov 2026 15:00:00 GMT",
+      "published_at": "2026-11-15T23:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "Yelp AI 助手整合了原生 UI 和服务端驱动 UI 两种界面模式。",
+      "original_summary": "点击查看原文>",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "346e3a8440d08ec7",
+      "title": "当Gemini被戏称为“美国豆包”，张一鸣也活成了“中国布林”",
+      "original_title": "当Gemini被戏称为“美国豆包”，张一鸣也活成了“中国布林”",
+      "url": "https://www.tmtpost.com/8205798.html",
+      "source": "钛媒体",
+      "source_id": "tmtpost",
+      "source_url": "https://www.tmtpost.com/",
+      "category": "AI 模型",
+      "tags": [
+        "Gemini",
+        "豆包",
+        "张一鸣"
+      ],
+      "published": "Sun, 15 Nov 2026 16:06:47 +0800",
+      "published_at": "2026-11-15T16:06:47+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "文章讨论太平洋两岸科技版图中的镜像现象，涉及Gemini、豆包、张一鸣与布林被并置讨论。",
+      "original_summary": "在太平洋两岸的科技版图上，一种奇妙的镜像正在发生。",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "05c00bd9d4202d15",
+      "title": "刚刚，马斯克再创历史，人类首次用「筷子」夹住星舰飞船",
+      "original_title": "刚刚，马斯克再创历史，人类首次用「筷子」夹住星舰飞船",
+      "url": "https://www.ifanr.com/1689501",
+      "source": "爱范儿",
+      "source_id": "ifanr",
+      "source_url": "https://www.ifanr.com/",
+      "category": "研究",
+      "tags": [
+        "马斯克",
+        "星舰",
+        "筷子"
+      ],
+      "published": "Sun, 15 Nov 2026 02:47:36 +0000",
+      "published_at": "2026-11-15T10:47:36+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "马斯克星舰飞船被筷子夹住",
+      "original_summary": "再创历史 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "35d8c808a8ea49e2",
+      "title": "百度词元所发布首日：供应商暴增超100家，客户新增超1000家",
+      "original_title": "百度词元所发布首日：供应商暴增超100家，客户新增超1000家",
+      "url": "https://www.leiphone.com/category/industrynews/cqPXhF38rM4VcVa7.html",
+      "source": "雷锋网",
+      "source_id": "leiphone",
+      "source_url": "https://www.leiphone.com/",
+      "category": "AI 模型",
+      "tags": [
+        "百度词元",
+        "大模型交易所",
+        "模型Token"
+      ],
+      "published": "Sat, 14 Nov 2026 13:45:00 +0800",
+      "published_at": "2026-11-14T13:45:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "11月14日，百度获悉百度词元发布首日，新增申请入驻供应商超100家，新增客户超1000家。词元11月12日在百度世界2026发布，李彦宏称其为“大模型的交易所”。词元汇聚模型与模型提供商，另一端连接企业和个人，用于找到、购买和使用可信模型",
+      "original_summary": "11月14日，从百度获悉，百度词元所发布首日，新增申请入驻的供应商已超过100家，新增超过1000家客户接入。 词元所在11月12日举行的百度世界2026上正式发布，百度创始人李彦宏将其称为“大模型的交易所”。据介绍，词元所一端汇聚模型和模型提供商，另一端服务企业和个人，让用户便捷地找到、购买和使用可信的模型Token。 词元所主打验真与征信两大能力：模型入平台前需通过模型指纹比对、模型能力测试、性能指标与可用性测试等准入核验，上线后接",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "679d98c46787de9c",
+      "title": "解绑多模态视觉编码",
+      "original_title": "Unbundling Multimodal Vision Encoding",
+      "url": "https://arxiv.org/abs/2611.17334v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "研究",
+      "tags": [
+        "多模态",
+        "语言模型",
+        "视觉编码器"
+      ],
+      "published": "2026-11-12T18:59:54Z",
+      "published_at": "2026-11-13T02:59:54+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "多模态语言模型应如何编码视觉输入仍有争议；多数模型使用预训练视觉编码器，而一些近期方案改为与语言模型从头训练编码器，或直接移除它。",
+      "original_summary": "How multimodal language models should encode visual input remains up for debate. Most models use a pretrained vision encoder, while some recent recipes train the encoder from scratch with the language model or remove it ",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "c8e32c6fcbb3aa51",
+      "title": "传小米联手 AMG 之父，打造极致性能车；SpaceX 首次实现筷子夹飞船；「苹果最暗产品」诞生",
+      "original_title": "传小米联手 AMG 之父，打造极致性能车；SpaceX 首次实现筷子夹飞船；「苹果最暗产品」诞生",
+      "url": "http://www.geekpark.net/news/373993",
+      "source": "极客公园",
+      "source_id": "geekpark",
+      "source_url": "https://www.geekpark.net/",
+      "category": "研究",
+      "tags": [
+        "汽车技术",
+        "合作开发",
+        "创新"
+      ],
+      "published": "Sun, 15 Nov 2026 08:02:41 +0800",
+      "published_at": "2026-11-15T08:02:41+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "据意媒报道，小米或与 HWA 秘密合作开发超高性能汽车，部分供应商参与，目标打造性能前所未有的车型，形式可能为新旗舰或现有车型性能版。",
+      "original_summary": "曝小米与「AMG 之父」创办的 HWA 秘密合作，希望打造「载入史册」新车 当地时间 11 月 5 日，意媒 Quattroruote 援引不具名知情人士消息称，小米与 HWA 或在秘密合作开发一款超高性能汽车，部分知名零部件供应商也有望参与其中。 双方据称希望打造一款性能前所未有、足以载入汽车史册的车型。新车的具体形式仍未确定，既有可能是全新的旗舰车型，也有可能是小米现有两款车型（SU7/YU7）的极致性能版。 过去几周，多辆采用更激",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "6d830d19e8013846",
+      "title": "AI 时代微服务部署再简单不过——QuickBlue 用 3 条命令将微服务装进 Docker",
+      "original_title": "AI 时代，微服务不该再被\"部署复杂\"劝退 —— QuickBlue 用 3 条命令，把整套微服务装进 Docker",
+      "url": "https://www.oschina.net/news/503579",
+      "source": "开源中国",
+      "source_id": "oschina",
+      "source_url": "https://www.oschina.net/",
+      "category": "开发工具",
+      "tags": [
+        "Docker",
+        "微服务",
+        "快速部署"
+      ],
+      "published": "Sun, 15 Nov 2026 10:20:19 +0800",
+      "published_at": "2026-11-15T10:20:19+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "介绍了 QuickBlue-MicroAI 的部署理念与实践，并提供 3 条命令，可快速将微服务容器化。",
+      "original_summary": "AI 时代，微服务不该再被\"部署复杂\"劝退——QuickBlue 用 3 条命令，把整套微服务装进 Docker 本文是 QuickBlue-MicroAI 的部署理念与实践介绍。如果你只想直接上手，跳到文末的\"3 条命令速查\"即可。 一、微服务之争，争的其实不是架构 关于单体与微服务之争，业界观点并不统一： 单体架构胜在部署简单、调用链路短；微服...",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "ccfdfaa1b7b7566b",
+      "title": "DeepSeek全家桶API正式开放",
+      "original_title": "刚刚，DeepSeek全家桶API正式开放！你也能造一个DeepSeek了",
+      "url": "https://aiera.com.cn/2026/11/15/other/admin/123914/%e5%88%9a%e5%88%9a%ef%bc%8cdeepseek%e5%85%a8%e5%ae%b6%e6%a1%b6api%e6%ad%a3%e5%bc%8f%e5%bc%80%e6%94%be%ef%bc%81%e4%bd%a0%e4%b9%9f%e8%83%bd%e9%80%a0%e4%b8%80%e4%b8%aadeepseek%e4%ba%86",
+      "source": "新智元",
+      "source_id": "aiera",
+      "source_url": "https://www.aiera.com.cn/",
+      "category": "开发工具",
+      "tags": [
+        "DeepSeek",
+        "API",
+        "开放"
+      ],
+      "published": "Sun, 15 Nov 2026 00:07:24 +0000",
+      "published_at": "2026-11-15T08:07:24+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "DeepSeek正式开放全家桶应用 API，开发者可直接调用。",
+      "original_summary": "就在大周五晚上，DeepSeek又搞事情了！ DeepSeek正式开放全家桶应用 API！～",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "329c911efb7519c2",
+      "title": "怀旧手记：索尼 CLIE 与千禧年高端 Palm OS PDA",
+      "original_title": "怀旧手记｜索尼 CLIE：千禧年的高端 Palm OS PDA",
+      "url": "https://sspai.com/post/118276",
+      "source": "少数派",
+      "source_id": "sspai",
+      "source_url": "https://sspai.com/",
+      "category": "开发工具",
+      "tags": [
+        "索尼",
+        "Palm OS",
+        "PDA"
+      ],
+      "published": "Sat, 14 Nov 2026 15:40:21 +0800",
+      "published_at": "2026-11-14T15:40:21+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "回顾索尼 CLIE 系列掌上电脑，分析其在 Palm OS 生态中的高端定位、硬件创新设计及对早期移动应用开发模式的影响。",
+      "original_summary": "Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ... 查看全文",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "c319b12e1cc2fac3",
+      "title": "SpaceX首次完成星舰“筷子”捕获",
+      "original_title": "Watch SpaceX successfully execute the first ‘chopstick’ catch of Starship",
+      "url": "https://www.theverge.com/science/1033930/spacex-chopstick-starship-catch",
+      "source": "The Verge",
+      "source_id": "the-verge",
+      "source_url": "https://www.theverge.com/",
+      "category": "研究",
+      "tags": [
+        "SpaceX",
+        "星舰",
+        "Mechazilla"
+      ],
+      "published": "2026-11-14T16:44:44-05:00",
+      "published_at": "2026-11-15T05:44:44+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "在取消星舰第15次试飞助推器捕获计划后，SpaceX首次使用“Mechazilla”发射与捕获塔成功捕获星舰。",
+      "original_summary": "After aborting a planned catch of Starship Flight 15's booster, SpaceX successfully captured Starship with its \"Mechazilla\" launch and catch tower for the first time. The company has performed 'chopstick' catches of its ",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "976c9196bdc5b458",
+      "title": "下载专栏：硅谷的盲点与英伟达的芯片追踪计划",
+      "original_title": "The Download: Silicon Valley’s blind spot and Nvidia’s chip-tracking plan",
+      "url": "https://www.technologyreview.com/2026/11/13/1148551/the-download-silicon-valley-midterms-nvidia-chip-tracking",
+      "source": "MIT Technology Review",
+      "source_id": "mit-tech-review",
+      "source_url": "https://www.technologyreview.com/",
+      "category": "研究",
+      "tags": [
+        "硅谷",
+        "中期选举",
+        "技术预测"
+      ],
+      "published": "Fri, 13 Nov 2026 13:10:00 +0000",
+      "published_at": "2026-11-13T21:10:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "技术简报指出硅谷在中期选举中预测失误，暴露其未来声称的盲点。",
+      "original_summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Silicon Valley claims to know the future. So why did it get the midterms so wrong?",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "d6d23163b98ddfa1",
+      "title": "Google Search 全球引入 Gemini 4 Hydrogen",
+      "original_title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade",
+      "source": "Google AI Blog",
+      "source_id": "google-ai-blog",
+      "source_url": "https://blog.google/technology/ai/",
+      "category": "AI 模型",
+      "tags": [
+        "Gemini 4 Hydrogen",
+        "Google Search",
+        "全球上线"
+      ],
+      "published": "Thu, 12 Nov 2026 18:00:00 +0000",
+      "published_at": "2026-11-13T02:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "Google Search 将在全球范围引入 Gemini 4 Hydrogen，以提供更有帮助、更视觉化、更直觉的回应。",
+      "original_summary": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "5b69826eead48a96",
+      "title": "谷歌发布Gemini 4 Hydrogen模型",
+      "original_title": "Introducing Gemini 4 Hydrogen",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen",
+      "source": "DeepMind Blog",
+      "source_id": "deepmind-blog",
+      "source_url": "https://deepmind.google/blog/",
+      "category": "AI 模型",
+      "tags": [
+        "Gemini",
+        "谷歌",
+        "多模态"
+      ],
+      "published": "Thu, 12 Nov 2026 18:00:50 +0000",
+      "published_at": "2026-11-13T02:00:50+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "谷歌推出新一代AI模型Gemini 4 Hydrogen，宣称在多模态理解和推理能力上实现突破。",
+      "original_summary": "",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "6d310be454f69326",
+      "title": "利用 AI 生成国漫角色色情图片，7 人获刑",
+      "original_title": "利用 AI 将国漫角色改成情色形象，7 名“黄图画师”获刑",
+      "url": "https://www.ithome.com/1/027/395.htm",
+      "source": "IT之家",
+      "source_id": "ithome",
+      "source_url": "https://www.ithome.com/",
+      "category": "安全",
+      "tags": [
+        "AI生成",
+        "色情图片",
+        "刑事责任"
+      ],
+      "published": "Sun, 15 Nov 2026 08:21:22 GMT",
+      "published_at": "2026-11-15T16:21:22+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "金华婺城区检察院对陈某等 7 人提起公诉，其销售利用 AI 生成的国漫角色色情图片，被判有期徒刑二年至八个月不等。",
+      "original_summary": "IT之家 11 月 15 日消息，据“婺城检察”公众号，近期金华市婺城区检察院对一批“黄图画师”提起公诉，涉案嫌疑人陈某等 7 人被判有期徒刑二年至八个月不等。 据报道，涉案嫌疑人陈某等掌控了数十个漫画爱好者群，群名大多带着“国漫”“同人”“角色交流”之类的字眼，其在群内以每份 5 元至 20 元的价格销售利用 AI 生成的国漫角色黄色图片，除了直接在群内售卖已制作好的图片压缩包之外，为了笼络客源、提升用户体验，陈某还陆续开发了投票、众",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "324fd4cf6c8cb37f",
+      "title": "国内音乐平台日均新歌入库激增至10万，AI生成歌曲进入歌单",
+      "original_title": "你单曲循环的歌，正在被300元的AI音乐挤出歌单",
+      "url": "https://news.cnblogs.com/n/846084",
+      "source": "博客园",
+      "source_id": "cnblogs",
+      "source_url": "https://www.cnblogs.com/",
+      "category": "AI 模型",
+      "tags": [
+        "AI音乐",
+        "生成式AI",
+        "音乐创作"
+      ],
+      "published": "Sat, 14 Nov 2026 12:32:25 GMT",
+      "published_at": "2026-11-14T20:32:25+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "AI音乐生成技术让数百名“查无此人”的歌手作品批量上传，单曲循环的热 song 多为合成声，缺乏真实演出和录音棚痕迹。",
+      "original_summary": "文 | 显微故事 你最近单曲循环的那首歌，是谁写的？ 点开那些歌手主页，他们大多名字陌生，作品整齐地排着上百首，风格统一。翻到底，还是找不到一张录音棚的照片，找不到一次现场演出。 这些“查无此人”的歌声背后，是一个正在改写行业的现实： 去年一年，国内音乐平台每天新入库的歌从 7 万多首涨到 10 万 本文链接",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "11c0e55763b4eb12",
+      "title": "Word文档突然无法正常打印？微软确认是11月更新带来的问题",
+      "original_title": "Word文档突然无法正常打印？微软确认是11月更新带来的问题",
+      "url": "https://www.landian.news/archives/128381.html",
+      "source": "蓝点网",
+      "source_id": "landiannews",
+      "source_url": "https://www.landiannews.com/",
+      "category": "开发工具",
+      "tags": [
+        "11月更新",
+        "Word打印",
+        "图像渲染"
+      ],
+      "published": "Sat, 14 Nov 2026 04:00:00 +0000",
+      "published_at": "2026-11-14T12:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "安装11月更新后，含特定图像的Word文档可能因图像渲染宽高为零而无法打印，涉及水印或版式元素，目前无临时解决方案，建议卸载更新待微软修复",
+      "original_summary": "#系统资讯 Word 文档突然无法正常打印？微软确认是 11 月更新带来的问题。微软称安装 11 月更新后部分包含特定图像的文档可能无法打印，触发条件是图像在所选打印分辨率下宽度或高度渲染为零。这类图像可能用于水印或版式定位，也可能是文档生成工具自动插入的。目前尚未提供临时解决方案，如果用户工作受影响，可以考虑先卸载更新等待微软修复。查看全文：https://ourl.co/128381",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "0dc8becacd9bcf07",
+      "title": "DeepSeek Harness 深度体验总结",
+      "original_title": "[程序员] deepseek harness 的实际能力远超大多数人的认知，最近深度体验总结",
+      "url": "https://www.v2ex.com/t/1257214",
+      "source": "V2EX",
+      "source_id": "v2ex",
+      "source_url": "https://www.v2ex.com/",
+      "category": "开发工具",
+      "tags": [
+        "DeepSeek",
+        "AI Coding",
+        "体验总结"
+      ],
+      "published": "2026-11-15T08:22:58Z",
+      "published_at": "2026-11-15T16:22:58+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "作者基于约两年半 AI Coding 经验，回顾从 Cursor、Codex、Claude Code 到 deepseek-harness 的使用经历，并总结 deepseek-harness 的实际能力。",
+      "original_summary": "先说下本人的 AI Coding 经验，chatgpt 横空出世时，一款名为免费的 Cursor 在 2023 年悄然上线，我当时也算是最先一批把 cursor 用于公司项目的程序员，所以 AI Coding 经验有 2 年半的时间了吧。 当时惊叹 chatgpt 的能力，我意识到了 AI 真的会思考，AI 不再是算法和程序堆叠的产物。 从 Cursor 到 Codex 到 Calude Code，再到 deepseek-harness",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "9523bf2e264db0a5",
+      "title": "美国失去麻疹消除地位",
+      "original_title": "美国失去麻疹消除地位",
+      "url": "https://www.solidot.org/story?sid=85889",
+      "source": "Solidot",
+      "source_id": "solidot",
+      "source_url": "https://www.solidot.org/",
+      "category": "研究",
+      "tags": [
+        "麻疹",
+        "疫苗",
+        "传播"
+      ],
+      "published": "Sun, 15 Nov 2026 00:52:55 +0800",
+      "published_at": "2026-11-15T00:52:55+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "美国麻疹消除地位被撤销，疫苗接种率下降导致多地爆发，犹他州连续超一年同一毒株传播，2024年病例突破5400例创1991年以来新高，大多数患者未接种疫苗。",
+      "original_summary": "受益于疫苗接种，美国自 2000 年起被认定“消灭”了麻疹。但最近几年疫苗接种率持续下降，麻疹卷土重来在美国多地再次流行。如果由同一毒株引起的感染在同一国家内持续发生人际传播，且时间至少达到一年，那么该感染即被视为“地方性流行”，即失去消除地位。犹他州的研究人员今年 8 月报告，麻疹同一毒株引起的感染在该州持续传播超过一年。今年美国已报告逾 5400 例麻疹病例，创下自 1991 年以来的最高纪录。今年报告的病例几乎所有患者此前都未接种",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "c42330bc780a5261",
+      "title": "语言模型对齐的理论极限",
+      "original_title": "Theoretical Limits of Language Model Alignment",
+      "url": "https://machinelearning.apple.com/research/theoretical-limits-alignment",
+      "source": "Apple Machine Learning",
+      "source_id": "apple-ml",
+      "source_url": "https://machinelearning.apple.com/",
+      "category": "研究",
+      "tags": [
+        "语言模型",
+        "对齐",
+        "强化学习"
+      ],
+      "published": "Thu, 12 Nov 2026 00:00:00 GMT",
+      "published_at": "2026-11-12T08:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "语言模型对齐旨在使输出符合人类偏好同时保留基础模型能力，主流方法包括最大化奖励的强化学习等",
+      "original_summary": "Language model (LM) alignment improves model outputs to reflect human preferences while preserving the capabilities of the base model. The most common alignment approaches are (i) reinforcement learning, which maximizes ",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "d121304c3de64e9e",
+      "title": "一次构建，任意运行：实用的Agent技能指南",
+      "original_title": "Build once, run on any agent: A practical guide to agent skills",
+      "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
+      "source": "GitHub Blog",
+      "source_id": "github-blog",
+      "source_url": "https://github.blog/",
+      "category": "开发工具",
+      "tags": [
+        "Agent技能",
+        "工程复用",
+        "多主机"
+      ],
+      "published": "Thu, 12 Nov 2026 22:54:52 +0000",
+      "published_at": "2026-11-13T06:54:52+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "Agent技能将可重复的工程工作封装在文件中，供团队审阅和复用，而工具、项目上下文和权限则特定于运行它们的主机。",
+      "original_summary": "Agent skills capture repeatable engineering work in files teams can review and reuse, while tools, project context, and permissions remain specific to the host that runs them. The post Build once, run on any agent: A pra",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "96c7f67bef86f831",
+      "title": "XYBench：帮助理解问题背后的深层问题",
+      "original_title": "XYBench: Helping with the problem behind the question",
+      "url": "https://huggingface.co/blog/allenai/xybench",
+      "source": "Hugging Face Blog",
+      "source_id": "huggingface-blog",
+      "source_url": "https://huggingface.co/blog",
+      "category": "研究",
+      "tags": [
+        "基准测试",
+        "问题理解",
+        "模型评估"
+      ],
+      "published": "Fri, 13 Nov 2026 17:02:35 GMT",
+      "published_at": "2026-11-14T01:02:35+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "XYBench 是一个基准测试工具，旨在帮助研究人员和开发者评估模型对问题背后隐含意义的理解能力。",
+      "original_summary": "",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "a99dfdd20d85acbb",
+      "title": "Shield 用 OpenAI 帮助技术人员交接遗留门户工作",
+      "original_title": "Shield helps technicians hand off legacy portal work with OpenAI",
+      "url": "https://openai.com/business/customer-stories/shield",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "开发工具",
+      "tags": [
+        "OpenAI",
+        "遗留门户",
+        "Forge 智能体"
+      ],
+      "published": "Fri, 13 Nov 2026 08:00:00 GMT",
+      "published_at": "2026-11-13T16:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "Shield 使用 OpenAI 协助 IT 技术人员在遗留门户中交接工作；其 Forge 智能体会导航系统，让技术人员专注于需要判断的问题。",
+      "original_summary": "Shield uses OpenAI to help IT technicians hand off work in legacy portals. Its Forge agents navigate systems so technicians can focus on issues needing their judgment.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "fc1d70bba296bc73",
+      "title": "马斯克等科技高管签署请愿书，呼吁英伟达恢复黄仁勋职务",
+      "original_title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
+      "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang",
+      "source": "TechCrunch AI",
+      "source_id": "techcrunch-ai",
+      "source_url": "https://techcrunch.com/category/artificial-intelligence/",
+      "category": "AI 模型",
+      "tags": [
+        "英伟达",
+        "黄仁勋",
+        "请愿"
+      ],
+      "published": "Sat, 14 Nov 2026 21:41:22 +0000",
+      "published_at": "2026-11-15T05:41:22+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "马斯克等科技高管签署请愿书，呼吁英伟达恢复黄仁勋职务；截至周六下午，签名数已超过 11.5 万。",
+      "original_summary": "The petition had attracted more than 115,000 signatures as of Saturday afternoon.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "75102a44dc7a210b",
+      "title": "没有飞行员、空管员也少了，会出什么问题？",
+      "original_title": "No Pilots. Few Air Traffic Controllers. What Could Go Wrong?",
+      "url": "https://www.wired.com/story/no-pilots-few-air-traffic-controllers-what-could-go-wrong",
+      "source": "Wired AI",
+      "source_id": "wired-ai",
+      "source_url": "https://www.wired.com/tag/artificial-intelligence/",
+      "category": "安全",
+      "tags": [
+        "航空",
+        "AI 应用",
+        "自动化"
+      ],
+      "published": "Sat, 14 Nov 2026 11:00:00 +0000",
+      "published_at": "2026-11-14T19:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "航空业通常对新技术接受缓慢，但 AI 已进入航空领域。",
+      "original_summary": "Normally, aviation is slow to embrace new technology—but AI has come for the skies.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "a2daa312bdf773c7",
+      "title": "詹姆斯·韦布望远镜发现比其所绕恒星更古老的冰",
+      "original_title": "James Webb telescope finds ice older than the star it orbits",
+      "url": "https://arstechnica.com/science/2026/11/james-webb-telescope-finds-ice-older-than-the-star-it-orbits",
+      "source": "Ars Technica",
+      "source_id": "arstechnica",
+      "source_url": "https://arstechnica.com/",
+      "category": "研究",
+      "tags": [
+        "韦布望远镜",
+        "冰",
+        "行星建筑材料"
+      ],
+      "published": "Sat, 14 Nov 2026 12:15:48 +0000",
+      "published_at": "2026-11-14T20:15:48+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "辐射和碰撞重塑行星建筑材料。",
+      "original_summary": "Radiation and collisions reshape the planetary building materials.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "c28e2f707a22d4c6",
+      "title": "Kubernetes 中 AI 训练的 gang scheduling 与拓扑感知放置",
+      "original_title": "Gang scheduling and topology-aware placement for AI training in Kubernetes",
+      "url": "https://www.cncf.io/blog/2026/11/12/gang-scheduling-and-topology-aware-placement-for-ai-training-in-kubernetes",
+      "source": "CNCF Blog",
+      "source_id": "cncf-blog",
+      "source_url": "https://www.cncf.io/blog/",
+      "category": "云原生",
+      "tags": [
+        "Kubernetes",
+        "分布式训练",
+        "调度"
+      ],
+      "published": "Thu, 12 Nov 2026 12:00:00 +0000",
+      "published_at": "2026-11-12T20:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "分布式 AI 训练工作负载带来复杂调度需求，而 Kubernetes 内置调度器逐个且独立地调度 Pod，无法满足；主题涉及 gang scheduling 与拓扑感知放置。",
+      "original_summary": "Distributed AI training workloads impose complex scheduling requirements that Kubernetes’s built-in scheduler can’t meet. Kubernetes schedules pods individually and independently, but distributed training introduces two ",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "06a2ea4b62f72879",
+      "title": "LF Research 启动 2027 系列开源研究并招募赞助方",
+      "original_title": "LF Research Launches 2027 Series of Studies and Opens Call for Sponsors",
+      "url": "https://www.linuxfoundation.org/blog/lf-research-launches-2027-series-of-studies-and-opens-call-for-sponsors",
+      "source": "Linux Foundation",
+      "source_id": "linux-foundation",
+      "source_url": "https://www.linuxfoundation.org/blog/",
+      "category": "开源生态",
+      "tags": [
+        "LF Research",
+        "开源研究",
+        "赞助招募"
+      ],
+      "published": "Wed, 11 Nov 2026 16:42:24 GMT",
+      "published_at": "2026-11-12T00:42:24+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "LF Research 宣布推出覆盖多个行业、地区和技术领域的开源研究系列，并寻求组织合作以支持该计划。",
+      "original_summary": "LF Research is excited to announce a suite of new research studies on open source across various industries, geographies, and technology domains. To support this effort, we are seeking collaboration from organizations to",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "cd9e3aa4df660d34",
+      "title": "湿实验预测基准发布，报道称推理拉满、算力翻5倍也难见效",
+      "original_title": "「史上最严」湿实验预测基准发布！推理拉满、算力翻5倍也白搭",
+      "url": "https://www.qbitai.com/2026/11/510232.html",
+      "source": "量子位",
+      "source_id": "qbitai",
+      "source_url": "https://www.qbitai.com/",
+      "category": "研究",
+      "tags": [
+        "湿实验预测",
+        "评估基准",
+        "算力提升"
+      ],
+      "published": "Sat, 14 Nov 2026 09:58:22 +0000",
+      "published_at": "2026-11-14T17:58:22+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "斯坦福、哈佛、康奈尔等十余家顶尖团队与该基准相关；原文未给出基准名称、任务与指标，仅称算力翻5倍、提升推理也无济于事。",
+      "original_summary": "斯坦福、哈佛、康奈尔……十余家顶尖团队齐坐一桌了",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "545097578bb79723",
+      "title": "闭环 AI 自我进化：从 Skill、Harness 到模型训练与评估｜AICon北京",
+      "original_title": "闭环 AI 自我进化：从 Skill、Harness 到模型训练与评估｜AICon北京",
+      "url": "https://www.infoq.cn/article/fZSEkDatL9xajG8PVi7G",
+      "source": "InfoQ 中文",
+      "source_id": "infoq-cn",
+      "source_url": "https://www.infoq.cn/",
+      "category": "研究",
+      "tags": [
+        "自我进化",
+        "模型训练",
+        "评估"
+      ],
+      "published": "Sun, 15 Nov 2026 10:00:00 GMT",
+      "published_at": "2026-11-15T18:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "AICon北京议题，主题为闭环 AI 自我进化，内容涉及 Skill、Harness 以及模型训练与评估；原摘要未提供更多信息。",
+      "original_summary": "点击查看原文>",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "38a25d49347c8487",
+      "title": "智能大迁移，AI如何重写影视业的成本、资本与权力",
+      "original_title": "智能大迁移，AI如何重写影视业的成本、资本与权力",
+      "url": "https://www.tmtpost.com/8205257.html",
+      "source": "钛媒体",
+      "source_id": "tmtpost",
+      "source_url": "https://www.tmtpost.com/",
+      "category": "AI 模型",
+      "tags": [
+        "AI",
+        "影视业",
+        "中美技术趋势"
+      ],
+      "published": "Sun, 15 Nov 2026 15:37:00 +0800",
+      "published_at": "2026-11-15T15:37:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "钛媒体《智能大迁移》栏目从十个问题出发，观察AI如何从模型之争落地到千行百业，本文聚焦影视业，探讨AI对其成本、资本与权力格局的影响，并将结合中美技术趋势与行业观察持续跟踪各行业的智能迁移。",
+      "original_summary": "AI改写行业，谁先交卷？钛媒体《智能大迁移》将从十个问题出发，观察AI如何从模型之争落地到千行百业。接下来我们还会整理更多的话题，通过中美技术趋势和行业观察，看不同行业的智能迁移。",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "1789ff1ad803feda",
+      "title": "Microsoft 365 故障延续至 48 小时，LangChain 完成 3 亿美元 C 轮融资",
+      "original_title": "早报｜英伟达员工请愿黄仁勋回归/余承东重申华为与赛力斯分工/Microsoft 365故障延续至48小时",
+      "url": "https://www.ifanr.com/1689450",
+      "source": "爱范儿",
+      "source_id": "ifanr",
+      "source_url": "https://www.ifanr.com/",
+      "category": "云原生",
+      "tags": [
+        "Microsoft 365",
+        "LangChain",
+        "融资"
+      ],
+      "published": "Sat, 14 Nov 2026 00:00:42 +0000",
+      "published_at": "2026-11-14T08:00:42+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "早报还提及英伟达员工请愿黄仁勋回归、余承东重申华为与赛力斯分工、两部门新型储能方案提出到 2030 年平均储能约 3 小时、荣耀 700 系列定档 11 月 23 日。",
+      "original_summary": "· 两部门公布新型储能方案，提出到 2030 年平均储能约 3 小时 · LangChain 完成 3 亿美元 C 轮融资，估值 30 亿美元 · 荣耀 700 系列定档 11 月 23 日，背屏可贴 GIF、看通知 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "372aab46df01fbe3",
+      "title": "浙大彭思达：从元宇宙到具身智能，一个三维视觉研究者的八年",
+      "original_title": "浙大彭思达：从元宇宙到具身智能，一个三维视觉研究者的八年 | 世界模型50人",
+      "url": "https://www.leiphone.com/category/ai/lpK3LQWqmpZP8jcG.html",
+      "source": "雷锋网",
+      "source_id": "leiphone",
+      "source_url": "https://www.leiphone.com/",
+      "category": "研究",
+      "tags": [
+        "三维视觉",
+        "具身智能",
+        "三维重建"
+      ],
+      "published": "Sat, 14 Nov 2026 00:50:00 +0800",
+      "published_at": "2026-11-14T00:50:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "八年研究，两个落地系统，超六万 GitHub Stars；以多台摄像机记录动作并重建三维动态场景，镜头可任意调换，甚至可使用拍摄时未架设的机位观看。",
+      "original_summary": "八年研究，两个落地系统，超六万GitHub Stars。 作者丨 李秋悦 编辑丨 吴 彤 一支女团跳舞，镜头不必再听导演安排，观众甚至能看到拍摄时不存在的机位。 传统MV拍摄，摄影机架在哪里，观众看到的就是哪个角度。现在用多台摄像机同时记录舞者动作，再重建出一个三维动态场景，镜头可以任意调换位置；从队形正面绕到侧面，穿过舞者之间，甚至换一个从未真正架设过的机位，重新观看刚才的表演。 今年10月，韩国SM娱乐创始人李秀满在新女团A2O L",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "f70e7b56d2cd56ba",
+      "title": "ArchSpace：记录、回顾与引用 LLM 架构研究",
+      "original_title": "ArchSpace: Recording, Reviewing, and Referencing LLM Architecture Research",
+      "url": "https://arxiv.org/abs/2611.17332v1",
+      "source": "arXiv AI / ML / NLP",
+      "source_id": "arxiv-ai",
+      "source_url": "https://arxiv.org/",
+      "category": "研究",
+      "tags": [
+        "LLM 架构",
+        "训练效率",
+        "推理成本"
+      ],
+      "published": "2026-11-12T18:59:52Z",
+      "published_at": "2026-11-13T02:59:52+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "模型架构影响 LLM 的扩展行为、训练效率与推理成本，是工业界与学术界关注重点；可见内容提及 DeepSeek、Qwen、Kimi 相关团队，后续摘要缺失。",
+      "original_summary": "Model architecture shapes the scaling behavior, training efficiency, and inference cost of LLMs, making it a central focus of both industry and academia. In industry, teams such as those behind DeepSeek, Qwen, and Kimi r",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "e05adbaada8c88f0",
+      "title": "苹果推送 iOS 27.3 与 watchOS 27.3 开发者测试版，Apple Watch 新增两项 AI 功能",
+      "original_title": "AI 录音硬件卖的是时间差，窗口可能只剩半年",
+      "url": "http://www.geekpark.net/news/373946",
+      "source": "极客公园",
+      "source_id": "geekpark",
+      "source_url": "https://www.geekpark.net/",
+      "category": "AI 模型",
+      "tags": [
+        "苹果",
+        "Apple Watch",
+        "Apple 智能"
+      ],
+      "published": "Fri, 13 Nov 2026 12:57:38 +0800",
+      "published_at": "2026-11-13T12:57:38+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "苹果推送 iOS 27.3 和 watchOS 27.3 首个开发者测试版，除国行 Apple 智能 外，为 Apple Watch 加入 Live Rewind（回顾过去 15 秒对话）和 Siri Recap（记录全天对话并整理成摘要）",
+      "original_summary": "北京时间 11 月 4 日，苹果推送了 iOS 27.3 和 watchOS 27.3 的第一个开发者测试版，除了带来国行 Apple 智能，还给 Apple Watch 加入了两个全新的 AI 功能：一个是 Live Rewind，可以随时帮你回顾过去 15 秒内的对话；另一个则是 Siri Recap，手表会在一整天里记下你和别人的对话，再整理成摘要。不过这两个功能目前只有英文版，苹果也写明暂不在中国提供。 左为 Live Rewi",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "746a1346eff01330",
+      "title": "Jync 捷同 v2.2.1 发布：告警通知支持中英文，CDC 与 ETL 可靠性修复",
+      "original_title": "Jync 捷同 v2.2.1 发布：告警通知支持中英文，CDC 与 ETL 可靠性修复",
+      "url": "https://www.oschina.net/news/503578",
+      "source": "开源中国",
+      "source_id": "oschina",
+      "source_url": "https://www.oschina.net/",
+      "category": "开发工具",
+      "tags": [
+        "告警通知",
+        "CDC",
+        "ETL"
+      ],
+      "published": "Sun, 15 Nov 2026 07:27:47 +0800",
+      "published_at": "2026-11-15T07:27:47+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "新增告警通知语言选项，可跟随系统、中文或 English，通知正文按配置渲染，旧配置包缺省按中文处理；告警设置页显示最近一次投递的时间、成功与否及平台给出的原因，保存告警设置与外部认证设置写入审计。",
+      "original_summary": "新增 告警通知语言：告警设置可选跟随系统、中文或 English，通知正文按配置渲染；配置包携带该字段，旧包缺省按中文处理。 告警投递状态与设置审计：告警设置页显示最近一次投递的时间、成功与否及平台给出的原因；保存告警设置与外部认证设置写入审计。 变更日志中文句式：内容核对、Redis 基线写入、自动建表失败、首...",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "861a590fbbe7f746",
+      "title": "Anthropic CEO Dario Amodei 发文呼吁全行业紧急制动",
+      "original_title": "刷屏硅谷！AGI早已降临，万亿AI「孩子」繁衍、突变、互相淘汰",
+      "url": "https://aiera.com.cn/2026/11/15/other/admin/123901/%e5%88%b7%e5%b1%8f%e7%a1%85%e8%b0%b7%ef%bc%81agi%e6%97%a9%e5%b7%b2%e9%99%8d%e4%b8%b4%ef%bc%8c%e4%b8%87%e4%ba%bfai%e3%80%8c%e5%ad%a9%e5%ad%90%e3%80%8d%e7%b9%81%e8%a1%8d%e3%80%81%e7%aa%81%e5%8f%98",
+      "source": "新智元",
+      "source_id": "aiera",
+      "source_url": "https://www.aiera.com.cn/",
+      "category": "研究",
+      "tags": [
+        "Anthropic",
+        "Dario Amodei",
+        "紧急制动"
+      ],
+      "published": "Sun, 15 Nov 2026 00:06:21 +0000",
+      "published_at": "2026-11-15T08:06:21+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "9月12日夜，Anthropic首席执行官Dario Amodei发表长文，呼吁全行业紧急制动。",
+      "original_summary": "9月12日夜，Anthropic首席执行官Dario Amodei发表长文，呼吁全行业紧急制动。",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "b76adb6e1f8d69f4",
+      "title": "《银翼杀手2099》发布终极预告，11月25日上线PrimeVideo",
+      "original_title": "本周看什么 | 最近值得一看的 10 部作品",
+      "url": "https://sspai.com/post/118999",
+      "source": "少数派",
+      "source_id": "sspai",
+      "source_url": "https://sspai.com/",
+      "category": "研究",
+      "tags": [
+        "剧集预告",
+        "PrimeVideo",
+        "2099年洛杉矶"
+      ],
+      "published": "Fri, 13 Nov 2026 17:39:22 +0800",
+      "published_at": "2026-11-13T17:39:22+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "原文为剧集预告：亨特·莎弗、杨紫琼主演，背景为2099年的洛杉矶，内容涉及结束逃亡生活。",
+      "original_summary": "📅本周新预告《银翼杀手2099》终极预告11月10日，剧集《银翼杀手2099》发布了终极预告，将于11月25日上线PrimeVideo。亨特·莎弗、杨紫琼主演，2099年的洛杉矶，为了彻底结束逃亡生活 ... 查看全文",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "5ff08b1ef3e37111",
+      "title": "《万智牌》将推出 Netflix 动画剧集 Planeswalker",
+      "original_title": "Magic: The Gathering is getting a Netflix animated series. For real this time.",
+      "url": "https://www.theverge.com/entertainment/1033909/magic-the-gathering-netflix-series",
+      "source": "The Verge",
+      "source_id": "the-verge",
+      "source_url": "https://www.theverge.com/",
+      "category": "不适用（原文与所给类别均无关）",
+      "tags": [
+        "Netflix",
+        "动画",
+        "万智牌"
+      ],
+      "published": "2026-11-14T14:47:40-05:00",
+      "published_at": "2026-11-15T03:47:40+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "《万智牌》故事负责人 Roy Graham 在昨日发布的视频中宣布，动画剧集 Planeswalker 即将登陆 Netflix。",
+      "original_summary": "\"It's really happening. I promise. For real.\" Those are the first words from Roy Graham, Head of Story at Magic: The Gathering, in a video posted yesterday announcing Planeswalker, the animated series heading to Netflix ",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "050a472a1b93712f",
+      "title": "脑机接口试验志愿者提出新诉求：更多自主权、减少保密协议",
+      "original_title": "More autonomy, fewer NDAs: Volunteers have new requests for brain implant trials",
+      "url": "https://www.technologyreview.com/2026/11/13/1148474/more-autonomy-fewer-ndas-volunteers-have-new-requests-for-brain-implant-trials",
+      "source": "MIT Technology Review",
+      "source_id": "mit-tech-review",
+      "source_url": "https://www.technologyreview.com/",
+      "category": "研究",
+      "tags": [
+        "脑机接口",
+        "脑植入",
+        "人体试验"
+      ],
+      "published": "Fri, 13 Nov 2026 10:00:00 +0000",
+      "published_at": "2026-11-13T18:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "科研团队长期研究解码大脑活动，已开发出可控制机械臂和电脑、甚至帮助\"说话\"的脑植入设备；参与试验的志愿者提出新要求，希望获得更多自主权并减少保密协议（NDA）。",
+      "original_summary": "Scientists have been working on ways to decode brain activity for decades. Teams have developed brain implants that can be used to control robotic limbs and computers, and even to “speak.” The people who volunteer for tr",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "02bfed5e7aa817ea",
+      "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+      "original_title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
+      "source": "Google AI Blog",
+      "source_id": "google-ai-blog",
+      "source_url": "https://blog.google/technology/ai/",
+      "category": "AI 模型",
+      "tags": [],
+      "published": "Wed, 11 Nov 2026 18:00:00 +0000",
+      "published_at": "2026-11-12T02:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "Meet the Gemini Decisions API, powered by our state-of-the-art model Gemini Decision for fast, calibrated multimodal decisions.",
+      "original_summary": "Meet the Gemini Decisions API, powered by our state-of-the-art model Gemini Decision for fast, calibrated multimodal decisions.",
+      "localized": false,
+      "stale": false
+    },
+    {
+      "id": "ba0fcf4e325b4115",
+      "title": "AlphaGenome 2：解析细胞如何读取 DNA 以更好理解疾病",
+      "original_title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease",
+      "source": "DeepMind Blog",
+      "source_id": "deepmind-blog",
+      "source_url": "https://deepmind.google/blog/",
+      "category": "AI 模型",
+      "tags": [
+        "DNA 序列",
+        "细胞类型",
+        "疾病预测"
+      ],
+      "published": "Wed, 11 Nov 2026 15:00:15 +0000",
+      "published_at": "2026-11-11T23:00:15+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "预测 DNA 序列及其变异如何影响特定人类细胞类型与疾病。",
+      "original_summary": "Predicting how DNA sequences and their variations impact specific human cell types and disease.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "a27841233187a870",
+      "title": "2026 年第三季度中国电视零售市场均价 4055 元，销量同比下降 5.3%",
+      "original_title": "洛图科技：2026 年第三季度中国电视零售市场均价 4055 元同比增长 3.4%，销量降 5.3%",
+      "url": "https://www.ithome.com/1/027/393.htm",
+      "source": "IT之家",
+      "source_id": "ithome",
+      "source_url": "https://www.ithome.com/",
+      "category": "研究",
+      "tags": [
+        "电视市场",
+        "零售数据",
+        "均价"
+      ],
+      "published": "Sun, 15 Nov 2026 08:19:09 GMT",
+      "published_at": "2026-11-15T16:19:09+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "洛图科技报告显示，2026 年第三季度中国电视市场（不含激光电视）全渠道零售销量 554 万台，同比下降 5.3%；销额 224.7 亿元，同比下降 2.1%；均价 4055 元，同比上涨 3.4%，环比下降 5.9%。前三季度累计零售量 ",
+      "original_summary": "IT之家 11 月 15 日消息，洛图科技最新发布的报告显示，2026 年第三季度，中国电视市场（不含激光电视）的全渠道 零售销量为 554 万台 ，同比下降 5.3%；销额为 224.7 亿元，同比下降 2.1%； 均价 4055 元 ，同比上涨 3.4%（+132 元），环比下降 5.9%（-255 元）。 前三季度累计来看，零售总量为 1752 万台，同比下降 10.5%；销额为 724.1 亿元，同比下降 6.0%。 洛图科技表",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "9da1009bdad47ac0",
+      "title": "百度文心公布 ERNIE 5.5 Flash Preview 八项基准测试成绩",
+      "original_title": "BAT新旗舰杀回第一阵营，压力来到字节这边",
+      "url": "https://news.cnblogs.com/n/846083",
+      "source": "博客园",
+      "source_id": "cnblogs",
+      "source_url": "https://www.cnblogs.com/",
+      "category": "AI 模型",
+      "tags": [
+        "ERNIE 5.5 Flash Preview",
+        "基准测试",
+        "百度文心"
+      ],
+      "published": "Sat, 14 Nov 2026 12:23:21 GMT",
+      "published_at": "2026-11-14T20:23:21+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "11 月 11 日，百度公布文心 ERNIE 5.5 Flash Preview 在八项基准测试中的成绩，对照模型包括 Claude Opus 5.5、GPT-6.1 Sol、腾讯 Hy4、DeepSeek V4.1 Flash 与智谱 G",
+      "original_summary": "文 | 字母 AI 11 月 11 日，沉寂许久的百度文心突然晒出一张成绩单。 模型是 ERNIE 5.5 Flash Preview，一共八项基准测试，对照组是 Claude Opus 5.5、GPT-6.1 Sol、腾讯的 Hy4、DeepSeek V4.1 Flash 和智谱的 GLM-5.3 本文链接",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "4eb2fa509ce61551",
+      "title": "微软确认11月更新破坏KMS激活，影响各类系统",
+      "original_title": "使用KMS激活系统时反复报错？微软确认这是11月更新导致的 影响各类系统",
+      "url": "https://www.landian.news/archives/128380.html",
+      "source": "蓝点网",
+      "source_id": "landiannews",
+      "source_url": "https://www.landiannews.com/",
+      "category": "云原生",
+      "tags": [
+        "KMS 激活",
+        "Windows",
+        "11 月更新"
+      ],
+      "published": "Sat, 14 Nov 2026 03:00:00 +0000",
+      "published_at": "2026-11-14T11:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "11月更新导致SLMGR设置KMS域和安装密钥时直接报错，内网批量激活的企业用户及云厂商Windows Server实例受影响较大；已激活设备不会丢失激活状态，微软将发布更新修复。",
+      "original_summary": "#系统资讯 11 月更新破坏 KMS 激活：SLMGR 设置 KMS 域和安装密钥会直接报错。不过考虑到现在普通用户使用 KMS 激活的应该已经比较少，估计受影响严重的还是企业用户。部分企业在内网中使用 KMS 激活设备，而云厂商提供的 Windows Server 实例通常也靠 KMS 激活。微软称已激活设备不会丢失激活状态，后续将发布更新修复该问题。查看全文：https://ourl.co/128380",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "16983159059e9ae7",
+      "title": "哈啰单车出现严重的盗用 BUG",
+      "original_title": "[问与答] 哈啰单车出现严重的盗用 BUG",
+      "url": "https://www.v2ex.com/t/1257213",
+      "source": "V2EX",
+      "source_id": "v2ex",
+      "source_url": "https://www.v2ex.com/",
+      "category": "安全",
+      "tags": [
+        "账号盗用",
+        "BUG",
+        "哈啰单车"
+      ],
+      "published": "2026-11-15T08:22:48Z",
+      "published_at": "2026-11-15T16:22:48+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "用户 11 月 5 日收到哈啰单车未支付订单短信，登录 APP 后发现自 8 月 25 日起存在多条非本人骑行记录，地点大致在上海，APP 内咨询人工客服遭拒。",
+      "original_summary": "时间线 11 月 5 日 收到短信提醒，哈啰单车有尚未支付的形成。而我本人最近完全没有使用过共享单车。下载哈啰 APP（苹果手机未越狱，ios 18 软件从苹果商店下载）后，使用本人手机号登录，发现确实有一个订单，并且发现之前有若干次骑行记录。从 APP 查询最早骑行记录是 8 月 25 日晚 9 点多。app 里所有骑行记录均非本人骑行。不能查询详细的路径，只能大约看出为上海。 11 月 5 日 在 APP 里咨询人工客服，客服拒绝提",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "03622e718cc8b894",
+      "title": "天问四号将尝试登陆木卫四",
+      "original_title": "天问四号将尝试登陆木卫四",
+      "url": "https://www.solidot.org/story?sid=85887",
+      "source": "Solidot",
+      "source_id": "solidot",
+      "source_url": "https://www.solidot.org/",
+      "category": "研究",
+      "tags": [
+        "天问四号",
+        "木卫四",
+        "地下海洋"
+      ],
+      "published": "Sat, 14 Nov 2026 22:12:32 +0800",
+      "published_at": "2026-11-14T22:12:32+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "探月与航天工程中心11月13日征集天问四号有效载荷研制方案；任务将环绕木星、环绕并着陆木卫四。木卫四直径约为水星的99%、质量约为其三分之一，表面下100公里处可能存在液态水海洋，或具孕育生命的基本条件。",
+      "original_summary": "11 月 13 日，探月与航天工程中心发布通知，天问四号有效载荷研制方案开展征集。天问四号任务将执行环绕木星、环绕木卫四、着陆木卫四三大任务。木卫四或 Callisto 是太阳系第三大卫星，也是木星第二大卫星，仅次于木卫三。木卫四的直径为水星直径的 99%，但是质量只有它的三分之一。木卫四由近乎等量的岩石和水所构成，其表面下 100 公里处可能有一个液态水构成的地下海洋，可能具有孕育生命的基本条件。",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "6841e619fcd7e8d9",
+      "title": "llama.cpp v1.0.0：为本地 AI 生态提供更坚实的基础",
+      "original_title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
+      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
+      "source": "Hugging Face Blog",
+      "source_id": "huggingface-blog",
+      "source_url": "https://huggingface.co/blog",
+      "category": "开源生态",
+      "tags": [
+        "llama.cpp",
+        "本地 AI",
+        "生态"
+      ],
+      "published": "Fri, 13 Nov 2026 14:05:22 GMT",
+      "published_at": "2026-11-13T22:05:22+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "llama.cpp v1.0.0 以“为本地 AI 生态提供更坚实的基础”为主题。",
+      "original_summary": "",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "67672a694e389b29",
+      "title": "Amplitude 如何借助 OpenAI 在 1–2 天内交付产品改进",
+      "original_title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+      "url": "https://openai.com/business/customer-stories/amplitude",
+      "source": "OpenAI News",
+      "source_id": "openai-news",
+      "source_url": "https://openai.com/news/",
+      "category": "AI 模型",
+      "tags": [
+        "OpenAI",
+        "AI Agent",
+        "编码代理"
+      ],
+      "published": "Thu, 12 Nov 2026 20:00:00 GMT",
+      "published_at": "2026-11-13T04:00:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "Amplitude 的主动式产品代理 Wave 主要基于 OpenAI 模型构建，可识别应构建的功能、借助编码代理帮助团队交付变更，并衡量其影响。",
+      "original_summary": "Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measures the impact.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "238432e278b3a037",
+      "title": "AI 项目清单：关停或未达预期的初创公司持续更新",
+      "original_title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+      "url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it",
+      "source": "TechCrunch AI",
+      "source_id": "techcrunch-ai",
+      "source_url": "https://techcrunch.com/category/artificial-intelligence/",
+      "category": "AI 模型",
+      "tags": [
+        "AI 项目",
+        "关停",
+        "未达预期"
+      ],
+      "published": "Sat, 14 Nov 2026 17:30:00 +0000",
+      "published_at": "2026-11-15T01:30:00+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "盘点已关停或低于预期的 AI 项目与初创公司，案例包括多次延期的苹果 Siri AI，以及发布混乱的 OpenAI“超级应用”。",
+      "original_summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "4888df4a109a32c8",
+      "title": "Microsoft 365 在约 24 小时全球中断后恢复",
+      "original_title": "Microsoft 365 Crawls Back to Life After a 24-Hour Outage",
+      "url": "https://www.wired.com/story/microsoft-365-crawls-back-to-life-after-a-24-hour-outage",
+      "source": "Wired AI",
+      "source_id": "wired-ai",
+      "source_url": "https://www.wired.com/tag/artificial-intelligence/",
+      "category": "云原生",
+      "tags": [
+        "Microsoft 365",
+        "服务中断",
+        "故障更新"
+      ],
+      "published": "Fri, 13 Nov 2026 19:08:57 +0000",
+      "published_at": "2026-11-14T03:08:57+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "微软称事故由问题更新导致，并非网络攻击或 AI 引起。",
+      "original_summary": "The company says a bad update—not a cyberattack or AI—caused its servers around the world to crash.",
+      "localized": true,
+      "stale": false
+    },
+    {
+      "id": "808b4a1d23d0d5e6",
+      "title": "酿酒师逐渐认识到，保护环境也可能有利于经营",
+      "original_title": "Winemakers are learning that conservation can be good for business",
+      "url": "https://arstechnica.com/science/2026/11/winemakers-are-learning-that-conservation-can-be-good-for-business",
+      "source": "Ars Technica",
+      "source_id": "arstechnica",
+      "source_url": "https://arstechnica.com/",
+      "category": "无（原文非科技新闻，不属于给定的六个分类）",
+      "tags": [
+        "土壤健康",
+        "本土植物",
+        "减少化学品"
+      ],
+      "published": "Sat, 14 Nov 2026 12:05:51 +0000",
+      "published_at": "2026-11-14T20:05:51+08:00",
+      "fetched_at": "2026-11-15T16:38:47.953437+08:00",
+      "summary": "健康的土壤、本土植物和更少的化学品正在帮助葡萄园适应。",
+      "original_summary": "Healthy soils, native plants, and fewer chemicals are helping vineyards adapt.",
+      "localized": true,
+      "stale": false
+    }
+  ],
+  "news_generated_at": "2026-11-15T16:38:47.953437+08:00",
+  "news_sources": [
+    {
+      "id": "github-blog",
+      "name": "GitHub Blog",
+      "url": "https://github.blog/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "techcrunch-ai",
+      "name": "TechCrunch AI",
+      "url": "https://techcrunch.com/category/artificial-intelligence/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "wired-ai",
+      "name": "Wired AI",
+      "url": "https://www.wired.com/tag/artificial-intelligence/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "arstechnica",
+      "name": "Ars Technica",
+      "url": "https://arstechnica.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "cncf-blog",
+      "name": "CNCF Blog",
+      "url": "https://www.cncf.io/blog/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "linux-foundation",
+      "name": "Linux Foundation",
+      "url": "https://www.linuxfoundation.org/blog/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "qbitai",
+      "name": "量子位",
+      "url": "https://www.qbitai.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "36kr",
+      "name": "36氪",
+      "url": "https://36kr.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "infoq-cn",
+      "name": "InfoQ 中文",
+      "url": "https://www.infoq.cn/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "tmtpost",
+      "name": "钛媒体",
+      "url": "https://www.tmtpost.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "ifanr",
+      "name": "爱范儿",
+      "url": "https://www.ifanr.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "leiphone",
+      "name": "雷锋网",
+      "url": "https://www.leiphone.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "arxiv-ai",
+      "name": "arXiv AI / ML / NLP",
+      "url": "https://arxiv.org/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "geekpark",
+      "name": "极客公园",
+      "url": "https://www.geekpark.net/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "oschina",
+      "name": "开源中国",
+      "url": "https://www.oschina.net/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "aiera",
+      "name": "新智元",
+      "url": "https://www.aiera.com.cn/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "csdn",
+      "name": "CSDN",
+      "url": "https://www.csdn.net/",
+      "status": "error",
+      "last_success_at": null
+    },
+    {
+      "id": "sspai",
+      "name": "少数派",
+      "url": "https://sspai.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "the-verge",
+      "name": "The Verge",
+      "url": "https://www.theverge.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "venturebeat-ai",
+      "name": "VentureBeat AI",
+      "url": "https://venturebeat.com/category/ai/",
+      "status": "error",
+      "last_success_at": null
+    },
+    {
+      "id": "mit-tech-review",
+      "name": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "google-ai-blog",
+      "name": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "deepmind-blog",
+      "name": "DeepMind Blog",
+      "url": "https://deepmind.google/blog/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "ithome",
+      "name": "IT之家",
+      "url": "https://www.ithome.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "cnblogs",
+      "name": "博客园",
+      "url": "https://www.cnblogs.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "landiannews",
+      "name": "蓝点网",
+      "url": "https://www.landiannews.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "segmentfault",
+      "name": "SegmentFault",
+      "url": "https://segmentfault.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "v2ex",
+      "name": "V2EX",
+      "url": "https://www.v2ex.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "solidot",
+      "name": "Solidot",
+      "url": "https://www.solidot.org/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "freebuf",
+      "name": "FreeBuf",
+      "url": "https://www.freebuf.com/",
+      "status": "error",
+      "last_success_at": null
+    },
+    {
+      "id": "apple-ml",
+      "name": "Apple Machine Learning",
+      "url": "https://machinelearning.apple.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "openai-blog",
+      "name": "OpenAI Blog",
+      "url": "https://openai.com/blog/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "36kr-article",
+      "name": "36氪 文章",
+      "url": "https://36kr.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    },
+    {
+      "id": "36kr-newsflash",
+      "name": "36氪 快讯",
+      "url": "https://36kr.com/",
+      "status": "ok",
+      "last_success_at": "2026-11-15T16:38:47.953437+08:00"
+    }
+  ]
+}
